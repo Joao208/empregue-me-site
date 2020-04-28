@@ -36,7 +36,7 @@ const PrivateRoute = ({component:Component, ...rest}) => (
             />
         ) : (
             <Redirect to={{
-                pathname: '/' , 
+                pathname: '/sign-in' , 
                 state: {from: props.location}}} 
                 />
         )
@@ -59,7 +59,7 @@ export default function Routes() {
 <PrivateRoute path='/edit-profile' component={edit_profile}/>
 <PrivateRoute path='/faq' component={faq}/>
 <Route path='/forgot-password' component={forgot_password}/>
-<Route path='/reset-password' compponent={reset_password}/>
+<Route path='/reset-password' component={reset_password}/>
 <PrivateRoute path='/jobs' component={jobs}/>
 <PrivateRoute path='/job-profile' component={job_profile}/>
 <PrivateRoute path='/maintence' component={maintence}/>
