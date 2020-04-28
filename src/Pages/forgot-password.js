@@ -1,14 +1,30 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
-
+import React,{useState} from 'react'
+import api from '../services/api'
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
-import img_logo_svg from '../img/logo.png'
 
-function Feed() {
+
+import img_logo_svg from '../img/logologin.png'
+
+function Feed({history}) {
+
+  const [email, setEmail] = useState('')
+
+  async function ForgotPass(event) {
+    event.preventDefault();
+      const response = await api.post('/auth/fogot_password', {
+        email,
+      });
+
+      console.log(response)
+
+      history.push('/')
+  }
+
 
   return (
 <>
@@ -35,21 +51,26 @@ function Feed() {
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
               <a href="index"><img src={img_logo_svg} /></a>
-              <h5 className="font-weight-bold mt-3">First, let's find your account</h5>
-              <p className="text-muted">Please enter your email or phone</p>
+              <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
+              <p className="text-muted">Por favor insira seu email</p>
             </div>
-            <form action="index">
+            <form onSubmit={ForgotPass}>
               <div className="form-group">
-                <label className="mb-1">Email or Phone</label>
+                <label className="mb-1">Email</label>
                 <div className="position-relative icon-form-control">
                   <i className="feather-user position-absolute" />
-                  <input type="email" className="form-control" />
+                  <input 
+                  type="email" 
+                  className="form-control"
+                  value={email}
+                  onChange={event => setEmail(event.target.value)}
+                  />
                 </div>
               </div>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit"> Find account </button>
+              <button className="btn btn-primary btn-block text-uppercase" type="submit">Achar conta</button>
               <div className="py-3 d-flex align-item-center">
-                <a href="sign-in">Sign In</a>
-                <span className="ml-auto"> New to Osahanin? <a className="font-weight-bold" href="sign-up">Join now</a></span>
+                <a href="sign-in">Logar</a>
+                <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Cadastrar</a></span>
               </div>
             </form>
           </div>
