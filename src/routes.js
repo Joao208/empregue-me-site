@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import reset_password from './Pages/reset-password'
 import Feed from './Pages/index';
 import Cooming_soon from './Pages/coming-soon'
 import company_profile from './Pages/company-profile'
@@ -57,7 +58,8 @@ export default function Routes() {
 <PrivateRoute path='/contact' component={contact}/>
 <PrivateRoute path='/edit-profile' component={edit_profile}/>
 <PrivateRoute path='/faq' component={faq}/>
-<PrivateRoute path='/forgot-password' component={forgot_password}/>
+<Route path='/forgot-password' component={forgot_password}/>
+<Route path='/reset-password' compponent={reset_password}/>
 <PrivateRoute path='/jobs' component={jobs}/>
 <PrivateRoute path='/job-profile' component={job_profile}/>
 <PrivateRoute path='/maintence' component={maintence}/>
