@@ -53,7 +53,7 @@ function Feed() {
                 <span className="feather-search" />
               </span>
             </div>
-            <input type="search" className="form-control border-0 shadow-none" placeholder="Ask a question" aria-label="Ask a question" aria-describedby="askQuestions" />
+            <input type="search" className="form-control border-0 shadow-none" placeholder="Faça uma pergunta" aria-label="Ask a question" aria-describedby="askQuestions" />
           </form>
           {/* End Input */}
           {/* Text/Links */}

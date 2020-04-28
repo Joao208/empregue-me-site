@@ -8,12 +8,6 @@ import '../Sidebar.css';
 import '../Main.css';
 
 import img_logo_svg from '../img/logo.png'
-import img_p13 from '../img/p13.png'
-import img_p1 from '../img/p1.png'
-import img_p2 from '../img/p2.png'
-import img_p3 from '../img/p3.png'
-import img_p4 from '../img/p4.png'
-import img_user from '../img/user.png'
 
 
 function Feed() {
@@ -26,7 +20,7 @@ function Feed() {
   <meta name="description" content />
   <meta name="author" content />
   <link rel="icon" type="image/png" href="img/fav.png" />
-  <title>Osahanin - Job Portal &amp; Social Network HTML Template</title>
+  <title>Empregue.me | Not found</title>
   {/* Slick Slider */}
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -41,179 +35,20 @@ function Feed() {
     <div className="container">
       <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
-      <ul className="navbar-nav ml-auto d-flex align-items-center">
-        {/* Nav Item - Search Dropdown (Visible Only XS) */}
-        <li className="nav-item dropdown no-arrow d-sm-none">
-          <a className="nav-link dropdown-toggle"  href="" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-search mr-2" />
-          </a>
-          {/* Dropdown - Messages */}
-          <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-            <form className="form-inline mr-auto w-100 navbar-search">
-              <div className="input-group">
-                <input type="text" className="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div className="input-group-append">
-                  <button className="btn" type="button">
-                    <i className="feather-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Jobs</span></a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="connection"><i className="feather-users mr-2" /><span className="d-none d-lg-inline">Connection</span></a>
-        </li>
-        <li className="nav-item dropdown mr-2">
-          <a className="nav-link dropdown-toggle pr-0"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-file-text mr-2" /><span className="d-none d-lg-inline">Pages</span>
-          </a>
-          {/* Dropdown - User Information */}
-         </li>
-        <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
-          <a className="nav-link dropdown-toggle"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-message-square" />
-            {/* Counter - Alerts */}
-            <span className="badge badge-danger badge-counter">8</span>
-          </a>
-          {/* Dropdown - Alerts */}
-          <div className="dropdown-list dropdown-menu dropdown-menu-right shadow-sm">
-            <h6 className="dropdown-header">
-              Message Center
-            </h6>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p1} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="font-weight-bold overflow-hidden">
-                <div className="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                <div className="small text-gray-500">Emily Fowler · 58m</div>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p2} />
-                <div className="status-indicator" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                <div className="small text-gray-500">Jae Chun · 1d</div>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p3} />
-                <div className="status-indicator bg-warning" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                <div className="small text-gray-500">Morgan Alvarez · 2d</div>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p4} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                <div className="small text-gray-500">Chicken the Dog · 2w</div>
-              </div>
-            </a>
-            <a className="dropdown-item text-center small text-gray-500" href="messages">Read More Messages</a>
-          </div>
-        </li>
-        <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
-          <a className="nav-link dropdown-toggle"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-bell" />
-            {/* Counter - Alerts */}
-            <span className="badge badge-info badge-counter">6</span>
-          </a>
-          {/* Dropdown - Alerts */}
-          <div className="dropdown-list dropdown-menu dropdown-menu-right shadow-sm">
-            <h6 className="dropdown-header">
-              Alerts Center
-            </h6>
-            <a className="dropdown-item d-flex align-items-center" href="notifications">
-              <div className="mr-3">
-                <div className="icon-circle bg-primary">
-                  <i className="feather-download-cloud text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 12, 2019</div>
-                <span className="font-weight-bold">A new monthly report is ready to download!</span>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="notifications">
-              <div className="mr-3">
-                <div className="icon-circle bg-success">
-                  <i className="feather-edit text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 7, 2019</div>
-                $290.29 has been deposited into your account!
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="notifications">
-              <div className="mr-3">
-                <div className="icon-circle bg-warning">
-                  <i className="feather-folder text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 2, 2019</div>
-                Spending Alert: We've noticed unusually high spending for your account.
-              </div>
-            </a>
-            <a className="dropdown-item text-center small text-gray-500" href="notifications">Show All Alerts</a>
-          </div>
-        </li>
-        {/* Nav Item - User Information */}
-        <li className="nav-item dropdown no-arrow ml-1 osahan-profile-dropdown">
-          <a className="nav-link dropdown-toggle pr-0"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img className="img-profile rounded-circle" src={img_p13} />
-          </a>
-          {/* Dropdown - User Information */}
-          <div className="dropdown-menu dropdown-menu-right shadow-sm">
-            <div className="p-3 d-flex align-items-center">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_user} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="font-weight-bold">
-                <div className="text-truncate">Gurdeep Osahan</div>
-                <div className="small text-gray-500">UI/UX Designer</div>
-              </div>
-            </div>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="profile"><i className="feather-edit mr-1" /> My Account</a>
-            <a className="dropdown-item" href="edit-profile"><i className="feather-user mr-1" /> Edit Profile</a>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="sign-in"><i className="feather-log-out mr-1" /> Logout</a>
-          </div>
-        </li>
-      </ul>
     </div>
   </nav>
   <div className="vh-100">
     <div className="container">
       <div className="row align-items-center vh-100">
         <div className="col-md-6">
-          <h1 className="text-primary display-3 font-weight-light">Page not <span className="font-weight-bold">found</span></h1>
-          <p className="mb-0 lead">Oops! Looks like you followed a bad link.</p>
-          <p className="lead mb-5">If you think this is a problem with us, please <a  href="">tell us</a>.</p>
-          <a href="index" className="btn btn-primary btn-lg">Go Back</a>
-          <a href="button" className="btn btn-light btn-lg">Help</a>
+          <h1 className="text-primary display-3 font-weight-light">Pagina não <span className="font-weight-bold">econtrada</span></h1>
+          <p className="mb-0 lead">Oops! surgiu um link incorreto.</p>
+          <p className="lead mb-5">Se acha que é um problema conosco <a  href="/contact">informe-nos</a>.</p>
+          <a href="index" className="btn btn-primary btn-lg">Início</a>
         </div>
         <div className="col-md-6">
           <svg className="w-100" id="fd59ce54-f850-4dfc-bc34-dd7d379d600e" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1074.392 584.231">
-            <title>page not found</title>
+            <title>Pagina não encontrada</title>
             <ellipse cx="540.64346" cy="549.3094" rx="527.5" ry="34.9216" fill="#f2f2f2" />
             <path d="M583.47969,324.89424c-85.94407,0-147.651,55.13938-147.651,183.79791,0,145.813,61.70691,184.41057,147.651,184.41057s151.327-42.27352,151.327-184.41057C734.80664,356.75255,669.42376,324.89424,583.47969,324.89424Zm.56495,319.80837c-59.52686,0-90.62592-34.92288-90.62592-135.9163,0-89.11185,32.37209-136.10461,91.899-136.10461s91.899,30.86774,91.899,136.10461C677.21663,607.23367,643.5715,644.70261,584.04464,644.70261Z" transform="translate(-63.054 -157.8845)" fill="#2f2e41" />
             <path d="M384.36531,591.40121H348.831V486.76183A20.95585,20.95585,0,0,0,327.87517,465.806h-8.32638a20.95585,20.95585,0,0,0-20.95586,20.95585V591.40121H198.36285a11.96327,11.96327,0,0,1-10.57763-17.552l106.0824-200.78034A20.95585,20.95585,0,0,0,284.28724,344.33l-6.26231-2.9572a20.95585,20.95585,0,0,0-27.4293,9.07005L121.21416,592.4754a28.41578,28.41578,0,0,0-3.35584,13.39612v0a28.41583,28.41583,0,0,0,28.41584,28.41583H298.59293v66.16727a25.119,25.119,0,0,0,25.119,25.119h.00005a25.119,25.119,0,0,0,25.119-25.119V634.28739h35.53428a21.44307,21.44307,0,0,0,21.44307-21.44307v0A21.44307,21.44307,0,0,0,384.36531,591.40121Z" transform="translate(-63.054 -157.8845)" fill="#007bff" />
@@ -274,39 +109,6 @@ function Feed() {
       </div>
     </div>
   </div>
-  <footer className="bg-light py-4 fixed-bottom">
-    <div className="container">
-      <div className="d-flex justify-content-between align-items-center">
-        {/* Copyright */}
-        <p className="small text-muted mb-0">© Osahanin. 2020 Askbootstrap.</p>
-        {/* End Copyright */}
-        {/* Social Networks */}
-        <ul className="list-inline mb-0">
-          <li className="list-inline-item">
-            <a className="btn btn-sm btn-light"  href="">
-              <span className="feather-facebook" />
-            </a>
-          </li>
-          <li className="list-inline-item">
-            <a className="btn btn-sm btn-light"  href="">
-              <span className="feather-youtube" />
-            </a>
-          </li>
-          <li className="list-inline-item">
-            <a className="btn btn-sm btn-light"  href="">
-              <span className="feather-twitter" />
-            </a>
-          </li>
-          <li className="list-inline-item">
-            <a className="btn btn-sm btn-light"  href="">
-              <span className="feather-github" />
-            </a>
-          </li>
-        </ul>
-        {/* End Social Networks */}
-      </div>
-    </div>
-  </footer>
   {/* Bootstrap core JavaScript */}
   {/* slick Slider JS*/}
   {/* Custom scripts for all pages*/}

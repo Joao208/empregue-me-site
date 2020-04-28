@@ -11,11 +11,8 @@ import faq from './Pages/faq'
 import forgot_password from './Pages/forgot-password'
 import job_profile from './Pages/job-profile'
 import jobs from './Pages/jobs'
-import maintence from './Pages/maintence'
-import messages from './Pages/messages'
 import not_found from './Pages/not-found'
 import notification from './Pages/notifications'
-import pricing from './Pages/pricing'
 import privacy from './Pages/privacy'
 import profile from './Pages/profile'
 import sign_int from './Pages/sign-in'
@@ -58,11 +55,8 @@ export default function Routes() {
 <Route path='/reset-password' component={reset_password}/>
 <PrivateRoute path='/jobs' component={jobs}/>
 <PrivateRoute path='/job-profile' component={job_profile}/>
-<PrivateRoute path='/maintence' component={maintence}/>
-<PrivateRoute path='/messages' component={messages}/>
 <PrivateRoute path='/not-found' component={not_found}/>
 <PrivateRoute path='/notification' component={notification}/>
-<PrivateRoute path='/pricing' component={pricing}/>
 <PrivateRoute path='/privacy' component={privacy}/>
 <PrivateRoute path='/profile' component={profile}/>
 <Route path='/sign-in' component={sign_int}/>
