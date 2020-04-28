@@ -49,7 +49,7 @@ export default function Routes() {
     return(
 <BrowserRouter>
 <Switch>
-<Route path='/' exact component={Feed}   />
+<PrivateRoute path='/' exact component={Feed}   />
 <PrivateRoute path='/cooming_soon' component={Cooming_soon}/>
 <PrivateRoute path='/company-profile' component={company_profile}/>
 <PrivateRoute path='/components' component={components}/>
@@ -67,8 +67,8 @@ export default function Routes() {
 <PrivateRoute path='/pricing' component={pricing}/>
 <PrivateRoute path='/privacy' component={privacy}/>
 <PrivateRoute path='/profile' component={profile}/>
-<PrivateRoute path='/sign-in' component={sign_int}/>
-<PrivateRoute path='/sign-up' component={sign_up}/>
+<Route path='/sign-in' component={sign_int}/>
+<Route path='/sign-up' component={sign_up}/>
 <PrivateRoute path='/terms' component={terms}/>
 </Switch>
 

@@ -2,14 +2,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect,useMemo} from 'react';
 
-import '../global2.css';
+import '../inputcamera.css';
 import api from '../services/api'
 
 import img_logo_svg from '../img/logologin.png'
 import camera from '../img/camera.svg'
 
 function Feed({history}) {
-
   
   const preview = useMemo(() => {
     return avatarUrl ? URL.createObjectURL(avatarUrl) : null
@@ -106,7 +105,7 @@ function Feed({history}) {
                  }/>
                 <img src={camera} alt="Enviar imagem" />
                   </label>
-                    <label className="mb-1">Primeiro Nome</label>
+                    <label className="mb-1">Nome</label>
                     <div className="position-relative icon-form-control">
                       <i className="feather-user position-absolute" />
                       <input 
@@ -116,15 +115,6 @@ function Feed({history}) {
                       value={name}
                       onChange={event => setName(event.target.value)}
                       />
-                    </div>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="form-group">
-                    <label className="mb-1">Segundo nome</label>
-                    <div className="position-relative icon-form-control">
-                      <i className="feather-user position-absolute" />
-                      <input type="text" className="form-control" />
                     </div>
                   </div>
                 </div>

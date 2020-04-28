@@ -1,0 +1,22 @@
+label#avatarUrl {
+    margin-bottom: 20px;
+    border: 1px dashed #DDD;
+    background-size: cover;
+    cursor: pointer;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label#avatarUrl input {
+    display: none;
+}
+
+label#avatarUrl.has-avatarUrl {
+    border: 0;
+}
+
+label#avatarUrl.has-avatarUrl img {
+    display: none;
+ }
