@@ -5,7 +5,10 @@ import React from 'react';
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
-import '../Main.css';
+import '../Main.css'
+import '../vendor/bootstrap/js/bootstrap.bundle.min'
+import '../vendor/jquery/jquery.min'
+import '../vendor/slick/slick.min'
 
 import img_logo_svg from '../img/logo.png'
 import img_p13 from '../img/p13.png'

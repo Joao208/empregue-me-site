@@ -85,7 +85,7 @@ function Feed({history}) {
                 <div className="position-relative icon-form-control">
                   <i className="feather-user position-absolute" />
                   <input 
-                  type="text" 
+                  type="password" 
                   className="form-control"
                   value={password}
                   onChange={event => setPassword(event.target.value)}
@@ -93,7 +93,7 @@ function Feed({history}) {
                 </div>
 
               </div>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit">Achar conta</button>
+              <button className="btn btn-primary btn-block text-uppercase" type="submit">Resetar senha</button>
               <div className="py-3 d-flex align-item-center">
                 <a href="sign-in">Logar</a>
                 <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Cadastrar</a></span>

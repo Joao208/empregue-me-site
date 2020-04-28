@@ -5,8 +5,6 @@ import reset_password from './Pages/reset-password'
 import Feed from './Pages/index';
 import Cooming_soon from './Pages/coming-soon'
 import company_profile from './Pages/company-profile'
-import components from './Pages/components'
-import connection from './Pages/connection'
 import contact from './Pages/contact'
 import edit_profile from './Pages/edit-profile'
 import faq from './Pages/faq'
@@ -53,8 +51,6 @@ export default function Routes() {
 <PrivateRoute path='/' exact component={Feed}   />
 <PrivateRoute path='/cooming_soon' component={Cooming_soon}/>
 <PrivateRoute path='/company-profile' component={company_profile}/>
-<PrivateRoute path='/components' component={components}/>
-<PrivateRoute path='/connection' component={connection}/>
 <PrivateRoute path='/contact' component={contact}/>
 <PrivateRoute path='/edit-profile' component={edit_profile}/>
 <PrivateRoute path='/faq' component={faq}/>
