@@ -16,7 +16,7 @@ function Feed({history}) {
 
   async function ForgotPass(event) {
     event.preventDefault();
-      const response = await api.post('/auth/fogot_password', {
+      const response = await api.post('/auth/forgot_password', {
         email,
       });
 
@@ -34,8 +34,8 @@ function Feed({history}) {
   <meta name="description" content />
   <meta name="author" content />
   <link rel="icon" type="image/png" href="img/fav.png" />
-  <title>Osahanin - Job Portal &amp; Social Network HTML Template</title>
-  {/* Slick Slider */}
+  <title>Empregue.me | Forgot Password</title>
+  {/* Slick Slider */} 
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
   {/* Feather Icon*/}
@@ -50,7 +50,7 @@ function Feed({history}) {
         <div className="col-md-4 mx-auto">
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
-              <a href="index"><img src={img_logo_svg} /></a>
+            <img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}}/>
               <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
               <p className="text-muted">Por favor insira seu email</p>
             </div>
