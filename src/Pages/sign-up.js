@@ -41,7 +41,7 @@ function Feed({history}) {
 
   async function SignUp(event) {
     event.preventDefault();
-    try{
+
       const response = await api.post('/auth/userregister', {
         avatarUrl,
         name,
@@ -59,10 +59,7 @@ function Feed({history}) {
 
       localStorage.setItem('token', token);
       history.push('./index')
-      
-    } catch(e) {
-      console.log(e)
-    }
+
   }
 
 
