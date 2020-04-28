@@ -27,7 +27,7 @@ function Feed({history}) {
 
       console.log(response)
 
-      history.push('/reset-password')
+      history.push('/')
   }
 
 
