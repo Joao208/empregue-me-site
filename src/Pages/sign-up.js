@@ -58,7 +58,7 @@ function Feed({history}) {
       } = response.data;
 
       localStorage.setItem('token', token);
-      history.push('./index')
+      history.push('/')
 
   }
 
@@ -101,9 +101,13 @@ function Feed({history}) {
                    style={{ backgroundImage: `url(${preview})`}}
                    className={avatarUrl ? 'has-avatarUrl' : ''}
                   >
-                <input type="file" onChange={event => {
+                <input
+                 type="file" 
+                 onChange={event => {
                     setAvatarUrl(event.target.files[0])}
-                 }/>
+                 }
+                 value={avatarUrl}
+                 />
                 <img src={camera} alt="Enviar imagem" />
                   </label>
                     <label className="mb-1">Nome</label>

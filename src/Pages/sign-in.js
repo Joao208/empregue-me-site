@@ -30,7 +30,7 @@ function Feed({
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', user);
-      history.push('./index')
+      history.push('/')
   }
 
   return (
