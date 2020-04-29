@@ -12,6 +12,8 @@ import api from '../services/api'
 
 function Feed({history}) {
 
+  const user = localStorage.user
+
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
 
@@ -68,7 +70,7 @@ const onSelectFile = e => {
 
        const profile_id = response.data
 
-       localStorage.setItem('profile_id', profile_id)
+       localStorage.getItem('profile_id', profile_id)
 
         history.push('/profile')
   }
@@ -278,6 +280,15 @@ const onSelectFile = e => {
       </div>
     </div>
   </form>
+  <ul>
+                { user.map(user => (
+                    <li key={user._id}>
+                        <strong>{user.name}</strong>
+                    </li>
+                ))
+                }
+            </ul>
+
 </div>
 {/* Bootstrap core JavaScript */}
 </>
