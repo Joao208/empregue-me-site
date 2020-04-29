@@ -9,7 +9,7 @@ import img_logo_svg from '../img/logo.png'
 import img_p13 from '../img/p13.png'
 
 
-function Feed() {
+function Feed({history}) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
