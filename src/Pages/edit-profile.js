@@ -113,7 +113,6 @@ const onSelectFile = e => {
                   type="file" 
                   value={avatar}
                   className="d-none"
-                  onSubmit={onSelectFile} 
                   onChange={onSelectFile,event => {
                   setAvatar(event.target.files[0])}} />
                 </label>
