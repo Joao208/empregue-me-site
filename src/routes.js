@@ -29,7 +29,9 @@ const PrivateRoute = props => {
 
         return isAuthenticated ? <Route {...props} />
         : <Redirect to="/sign-in"/>
+        
     
+
 }
 
 
