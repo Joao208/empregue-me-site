@@ -12,7 +12,7 @@ import { uniqueId } from "lodash";
 import filesize from "filesize";
 
 import api from '../services/api'
-import FileList from "../components/FileList";
+import FileList from "../components/Filelist";
 import Upload from "../components/Upload";
 
 class App extends Component {
