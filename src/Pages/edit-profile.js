@@ -105,7 +105,7 @@ const onSelectFile = e => {
         <aside className="col-md-4">
           <div className="mb-3 border rounded bg-white profile-box text-center w-10">
             <div className="p-4 d-flex align-items-center">
-  { selectedFile ? <img src={preview} className="img-fluid rounded-circle"  style={{height:'130px', width:'130px'}} alt="Responsive image" /> : <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />  }
+   { selectedFile ? <img src={preview} className="img-fluid rounded-circle"  style={{height:'130px', width:'130px'}} alt="Responsive image" /> : <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />  }
               <div className="p-4">
                 <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
                   <i className="feather-image" />
@@ -222,7 +222,7 @@ const onSelectFile = e => {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="text" className="form-control" name="name" placeholder="No precisa preencher" aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="text" className="form-control" name="name" placeholder="Nao precisa preencher" aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Exibido aos outros usúarios.</small>
                       </div>
                     </div>
@@ -238,7 +238,7 @@ const onSelectFile = e => {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="email" className="form-control" name="email" placeholder="No precisar preencher" aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="email" className="form-control" name="email" placeholder="Nao precisar preencher" aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Nunca compartilhe seu email com ninguém.</small>
                       </div>
                     </div>
@@ -271,7 +271,7 @@ const onSelectFile = e => {
 
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}} onSubmit={CreateProfile}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}} onClick={this.CreateProfile}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
           </div>
         </main>
       </div>
