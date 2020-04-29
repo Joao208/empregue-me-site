@@ -38,8 +38,8 @@ const onSelectFile = e => {
     setSelectedFile(e.target.files[0])
 }
   
+  const [avatar, setAvatar] = useState(null)
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [FacebookUrl, setFacebookUrl] = useState('')
   const [InstagramUrl, setInstagramUrl] = useState('')
   const [TwitterUrl, setTwitterUrl] = useState('')
@@ -48,20 +48,28 @@ const onSelectFile = e => {
   const [about, setAbout] = useState('')
 
 
-  async function SignIn(event) {
+  async function CreateProfile(event) {
     event.preventDefault();
-      const response = await api.post('/auth/authenticate', {
-        email,
-        password
-      });
-      console.log(response)
-      const {
-        user,
-        token
-      } = response.data;
 
-      localStorage.setItem('token', token);
-      history.push('/')
+    const data = new FormData()
+
+        data.append('avatar', avatar)
+        data.append('FacebookUrl', FacebookUrl)
+        data.append('InstagramUrl', InstagramUrl)
+        data.append('TwitterUrl', TwitterUrl)
+        data.append('YouTubeUrl', YouTubeUrl)
+        data.append('GithubUrl', GithubUrl)
+        data.append('about', about)
+
+       const response = await api.post('/profile', data)
+
+       console.log(response)
+
+       const profile_id = response.data
+
+       localStorage.setItem('profile_id', profile_id)
+
+        history.push('/profile')
   }
 
   return (
@@ -96,13 +104,21 @@ const onSelectFile = e => {
         <aside className="col-md-4">
           <div className="mb-3 border rounded bg-white profile-box text-center w-10">
             <div className="p-4 d-flex align-items-center">
-  { selectedFile ? <img src={preview} className="img-fluid rounded-circle"  alt="Responsive image" /> : <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />  }
+  { selectedFile ? <img src={preview} className="img-fluid rounded-circle"  style={{height:'130px', width:'130px'}} alt="Responsive image" /> : <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />  }
               <div className="p-4">
                 <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
                   <i className="feather-image" />
-                  <input id="fileAttachmentBtn" name="file-attachment" type="file" className="d-none" onChange={onSelectFile}/>
+                  <input 
+                  id="fileAttachmentBtn" 
+                  name="file-attachment" 
+                  type="file" 
+                  value={avatar}
+                  className="d-none"
+                  onSubmit={onSelectFile} 
+                  onChange={event => {
+                    setAvatar(event.target.files[0])}} />
                 </label>
-                <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button>
+             {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
             </div>
           </div>
@@ -117,23 +133,15 @@ const onSelectFile = e => {
                 <div className="form-group mb-4">
                   <label className="mb-1">BIO</label>
                   <div className="position-relative">
-                    <textarea className="form-control" rows={4} name="text" placeholder="Começar Biografia" defaultValue={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor :)"} />
+                    <textarea 
+                    className="form-control" 
+                    rows={4} name="text" 
+                    placeholder="Começar Biografia" 
+                    value={about}
+                    onChange={event => setAbout(event.target.value)}
+                    />
                   </div>
                 </div>
-                <div className="form-group mb-0">
-                  <label className="mb-1 w-100">Habilidades</label>
-                  <div className="custom-control custom-checkbox d-inline mr-3">
-                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                    <label className="custom-control-label" htmlFor="customCheck1">JavaScript, jQuery</label>
-                  </div>
-                  <div className="custom-control custom-checkbox d-inline">
-                    <input type="checkbox" className="custom-control-input" id="customCheck2" />
-                    <label className="custom-control-label" htmlFor="customCheck2">HTML5, CSS3</label>
-                  </div>
-                </div>
-              </div>
-              <div className="overflow-hidden text-center p-3">
-                <a className="font-weight-bold btn btn-light rounded p-3 d-block" href="#"> Salvar </a>
               </div>
             </div>
           </div>
@@ -147,27 +155,54 @@ const onSelectFile = e => {
               <div className="p-3 border-bottom">
                 <div className="position-relative icon-form-control mb-2">
                   <i className="feather-instagram position-absolute text-warning" />
-                  <input placeholder="Add Instagram link" type="text" className="form-control" />
+                  <input 
+                  placeholder="Add Instagram link" 
+                  type="text" 
+                  className="form-control" 
+                  value={InstagramUrl}
+                  onChange={event => setInstagramUrl(event.target.value)}
+                  />
                 </div>
                 <div className="position-relative icon-form-control mb-2">
                   <i className="feather-facebook position-absolute text-primary" />
-                  <input placeholder="Add Facebook link" type="text" className="form-control" />
+                  <input 
+                  placeholder="Add Facebook link" 
+                  type="text" 
+                  className="form-control" 
+                  value={FacebookUrl}
+                  onChange={event => setFacebookUrl(event.target.value)}
+                  />
                 </div>
                 <div className="position-relative icon-form-control mb-2">
                   <i className="feather-twitter position-absolute text-info" />
-                  <input placeholder="Add Twitter link" type="text" className="form-control" />
+                  <input 
+                  placeholder="Add Twitter link" 
+                  type="text" 
+                  className="form-control" 
+                  value={TwitterUrl}
+                  onChange={event => setTwitterUrl(event.target.value)}
+                  />
                 </div>
                 <div className="position-relative icon-form-control mb-2">
                   <i className="feather-youtube position-absolute text-danger" />
-                  <input placeholder="Add Youtube link" type="text" className="form-control" />
+                  <input 
+                  placeholder="Add Youtube link" 
+                  type="text" 
+                  className="form-control" 
+                  value={YouTubeUrl}
+                  onChange={event => setYouTubeUrl(event.target.value)}
+                  />
                 </div>
                 <div className="position-relative icon-form-control mb-0">
                   <i className="feather-github position-absolute text-dark" />
-                  <input placeholder="Add Github link" type="text" className="form-control" />
+                  <input
+                  placeholder="Add Github link" 
+                  type="text" 
+                  className="form-control"
+                  value={GithubUrl}
+                  onChange={event => setGithubUrl(event.target.value)}
+                  />
                 </div>
-              </div>
-              <div className="overflow-hidden text-center p-3">
-                <a className="font-weight-bold btn btn-light rounded p-3 d-block" href="#"> Atualizar perfis sociais </a>
               </div>
             </div>
           </div>
@@ -176,8 +211,6 @@ const onSelectFile = e => {
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Informações Basicas</h6>
-              <p className="mb-0 mt-0 small">Lorem ipsum dolor sit amet, consecteturs.
-              </p>
             </div>
             <div className="box-body p-3">
               <form className="js-validate" noValidate="novalidate">
@@ -190,7 +223,7 @@ const onSelectFile = e => {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="text" className="form-control" name="name" defaultValue="Gurdeep Osahan" placeholder="Enter your name" aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="text" className="form-control" name="name" placeholder="No precisa preencher" aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Exibido aos outros usúarios.</small>
                       </div>
                     </div>
@@ -206,7 +239,7 @@ const onSelectFile = e => {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="email" className="form-control" name="email" defaultValue="augustoj311@gmail.com" placeholder="Enter your email address" aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="email" className="form-control" name="email" placeholder="No precisar preencher" aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Nunca compartilhe seu email com ninguém.</small>
                       </div>
                     </div>
@@ -219,50 +252,13 @@ const onSelectFile = e => {
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Curriculums
-              </h6>             
-            </div>
-            <div className="box-body px-3 pt-3 pb-0">
-              <div className="row">
-                <div className="col-sm-6 mb-4">
-                  <label id="FROM" className="form-label">De</label>
-                  {/* Input */}
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="From" aria-label="FROM" aria-describedby="FROM" />
-                  </div>
-                  {/* End Input */}
-                </div>
-                <div className="col-sm-6 mb-4">
-                  <label id="TO" className="form-label">Até</label>
-                  {/* Input */}
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="TO" aria-label="TO" aria-describedby="TO" />
-                  </div>
-                  {/* End Input */}
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-sm-6 mb-4">
-                  <label id="companyLabel" className="form-label">Empresa</label>
-                  {/* Input */}
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Enter your company title" aria-label="Enter your company title" aria-describedby="companyLabel" />
-                  </div>
-                  {/* End Input */}
-                </div>
-                <div className="col-sm-6 mb-4">
-                  <label id="positionLabel" className="form-label">Cargo</label>
-                  {/* Input */}
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Enter your position" aria-label="Enter your position" aria-describedby="positionLabel" />
-                  </div>
-                  {/* End Input */}
-                </div>
-              </div>
-            </div>
+              </h6>          
+              <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp;  Criar curriculo &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            </div>           
           </div>
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a className="font-weight-bold btn btn-primary rounded p-3" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;  Salvar Mudanças &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            <a className="font-weight-bold btn btn-primary rounded p-3" onSubmit={CreateProfile}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
           </div>
         </main>
       </div>
