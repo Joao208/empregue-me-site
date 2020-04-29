@@ -133,8 +133,8 @@ function Feed({history}) {
                 <label className="mb-1">Você concorda com o Contrato de <a  href="">Usuario</a>, <a  href=""> Politica de Privacidade</a>, e <a  href="">Cookies</a>.</label>
               </div>
               <button className="btn btn-primary btn-block text-uppercase" type="submit"> Concordar e Participar </button>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit" href="/bussinessign-in"> Quero contratar </button>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit" href="#"> Quero ensinar </button>
+             <a className="btn btn-block text-uppercase" href="/bussinessign-in"> Quero contratar </a> 
+              <a className="btn btn-block text-uppercase" style={{background: linear-gradient("256deg", "#000" ,0, "#fff", "100%")}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
                 <a href="forgot-password">Esqueceu a senha?</a>
                 <span className="ml-auto"> Ja é usuario? <a className="font-weight-bold" href="sign-in">Logar</a></span>
