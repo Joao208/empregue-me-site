@@ -7,6 +7,7 @@ import '../Main.css';
 
 import img_logo_svg from '../img/logo.png'
 import img_p13 from '../img/p13.png'
+import api from '../services/api'
 
 
 function Feed({history}) {
