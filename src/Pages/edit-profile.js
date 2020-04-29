@@ -12,10 +12,6 @@ import api from '../services/api'
 
 function Feed({history}) {
 
-  const email = localStorage.setItem('user.email')
-
-  console.log(email)
-
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
 
