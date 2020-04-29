@@ -91,7 +91,7 @@ import React, {
                 <a className="btn btn-block text-uppercase" href="/sign-in"style={{backgroundColor:"#8838ca",color:"white"}} > Quero ser contratado </a> 
                 <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
                 <div className="py-3 d-flex align-item-center">
-                  <a href="forgot-password">Forgot password?</a>
+                  <a href="forgot-password">Esqueceu a senha?</a>
                   <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Crie agora</a></span>
                 </div>
               </form>

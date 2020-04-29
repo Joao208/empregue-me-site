@@ -1,36 +1,35 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, {
-  useState
-} from 'react';
+import React,{useState} from 'react'
+import api from '../services/api'
+import '../global.css';
+import '../App.css';
+import '../Sidebar.css';
+import '../Main.css';
 
-import '../global2.css';
+
 
 import img_logo_svg from '../img/logologin.png'
-import api from '../services/api'
 
-
-function Feed({
-  history
-}) {
+function Feed({history}) {
 
   const [email, setEmail] = useState('')
+  const [token, setToken] = useState('')
   const [password, setPassword] = useState('')
 
-  async function SignIn(event) {
+  async function ForgotPass(event) {
     event.preventDefault();
-      const response = await api.post('/auth/authenticate', {
+
+      const response = await api.post('/auth/reset_password_bussines', {
         email,
+        token,
         password
       });
-      console.log(response)
-      const {
-        user,
-        token
-      } = response.data;
 
-      localStorage.setItem('token', token);
+      console.log(response)
+
       history.push('/')
   }
+
 
   return (
 <>
@@ -40,8 +39,8 @@ function Feed({
   <meta name="description" content />
   <meta name="author" content />
   <link rel="icon" type="image/png" href="img/fav.png" />
-  <title>Empregue.me | Login</title>
-  {/* Slick Slider */}
+  <title>Empregue.me | Forgot Password</title>
+  {/* Slick Slider */} 
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
   {/* Feather Icon*/}
@@ -56,43 +55,48 @@ function Feed({
         <div className="col-md-4 mx-auto">
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
-              <img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}}/>
-              <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
-              <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
+            <img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}}/>
+              <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
+              <p className="text-muted">Por favor insira seu email</p>
             </div>
-            <form onSubmit={SignIn}>
+            <form onSubmit={ForgotPass}>
               <div className="form-group">
                 <label className="mb-1">Email</label>
                 <div className="position-relative icon-form-control">
                   <i className="feather-user position-absolute" />
                   <input 
                   type="email" 
-                  className="form-control" 
-                  id="email"
+                  className="form-control"
                   value={email}
                   onChange={event => setEmail(event.target.value)}
                   />
                 </div>
-              </div>
-              <div className="form-group">
-                <label className="mb-1">Senha</label>
+                <label className="mb-1">Token de validação</label>
                 <div className="position-relative icon-form-control">
-                  <i className="feather-unlock position-absolute" />
+                  <i className="feather-user position-absolute" />
+                  <input 
+                  type="text" 
+                  className="form-control"
+                  value={token}
+                  onChange={event => setToken(event.target.value)}
+                  />
+                </div>
+                <label className="mb-1">Password</label>
+                <div className="position-relative icon-form-control">
+                  <i className="feather-user position-absolute" />
                   <input 
                   type="password" 
-                  className="form-control" 
-                  id="password"
+                  className="form-control"
                   value={password}
                   onChange={event => setPassword(event.target.value)}
                   />
                 </div>
+
               </div>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
-              <a className="btn btn-block text-uppercase" href="/bussinessign-in"style={{backgroundColor:"#8838ca",color:"white"}} > Quero contratar </a> 
-              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
+              <button className="btn btn-primary btn-block text-uppercase" type="submit">Resetar senha</button>
               <div className="py-3 d-flex align-item-center">
-                <a href="forgot-password">Esqueceu a senha?</a>
-                <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Crie agora</a></span>
+                <a href="sign-in">Logar</a>
+                <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Cadastrar</a></span>
               </div>
             </form>
           </div>

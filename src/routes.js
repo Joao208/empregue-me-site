@@ -9,6 +9,8 @@ import contact from './Pages/contact'
 import edit_profile from './Pages/edit-profile'
 import faq from './Pages/faq'
 import forgot_password from './Pages/forgot-password'
+import forgot_passwordb from './Pages/forgot-passwordb'
+import reset_passwordb from './Pages/reset-passwordb'
 import job_profile from './Pages/job-profile'
 import jobs from './Pages/jobs'
 import not_found from './Pages/not-found'
@@ -21,8 +23,9 @@ import bussinessign_in from './Pages/bussinessign-in'
 import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 
-const isAuthenticated = () => true
+const isAuthenticated = () => localStorage.getItem(token) !== null
 
+async 
 const PrivateRoute = ({component:Component, ...rest}) => (
     <Route
      {...rest} 
@@ -55,6 +58,8 @@ export default function Routes() {
 <PrivateRoute path='/faq' component={faq}/>
 <Route path='/forgot-password' component={forgot_password}/>
 <Route path='/reset-password' component={reset_password}/>
+<Route path='/forgot-passwordb' component={forgot_passwordb}/>
+<Route path='/reset-passwordb' component={reset_passwordb}/>
 <PrivateRoute path='/jobs' component={jobs}/>
 <PrivateRoute path='/job-profile' component={job_profile}/>
 <PrivateRoute path='/not-found' component={not_found}/>
