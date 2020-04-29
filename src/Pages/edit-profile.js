@@ -39,7 +39,6 @@ const onSelectFile = e => {
 }
   
   const [avatar, setAvatar] = useState(null)
-  const [email, setEmail] = useState('')
   const [FacebookUrl, setFacebookUrl] = useState('')
   const [InstagramUrl, setInstagramUrl] = useState('')
   const [TwitterUrl, setTwitterUrl] = useState('')
@@ -115,8 +114,8 @@ const onSelectFile = e => {
                   value={avatar}
                   className="d-none"
                   onSubmit={onSelectFile} 
-                  onChange={event => {
-                    setAvatar(event.target.files[0])}} />
+                  onChange={onSelectFile,event => {
+                  setAvatar(event.target.files[0])}} />
                 </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
@@ -252,13 +251,27 @@ const onSelectFile = e => {
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Curriculums
-              </h6>          
+              </h6>
+              <hr/>
               <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp;  Criar curriculo &nbsp;&nbsp;&nbsp;&nbsp; </a>
             </div>           
           </div>
+          <div className="border rounded bg-white mb-3">
+            <div className="box-title border-bottom p-3">
+              <h6 className="m-0">Evoluocao profissional
+              </h6>
+              <hr/>
+              <p>
+                Acompanhe com porcentagens seu profissionalismo e vocacao (Ainda em producao)
+              </p>
+              <hr/>
+              <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp; Fazer teste &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            </div>           
+          </div>
+
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a className="font-weight-bold btn btn-primary rounded p-3" onSubmit={CreateProfile}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}} onSubmit={CreateProfile}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
           </div>
         </main>
       </div>
