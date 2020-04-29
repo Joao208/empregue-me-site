@@ -280,15 +280,6 @@ const onSelectFile = e => {
       </div>
     </div>
   </form>
-  <ul>
-                { user.map(user => (
-                    <li key={user._id}>
-                        <strong>{user.name}</strong>
-                    </li>
-                ))
-                }
-            </ul>
-
 </div>
 {/* Bootstrap core JavaScript */}
 </>
