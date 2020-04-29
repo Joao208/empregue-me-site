@@ -36,16 +36,6 @@ function Feed() {
     <div className="container">
       <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
-      <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-        <div className="input-group">
-          <input type="text" className="form-control shadow-none border-0" placeholder="Search people, jobs & more..." aria-label="Search" aria-describedby="basic-addon2" />
-          <div className="input-group-append">
-            <button className="btn" type="button">
-              <i className="feather-search" />
-            </button>
-          </div>
-        </div>
-      </form>
     </div>
   </nav>
   <div className="py-5 bg-white">

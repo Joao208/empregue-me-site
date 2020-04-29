@@ -1,20 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useState,useEffect,useMemo} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import '../inputcamera.css';
 import api from '../services/api'
 
 import img_logo_svg from '../img/logologin.png'
-import camera from '../img/camera.svg'
 
 function Feed({history}) {
   
-  const preview = useMemo(() => {
-    return avatarUrl ? URL.createObjectURL(avatarUrl) : null
-  },[avatarUrl])
-
-  const [avatarUrl, setAvatarUrl] = useState(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
@@ -43,7 +37,6 @@ function Feed({history}) {
     event.preventDefault();
 
       const response = await api.post('/auth/userregister', {
-        avatarUrl,
         name,
         latitude,
         longitude,
@@ -96,20 +89,6 @@ function Feed({history}) {
               <div className="form-row">
                 <div className="col">
                   <div className="form-group">
-                  <label
-                   id="avatarUrl"
-                   style={{ backgroundImage: `url(${preview})`}}
-                   className={avatarUrl ? 'has-avatarUrl' : ''}
-                  >
-                <input
-                 type="file" 
-                 onChange={event => {
-                    setAvatarUrl(event.target.files[0])}
-                 }
-                 value={avatarUrl}
-                 />
-                <img src={camera} alt="Enviar imagem" />
-                  </label>
                     <label className="mb-1">Nome</label>
                     <div className="position-relative icon-form-control">
                       <i className="feather-user position-absolute" />
