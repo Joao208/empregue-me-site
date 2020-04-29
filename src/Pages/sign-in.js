@@ -29,7 +29,6 @@ function Feed({
       } = response.data;
 
       localStorage.setItem('token', token);
-      localStorage.setItem('user', user);
       history.push('/')
   }
 
@@ -89,8 +88,8 @@ function Feed({
                 </div>
               </div>
               <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit" href="/bussinessign-in"> Quero contratar </button>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit" href="#"> Quero ensinar </button>
+              <a className="btn btn-block text-uppercase" href="/bussinessign-in"style={{backgroundColor:"#8838ca",color:"white"}} > Quero contratar </a> 
+              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
                 <a href="forgot-password">Forgot password?</a>
                 <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Crie agora</a></span>

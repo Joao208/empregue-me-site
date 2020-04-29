@@ -11,7 +11,7 @@ function Feed({history}) {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
+  const [cnpj, setCnpj] = useState('')
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
 
@@ -36,8 +36,8 @@ function Feed({history}) {
   async function SignUp(event) {
     event.preventDefault();
 
-      const response = await api.post('/auth/userregister', {
-        name,
+      const response = await api.post('/bussinesregister', {
+        cnpj,
         latitude,
         longitude,
         email,
@@ -89,15 +89,16 @@ function Feed({history}) {
               <div className="form-row">
                 <div className="col">
                   <div className="form-group">
-                    <label className="mb-1">Nome</label>
+                    <label className="mb-1">Cnpj</label>
                     <div className="position-relative icon-form-control">
                       <i className="feather-user position-absolute" />
                       <input 
                       type="text" 
                       className="form-control" 
-                      id="name"
-                      value={name}
-                      onChange={event => setName(event.target.value)}
+                      id="cnpj"
+                      value={cnpj}
+                      placeholder="Atravs do seu cnpj podemos conferir mais sobre voc e sua maravilhosa empresa..."
+                      onChange={event => setCnpj(event.target.value)}
                       />
                     </div>
                   </div>
@@ -133,7 +134,7 @@ function Feed({history}) {
                 <label className="mb-1">Você concorda com o Contrato de <a  href="">Usuario</a>, <a  href=""> Politica de Privacidade</a>, e <a  href="">Cookies</a>.</label>
               </div>
               <button className="btn btn-primary btn-block text-uppercase" type="submit"> Concordar e Participar </button>
-             <a className="btn btn-block text-uppercase" href="/bussinessign-up"style={{backgroundColor:"#8838ca",color:"white"}} > Quero contratar </a> 
+             <a className="btn btn-block text-uppercase" href="/sign-up"style={{backgroundColor:"#8838ca",color:"white"}} > Quero ser contratado </a> 
               <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
                 <span className="ml-auto"> Ja é usuario? <a className="font-weight-bold" href="sign-in">Logar</a></span>

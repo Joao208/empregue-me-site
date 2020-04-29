@@ -17,6 +17,8 @@ import privacy from './Pages/privacy'
 import profile from './Pages/profile'
 import sign_int from './Pages/sign-in'
 import sign_up from './Pages/sign-up'
+import bussinessign_in from './Pages/bussinessign-in'
+import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 
 const isAuthenticated = () => true
@@ -61,6 +63,8 @@ export default function Routes() {
 <PrivateRoute path='/profile' component={profile}/>
 <Route path='/sign-in' component={sign_int}/>
 <Route path='/sign-up' component={sign_up}/>
+<Route path='/bussinessign-in' component={bussinessign_in}/>
+<Route path='/bussinessign-up' component={bussinessign_up}/>
 <PrivateRoute path='/terms' component={terms}/>
 </Switch>
 
