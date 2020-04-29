@@ -12,8 +12,28 @@ import api from '../services/api'
 
 function Feed({history}) {
 
-  const user = localStorage.user
+  const [latitude, setLatitude] = useState('')
+  const [longitude, setLongitude] = useState('')
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const { latitude, longitude } = position.coords;
+
+            setLatitude(latitude)
+            setLongitude(longitude)
+        },
+        (error) => {
+            console.log(error)
+        },
+        {
+            timeout: 30000
+        }
+    )
+})
+
+
+  const [user, setUser] = useState('')
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
 
@@ -60,6 +80,8 @@ const onSelectFile = e => {
         data.append('YouTubeUrl', YouTubeUrl)
         data.append('GithubUrl', GithubUrl)
         data.append('about', about)
+        data.append('latitude',latitude)
+        data.append('longitude', longitude)
        
        const response = await api.post('/profile', data)
 
@@ -71,6 +93,20 @@ const onSelectFile = e => {
 
         history.push('/profile')
   }
+
+  useEffect(() => {
+    async function loadSpots() {
+      const token = localStorage.token
+        const response = await api.get('/user',
+        {
+          query:token
+        })
+
+        setUser(response.data)
+    }
+
+    loadSpots()
+}, [])
 
   return (
 <>
@@ -276,6 +312,14 @@ const onSelectFile = e => {
         </main>
       </div>
     </div>
+    <ul className="spot-list">
+                { user.map(user => (
+                    <li key={user._id}>
+                        <strong>{user.name}</strong>
+                    </li>
+                ))
+                }
+            </ul>
   </form>
 </div>
 {/* Bootstrap core JavaScript */}
