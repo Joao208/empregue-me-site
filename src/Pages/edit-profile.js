@@ -12,6 +12,14 @@ import api from '../services/api'
 
 function Feed({history}) {
 
+  useEffect(() => {
+    async function loadSpots() {
+        const user = localStorage.getItem('user')
+    }
+
+    loadSpots()
+}, [])
+
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
 
@@ -45,6 +53,7 @@ const onSelectFile = e => {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
+  const [user, setUser] = useState('')
 
   const CreateProfile = async(event) => {
     event.preventDefault();
@@ -216,9 +225,10 @@ const onSelectFile = e => {
                 <div className="row">
                   {/* Input */}
                   <div className="col-sm-6 mb-2">
-                    <div className="js-form-message">
+                    {user.map(user => (
+                    <div key={user._id} className="js-form-message">
                       <label id="nameLabel" className="form-label">
-                        Nome
+                        {user.name}
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
@@ -226,6 +236,7 @@ const onSelectFile = e => {
                         <small className="form-text text-muted">Exibido aos outros usúarios.</small>
                       </div>
                     </div>
+                    ))}
                   </div>
                   {/* End Input */}
                 </div>
@@ -234,7 +245,7 @@ const onSelectFile = e => {
                   <div className="col-sm-6 mb-2">
                     <div className="js-form-message">
                       <label id="emailLabel" className="form-label">
-                        Email
+                        {user.email}
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
@@ -271,7 +282,7 @@ const onSelectFile = e => {
 
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}} onClick={CreateProfile}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}} onClick={() => CreateProfile()}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
           </div>
         </main>
       </div>
