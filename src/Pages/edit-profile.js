@@ -15,6 +15,8 @@ function Feed({history}) {
   useEffect(() => {
     async function loadSpots() {
         const user = localStorage.getItem('user')
+
+        setUser(user)
     }
 
     loadSpots()
@@ -53,7 +55,7 @@ const onSelectFile = e => {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
-  const [user, setUser] = useState('')
+  const [user,setUser] = useState('')
 
   const CreateProfile = async(event) => {
     event.preventDefault();
