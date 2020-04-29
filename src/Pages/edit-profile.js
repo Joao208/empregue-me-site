@@ -48,7 +48,7 @@ const onSelectFile = e => {
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
 
-  const CreateProfile = async(event) => {
+  async function CreateProfile(event) {
     event.preventDefault();
 
     const data = new FormData()
@@ -220,7 +220,7 @@ const onSelectFile = e => {
                   <div className="col-sm-6 mb-2">
                     <div className="js-form-message">
                       <label id="nameLabel" className="form-label">
-                        {user.name}
+                        Nome
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
@@ -236,7 +236,7 @@ const onSelectFile = e => {
                   <div className="col-sm-6 mb-2">
                     <div className="js-form-message">
                       <label id="emailLabel" className="form-label">
-                        {user.email}
+                        Email
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
@@ -248,7 +248,6 @@ const onSelectFile = e => {
                   {/* End Input */}
                 </div>
               </form>
-               ))}
             </div>
           </div>
           <div className="border rounded bg-white mb-3">
