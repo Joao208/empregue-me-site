@@ -213,9 +213,8 @@ const onSelectFile = e => {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Informações Basicas</h6>
             </div>
-            <ul className="box-body p-3">
-            {user.map(user => (
-              <li key={user._id} className="js-validate" noValidate="novalidate">
+            <div className="box-body p-3">
+              <form className="js-validate" noValidate="novalidate">
                 <div className="row">
                   {/* Input */}
                   <div className="col-sm-6 mb-2">
@@ -248,9 +247,9 @@ const onSelectFile = e => {
                   </div>
                   {/* End Input */}
                 </div>
-              </li>
+              </form>
                ))}
-            </ul>
+            </div>
           </div>
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
