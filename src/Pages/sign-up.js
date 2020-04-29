@@ -48,11 +48,11 @@ function Feed({history}) {
 
       const {
         token,
-        _id
+        user
       } = response.data;
 
       localStorage.setItem('token', token);
-      localStorage.setItem('user', _id)
+      localStorage.setItem('user',JSON.stringify(user))
       history.push('/')
 
   }

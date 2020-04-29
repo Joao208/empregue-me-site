@@ -46,7 +46,6 @@ const onSelectFile = e => {
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
 
-
   async function CreateProfile(event) {
     event.preventDefault();
 
@@ -59,8 +58,11 @@ const onSelectFile = e => {
         data.append('YouTubeUrl', YouTubeUrl)
         data.append('GithubUrl', GithubUrl)
         data.append('about', about)
-
-       const response = await api.post('/profile', data)
+       
+       const token = localStorage.setItem('token')
+       const response = await api.post('/profile', data, {
+         headers: new Headers ({'Authorization':` Bearer ${token}`})
+       })
 
        console.log(response)
 
@@ -113,8 +115,7 @@ const onSelectFile = e => {
                   type="file" 
                   value={avatar}
                   className="d-none"
-                  onChange={onSelectFile,event => {
-                  setAvatar(event.target.files[0])}} />
+                  onChange={onSelectFile} />
                 </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>

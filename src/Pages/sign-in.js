@@ -24,12 +24,12 @@ function Feed({
       });
       console.log(response)
       const {
-        _id,
+        user,
         token
       } = response.data;
 
       localStorage.setItem('token', token);
-      localStorage.setItem('user', _id)
+      localStorage.setItem('user',JSON.stringify(user))
       history.push('/')
   }
 
