@@ -12,7 +12,9 @@ import api from '../services/api'
 
 function Feed({history}) {
 
-  const user = localStorage.getItem('user')
+  const email = localStorage.setItem('user.email')
+
+  console.log(email)
 
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
@@ -100,7 +102,7 @@ const onSelectFile = e => {
       </a>
     </div>
   </nav>
-  <div className="py-4">
+  <form onSubmit={CreateProfile} className="py-4">
     <div className="container">
       <div className="row">
         {/* Main Content */}
@@ -270,16 +272,16 @@ const onSelectFile = e => {
               <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp; Fazer teste &nbsp;&nbsp;&nbsp;&nbsp; </a>
             </div>           
           </div>
-          <form onSubmit={CreateProfile}>
+          <div >
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            <button className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </button>
           </div>
-          </form>
+          </div>
         </main>
       </div>
     </div>
-  </div>
+  </form>
 </div>
 {/* Bootstrap core JavaScript */}
 </>
