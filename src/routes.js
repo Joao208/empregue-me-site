@@ -23,25 +23,14 @@ import bussinessign_in from './Pages/bussinessign-in'
 import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 
-const isAuthenticated = async() => localStorage.getItem('token') !== null
 
-const PrivateRoute = ({component:Component, ...rest}) => (
-    <Route
-     {...rest} 
-     render = {props => 
-        isAuthenticated() ? (
-            <Component 
-            {... props} 
-            />
-        ) : (
-            <Redirect to={{
-                pathname: '/sign-in' , 
-                state: {from: props.location}}} 
-                />
-        )
-    }
-    />
-)
+const PrivateRoute = props => {
+    const isAuthenticated = !! localStorage.getItem('token') 
+
+        return isAuthenticated ? <Route {...props} />
+        : <Redirect to="/sign-in"/>
+    
+}
 
 
 
