@@ -35,7 +35,7 @@ function Feed({history}) {
 
   async function SignUp(event) {
     event.preventDefault();
-
+    try{
       const response = await api.post('/auth/userregister', {
         name,
         latitude,
@@ -54,10 +54,10 @@ function Feed({history}) {
       localStorage.setItem('token', token);
       localStorage.setItem('user',JSON.stringify(user))
       history.push('/')
-
-  }
-
-
+    }  catch(e){
+      this.setState({error:'Usuario ou senha incorretos'})
+     }
+   }
 
   return (
 <>

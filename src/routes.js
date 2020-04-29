@@ -22,6 +22,7 @@ import sign_up from './Pages/sign-up'
 import bussinessign_in from './Pages/bussinessign-in'
 import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
+import error404 from './Pages/not-found'
 
 
 const PrivateRoute = props => {
@@ -33,8 +34,6 @@ const PrivateRoute = props => {
     
 
 }
-
-
 
 export default function Routes() {
     return(
@@ -61,6 +60,7 @@ export default function Routes() {
 <Route path='/bussinessign-in' component={bussinessign_in}/>
 <Route path='/bussinessign-up' component={bussinessign_up}/>
 <PrivateRoute path='/terms' component={terms}/>
+<Route path='*' component={error404}/>
 </Switch>
 
 </BrowserRouter>

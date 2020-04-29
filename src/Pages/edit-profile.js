@@ -61,16 +61,13 @@ const onSelectFile = e => {
         data.append('GithubUrl', GithubUrl)
         data.append('about', about)
        
-       const token = localStorage.getItem('token')
-       const response = await api.post('/profile', data, {
-         headers: new Headers ({'Authorization':` Bearer ${token}`})
-       })
+       const response = await api.post('/profile', data)
 
        console.log(response)
 
        const profile_id = response.data
 
-       localStorage.setItem('profile_id', profile_id)
+       localStorage.getItem('profile_id', profile_id)
 
         history.push('/profile')
   }
