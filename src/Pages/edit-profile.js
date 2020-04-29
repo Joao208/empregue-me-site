@@ -12,7 +12,7 @@ import { uniqueId } from "lodash";
 import filesize from "filesize";
 
 import api from '../services/api'
-
+import FileList from "./components/FileList";
 import Upload from "../components/Upload";
 
 class App extends Component {
@@ -108,6 +108,7 @@ class App extends Component {
   }
 
   render(){
+  const { uploadedFiles } = this.state;
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -171,8 +172,10 @@ class App extends Component {
               <div className="p-4">
                 <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
                   <i className="feather-image" />
+                  {!!uploadedFiles.length && (
                   <Upload id="fileAttachmentBtn" onUpload={this.handleUpload} name="file-attachment" type="file" className="d-none" />
-                </label>
+                  )}
+                  </label>
                 <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button>
               </div>
             </div>
