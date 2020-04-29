@@ -33,8 +33,6 @@ export const UploadMessage = styled.p`
   padding: 15px 0;
 `;
 
-import styled from "styled-components";
-
 export const Container = styled.ul`
   margin-top: 20px;
   li {
