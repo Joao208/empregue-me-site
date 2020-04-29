@@ -96,7 +96,7 @@ const onSelectFile = e => {
         <aside className="col-md-4">
           <div className="mb-3 border rounded bg-white profile-box text-center w-10">
             <div className="p-4 d-flex align-items-center">
-  { selectedFile && <img src={preview} className="img-fluid rounded-circle"  alt="Responsive image" /> }
+  { selectedFile ? <img src={preview} className="img-fluid rounded-circle"  alt="Responsive image" /> : <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />  }
               <div className="p-4">
                 <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
                   <i className="feather-image" />
