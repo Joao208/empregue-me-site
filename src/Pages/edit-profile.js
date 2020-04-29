@@ -11,12 +11,14 @@ import api from '../services/api'
 
 
 function Feed({history}) {
-
+  state = {
+   user:{}
+  }
   useEffect(() => {
     async function loadSpots() {
         const user = localStorage.getItem('user')
 
-        setUser(user)
+        setUser({user:user})
     }
 
     loadSpots()
