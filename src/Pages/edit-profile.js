@@ -12,6 +12,32 @@ import api from '../services/api'
 
 function Feed({history}) {
 
+  const [selectedFile, setSelectedFile] = useState()
+  const [preview, setPreview] = useState()
+
+  useEffect(() => {
+    if (!selectedFile) {
+        setPreview(undefined)
+        return
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile)
+    setPreview(objectUrl)
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl)
+}, [selectedFile])
+
+const onSelectFile = e => {
+    if (!e.target.files || e.target.files.length === 0) {
+        setSelectedFile(undefined)
+        return
+    }
+
+    // I've kept this example simple by using the first image instead of multiple
+    setSelectedFile(e.target.files[0])
+}
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [FacebookUrl, setFacebookUrl] = useState('')
@@ -70,11 +96,11 @@ function Feed({history}) {
         <aside className="col-md-4">
           <div className="mb-3 border rounded bg-white profile-box text-center w-10">
             <div className="p-4 d-flex align-items-center">
-              <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />
+  { selectedFile && <img src={preview} className="img-fluid rounded-circle"  alt="Responsive image" /> }
               <div className="p-4">
                 <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
                   <i className="feather-image" />
-                  <input id="fileAttachmentBtn" name="file-attachment" type="file" className="d-none" />
+                  <input id="fileAttachmentBtn" name="file-attachment" type="file" className="d-none" onChange={onSelectFile}/>
                 </label>
                 <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button>
               </div>
