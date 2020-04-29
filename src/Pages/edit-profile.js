@@ -11,18 +11,8 @@ import api from '../services/api'
 
 
 function Feed({history}) {
-  state = {
-   user:{}
-  }
-  useEffect(() => {
-    async function loadSpots() {
-        const user = localStorage.getItem('user')
 
-        setUser({user:user})
-    }
-
-    loadSpots()
-}, [])
+  const user = localStorage.getItem('user')
 
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
@@ -57,7 +47,6 @@ const onSelectFile = e => {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
-  const [user,setUser] = useState('')
 
   const CreateProfile = async(event) => {
     event.preventDefault();
@@ -225,12 +214,12 @@ const onSelectFile = e => {
               <h6 className="m-0">Informações Basicas</h6>
             </div>
             <div className="box-body p-3">
-              <form className="js-validate" noValidate="novalidate">
+            {user.map(user => (
+              <form key={user._id} className="js-validate" noValidate="novalidate">
                 <div className="row">
                   {/* Input */}
                   <div className="col-sm-6 mb-2">
-                    {user.map(user => (
-                    <div key={user._id} className="js-form-message">
+                    <div className="js-form-message">
                       <label id="nameLabel" className="form-label">
                         {user.name}
                         <span className="text-danger">*</span>
@@ -240,7 +229,6 @@ const onSelectFile = e => {
                         <small className="form-text text-muted">Exibido aos outros usúarios.</small>
                       </div>
                     </div>
-                    ))}
                   </div>
                   {/* End Input */}
                 </div>
@@ -261,6 +249,7 @@ const onSelectFile = e => {
                   {/* End Input */}
                 </div>
               </form>
+               ))}
             </div>
           </div>
           <div className="border rounded bg-white mb-3">
@@ -283,11 +272,12 @@ const onSelectFile = e => {
               <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp; Fazer teste &nbsp;&nbsp;&nbsp;&nbsp; </a>
             </div>           
           </div>
-
+          <form onSubmit={CreateProfile}>
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}} onClick={() => CreateProfile()}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
+            <a className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </a>
           </div>
+          </form>
         </main>
       </div>
     </div>
