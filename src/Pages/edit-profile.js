@@ -46,14 +46,14 @@ const onSelectFile = e => {
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
 
-  async function CreateProfile(event) {
+  CreateProfile = async(event) => {
     event.preventDefault();
 
     const data = new FormData()
 
         data.append('avatar', avatar)
         data.append('FacebookUrl', FacebookUrl)
-        data.append('InstagramUrl', InstagramUrl)
+        data.append('Instagram s3Url', InstagramUrl)
         data.append('TwitterUrl', TwitterUrl)
         data.append('YouTubeUrl', YouTubeUrl)
         data.append('GithubUrl', GithubUrl)
