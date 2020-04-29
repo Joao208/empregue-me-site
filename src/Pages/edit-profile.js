@@ -1,7 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-import React from 'react';
+import React,{useState,Component} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -11,8 +8,132 @@ import '../Main.css';
 import img_logo_svg from '../img/logo.png'
 import img_p13 from '../img/p13.png'
 
+import { uniqueId } from "lodash";
+import filesize from "filesize";
 
-function Feed() {
+import api from '../services/api'
+
+import Upload from "../components/Upload";
+
+class App extends Component {
+
+  state = {
+    uploadedFiles: []
+  };
+
+  async componentDidMount() {
+    const response = await api.get("posts");
+
+    this.setState({
+      uploadedFiles: response.data.map(file => ({
+        id: file._id,
+        name: file.name,
+        readableSize: filesize(file.size),
+        preview: file.url,
+        uploaded: true,
+        url: file.url
+      }))
+    });
+  }
+
+  handleUpload = files => {
+    const uploadedFiles = files.map(file => ({
+      file,
+      id: uniqueId(),
+      name: file.name,
+      readableSize: filesize(file.size),
+      preview: URL.createObjectURL(file),
+      progress: 0,
+      uploaded: false,
+      error: false,
+      url: null
+    }));
+
+    this.setState({
+      uploadedFiles: this.state.uploadedFiles.concat(uploadedFiles)
+    });
+
+    uploadedFiles.forEach(this.processUpload);
+  };
+
+  updateFile = (id, data) => {
+    this.setState({
+      uploadedFiles: this.state.uploadedFiles.map(uploadedFile => {
+        return id === uploadedFile.id
+          ? { ...uploadedFile, ...data }
+          : uploadedFile;
+      })
+    });
+  };
+
+  processUpload = uploadedFile => {
+    const data = new FormData();
+
+    data.append("file", uploadedFile.file, uploadedFile.name);
+
+    api
+      .post("profile", data, {
+        onUploadProgress: e => {
+          const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+
+          this.updateFile(uploadedFile.id, {
+            progress
+          });
+        }
+      })
+      .then(response => {
+        this.updateFile(uploadedFile.id, {
+          uploaded: true,
+          id: response.data._id,
+          url: response.data.url
+        });
+      })
+      .catch(() => {
+        this.updateFile(uploadedFile.id, {
+          error: true
+        });
+      });
+  };
+
+  handleDelete = async id => {
+    await api.delete(`profile/${id}`);
+
+    this.setState({
+      uploadedFiles: this.state.uploadedFiles.filter(file => file.id !== id)
+    });
+  };
+
+  componentWillUnmount() {
+    this.state.uploadedFiles.forEach(file => URL.revokeObjectURL(file.preview));
+  }
+
+  render(){
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [FacebookUrl, setFacebookUrl] = useState('')
+  const [InstagramUrl, setInstagramUrl] = useState('')
+  const [TwitterUrl, setTwitterUrl] = useState('')
+  const [YouTubeUrl, setYouTubeUrl] = useState('')
+  const [GithubUrl, setGithubUrl] = useState('')
+  const [about, setAbout] = useState('')
+
+
+  async function SignIn(event) {
+    event.preventDefault();
+      const response = await api.post('/auth/authenticate', {
+        email,
+        password
+      });
+      console.log(response)
+      const {
+        user,
+        token
+      } = response.data;
+
+      localStorage.setItem('token', token);
+      history.push('/')
+  }
 
   return (
 <>
@@ -50,7 +171,7 @@ function Feed() {
               <div className="p-4">
                 <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
                   <i className="feather-image" />
-                  <input id="fileAttachmentBtn" name="file-attachment" type="file" className="d-none" />
+                  <Upload id="fileAttachmentBtn" onUpload={this.handleUpload} name="file-attachment" type="file" className="d-none" />
                 </label>
                 <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button>
               </div>
@@ -223,5 +344,6 @@ function Feed() {
 </>
   );
 }
+}
 
-export default Feed;
+export default App;

@@ -11,32 +11,7 @@ import '../Sidebar.css';
 import '../Main.css';
 
 import img_logo_svg from '../img/logo.png'
-import img_p5 from '../img/p5.png'
-import img_l1 from '../img/l1.png'
-import img_l4 from '../img/l4.png'
-import img_l7 from '../img/l7.png'
-import img_p6 from '../img/p6.png'
-import img_post1 from '../img/post1.png'
-import img_p7 from '../img/p7.png'
-import img_p13 from '../img/p13.png'
-import img_job1 from '../img/job1.png'
-import img_p8 from '../img/p8.png'
-import img_p9 from '../img/p9.png'
-import img_p10 from '../img/p10.png'
-import img_p11 from '../img/p11.png'
-import img_p12 from '../img/p12.png'
-import img_l3 from '../img/l3.png'
-import img_ads1 from '../img/ads1.png'
-import img_p1 from '../img/p1.png'
-import img_p2 from '../img/p2.png'
-import img_p3 from '../img/p3.png'
-import img_p4 from '../img/p4.png'
 import img_company from '../img/company-profile.jpg'
-import img_user from '../img/user.png'
-import img_l5 from '../img/l5.png'
-import img_l6 from '../img/l6.png'
-import img_l8 from '../img/l8.png'
-import img_l2 from '../img/l2.png'
 import img_clogo from '../img/clogo.png'
 
 function Feed() {
@@ -162,7 +137,7 @@ function Feed() {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="card overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501889.172354371!2d73.15671299623955!3d31.003573085499198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd263103a38861!2sPunjab!5e0!3m2!1sen!2sin!4v1575738201305!5m2!1sen!2sin" width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
+                        <img src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501889.172354371!2d73.15671299623955!3d31.003573085499198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd263103a38861!2sPunjab!5e0!3m2!1sen!2sin!4v1575738201305!5m2!1sen!2sin" width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
                         <div className="card-body">
                           <h6 className="card-title">Google</h6>
                         </div>
