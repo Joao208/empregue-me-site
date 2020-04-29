@@ -23,9 +23,9 @@ import bussinessign_in from './Pages/bussinessign-in'
 import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 
-const isAuthenticated = () => localStorage.getItem(token) !== null
+const isAuthenticated = async() => localStorage.getItem(token) !== null
 
-async 
+
 const PrivateRoute = ({component:Component, ...rest}) => (
     <Route
      {...rest} 
