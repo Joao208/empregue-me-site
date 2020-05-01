@@ -33,6 +33,7 @@ function Feed({history}) {
 })
 
 
+  const [user, setUser] = useState('')
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
 
