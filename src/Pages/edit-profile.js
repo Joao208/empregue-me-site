@@ -1,4 +1,4 @@
-import React,{useState,useEffect, Component} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -10,102 +10,8 @@ import img_p13 from '../img/p13.png'
 import api from '../services/api'
 
 
-class Feed extends Component {
+function Feed({history}) {
 
-  render() {
-
-  const [latitude, setLatitude] = useState('')
-  const [longitude, setLongitude] = useState('')
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            const { latitude, longitude } = position.coords;
-
-            setLatitude(latitude)
-            setLongitude(longitude)
-        },
-        (error) => {
-            console.log(error)
-        },
-        {
-            timeout: 30000
-        }
-    )
-})
-
-
-  const [user, setUser] = useState('')
-  const [selectedFile, setSelectedFile] = useState()
-  const [preview, setPreview] = useState()
-
-  useEffect(() => {
-    if (!selectedFile) {
-        setPreview(undefined)
-        return
-    }
-
-    const objectUrl = URL.createObjectURL(selectedFile)
-    setPreview(objectUrl)
-
-    // free memory when ever this component is unmounted
-    return () => URL.revokeObjectURL(objectUrl)
-}, [selectedFile])
-
-const onSelectFile = e => {
-    if (!e.target.files || e.target.files.length === 0) {
-        setSelectedFile(undefined)
-        return
-    }
-
-    // I've kept this example simple by using the first image instead of multiple
-    setSelectedFile(e.target.files[0])
-}
-  
-  const [avatar, setAvatar] = useState(null)
-  const [FacebookUrl, setFacebookUrl] = useState('')
-  const [InstagramUrl, setInstagramUrl] = useState('')
-  const [TwitterUrl, setTwitterUrl] = useState('')
-  const [YouTubeUrl, setYouTubeUrl] = useState('')
-  const [GithubUrl, setGithubUrl] = useState('')
-  const [about, setAbout] = useState('')
-
-  async function CreateProfile(event) {
-    event.preventDefault();
-
-    const data = new FormData()
-
-        data.append('avatar', avatar)
-        data.append('FacebookUrl', FacebookUrl)
-        data.append('Instagram s3Url', InstagramUrl)
-        data.append('TwitterUrl', TwitterUrl)
-        data.append('YouTubeUrl', YouTubeUrl)
-        data.append('GithubUrl', GithubUrl)
-        data.append('about', about)
-        data.append('latitude',latitude)
-        data.append('longitude', longitude)
-       
-       const response = await api.post('/profile', data)
-
-       console.log(response)
-
-       const profile_id = response.data
-
-       localStorage.getItem('profile_id', profile_id)
-
-  }
-
-  useEffect(() => {
-    async function loadSpots() {
-        const response = await api.get('/user')
-
-        setUser(response.data)
-
-        console.log(response)
-    }
-
-    loadSpots()
-}, [])
 
   return (
 <>
@@ -315,8 +221,7 @@ const onSelectFile = e => {
 </div>
 {/* Bootstrap core JavaScript */}
 </>
-  )
-  };
+  );
 }
 
 export default Feed;
