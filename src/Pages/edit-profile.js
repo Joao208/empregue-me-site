@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, Component} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -10,7 +10,9 @@ import img_p13 from '../img/p13.png'
 import api from '../services/api'
 
 
-function Feed({history}) {
+class Feed extends Component {
+
+  render() {
 
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
@@ -91,18 +93,15 @@ const onSelectFile = e => {
 
        localStorage.getItem('profile_id', profile_id)
 
-        history.push('/profile')
   }
 
   useEffect(() => {
     async function loadSpots() {
-      const token = localStorage.token
-        const response = await api.get('/user',
-        {
-          query:token
-        })
+        const response = await api.get('/user')
 
         setUser(response.data)
+
+        console.log(response)
     }
 
     loadSpots()
@@ -312,19 +311,12 @@ const onSelectFile = e => {
         </main>
       </div>
     </div>
-    <ul className="spot-list">
-                { user.map(user => (
-                    <li key={user._id}>
-                        <strong>{user.name}</strong>
-                    </li>
-                ))
-                }
-            </ul>
   </form>
 </div>
 {/* Bootstrap core JavaScript */}
 </>
-  );
+  )
+  };
 }
 
 export default Feed;
