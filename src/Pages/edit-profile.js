@@ -314,6 +314,14 @@ const onSelectFile = e => {
         </main>
       </div>
     </div>
+    <ul className="spot-list">
+                { user.map(user => (
+                    <li key={user._id}>
+                        <strong>{user.name}</strong>
+                    </li>
+                ))
+                }
+            </ul>
   </form>
 </div>
 {/* Bootstrap core JavaScript */}
