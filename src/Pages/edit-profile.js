@@ -93,6 +93,22 @@ const onSelectFile = e => {
         history.push('/profile')
   }
 
+  useEffect(() => {
+    async function loadSpots() {
+      const token = localStorage.token
+        const response = await api.get('/user',
+        {
+          query:token
+        })
+
+        setUser(response.data)
+
+        console.log(response)
+    }
+
+    loadSpots()
+}, [])
+
   return (
 <>
 <div>
