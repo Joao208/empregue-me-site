@@ -53,7 +53,7 @@ function Feed({history}) {
 
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
-      history.push('/')
+      history.push('/phone')
     }  catch(e){
       this.setState({error:'Usuario ou senha incorretos'})
      }

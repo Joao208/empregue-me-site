@@ -30,7 +30,7 @@ function Feed({
 
       localStorage.setItem('token', token);
       localStorage.setItem('user',JSON.stringify(user))
-      history.push('/phone')
+      history.push('/')
   }
 
   return (
