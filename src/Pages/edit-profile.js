@@ -82,7 +82,7 @@ const onSelectFile = e => {
     }
 
     loadSpots()
-}, [] )
+})
 
   return (
 <>
