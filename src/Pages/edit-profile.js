@@ -78,6 +78,7 @@ const onSelectFile = e => {
         setUser(response.data)
 
         console.log(response)
+        console.log(response.data)
     }
 
     loadSpots()
