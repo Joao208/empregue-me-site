@@ -15,7 +15,6 @@ import forgot_passwordb from './Pages/forgot_passwordb'
 import reset_passwordb from './Pages/reset_passwordb'
 import job_profile from './Pages/job-profile'
 import jobs from './Pages/jobs'
-import not_found from './Pages/not-found'
 import notification from './Pages/notifications'
 import privacy from './Pages/privacy'
 import profile from './Pages/profile'
@@ -25,6 +24,7 @@ import bussinessign_in from './Pages/bussinessign-in'
 import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 import error404 from './Pages/not-found'
+import curriculum from './Pages/curriculum'
 
 
 const PrivateRoute = props => {
@@ -52,7 +52,6 @@ export default function Routes() {
 <Route path='/reset-passwordb' component={reset_passwordb}/>
 <PrivateRoute path='/jobs' component={jobs}/>
 <PrivateRoute path='/job-profile' component={job_profile}/>
-<PrivateRoute path='/not-found' component={not_found}/>
 <PrivateRoute path='/notification' component={notification}/>
 <PrivateRoute path='/privacy' component={privacy}/>
 <PrivateRoute path='/profile' component={profile}/>
@@ -62,6 +61,7 @@ export default function Routes() {
 <Route path='/bussinessign-up' component={bussinessign_up}/>
 <PrivateRoute path='/terms' component={terms}/>
 <Route path='*' component={error404}/>
+<PrivateRoute path='/curriculum' component={curriculum}/>
 </Switch>
 
 </BrowserRouter>
