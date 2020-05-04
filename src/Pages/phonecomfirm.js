@@ -54,7 +54,7 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
                 <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
               </div>
-              <form onSubmit={SignIn}>
+              <form onSubmit={Confirm}>
                 <div className="form-group">
                   <label className="mb-1">Número</label>
                   <div className="position-relative icon-form-control">

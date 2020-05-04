@@ -15,7 +15,7 @@ import React, {
   
     const [phone, setPhone] = useState('')
   
-    async function phone(event) {
+    async function PhoneAdd(event) {
       event.preventDefault();
         const response = await api.post('/addphone', {
           phone,
@@ -52,7 +52,7 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
                 <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
               </div>
-              <form onSubmit={SignIn}>
+              <form onSubmit={PhoneAdd}>
                 <div className="form-group">
                   <label className="mb-1">Número</label>
                   <div className="position-relative icon-form-control">
@@ -66,7 +66,7 @@ import React, {
                     />
                   </div>
                 </div>
-                <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={phone}> Adicionar </button>
+                <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={PhoneAdd}> Adicionar </button>
                 <div className="py-3 d-flex align-item-center">
                 </div>
               </form>
