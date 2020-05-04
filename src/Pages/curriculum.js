@@ -72,19 +72,6 @@ const onSelectFile = e => {
 
         history.push('/profile')
   }
-
-  useEffect(() => {
-    async function loadSpots() {
-        const response = await api.get('/user')
-
-        setUser(response.data)
-
-        console.log(response)
-    }
-
-    loadSpots()
-}, [] )
-
   return (
 <>
 <div>
@@ -93,7 +80,7 @@ const onSelectFile = e => {
   <meta name="description" content />
   <meta name="author" content />
   <link rel="icon" type="image/png" href="img/fav.png" />
-  <title>Empregue.me | Profile</title>
+  <title>Empregue.me | Curriculum</title>
   {/* Slick Slider */}
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -130,90 +117,6 @@ const onSelectFile = e => {
                   onChange={onSelectFile} />
                 </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
-              </div>
-            </div>
-          </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Sobre</h6>
-              <p className="mb-0 mt-0 small">Fale sobre você na bio.
-              </p>
-            </div>
-            <div className="box-body">
-              <div className="p-3 border-bottom">
-                <div className="form-group mb-4">
-                  <label className="mb-1">BIO</label>
-                  <div className="position-relative">
-                    <textarea 
-                    className="form-control" 
-                    rows={4} name="text" 
-                    placeholder="Começar Biografia" 
-                    value={about}
-                    onChange={event => setAbout(event.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Redes sociais</h6>
-              <p className="mb-0 mt-0 small">Adicione outros links ao seu perfil.
-              </p>
-            </div>
-            <div className="box-body">
-              <div className="p-3 border-bottom">
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-instagram position-absolute text-warning" />
-                  <input 
-                  placeholder="Add Instagram link" 
-                  type="text" 
-                  className="form-control" 
-                  value={InstagramUrl}
-                  onChange={event => setInstagramUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-facebook position-absolute text-primary" />
-                  <input 
-                  placeholder="Add Facebook link" 
-                  type="text" 
-                  className="form-control" 
-                  value={FacebookUrl}
-                  onChange={event => setFacebookUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-twitter position-absolute text-info" />
-                  <input 
-                  placeholder="Add Twitter link" 
-                  type="text" 
-                  className="form-control" 
-                  value={TwitterUrl}
-                  onChange={event => setTwitterUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-youtube position-absolute text-danger" />
-                  <input 
-                  placeholder="Add Youtube link" 
-                  type="text" 
-                  className="form-control" 
-                  value={YouTubeUrl}
-                  onChange={event => setYouTubeUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-0">
-                  <i className="feather-github position-absolute text-dark" />
-                  <input
-                  placeholder="Add Github link" 
-                  type="text" 
-                  className="form-control"
-                  value={GithubUrl}
-                  onChange={event => setGithubUrl(event.target.value)}
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -260,27 +163,7 @@ const onSelectFile = e => {
               </form>
             </div>
           </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Curriculums
-              </h6>
-              <hr/>
-              <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp;  Criar curriculo &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            </div>           
-          </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Evoluocao profissional
-              </h6>
-              <hr/>
-              <p>
-                Acompanhe com porcentagens seu profissionalismo e vocacao (Ainda em producao)
-              </p>
-              <hr/>
-              <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp; Fazer teste &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            </div>           
-          </div>
-          <div >
+          <div>
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
             <button className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </button>

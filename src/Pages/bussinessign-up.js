@@ -50,7 +50,7 @@ function Feed({history}) {
         token
       } = response.data;
 
-      localStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
       history.push('/')
 
   }

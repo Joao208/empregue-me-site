@@ -13,23 +13,15 @@ import React, {
     history
   }) {
   
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [phone, setPhone] = useState('')
   
-    async function SignIn(event) {
+    async function phone(event) {
       event.preventDefault();
-        const response = await api.post('/auth/bussinesauthenticate', {
-          email,
-          password
+        const response = await api.post('/addphone', {
+          phone,
         });
         console.log(response)
-        const {
-          user,
-          token
-        } = response.data;
-  
-        sessionStorage.setItem('token', token);
-        history.push('/')
+        history.push('/phoneconfirm')
     }
   
     return (
@@ -40,7 +32,7 @@ import React, {
     <meta name="description" content />
     <meta name="author" content />
     <link rel="icon" type="image/png" href="img/fav.png" />
-    <title>Empregue.me para empresas | Login</title>
+    <title>Empregue.me | Add Celular</title>
     {/* Slick Slider */}
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -57,42 +49,25 @@ import React, {
             <div className="osahan-login py-4">
               <div className="text-center mb-4">
                 <img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}}/>
-                <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
-                <p className="text-muted">Não perca a sua próxima oportunidade de contratar funcionrios melhores. Entre para se manter atualizado sobre o seu mundo profissional.</p>
+                <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
+                <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
               </div>
               <form onSubmit={SignIn}>
                 <div className="form-group">
-                  <label className="mb-1">Email</label>
+                  <label className="mb-1">Número</label>
                   <div className="position-relative icon-form-control">
                     <i className="feather-user position-absolute" />
                     <input 
                     type="email" 
                     className="form-control" 
                     id="email"
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
+                    value={phone}
+                    onChange={event => setPhone(event.target.value)}
                     />
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="mb-1">Senha</label>
-                  <div className="position-relative icon-form-control">
-                    <i className="feather-unlock position-absolute" />
-                    <input 
-                    type="password" 
-                    className="form-control" 
-                    id="password"
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                    />
-                  </div>
-                </div>
-                <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
-                <a className="btn btn-block text-uppercase" href="/sign-in"style={{backgroundColor:"#8838ca",color:"white"}} > Quero ser contratado </a> 
-                <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
+                <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={phone}> Adicionar </button>
                 <div className="py-3 d-flex align-item-center">
-                  <a href="forgot-password">Esqueceu a senha?</a>
-                  <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Crie agora</a></span>
                 </div>
               </form>
             </div>

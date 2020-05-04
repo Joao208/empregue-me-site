@@ -7,6 +7,8 @@ import Cooming_soon from './Pages/coming-soon'
 import company_profile from './Pages/company-profile'
 import contact from './Pages/contact'
 import edit_profile from './Pages/edit-profile'
+import phone from './Pages/phoneadd'
+import phoneconfirm from './Pages/phoneconfirm'
 import faq from './Pages/faq'
 import forgot_password from './Pages/forgot-password'
 import forgot_passwordb from './Pages/forgot_passwordb'
@@ -26,7 +28,7 @@ import error404 from './Pages/not-found'
 
 
 const PrivateRoute = props => {
-    const isAuthenticated = !! localStorage.getItem('token') 
+    const isAuthenticated = !! sessionStorage.getItem('token') 
 
         return isAuthenticated ? <Route {...props} />
         : <Redirect to="/sign-in"/>
@@ -42,6 +44,8 @@ export default function Routes() {
 <PrivateRoute path='/contact' component={contact}/>
 <PrivateRoute path='/edit-profile' component={edit_profile}/>
 <PrivateRoute path='/faq' component={faq}/>
+<PrivateRoute path='/phone' component={phone}/>
+<PrivateRoute path='/phoneconfirm' component={phoneconfirm}/>
 <Route path='/forgot-password' component={forgot_password}/>
 <Route path='/reset-password' component={reset_password}/>
 <Route path='/forgot-passwordb' component={forgot_passwordb}/>
