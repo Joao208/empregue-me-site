@@ -60,7 +60,6 @@ import React, {
                   <div className="position-relative icon-form-control">
                     <i className="feather-user position-absolute" />
                     <input 
-                    type="email" 
                     className="form-control" 
                     id="email"
                     value={phone}
@@ -73,7 +72,6 @@ import React, {
                   <div className="position-relative icon-form-control">
                     <i className="feather-user position-absolute" />
                     <input 
-                    type="email" 
                     className="form-control" 
                     id="email"
                     value={token}
