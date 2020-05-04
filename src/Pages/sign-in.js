@@ -28,8 +28,8 @@ function Feed({
         token
       } = response.data;
 
-      localStorage.setItem('token', token);
-      localStorage.setItem('user',JSON.stringify(user))
+      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('user',JSON.stringify(user))
       history.push('/')
   }
 
