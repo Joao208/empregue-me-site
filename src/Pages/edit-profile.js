@@ -59,8 +59,6 @@ const onSelectFile = e => {
         data.append('YouTubeUrl', YouTubeUrl)
         data.append('GithubUrl', GithubUrl)
         data.append('about', about)
-        data.append('latitude',latitude)
-        data.append('longitude', longitude)
        
        const response = await api.post('/profile', data)
 
