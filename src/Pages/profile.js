@@ -36,6 +36,7 @@ import img_e2 from '../img/e2.png'
 function Feed() {
 
   const [user, setUser] = useState([])
+  const [post, setPost] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
@@ -43,8 +44,7 @@ function Feed() {
 
         setUser(response.data)
 
-        console.log(response)
-        console.log(typeof response.data)
+        console.log(response.data.post)
     }
 
     loadSpots()
