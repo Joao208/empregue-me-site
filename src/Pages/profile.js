@@ -183,49 +183,27 @@ function Feed() {
               <h6 className="m-0">Sobre você</h6>
             </div>
             {profile.map(profile => (
-            <div className="box-body p-3">
+            <div key={profile._id} className="box-body p-3">
               <p>{profile.user.bio}</p>
             </div>
             ))}
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Experience</h6>
+              <h6 className="m-0">Publicacões</h6>
             </div>
-            <div className="box-body p-3 border-bottom">
+            {post.map(post => (
+            <div key={post._id} className="box-body p-3 border-bottom">
               <div className="d-flex align-items-top job-item-header pb-2">
                 <div className="mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0">Web designer</h6>
-                  <div className="text-truncate text-primary">Spotify Inc.</div>
-                  <div className="small text-gray-500">Oct 2020 - Present (4 year 7 month) </div>
+            <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
+            <div className="small text-gray-500">{post.createdAt}</div>
                 </div>
-                <img className="img-fluid ml-auto mb-auto" src={img_l3} />
+                <img className="img-fluid ml-auto mb-auto" src={post.user.avatar ? post.user.avatar : img_l3} />
               </div>
-              <p className="mb-0">Find the most qualified people in the most unexpected places. Information for applicants to consider when applying for local positions. </p>
+              <p className="mb-0">{post.Text.Text}</p>
             </div>
-            <div className="box-body p-3 border-bottom">
-              <div className="d-flex align-items-top job-item-header pb-2">
-                <div className="mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0">Cloud Software Engineer</h6>
-                  <div className="text-truncate text-primary">Spotify Inc.</div>
-                  <div className="small text-gray-500">Oct 2020 - Present (4 year 7 month) </div>
-                </div>
-                <img className="img-fluid ml-auto mb-auto" src={img_l6} />
-              </div>
-              <p className="mb-0">Find the most qualified people in the most unexpected places. Information for.. </p>
-            </div>
-            <div className="box-body p-3">
-              <div className="d-flex align-items-top job-item-header pb-2">
-                <div className="mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0">UI/UX designer</h6>
-                  <div className="text-truncate text-primary">Behance</div>
-                  <div className="small text-gray-500">Oct 2020 - Present (4 year 7 month) </div>
-                </div>
-                <img className="img-fluid ml-auto mb-auto" src={img_l2} />
-              </div>
-              <p className="mb-0">Wualified people in the most unexpected places. Information for applicants to consider when applying for local positions. The largest community on the web to find and list jobs that aren't restricted by commutes or a specific location.
-              </p>
-            </div>
+            ))}
           </div>
         </main>
         <aside className="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
