@@ -204,7 +204,8 @@ function Feed({history}) {
               <h6 className="m-0">Informações Basicas</h6>
             </div>
             <div className="box-body p-3">
-              <form className="js-validate" noValidate="novalidate">
+            {user.map(user => ( 
+              <form key={user._id} className="js-validate" noValidate="novalidate">
                 <div className="row">
                   {/* Input */}
                   <div className="col-sm-6 mb-2">
@@ -214,7 +215,7 @@ function Feed({history}) {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="text" className="form-control" name="name" placeholder="Nao precisa preencher" aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="text" className="form-control" name="name" placeholder={user.name} aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Exibido aos outros usúarios.</small>
                       </div>
                     </div>
@@ -230,7 +231,7 @@ function Feed({history}) {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="email" className="form-control" name="email" placeholder="Nao precisar preencher" aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="email" className="form-control" name="email" placeholder={user.email} aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Nunca compartilhe seu email com ninguém.</small>
                       </div>
                     </div>
@@ -238,6 +239,7 @@ function Feed({history}) {
                   {/* End Input */}
                 </div>
               </form>
+              ))} 
             </div>
           </div>
           <div className="border rounded bg-white mb-3">
@@ -269,14 +271,6 @@ function Feed({history}) {
         </main>
       </div>
     </div>
-    <ul>
-                { user.map(user => (
-                    <li key={user._id}>
-                        <strong>{user.name}</strong>
-                    </li>
-                ))
-                }
-            </ul>
   </form>
 </div>
 {/* Bootstrap core JavaScript */}
