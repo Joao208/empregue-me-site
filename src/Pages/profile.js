@@ -184,7 +184,7 @@ function Feed() {
             </div>
             {profile.map(profile => (
             <div key={profile._id} className="box-body p-3">
-              <p>{profile.user.bio}</p>
+              <p>{profile.user.about}</p>
             </div>
             ))}
           </div>
