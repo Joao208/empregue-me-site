@@ -272,7 +272,7 @@ function Feed({history}) {
     <ul>
                 { user.map(user => (
                     <li key={user._id}>
-                        <strong>{user.company}</strong>
+                        <strong>{user.name}</strong>
                     </li>
                 ))
                 }
