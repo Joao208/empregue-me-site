@@ -126,7 +126,8 @@ const onSelectFile = e => {
                   type="file" 
                   value={avatar}
                   className="d-none"
-                  onChange={onSelectFile} />
+                  onChange={event => setAvatar(event.target.value)}
+                  />
                 </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
