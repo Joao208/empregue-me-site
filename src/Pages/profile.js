@@ -39,11 +39,11 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [curriculum, setCurriculum] = useState([])
 
-  SignOut = async() => {
-   
+  async function SignOut(event) {
+    event.preventDefault();
     sessionStorage.clear()
   
-}
+  }
 
   useEffect(() => {
     async function loadSpots() {
