@@ -20,7 +20,7 @@ function Feed({history}) {
   const [TwitterUrl, setTwitterUrl] = useState('')
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
-  const [about, setAbout] = useState('')
+  const [bio, setBio] = useState('')
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -33,11 +33,11 @@ function Feed({history}) {
 
         data.append('avatar', avatar)
         data.append('FacebookUrl', FacebookUrl)
-        data.append('Instagram s3Url', InstagramUrl)
+        data.append('InstagramUrl', InstagramUrl)
         data.append('TwitterUrl', TwitterUrl)
         data.append('YouTubeUrl', YouTubeUrl)
         data.append('GithubUrl', GithubUrl)
-        data.append('about', about)
+        data.append('bio', bio)
        
        const response = await api.post('/profile', data)
 
@@ -128,8 +128,8 @@ function Feed({history}) {
                     className="form-control" 
                     rows={4} name="text" 
                     placeholder="Começar Biografia" 
-                    value={about}
-                    onChange={event => setAbout(event.target.value)}
+                    value={bio}
+                    onChange={event => setBio(event.target.value)}
                     />
                   </div>
                 </div>
