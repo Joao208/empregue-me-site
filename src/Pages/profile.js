@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useState}  from 'react';
+import React,{useState,useEffect}  from 'react';
 
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_l8 from '../img/l8.png'
 import img_l6 from '../img/l6.png'
