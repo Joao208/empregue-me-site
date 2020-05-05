@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React  from 'react';
+import React,{useState}  from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -33,6 +33,22 @@ import img_e2 from '../img/e2.png'
 
 
 function Feed() {
+
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+    async function loadSpots() {
+        const response = await api.get('/profileview')
+
+        setUser(response.data)
+
+        console.log(response)
+        console.log(typeof response.data)
+    }
+
+    loadSpots()
+}, [] )
+
   return (
 <>
 <div>
@@ -41,7 +57,7 @@ function Feed() {
   <meta name="description" content />
   <meta name="author" content />
   <link rel="icon" type="image/png" href="img/fav.png" />
-  <title>Osahanin - Job Portal &amp; Social Network HTML Template</title>
+  <title>Empregue.me Profile</title>
   {/* Slick Slider */}
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -86,143 +102,6 @@ function Feed() {
             </form>
           </div>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Jobs</span></a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="connection"><i className="feather-users mr-2" /><span className="d-none d-lg-inline">Connection</span></a>
-        </li>
-        <li className="nav-item dropdown mr-2">
-          <a className="nav-link dropdown-toggle pr-0"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-file-text mr-2" /><span className="d-none d-lg-inline">Pages</span>
-          </a>
-          {/* Dropdown - User Information */}
-         </li>
-        <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
-          <a className="nav-link dropdown-toggle"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-message-square" />
-            {/* Counter - Alerts */}
-            <span className="badge badge-danger badge-counter">8</span>
-          </a>
-          {/* Dropdown - Alerts */}
-          <div className="dropdown-list dropdown-menu dropdown-menu-right shadow-sm">
-            <h6 className="dropdown-header">
-              Message Center
-            </h6>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p1} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="font-weight-bold overflow-hidden">
-                <div className="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                <div className="small text-gray-500">Emily Fowler · 58m</div>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p2} />
-                <div className="status-indicator" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                <div className="small text-gray-500">Jae Chun · 1d</div>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p3} />
-                <div className="status-indicator bg-warning" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                <div className="small text-gray-500">Morgan Alvarez · 2d</div>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="messages">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p4} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                <div className="small text-gray-500">Chicken the Dog · 2w</div>
-              </div>
-            </a>
-            <a className="dropdown-item text-center small text-gray-500" href="messages">Read More Messages</a>
-          </div>
-        </li>
-        <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
-          <a className="nav-link dropdown-toggle"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-bell" />
-            {/* Counter - Alerts */}
-            <span className="badge badge-info badge-counter">6</span>
-          </a>
-          {/* Dropdown - Alerts */}
-          <div className="dropdown-list dropdown-menu dropdown-menu-right shadow-sm">
-            <h6 className="dropdown-header">
-              Alerts Center
-            </h6>
-            <a className="dropdown-item d-flex align-items-center" href="notifications">
-              <div className="mr-3">
-                <div className="icon-circle bg-primary">
-                  <i className="feather-download-cloud text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 12, 2019</div>
-                <span className="font-weight-bold">A new monthly report is ready to download!</span>
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="notifications">
-              <div className="mr-3">
-                <div className="icon-circle bg-success">
-                  <i className="feather-edit text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 7, 2019</div>
-                $290.29 has been deposited into your account!
-              </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="notifications">
-              <div className="mr-3">
-                <div className="icon-circle bg-warning">
-                  <i className="feather-folder text-white" />
-                </div>
-              </div>
-              <div>
-                <div className="small text-gray-500">December 2, 2019</div>
-                Spending Alert: We've noticed unusually high spending for your account.
-              </div>
-            </a>
-            <a className="dropdown-item text-center small text-gray-500" href="notifications">Show All Alerts</a>
-          </div>
-        </li>
-        {/* Nav Item - User Information */}
-        <li className="nav-item dropdown no-arrow ml-1 osahan-profile-dropdown">
-          <a className="nav-link dropdown-toggle pr-0"  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img className="img-profile rounded-circle" src={img_p13} />
-          </a>
-          {/* Dropdown - User Information */}
-          <div className="dropdown-menu dropdown-menu-right shadow-sm">
-            <div className="p-3 d-flex align-items-center">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_user} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="font-weight-bold">
-                <div className="text-truncate">Gurdeep Osahan</div>
-                <div className="small text-gray-500">UI/UX Designer</div>
-              </div>
-            </div>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="profile"><i className="feather-edit mr-1" /> My Account</a>
-            <a className="dropdown-item" href="edit-profile"><i className="feather-user mr-1" /> Edit Profile</a>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="sign-in"><i className="feather-log-out mr-1" /> Logout</a>
-          </div>
-        </li>
       </ul>
     </div>
   </nav>
@@ -237,18 +116,8 @@ function Feed() {
               <h5 className="font-weight-bold text-dark mb-1 mt-4">Gurdeep Osahan</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
-            <div className="d-flex">
-              <div className="col-6 border-right p-3">
-                <h6 className="font-weight-bold text-dark mb-1">358</h6>
-                <p className="mb-0 text-black-50 small">Connections</p>
-              </div>
-              <div className="col-6 p-3">
-                <h6 className="font-weight-bold text-dark mb-1">85</h6>
-                <p className="mb-0 text-black-50 small">Views</p>
-              </div>
-            </div>
             <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" href="sign-in"> Log Out </a>
+              <a className="font-weight-bold p-3 d-block" > Sair </a>
             </div>
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
