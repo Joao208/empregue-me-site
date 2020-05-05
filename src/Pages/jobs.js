@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -15,6 +15,19 @@ import img_p3 from '../img/p3.png'
 import img_p4 from '../img/p4.png'
 
 function Feed() {
+
+  const [jobs, setJobs] = useState([])
+
+  useEffect(() => {
+    async function loadSpots() {
+        const response = await api.get('/vacancies')
+
+        setJobs(response.data)
+        console.log(response)
+    }
+
+    loadSpots()
+}, [] )
 
   return (
 <>
@@ -81,16 +94,6 @@ function Feed() {
                               <div className="small text-gray-500"><i className="feather-map-pin" /> India, Punjab</div>
                             </div>
                             <img className="img-fluid ml-auto" src={img_l1} />
-                          </div>
-                          <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                            <div className="overlap-rounded-circle">
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Sophia Lee" src={img_p1} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="John Doe" src={img_p2} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Julia Cox" src={img_p3} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Robert Cook" src={img_p4} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Sophia Lee" src={img_p5} />
-                            </div>
-                            <span className="font-weight-bold text-primary">18 connections</span>
                           </div>
                           <div className="p-3 job-item-footer">
                             <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
