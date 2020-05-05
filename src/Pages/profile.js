@@ -199,9 +199,10 @@ function Feed() {
             <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
             <div className="small text-gray-500">{post.createdAd}</div>
                 </div>
-                <img className="img-fluid ml-auto mb-auto" src={post.user.avatar ? post.user.avatar : img_l3} />
+                <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
               </div>
               <p className="mb-0">{post.Text.Text}</p>
+              <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
             </div>
             ))}
           </div>
