@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useMemo} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -12,33 +12,8 @@ import api from '../services/api'
 
 function Feed({history}) {
 
-  const [user, setUser] = useState('')
-  const [selectedFile, setSelectedFile] = useState()
-  const [preview, setPreview] = useState()
+  const [user, setUser] = useState([])
 
-  useEffect(() => {
-    if (!selectedFile) {
-        setPreview(undefined)
-        return
-    }
-
-    const objectUrl = URL.createObjectURL(selectedFile)
-    setPreview(objectUrl)
-
-    // free memory when ever this component is unmounted
-    return () => URL.revokeObjectURL(objectUrl)
-}, [selectedFile])
-
-const onSelectFile = e => {
-    if (!e.target.files || e.target.files.length === 0) {
-        setSelectedFile(undefined)
-        return
-    }
-
-    // I've kept this example simple by using the first image instead of multiple
-    setSelectedFile(e.target.files[0])
-}
-  
   const [avatar, setAvatar] = useState(null)
   const [FacebookUrl, setFacebookUrl] = useState('')
   const [InstagramUrl, setInstagramUrl] = useState('')
@@ -46,6 +21,10 @@ const onSelectFile = e => {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [about, setAbout] = useState('')
+
+  const preview = useMemo(() => {
+    return avatar ? URL.createObjectURL(avatar) : null
+  },[avatar])
 
   async function CreateProfile(event) {
     event.preventDefault();
@@ -109,29 +88,30 @@ const onSelectFile = e => {
       </a>
     </div>
   </nav>
-  <form onSubmit={CreateProfile} className="py-4">
+  <form onSubmit={CreateProfile} className="py-4" encType="multipart/form-data">
     <div className="container">
       <div className="row">
         {/* Main Content */}
         <aside className="col-md-4">
           <div className="mb-3 border rounded bg-white profile-box text-center w-10">
             <div className="p-4 d-flex align-items-center">
-   { selectedFile ? <img src={preview} className="img-fluid rounded-circle"  style={{height:'130px', width:'130px'}} alt="Responsive image" /> : <img src={img_p13} className="img-fluid rounded-circle"  alt="Responsive image" />  }
-              <div className="p-4">
-                <label data-toggle="tooltip" data-placement="top" data-original-title="Upload New Picture" className="btn btn-info m-0" htmlFor="fileAttachmentBtn">
+            <label
+                id="thumbnail"
+                style={{ backgroundImage: `url(${preview})`}}
+                className={avatar ? 'has-avatar' : ''}
+                >
                   <i className="feather-image" />
                   <input 
                   id="fileAttachmentBtn" 
-                  name="file-attachment" 
+                  name="file-attachment"                   
                   type="file" 
-                  value={avatar}
                   className="d-none"
-                  onChange={event => setAvatar(event.target.value)}
-                  />
-                </label>
+                  onChange={event => {
+                    setAvatar(event.target.files[0])}
+                 }/>
+                 </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
-            </div>
           </div>
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
@@ -289,6 +269,14 @@ const onSelectFile = e => {
         </main>
       </div>
     </div>
+    <ul>
+                { user.map(user => (
+                    <li key={user._id}>
+                        <strong>{user.company}</strong>
+                    </li>
+                ))
+                }
+            </ul>
   </form>
 </div>
 {/* Bootstrap core JavaScript */}
