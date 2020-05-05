@@ -40,7 +40,6 @@ function Feed() {
   const [curriculum, setCurriculum] = useState([])
 
   async function SignOut(event) {
-    event.preventDefault();
     sessionStorage.clear()
   
   }
@@ -118,16 +117,18 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
-          <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+          {profile.map(profile => (
+          <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img src={img_p13} className="img-fluid mt-2 rounded-circle" alt="Responsive image" />
-              <h5 className="font-weight-bold text-dark mb-1 mt-4">Gurdeep Osahan</h5>
+              <img src={profile.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" />
+          <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
             <form onSubmit={SignOut} className="overflow-hidden border-top">
-              <button className="font-weight-bold p-3 d-block" > Sair </button>
+              <button style={{textAlign:'center',width:'100%'}} className="font-weight-bold p-3 d-block" > Sair </button>
             </form>
           </div>
+          ))}
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Skills &amp; Endorsements</h6>
