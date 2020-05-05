@@ -125,7 +125,7 @@ function Feed() {
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
             <form onSubmit={SignOut} className="overflow-hidden border-top">
-              <button style={{textAlign:'center',width:'100%',backgroundColor:'white'}} className="font-weight-bold p-3 d-block" > Sair </button>
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue'}} className="font-weight-bold p-3 d-block" > Sair </button>
             </form>
           </div>
           ))}
@@ -180,14 +180,13 @@ function Feed() {
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">About You</h6>
+              <h6 className="m-0">Sobre você</h6>
             </div>
+            {profile.map(profile => (
             <div className="box-body p-3">
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-              </p>
-              <p className="mb-0">Find the most qualified people in the most unexpected places. Information for applicants to consider when applying for local positions. The largest community on the web to find and list jobs that aren't restricted by commutes or a specific location.
-              </p>
+              <p>{profile.user.bio}</p>
             </div>
+            ))}
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
