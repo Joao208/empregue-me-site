@@ -78,11 +78,11 @@ const onSelectFile = e => {
         setUser(response.data)
 
         console.log(response)
-        console.log(response.data)
+        console.log(typeof response.data)
     }
 
     loadSpots()
-})
+}, [] )
 
   return (
 <>
