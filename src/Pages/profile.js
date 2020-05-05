@@ -220,33 +220,6 @@ function Feed() {
               </p>
             </div>
           </div>
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Education</h6>
-            </div>
-            <div className="box-body p-3 border-bottom">
-              <div className="d-flex align-items-top job-item-header pb-2">
-                <div className="mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0">Stanford University</h6>
-                  <div className="text-truncate text-primary">Master’s programmes</div>
-                  <div className="small text-gray-500">Oct 2020 - Present (4 year 7 month) </div>
-                </div>
-                <img className="img-fluid ml-auto mb-auto" src={img_e1} />
-              </div>
-              <p className="mb-0">Find the most qualified people in the most unexpected places. Information for applicants to consider when applying for local positions.</p>
-            </div>
-            <div className="box-body p-3">
-              <div className="d-flex align-items-top job-item-header pb-2">
-                <div className="mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0">Harvard University</h6>
-                  <div className="text-truncate text-primary">Maths and science education</div>
-                  <div className="small text-gray-500">Oct 2020 - Present (4 year 7 month) </div>
-                </div>
-                <img className="img-fluid ml-auto mb-auto" src={img_e2} />
-              </div>
-              <p className="mb-0">Wualified people in the most unexpected places. Information for applicants to consider when applying for local positions.</p>
-            </div>
-          </div>
         </main>
         <aside className="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
