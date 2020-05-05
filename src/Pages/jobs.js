@@ -5,6 +5,7 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
 import img_l1 from '../img/l1.png'
