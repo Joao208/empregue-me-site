@@ -120,12 +120,12 @@ function Feed() {
           {profile.map(profile => (
           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img src={profile.user.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" />
-          <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.name}</h5>
+          <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
+          <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
             <form onSubmit={SignOut} className="overflow-hidden border-top">
-              <button style={{textAlign:'center',width:'100%'}} className="font-weight-bold p-3 d-block" > Sair </button>
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white'}} className="font-weight-bold p-3 d-block" > Sair </button>
             </form>
           </div>
           ))}
