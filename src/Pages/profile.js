@@ -35,16 +35,23 @@ import img_e2 from '../img/e2.png'
 
 function Feed() {
 
-  const [user, setUser] = useState([])
   const [post, setPost] = useState([])
+  const [profile, setProfile] = useState([])
+  const [curriculum, setCurriculum] = useState([])
+
+  SignOut = async() => {
+   
+    sessionStorage.clear()
+  
+}
 
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/profileview')
 
-        setUser(response.data)
-
-        console.log(response.data.post)
+        setPost(response.data.post)
+        setProfile(response.data.profile)
+        setCurriculum(response.data.curriculum)
     }
 
     loadSpots()
@@ -117,9 +124,9 @@ function Feed() {
               <h5 className="font-weight-bold text-dark mb-1 mt-4">Gurdeep Osahan</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
-            <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" > Sair </a>
-            </div>
+            <form onSubmit={SignOut} className="overflow-hidden border-top">
+              <button className="font-weight-bold p-3 d-block" > Sair </button>
+            </form>
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
