@@ -120,7 +120,7 @@ function Feed() {
           {profile.map(profile => (
           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img src={profile.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" />
+              <img src={profile.user.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" />
           <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
