@@ -197,7 +197,7 @@ function Feed() {
               <div className="d-flex align-items-top job-item-header pb-2">
                 <div className="mr-2">
             <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
-            <div className="small text-gray-500">{post.createdAt}</div>
+            <div className="small text-gray-500">{post.createdAd}</div>
                 </div>
                 <img className="img-fluid ml-auto mb-auto" src={post.user.avatar ? post.user.avatar : img_l3} />
               </div>
