@@ -26,9 +26,6 @@ function Feed({history}) {
 
 
 
-
-
-
   return (
 <>
 <div>
