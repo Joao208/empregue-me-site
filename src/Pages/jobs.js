@@ -87,10 +87,10 @@ function Feed() {
                   <div className="row">
                   {jobs.map(vacancies => (
                     <div key={vacancies._id} className="col-md-6">
-                      <a  href="job-profile">
+                      <a  onSubmit={() => this.history.push('/job-profile')}>
                         <div className="border job-item mb-3">
                           <div className="d-flex align-items-center p-3 job-item-header">
-                            <div className="overflow-hidden mr-2">
+                          <div className="overflow-hidden mr-2">
                 <h6 className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.text.title}</h6>
                               <div className="text-truncate text-primary">{vacancies.bussines.cnpjI.nome}</div>
                <div className="small text-gray-500"><a href={`https://www.google.com.br/maps/place/${vacancies.bussines.cnpjI.logradouro}`}><i className="feather-map-pin" />{vacancies.bussines.cnpjI.logradouro}</a></div>
