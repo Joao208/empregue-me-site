@@ -146,7 +146,7 @@ function Feed() {
             </div>
             <div className="p-3 border-top border-bottom">
               <h5 className="font-weight-bold text-dark mb-1 mt-0">details.bussines.nome</h5>
-            <a href={`https://www.google.com.br/maps/place/details.bussines.cnpjI.logradouro`}><p className="mb-0 text-muted">{details.bussines.cnpjI.logradouro}
+            <a href={`https://www.google.com.br/maps/place/details.bussines.cnpjI.logradouro`}><p className="mb-0 text-muted">iu
               </p></a>
             </div>
             <div className="p-3">
