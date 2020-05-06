@@ -24,10 +24,7 @@ function Feed({history}) {
     loadSpots()
 }, [] )
 
-async function profileJobs(id,event) {
-  event.preventDefault();
-  history.push('/job-profile',{id})
-}
+
 
 
 
@@ -99,7 +96,6 @@ async function profileJobs(id,event) {
                             </div>
                             <img className="img-fluid ml-auto" src={vacancies.avatar} />
                           </div>
-                          <form onSubmit={profileJobs(vacancies._id)}></form>
                           <div className="p-3 job-item-footer">
                 <small className="text-gray-500"><i className="feather-clock" />{vacancies.createdAt}</small>
                           </div>
