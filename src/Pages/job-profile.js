@@ -81,7 +81,7 @@ function Feed() {
               <h5 className="font-weight-bold text-dark mb-1 mt-0">{details.text.title}</h5>
               <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">{details.bussines.nome}</a> <i className="feather-map-pin" /> Data da postagem</p>
             </div>
-            <form onSubmit={} className="profile-right ml-auto">
+            <form className="profile-right ml-auto">
               <button type="button" className="btn btn-primary"> Me interessei pela vaga </button>
             </form>
           </div>
