@@ -30,6 +30,14 @@ function Feed() {
     loadSpots()
 }, [] )
 
+async function profileJobs(id,event) {
+  event.preventDefault();
+  history.push('/job-profile',{id})
+}
+
+
+
+
   return (
 <>
 <div>
@@ -92,11 +100,12 @@ function Feed() {
                           <div className="d-flex align-items-center p-3 job-item-header">
                           <div className="overflow-hidden mr-2">
                 <h6 className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.text.title}</h6>
-                              <form  onSubmit={() => this.history.push('/job-profile')} className="text-truncate text-primary"><button  onSubmit={() => this.history.push('/job-profile')}>{vacancies.bussines.cnpjI.nome}</button></form>
+                              <div className="text-truncate text-primary">{vacancies.bussines.cnpjI.nome}</div>
                <div className="small text-gray-500"><a href={`https://www.google.com.br/maps/place/${vacancies.bussines.cnpjI.logradouro}`}><i className="feather-map-pin" />{vacancies.bussines.cnpjI.logradouro}</a></div>
                             </div>
                             <img className="img-fluid ml-auto" src={vacancies.avatar} />
                           </div>
+                          <form onSubmit={profileJobs(vacancies._id)}></form>
                           <div className="p-3 job-item-footer">
                 <small className="text-gray-500"><i className="feather-clock" />{vacancies.createdAt}</small>
                           </div>
