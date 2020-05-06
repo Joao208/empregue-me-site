@@ -8,6 +8,7 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_ads1 from '../img/ads1.png'
