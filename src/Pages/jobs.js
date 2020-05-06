@@ -83,11 +83,11 @@ function Feed() {
             </form>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                {jobs.map(vacancies => (
-                <div key={vacancies._id} className="p-3 border-top">
+                <div className="p-3 border-top">
                   <div className="row">
                     <div className="col-md-6">
-                      <a href="job-profile">
+                    {jobs.map(vacancies => (
+                      <a key={vacancies._id} href="job-profile">
                         <div className="border job-item mb-3">
                           <div className="d-flex align-items-center p-3 job-item-header">
                             <div className="overflow-hidden mr-2">
@@ -102,10 +102,10 @@ function Feed() {
                           </div>
                         </div>
                       </a>
+                      ))}
                     </div>
                   </div>
                 </div>
-                ))}
               </div>
             </div>
           </div>
