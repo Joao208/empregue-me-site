@@ -7,15 +7,9 @@ import '../Main.css';
 
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
-import img_p5 from '../img/p5.png'
-import img_l1 from '../img/l1.png'
 import img_l3 from '../img/l3.png'
-import img_p1 from '../img/p1.png'
-import img_p2 from '../img/p2.png'
-import img_p3 from '../img/p3.png'
-import img_p4 from '../img/p4.png'
 
-function Feed() {
+function Feed({history}) {
 
   const [jobs, setJobs] = useState([])
 
