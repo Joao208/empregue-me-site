@@ -69,11 +69,11 @@ function Feed() {
       </form>
     </div>
   </nav>
-  {jobs.map(details => 
-  <div key={details._id} className="profile-cover text-center">
-    <img className="img-fluid" src={details.avatar ? details.avatar : img_job_profile} />
+  {jobs.map(vacancie => (
+  <div key={vacancie._id} className="profile-cover text-center">
+    <img className="img-fluid" src={vacancie.avatar ? vacancie.avatar : img_job_profile} />
   </div>
-  )}
+  ))}
   <div className="bg-white shadow-sm border-bottom">
     <div className="container">
       <div className="row">
