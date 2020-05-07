@@ -143,35 +143,37 @@ const lottieOptionserror = {
             <form onSubmit={handleSubmit} className="profile-right ml-auto">
             {
               !! button
-              && <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
+              && <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}>Gostei</button>
 
             }
             {
                 !! loading
               && <Lottie options={lottieOptions
-              } style={{height:'20%',width:'20%'}} 
-              height='40%'
-              width='40%'
+              } style={{height:'70%',width:'70%'}} 
+              height='70%'
+              width='70%'
+              className="btn btn-primary btn-block text-uppercase"
               />
               }
             {
                 !! completed 
                && <Lottie options={lottieOptionscompleted
-                } style={{height:'20%',width:'20%'}} 
-                height='40%'
-                width='40%'
+                } style={{height:'70%',width:'70%'}} 
+                height='70%'
+                width='70%'
+                className="btn btn-primary btn-block text-uppercase"
                 />
                
               }
                {
                 !! error 
                && <Lottie options={lottieOptionserror
-                } style={{height:'20%',width:'20%'}} 
-                height='40%'
-                width='40%'
+                } style={{height:'70%',width:'70%'}} 
+                height='70%'
+                width='70%'
+                className="btn btn-primary btn-block text-uppercase"
                 />
           }
-
             </form>
           </div>
         </div>
