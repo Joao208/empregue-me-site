@@ -149,8 +149,8 @@ const lottieOptionserror = {
             {
                 !! loading
               && <Lottie options={lottieOptions
-              } style={{height:'70%',width:'70%'}} 
-              height='70%'
+              } style={{height:'40%',width:'70%'}} 
+              height='40%'
               width='70%'
               className="btn btn-primary btn-block text-uppercase"
               />
@@ -158,8 +158,8 @@ const lottieOptionserror = {
             {
                 !! completed 
                && <Lottie options={lottieOptionscompleted
-                } style={{height:'70%',width:'70%'}} 
-                height='70%'
+                } style={{height:'40%',width:'70%'}} 
+                height='40%'
                 width='70%'
                 className="btn btn-primary btn-block text-uppercase"
                 />
@@ -168,8 +168,8 @@ const lottieOptionserror = {
                {
                 !! error 
                && <Lottie options={lottieOptionserror
-                } style={{height:'70%',width:'70%'}} 
-                height='70%'
+                } style={{height:'40%',width:'70%'}} 
+                height='40%'
                 width='70%'
                 className="btn btn-primary btn-block text-uppercase"
                 />
