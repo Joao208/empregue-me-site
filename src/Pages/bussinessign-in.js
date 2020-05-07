@@ -42,6 +42,12 @@ import React, {
        setError(e)
       }
     }
+    const lottieOptions = {
+      title:'loading',
+      loop:true,
+      autoplay:true,
+      animationData:loadinganimate
+    }
   
     return (
   <>

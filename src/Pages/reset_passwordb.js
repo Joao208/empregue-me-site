@@ -39,7 +39,13 @@ function Feed({history}) {
     }
     }
 
-
+    const lottieOptions = {
+      title:'loading',
+      loop:true,
+      autoplay:true,
+      animationData:loadinganimate
+    }
+  
   return (
 <>
 <div>

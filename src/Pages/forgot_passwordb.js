@@ -34,7 +34,13 @@ function Feed({history}) {
       setError(e)
     }
     }
-
+    const lottieOptions = {
+      title:'loading',
+      loop:true,
+      autoplay:true,
+      animationData:loadinganimate
+    }
+  
 
   return (
 <>
