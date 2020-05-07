@@ -154,7 +154,7 @@ const lottieOptionserror = {
                 height='40%'
                 width='40%'
                 />
-               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
+               : <p></p>
               }
                           {
                 error 
@@ -163,8 +163,8 @@ const lottieOptionserror = {
                 height='40%'
                 width='40%'
                 />
-               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>              
-              }
+               : <p></p> 
+               }
 
             </form>
           </div>
