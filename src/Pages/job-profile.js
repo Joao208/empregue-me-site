@@ -143,7 +143,7 @@ const lottieOptionserror = {
             <form onSubmit={handleSubmit} className="profile-right ml-auto">
             {
               !! button
-              && <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}>Gostei</button>
+              && <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}>Ingressar</button>
 
             }
             {
