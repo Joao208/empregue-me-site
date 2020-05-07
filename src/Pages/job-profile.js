@@ -32,6 +32,8 @@ function Feed() {
   const [loading,setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [error,setError] = useState(false)   
+  const [button,setButton] = useState(true)
+
 
   useEffect(() => {
     async function loadSpots() {
@@ -54,6 +56,7 @@ function Feed() {
 
 async function handleSubmit(event) {
   event.preventDefault();
+  setButton(false)
   setLoading(true)
   try{
   await api.post(`vacancies/5eb13e5ed5ee7930a89cd619/booking`)
@@ -125,7 +128,7 @@ const lottieOptionserror = {
     </div>
   </nav>
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{height:'300px',width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
+    <img className="img-fluid" style={{width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
   </div>
   
   <div className="bg-white shadow-sm border-bottom">
@@ -139,32 +142,35 @@ const lottieOptionserror = {
             </div>
             <form onSubmit={handleSubmit} className="profile-right ml-auto">
             {
-                loading
-              ? <Lottie options={lottieOptions
+              !! button
+              && <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
+
+            }
+            {
+                !! loading
+              && <Lottie options={lottieOptions
               } style={{height:'20%',width:'20%'}} 
               height='40%'
               width='40%'
               />
-              : <p></p>
               }
             {
-                completed 
-               ? <Lottie options={lottieOptionscompleted
+                !! completed 
+               && <Lottie options={lottieOptionscompleted
                 } style={{height:'20%',width:'20%'}} 
                 height='40%'
                 width='40%'
                 />
-               : <p></p>
+               
               }
-                          {
-                error 
-               ? <Lottie options={lottieOptionserror
+               {
+                !! error 
+               && <Lottie options={lottieOptionserror
                 } style={{height:'20%',width:'20%'}} 
                 height='40%'
                 width='40%'
                 />
-               : <p></p> 
-               }
+          }
 
             </form>
           </div>
