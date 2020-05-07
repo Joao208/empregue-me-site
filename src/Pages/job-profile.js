@@ -159,8 +159,8 @@ const lottieOptionserror = {
                 !! completed 
                && <Lottie options={lottieOptionscompleted
                 } 
-                height='30%'
-                width='50%'
+                height='100px'
+                width='100px'
                 className="btn btn-primary btn-block text-uppercase"
                 />
                
