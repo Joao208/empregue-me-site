@@ -150,8 +150,8 @@ const lottieOptionserror = {
                 !! loading
               && <Lottie options={lottieOptions
               }
-              height='40%'
-              width='40%'
+              height='100px'
+              width='100px'
               className="btn btn-primary btn-block text-uppercase"
               />
               }
@@ -169,8 +169,8 @@ const lottieOptionserror = {
                 !! error 
                && <Lottie options={lottieOptionserror
                 } 
-                height='40%'
-                width='40%'
+                height='100px'
+                width='100px'
                 className="btn btn-primary btn-block text-uppercase"
                 />
           }
