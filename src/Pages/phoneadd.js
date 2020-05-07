@@ -48,7 +48,7 @@ import React, {
           <div className="col-md-4 mx-auto">
             <div className="osahan-login py-4">
               <div className="text-center mb-4">
-                <img src={img_logo_svg} style={{height:'100%',width:'50%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
+                <img src={img_logo_svg} style={{height:'100%',width:'100%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
                 <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
                 <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
               </div>
