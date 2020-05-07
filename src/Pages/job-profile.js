@@ -26,8 +26,6 @@ function Feed() {
 
         setJobs(response.data)
         console.log(response)
-        console.log(response.data)
-        console.log(typeof response.data)
     }
 
     loadSpots()
@@ -71,6 +69,10 @@ function Feed() {
       </form>
     </div>
   </nav>
+  <div key={jobs._id} className="profile-cover text-center">
+    <img className="img-fluid" src={jobs.avatar ? jobs.avatar : img_job_profile} />
+  </div>
+  )}
   <div className="bg-white shadow-sm border-bottom">
     <div className="container">
       <div className="row">
