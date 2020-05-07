@@ -6,6 +6,8 @@ import '../inputcamera.css';
 import api from '../services/api'
 
 import img_logo_svg from '../img/logologin.png'
+import Lottie from 'react-lottie'
+import loadinganimate from '../loading.json'
 
 function Feed({history}) {
   
@@ -14,6 +16,9 @@ function Feed({history}) {
   const [cnpj, setCnpj] = useState('')
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error,setError] = useState('')
+
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -35,7 +40,8 @@ function Feed({history}) {
 
   async function SignUp(event) {
     event.preventDefault();
-
+    setLoading(true)
+    try{
       const response = await api.post('/bussinesregister', {
         cnpj,
         latitude,
@@ -52,6 +58,10 @@ function Feed({history}) {
 
       sessionStorage.setItem('token', token);
       history.push('/')
+    }catch(e){
+      setLoading(false)
+      setError(e)
+    }
 
   }
 
@@ -85,6 +95,9 @@ function Feed({history}) {
               <h5 className="font-weight-bold mt-3">Junte-se ao Empregue.me</h5>
               <p className="text-muted">Aproveite ao máximo sua vida profissional</p>
             </div>
+            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
+              Empresa já existente
+            </p>}
             <form onSubmit={SignUp}>
               <div className="form-row">
                 <div className="col">
@@ -133,7 +146,15 @@ function Feed({history}) {
               <div className="form-group">
                 <label className="mb-1">Você concorda com o Contrato de <a  href="">Usuario</a>, <a  href=""> Politica de Privacidade</a>, e <a  href="">Cookies</a>.</label>
               </div>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit"> Concordar e Participar </button>
+              {
+                loading
+              ? <Lottie options={lottieOptions
+              } style={{height:'20%',width:'20%'}} 
+              height='20%'
+              width='20%'
+              />
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
+              }
              <a className="btn btn-block text-uppercase" href="/sign-up"style={{backgroundColor:"#8838ca",color:"white"}} > Quero ser contratado </a> 
               <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">

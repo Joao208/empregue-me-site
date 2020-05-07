@@ -7,7 +7,9 @@ import React, {
   
   import img_logo_svg from '../img/logologin.png'
   import api from '../services/api'
-  
+  import Lottie from 'react-lottie'
+  import loadinganimate from '../loading.json'
+
   
   function Feed({
     history
@@ -15,16 +17,25 @@ import React, {
   
     const [phone, setPhone] = useState('')
     const [token, setToken] = useState('')
+    const [loading, setLoading] = useState(false)
+    const [error,setError] = useState('')
+  
 
     async function Confirm(event) {
       event.preventDefault();
+      setLoading(true)
+      try{
         const response = await api.post('/addphone', {
           phone,
           token
         });
         console.log(response)
         history.push('/')
-    }
+      }catch(e){
+        setLoading(false)
+        setError(e)
+      }
+      }
   
     return (
   <>
@@ -54,6 +65,10 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
                 <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
               </div>
+              { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
+              Número ou Token invalidos
+              </p>}
+
               <form onSubmit={Confirm}>
                 <div className="form-group">
                   <label className="mb-1">Número</label>
@@ -79,7 +94,15 @@ import React, {
                     />
                   </div>
                 </div>
-                <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={Confirm}> Adicionar </button>
+                {
+                loading
+              ? <Lottie options={lottieOptions
+              } style={{height:'20%',width:'20%'}} 
+              height='20%'
+              width='20%'
+              />
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={Confirm}> Confirmar Número </button>
+              }
                 <div className="py-3 d-flex align-item-center">
                 </div>
               </form>

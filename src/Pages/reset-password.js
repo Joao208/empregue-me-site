@@ -5,6 +5,8 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
+import Lottie from 'react-lottie'
+import loadinganimate from '../loading.json'
 
 
 
@@ -15,10 +17,13 @@ function Feed({history}) {
   const [email, setEmail] = useState('')
   const [token, setToken] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error,setError] = useState('')
 
   async function ForgotPass(event) {
     event.preventDefault();
-
+    setLoading(true)
+    try{
       const response = await api.post('/auth/reset_password', {
         email,
         token,
@@ -28,7 +33,11 @@ function Feed({history}) {
       console.log(response)
 
       history.push('/')
-  }
+    }catch(e){
+      setError(e)
+      setLoading(false)
+    }
+    }
 
 
   return (
@@ -59,6 +68,9 @@ function Feed({history}) {
               <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
               <p className="text-muted">Por favor insira seu email</p>
             </div>
+            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
+              Email ou Token incorretos
+            </p>}
             <form onSubmit={ForgotPass}>
               <div className="form-group">
                 <label className="mb-1">Email</label>
@@ -93,7 +105,15 @@ function Feed({history}) {
                 </div>
 
               </div>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit">Resetar senha</button>
+              {
+                loading
+              ? <Lottie options={lottieOptions
+              } style={{height:'20%',width:'20%'}} 
+              height='20%'
+              width='20%'
+              />
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={ForgotPasss}> Resetar senha </button>
+              }
               <div className="py-3 d-flex align-item-center">
                 <a href="sign-in">Logar</a>
                 <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Cadastrar</a></span>
