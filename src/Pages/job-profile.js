@@ -142,26 +142,28 @@ const lottieOptionserror = {
                 loading
               ? <Lottie options={lottieOptions
               } style={{height:'20%',width:'20%'}} 
-              height='20%'
-              width='20%'
+              height='40%'
+              width='40%'
               />
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
               }
             {
-               !! completed 
-               && <Lottie options={lottieOptionscompleted
+                completed 
+               ? <Lottie options={lottieOptionscompleted
                 } style={{height:'20%',width:'20%'}} 
-                height='20%'
-                width='20%'
-                />              
+                height='40%'
+                width='40%'
+                />
+               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
               }
                           {
-               !! error 
-               && <Lottie options={lottieOptionserror
+                error 
+               ? <Lottie options={lottieOptionserror
                 } style={{height:'20%',width:'20%'}} 
-                height='20%'
-                width='20%'
-                />              
+                height='40%'
+                width='40%'
+                />
+               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>              
               }
 
             </form>
