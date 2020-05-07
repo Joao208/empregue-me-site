@@ -118,7 +118,7 @@ function Feed({history}) {
               height='20%'
               width='20%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={ForgotPasss}> Resetar senha </button>
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={ForgotPass}> Resetar senha </button>
               }
               <div className="py-3 d-flex align-item-center">
                 <a href="sign-in">Logar</a>
