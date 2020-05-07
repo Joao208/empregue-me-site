@@ -158,7 +158,7 @@ function Feed() {
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="p-5">
-              <img src={img_clogo2} className="img-fluid"  alt="Responsive image" />
+              <img src={avatar ? avatar : img_clogo2} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
               <h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5>
