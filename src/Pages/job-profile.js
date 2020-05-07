@@ -125,7 +125,7 @@ const lottieOptionserror = {
     </div>
   </nav>
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{height:'100%',width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
+    <img className="img-fluid" style={{height:'50%',width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
   </div>
   
   <div className="bg-white shadow-sm border-bottom">
