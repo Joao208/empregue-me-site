@@ -78,7 +78,7 @@ function Feed({
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:15,textAlign:'center'}}>
+            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
               {error}
             </p>}
             <form onSubmit={SignIn}>
