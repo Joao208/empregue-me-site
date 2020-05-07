@@ -21,6 +21,14 @@ function Feed() {
 
   const [jobs, setJobs] = useState([])
   const [title, setTitle] = useState('')
+  const [description, setdescription] = useState('')
+  const [salary, setsalary] = useState('')
+  const [city, setcity] = useState('')
+  const [uf, setuf] = useState('')
+  const [avatar, setavatar] = useState('')
+  const [logradouro, setlogradouro] = useState('')
+  const [nome, setNome] = useState('')
+
 
   useEffect(() => {
     async function loadSpots() {
@@ -28,6 +36,13 @@ function Feed() {
 
         setJobs(response.data)
         setTitle(response.data.text.title)
+        setdescription(response.data.text.description)
+        setsalary(response.data.text.salary)
+        setcity(response.data.text.city)
+        setuf(response.data.text.uf)
+        setavatar(response.data.bussines.avatar)
+        setlogradouro(response.data.bussines.cnpjI.logradouro)
+        setNome(response.data.bussines.cnpjI.nome)
     }
 
     loadSpots()
@@ -82,7 +97,7 @@ function Feed() {
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
               <h5 className="font-weight-bold text-dark mb-1 mt-0">{title}</h5>
-              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">jobs.bussines.cnpjI.nome</a> <i className="feather-map-pin" /> Data da postagem</p>
+              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">{nome}</a></p>
             </div>
             <form className="profile-right ml-auto">
               <button type="button" className="btn btn-primary"> Me interessei pela vaga </button>
@@ -102,7 +117,7 @@ function Feed() {
               <h6 className="m-0">Visão eral da vaga</h6>
             </div>
             <div className="box-body p-3">
-              <p>jobs.text.description</p>
+              <p>{description}</p>
             </div>
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
@@ -119,7 +134,7 @@ function Feed() {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Salario</th>
-                    <td className="p-3">jobs.text.salary</td>
+                    <td className="p-3">{salary}</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Employment Type</th>
@@ -128,11 +143,11 @@ function Feed() {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Cidade</th>
-                    <td className="p-3">jobs.text.city</td>
+                    <td className="p-3">{city}</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Estado</th>
-                    <td className="p-3">jobs.text.uf</td>
+                    <td className="p-3">{uf}</td>
                   </tr>
 
                 </tbody>
@@ -146,8 +161,8 @@ function Feed() {
               <img src={img_clogo2} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">jobs.bussines.nome</h5>
-            <a href=""><p className="mb-0 text-muted">jobs.bussines.logradouro
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5>
+            <a href=""><p className="mb-0 text-muted">{logradouro}
               </p></a>  
             </div>
             <div className="p-3">
@@ -178,13 +193,6 @@ function Feed() {
       </div>
     </div>
   </div>
-  <AdSense.Google
-          client='ca-pub-7292810486004926'
-          slot='7806394673'
-          format='auto'
-          responsive='true'
-          layoutKey='-gw-1+2a-9x+5c'
-          />            
 
   {/* Bootstrap core JavaScript */}
   {/* slick Slider JS*/}
