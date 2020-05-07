@@ -79,7 +79,7 @@ function Feed({
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
             { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              {error}
+              Email ou Senha incorretos
             </p>}
             <form onSubmit={SignIn}>
               <div className="form-group">
