@@ -160,7 +160,7 @@ const lottieOptionserror = {
                && <Lottie options={lottieOptionscompleted
                 } 
                 height='100%'
-                width='10%'
+                width='50%'
                 className="btn btn-primary btn-block text-uppercase"
                 />
                
