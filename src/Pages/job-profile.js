@@ -125,7 +125,7 @@ const lottieOptionserror = {
     </div>
   </nav>
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{height:'50%',width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
+    <img className="img-fluid" style={{height:'300px',width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
   </div>
   
   <div className="bg-white shadow-sm border-bottom">
@@ -145,7 +145,7 @@ const lottieOptionserror = {
               height='40%'
               width='40%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
+              : <p></p>
               }
             {
                 completed 
