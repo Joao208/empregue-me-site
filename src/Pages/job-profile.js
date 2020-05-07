@@ -10,12 +10,13 @@ import '../Main.css';
 
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
-import img_ads1 from '../img/ads1.png'
+import Lottie from 'react-lottie'
+import loadinganimate from '../loading.json'
 import img_job_profile from '../img/job-profile.jpg'
 import img_clogo2 from '../img/clogo2.png'
 import api from '../services/api'
 import AdSense from 'react-adsense'
-
+import completedAnimate from '../completed.json'
 
 function Feed() {
 
@@ -28,7 +29,8 @@ function Feed() {
   const [avatar, setavatar] = useState('')
   const [logradouro, setlogradouro] = useState('')
   const [nome, setNome] = useState('')
-
+  const [loading,setLoading] = useState(false)
+  const [completed, setCompleted] = useState(false)
 
   useEffect(() => {
     async function loadSpots() {
@@ -49,6 +51,33 @@ function Feed() {
 }, [] )
 
 
+async function handleSubmit(event) {
+  event.preventDefault();
+  setLoading(true)
+  try{
+  await api.post(`/spots/5eb13e5ed5ee7930a89cd619/bookings`)
+
+  setLoading(false)
+  setCompleted(true)
+  }catch{
+    setLoading(false)
+  }
+
+}
+
+const lottieOptions = {
+  title:'loading',
+  loop:true,
+  autoplay:true,
+  animationData:loadinganimate
+}
+
+const lottieOptionscompleted = {
+  title:'loading',
+  loop:true,
+  autoplay:true,
+  animationData:completedAnimate
+}
 
   return (
 <>
@@ -99,8 +128,24 @@ function Feed() {
               <h5 className="font-weight-bold text-dark mb-1 mt-0">{title}</h5>
               <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">{nome}</a></p>
             </div>
-            <form className="profile-right ml-auto">
-              <button type="button" className="btn btn-primary"> Me interessei pela vaga </button>
+            <form onSubmit={handleSubmit} className="profile-right ml-auto">
+            {
+                loading
+              ? <Lottie options={lottieOptions
+              } style={{height:'20%',width:'20%'}} 
+              height='20%'
+              width='20%'
+              />
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}> Me interessei pela vaga </button>
+              }
+            {
+               !! completed 
+               && <Lottie options={lottieOptionscompleted
+                } style={{height:'20%',width:'20%'}} 
+                height='20%'
+                width='20%'
+                />              
+              }
             </form>
           </div>
         </div>
