@@ -80,7 +80,7 @@ function Feed() {
         <div className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">jobs.text.title</h5>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">{jobs.text.title}</h5>
               <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">jobs.bussines.cnpjI.nome</a> <i className="feather-map-pin" /> Data da postagem</p>
             </div>
             <form className="profile-right ml-auto">
@@ -172,7 +172,6 @@ function Feed() {
           <AdSense.Google
           client='ca-pub-7292810486004926'
           slot='7806394673'
-          style={{ display: 'block' }}
           format='auto'
           responsive='true'
           layoutKey='-gw-1+2a-9x+5c'
@@ -189,7 +188,6 @@ function Feed() {
   {/* slick Slider JS*/}
   {/* Custom scripts for all pages*/}
 </div>
-))}
 </>
   );
 }
