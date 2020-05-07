@@ -81,7 +81,7 @@ function Feed() {
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
               <h5 className="font-weight-bold text-dark mb-1 mt-0">jobs.text.title</h5>
-              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">{jobs.bussines.cnpjI.nome}</a> <i className="feather-map-pin" /> Data da postagem</p>
+              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">jobs.bussines.cnpjI.nome</a> <i className="feather-map-pin" /> Data da postagem</p>
             </div>
             <form className="profile-right ml-auto">
               <button type="button" className="btn btn-primary"> Me interessei pela vaga </button>
@@ -101,7 +101,7 @@ function Feed() {
               <h6 className="m-0">Visão eral da vaga</h6>
             </div>
             <div className="box-body p-3">
-              <p>{jobs.text.description}</p>
+              <p>jobs.text.description</p>
             </div>
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
@@ -118,7 +118,7 @@ function Feed() {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Salario</th>
-                    <td className="p-3">{jobs.text.salary}</td>
+                    <td className="p-3">jobs.text.salary</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Employment Type</th>
@@ -127,11 +127,11 @@ function Feed() {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Cidade</th>
-                    <td className="p-3">{jobs.text.city}</td>
+                    <td className="p-3">jobs.text.city</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Estado</th>
-                    <td className="p-3">{jobs.text.uf}</td>
+                    <td className="p-3">jobs.text.uf</td>
                   </tr>
 
                 </tbody>
@@ -142,11 +142,11 @@ function Feed() {
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="p-5">
-              <img src={ jobs.bussines.avatar ? jobs.bussines.avatar : img_clogo2} className="img-fluid"  alt="Responsive image" />
+              <img src={img_clogo2} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{jobs.bussines.nome}</h5>
-            <a href=""><p className="mb-0 text-muted">{jobs.bussines.logradouro}
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">jobs.bussines.nome</h5>
+            <a href=""><p className="mb-0 text-muted">jobs.bussines.logradouro
               </p></a>  
             </div>
             <div className="p-3">
