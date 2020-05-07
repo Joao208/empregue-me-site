@@ -170,13 +170,6 @@ function Feed() {
         </aside>
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-          <AdSense.Google
-          client='ca-pub-7292810486004926'
-          slot='7806394673'
-          format='auto'
-          responsive='true'
-          layoutKey='-gw-1+2a-9x+5c'
-          />            
               <div className="p-3">
               <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
             </div>
@@ -185,6 +178,14 @@ function Feed() {
       </div>
     </div>
   </div>
+  <AdSense.Google
+          client='ca-pub-7292810486004926'
+          slot='7806394673'
+          format='auto'
+          responsive='true'
+          layoutKey='-gw-1+2a-9x+5c'
+          />            
+
   {/* Bootstrap core JavaScript */}
   {/* slick Slider JS*/}
   {/* Custom scripts for all pages*/}
