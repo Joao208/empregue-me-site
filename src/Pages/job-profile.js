@@ -149,18 +149,18 @@ const lottieOptionserror = {
             {
                 !! loading
               && <Lottie options={lottieOptions
-              } style={{height:'40%',width:'70%'}} 
+              }
               height='40%'
-              width='70%'
+              width='40%'
               className="btn btn-primary btn-block text-uppercase"
               />
               }
             {
                 !! completed 
                && <Lottie options={lottieOptionscompleted
-                } style={{height:'40%',width:'70%'}} 
+                } 
                 height='40%'
-                width='70%'
+                width='40%'
                 className="btn btn-primary btn-block text-uppercase"
                 />
                
@@ -168,9 +168,9 @@ const lottieOptionserror = {
                {
                 !! error 
                && <Lottie options={lottieOptionserror
-                } style={{height:'40%',width:'70%'}} 
+                } 
                 height='40%'
-                width='70%'
+                width='40%'
                 className="btn btn-primary btn-block text-uppercase"
                 />
           }
@@ -266,10 +266,6 @@ const lottieOptionserror = {
       </div>
     </div>
   </div>
-
-  {/* Bootstrap core JavaScript */}
-  {/* slick Slider JS*/}
-  {/* Custom scripts for all pages*/}
 </div>
 </>
   );
