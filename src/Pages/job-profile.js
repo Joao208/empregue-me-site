@@ -14,6 +14,7 @@ import img_ads1 from '../img/ads1.png'
 import img_job_profile from '../img/job-profile.jpg'
 import img_clogo2 from '../img/clogo2.png'
 import api from '../services/api'
+import AdSense from 'react-adsense'
 
 
 function Feed() {
@@ -168,12 +169,15 @@ function Feed() {
         </aside>
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-            <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
-            <div className="p-3 border-bottom">
-              <h6 className="font-weight-bold text-gold">Anuncio</h6>
-              <p className="mb-0 text-muted">Deseja não ver mais anuncios ?</p>
-            </div>
-            <div className="p-3">
+          <AdSense.Google
+          client='ca-pub-7292810486004926'
+          slot='7806394673'
+          style={{ display: 'block' }}
+          format='auto'
+          responsive='true'
+          layoutKey='-gw-1+2a-9x+5c'
+          />            
+              <div className="p-3">
               <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
             </div>
           </div>
