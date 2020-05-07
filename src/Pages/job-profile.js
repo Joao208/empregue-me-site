@@ -15,8 +15,8 @@ import loadinganimate from '../loading.json'
 import img_job_profile from '../img/job-profile.jpg'
 import img_clogo2 from '../img/clogo2.png'
 import api from '../services/api'
-import AdSense from 'react-adsense'
 import completedAnimate from '../completed.json'
+import errorAnimate from '../error.json'
 
 function Feed() {
 
@@ -31,6 +31,7 @@ function Feed() {
   const [nome, setNome] = useState('')
   const [loading,setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
+  const [error,setError] = useState(false)   
 
   useEffect(() => {
     async function loadSpots() {
@@ -55,12 +56,13 @@ async function handleSubmit(event) {
   event.preventDefault();
   setLoading(true)
   try{
-  await api.post(`/spots/5eb13e5ed5ee7930a89cd619/bookings`)
+  await api.post(`vacancies/5eb13e5ed5ee7930a89cd619/booking`)
 
   setLoading(false)
   setCompleted(true)
   }catch{
     setLoading(false)
+    setError(true)
   }
 
 }
@@ -77,6 +79,13 @@ const lottieOptionscompleted = {
   loop:true,
   autoplay:true,
   animationData:completedAnimate
+}
+
+const lottieOptionserror = {
+  title:'loading',
+  loop:true,
+  autoplay:true,
+  animationData:errorAnimate
 }
 
   return (
@@ -146,6 +155,15 @@ const lottieOptionscompleted = {
                 width='20%'
                 />              
               }
+                          {
+               !! error 
+               && <Lottie options={lottieOptionserror
+                } style={{height:'20%',width:'20%'}} 
+                height='20%'
+                width='20%'
+                />              
+              }
+
             </form>
           </div>
         </div>
