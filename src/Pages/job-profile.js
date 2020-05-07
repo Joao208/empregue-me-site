@@ -20,13 +20,14 @@ import AdSense from 'react-adsense'
 function Feed() {
 
   const [jobs, setJobs] = useState([])
+  const [title, setTitle] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/vacancie/5eb13e5ed5ee7930a89cd619')
 
         setJobs(response.data)
-        const title = response.data.text.title
+        setTitle(response.data.text.title)
     }
 
     loadSpots()
