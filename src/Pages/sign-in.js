@@ -7,7 +7,8 @@ import '../global2.css';
 
 import img_logo_svg from '../img/logologin.png'
 import api from '../services/api'
-
+import Lottie from 'react-lottie'
+import loadinganimate from '../loading.json'
 
 function Feed({
   history
@@ -15,9 +16,14 @@ function Feed({
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error,setError] = useState('')
+
 
   async function SignIn(event) {
     event.preventDefault();
+    setLoading(true)
+    try{
       const response = await api.post('/auth/authenticate', {
         email,
         password
@@ -31,6 +37,17 @@ function Feed({
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       history.push('/')
+    }catch(e){
+      setLoading(false)
+      setError(e)
+    } 
+    }
+
+  const lottieOptions = {
+    title:'loading',
+    loop:true,
+    autoplay:true,
+    animationData:loadinganimate
   }
 
   return (
@@ -57,10 +74,13 @@ function Feed({
         <div className="col-md-4 mx-auto">
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
-              <img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}}/>
+              <img src={img_logo_svg} style={{height:'35%',width:'50%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
+            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:18}}>
+              error
+            </p>}
             <form onSubmit={SignIn}>
               <div className="form-group">
                 <label className="mb-1">Email</label>
@@ -88,7 +108,13 @@ function Feed({
                   />
                 </div>
               </div>
-              <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
+              {
+                loading
+              ? <Lottie options={
+               lottieOptions
+              }/>
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
+              }
               <a className="btn btn-block text-uppercase" href="/bussinessign-in"style={{backgroundColor:"#8838ca",color:"white"}} > Quero contratar </a> 
               <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">

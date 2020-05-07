@@ -1,14 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
-import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_ads1 from '../img/ads1.png'
@@ -36,7 +35,8 @@ function Feed() {
 
   return (
 <>
-<div >
+
+<div>
   <meta charSet="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content />
@@ -54,9 +54,8 @@ function Feed() {
   <link href="css/style.css" rel="stylesheet" />
   {/* Navigation */}
   <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
-  {jobs.map(details => (
-    <div key={details._id} className="container">
-      <a className="navbar-brand mr-2" href="index"><img src={details.avatar} />
+    <div className="container">
+      <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
       <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
@@ -69,21 +68,22 @@ function Feed() {
         </div>
       </form>
     </div>
-  ))}
   </nav>
-  <div className="profile-cover text-center">
-    <img className="img-fluid" src={img_job_profile} />
+  {jobs.map(details => (
+  <div key={details._id} className="profile-cover text-center">
+    <img className="img-fluid" src={details.avatar ? details.avatar : img_job_profile} />
   </div>
+  ))}
   <div className="bg-white shadow-sm border-bottom">
     <div className="container">
       <div className="row">
         <div className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">details.text.title</h5>
-              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">details.bussines.nome</a> <i className="feather-map-pin" /> Data da postagem</p>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">text</h5>
+              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">text</a> <i className="feather-map-pin" /> Data da postagem</p>
             </div>
-            <form className="profile-right ml-auto">
+            <form onSubmit={} className="profile-right ml-auto">
               <button type="button" className="btn btn-primary"> Me interessei pela vaga </button>
             </form>
           </div>
@@ -101,7 +101,7 @@ function Feed() {
               <h6 className="m-0">Visão eral da vaga</h6>
             </div>
             <div className="box-body p-3">
-              <p>details.text.description</p>
+              <p>text</p>
             </div>
           </div>
           <div className="box shadow-sm border rounded bg-white mb-3">
@@ -118,7 +118,7 @@ function Feed() {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Salario</th>
-                    <td className="p-3">details.text.salary</td>
+                    <td className="p-3">text</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Employment Type</th>
@@ -127,11 +127,11 @@ function Feed() {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Cidade</th>
-                    <td className="p-3">details.text.city</td>
+                    <td className="p-3">text</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Estado</th>
-                    <td className="p-3">details.text.uf</td>
+                    <td className="p-3">text</td>
                   </tr>
 
                 </tbody>
@@ -142,17 +142,17 @@ function Feed() {
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="p-5">
-              <img src={  img_clogo2} className="img-fluid"  alt="Responsive image" />
+              <img src={img_clogo2} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">details.bussines.nome</h5>
-            <a href={`https://www.google.com.br/maps/place/details.bussines.cnpjI.logradouro`}><p className="mb-0 text-muted">iu
-              </p></a>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">text</h5>
+            <a href=""><p className="mb-0 text-muted">text
+              </p></a>  
             </div>
             <div className="p-3">
               <div className="d-flex align-items-top mb-2">
                 <p className="mb-0 text-muted">Postado</p>
-                  <p className="font-weight-bold text-dark mb-0 mt-0 ml-auto">details.createdAt</p>
+                <p className="font-weight-bold text-dark mb-0 mt-0 ml-auto">Created at data</p>
               </div>
             </div>
           </div>
@@ -186,6 +186,7 @@ function Feed() {
   {/* slick Slider JS*/}
   {/* Custom scripts for all pages*/}
 </div>
+))}
 </>
   );
 }
