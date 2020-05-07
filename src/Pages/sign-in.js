@@ -74,12 +74,12 @@ function Feed({
         <div className="col-md-4 mx-auto">
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
-              <img src={img_logo_svg} style={{height:'35%',width:'50%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
+              <img src={img_logo_svg} style={{height:'100%',width:'50%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:18}}>
-              error
+            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:15,textAlign:'center'}}>
+              {error}
             </p>}
             <form onSubmit={SignIn}>
               <div className="form-group">
@@ -110,9 +110,11 @@ function Feed({
               </div>
               {
                 loading
-              ? <Lottie options={
-               lottieOptions
-              }/>
+              ? <Lottie options={lottieOptions
+              } style={{height:'20%',width:'20%'}} 
+              height='20%'
+              width='20%'
+              />
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
               }
               <a className="btn btn-block text-uppercase" href="/bussinessign-in"style={{backgroundColor:"#8838ca",color:"white"}} > Quero contratar </a> 

@@ -81,7 +81,7 @@ function Feed({history}) {
         <div className="col-md-4 mx-auto">
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
-              <a href="index"><img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}} /></a>
+              <img src={img_logo_svg} style={{height:'100%',width:'50%',alignContent:'center',alignItems:'center',justifyContent:'center'}} />
               <h5 className="font-weight-bold mt-3">Junte-se ao Empregue.me</h5>
               <p className="text-muted">Aproveite ao máximo sua vida profissional</p>
             </div>

@@ -56,7 +56,7 @@ import React, {
           <div className="col-md-4 mx-auto">
             <div className="osahan-login py-4">
               <div className="text-center mb-4">
-                <img src={img_logo_svg} style={{height:400,width:500,marginLeft:-70,marginTop:-180,marginBottom:-100}}/>
+                <img src={img_logo_svg} style={{height:'100%',width:'50%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
                 <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
                 <p className="text-muted">Não perca a sua próxima oportunidade de contratar funcionrios melhores. Entre para se manter atualizado sobre o seu mundo profissional.</p>
               </div>
