@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -12,8 +12,8 @@ import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_ads1 from '../img/ads1.png'
 import img_job_profile from '../img/job-profile.jpg'
- import img_clogo2 from '../img/clogo2.png'
-
+import img_clogo2 from '../img/clogo2.png'
+import api from '../services/api'
 
 
 function Feed() {
