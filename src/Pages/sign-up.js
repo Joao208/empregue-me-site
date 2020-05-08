@@ -17,7 +17,7 @@ function Feed({history}) {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState('')
+  const [error,setError] = useState(false)
 
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function Feed({history}) {
       history.push('/phone')
     }  catch(e){
       setLoading(false)
-      this.setError(e)
+      setError(e)
      }
    }
    const lottieOptions = {
