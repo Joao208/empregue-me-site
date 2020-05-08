@@ -155,8 +155,7 @@ function Feed() {
                   <h6 className="m-0">Publicaçoes</h6>
                 </div>
                 {post.map(post => (
-                  post
-                ? <div key={post._id} className="box-body p-3 border-bottom">
+                 <div key={post._id} className="box-body p-3 border-bottom">
                   <div className="d-flex align-items-top job-item-header pb-2">
                     <div className="mr-2">
                 <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
@@ -167,15 +166,9 @@ function Feed() {
                   <p className="mb-0">{post.Text.Text}</p>
                   <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
                 </div>
-                : <Lottie options={lottieOptions
-                }
-                height='100%'
-                width='100%'
-                />
                 ))}
                 {add.map(add => (
-                  add
-               ? <div key={add._id} className="box-body p-3 border-bottom">
+                <div key={add._id} className="box-body p-3 border-bottom">
                   <div className="d-flex align-items-top job-item-header pb-2">
                     <div className="mr-2">
                 <h6 className="font-weight-bold text-dark mb-0">{add.user.name}</h6>
@@ -186,11 +179,6 @@ function Feed() {
                   <p className="mb-0">{add.Text.Text}</p>
                   <img src={add.avatar} style={{width:'100%',height:'50%'}}/>
                 </div>
-                : <Lottie options={lottieOptions
-                }
-                height='100%'
-                width='100%'
-                />
                 ))}
               </div>
             </div>
