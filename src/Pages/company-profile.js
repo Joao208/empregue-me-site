@@ -13,6 +13,7 @@ import '../Main.css';
 import img_logo_svg from '../img/logo.png'
 import img_company from '../img/company-profile.jpg'
 import img_clogo from '../img/clogo.png'
+import api from '../services/api'
 
 function Feed() {
 
