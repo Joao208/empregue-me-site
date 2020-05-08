@@ -8,6 +8,7 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import Lottie from 'react-lottie'
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_l8 from '../img/l8.png'
@@ -31,6 +32,7 @@ import img_p4 from '../img/p4.png'
 import img_e1 from '../img/e1.png'
 import img_e2 from '../img/e2.png'
 
+import EmptyAnimation from '../empty.json'
 
 
 function Feed() {
@@ -41,9 +43,15 @@ function Feed() {
 
   async function SignOut(event) {
     sessionStorage.clear()
-  
   }
 
+  const lottieOptions = {
+    title:'loading',
+    loop:true,
+    autoplay:true,
+    animationData:EmptyAnimation
+  }
+  
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/profileview')
@@ -55,6 +63,7 @@ function Feed() {
 
     loadSpots()
 }, [] )
+
 
   return (
 <>
@@ -117,8 +126,9 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
-          {profile.map(profile => (
-          <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+         {profile.map(profile => (
+           profile
+          ? <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
           <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
           <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
@@ -128,6 +138,11 @@ function Feed() {
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue'}} className="font-weight-bold p-3 d-block" > Sair </button>
             </form>
           </div>
+          : <Lottie options={lottieOptions
+          } 
+          height='100%'
+          width='100%'
+          /> 
           ))}
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
@@ -193,7 +208,8 @@ function Feed() {
               <h6 className="m-0">Publicacões</h6>
             </div>
             {post.map(post => (
-            <div key={post._id} className="box-body p-3 border-bottom">
+              post
+            ? <div key={post._id} className="box-body p-3 border-bottom">
               <div className="d-flex align-items-top job-item-header pb-2">
                 <div className="mr-2">
             <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
@@ -204,6 +220,11 @@ function Feed() {
               <p className="mb-0">{post.Text.Text}</p>
               <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
             </div>
+            : <Lottie options={lottieOptions
+            }
+            height='100%'
+            width='100%'
+            />
             ))}
           </div>
         </main>

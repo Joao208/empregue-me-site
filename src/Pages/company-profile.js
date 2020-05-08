@@ -17,15 +17,18 @@ import api from '../services/api'
 
 function Feed() {
 
-  const [jobs, setJobs] = useState('')
+  const [avatar, setAvatar] = useState('')
+  const [nome, setNome] = useState('')
+  const [logradouro, setLogradouro] = useState('')
+  const [bio, setBio] = useState('')
+  const [ramo, setRamo] = useState('')
+  const [fundada, setFundada] = useState('')
+  const [especialidades, setEspecialidades] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/vacancie/5eb13e5ed5ee7930a89cd619')
 
-        console.log(response)
-        console.log(response.data)
-        console.log(typeof response.data)
     }
 
     loadSpots()
@@ -147,18 +150,6 @@ function Feed() {
               <div className="box shadow-sm border rounded bg-white mb-3">
                 <div className="box-title border-bottom p-3">
                   <h6 className="m-0">Localizacao</h6>
-                </div>
-                <div className="p-3">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="card overflow-hidden">
-                        <img src={`https://www.google.com/maps/search/?api=1&query=${47.5951518},${-122.3316393}`} width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
-                        <div className="card-body">
-                          <h6 className="card-title">Google</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
