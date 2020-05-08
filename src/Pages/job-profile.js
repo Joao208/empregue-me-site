@@ -33,7 +33,8 @@ function Feed() {
   const [completed, setCompleted] = useState(false)
   const [error,setError] = useState(false)   
   const [button,setButton] = useState(true)
-
+  const [cargo, setCargo] = useState('')
+  const [employment, setEmployment] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
@@ -48,6 +49,8 @@ function Feed() {
         setavatar(response.data.bussines.avatar)
         setlogradouro(response.data.bussines.cnpjI.logradouro)
         setNome(response.data.bussines.cnpjI.nome)
+        setCargo(response.data.cargo)
+        setEmployment(response.data.employment)
     }
 
     loadSpots()
@@ -202,7 +205,7 @@ const lottieOptionserror = {
                 <tbody>
                   <tr className="border-bottom">
                     <th className="p-3">Cargo</th>
-                    <td className="p-3">Cargo da vaga
+                    <td className="p-3">{cargo}
                     </td>
                   </tr>
                   <tr className="border-bottom">
@@ -211,7 +214,7 @@ const lottieOptionserror = {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Employment Type</th>
-                    <td className="p-3">Full-time
+                    <td className="p-3">{employment}
                     </td>
                   </tr>
                   <tr className="border-bottom">

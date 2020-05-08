@@ -17,18 +17,21 @@ import api from '../services/api'
 
 function Feed() {
 
-  const [avatar, setAvatar] = useState('')
-  const [nome, setNome] = useState('')
-  const [logradouro, setLogradouro] = useState('')
-  const [bio, setBio] = useState('')
-  const [ramo, setRamo] = useState('')
-  const [fundada, setFundada] = useState('')
-  const [especialidades, setEspecialidades] = useState('')
+  const [profile, setProfile] = useState([])
+  const [add, setAdd] = useState([])
+  const [post, setPost] = useState([])
+  const [vacancies, setVacancies] = useState([])
+  const [activity, setActivity] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
-        const response = await api.get('/vacancie/5eb13e5ed5ee7930a89cd619')
+        const response = await api.get('/profilebussinesv/5eb4e39e0143e03aa882e080')
 
+        setProfile(response.data.profile)
+        setAdd(response.data.add)
+        setPost(response.data.post)
+        setVacancies(response.data.vacancies)
+        setActivity(response.data.profile.bussines.cnpjI.atividade_principal)
     }
 
     loadSpots()
@@ -90,17 +93,19 @@ function Feed() {
   <div className="bg-white shadow-sm border-bottom">
     <div className="container">
       <div className="row">
-        <div className="col-md-12">
+        {profile.map(profile => (
+        <div key={profile._id} className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">Google <span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
-              <p className="mb-0 text-muted"> Internet | Mountain View, CA </p>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.cnpjI.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
+              <p className="mb-0 text-muted">{profile.bussines.cnpjI.logradouro}</p>
             </div>
             <div className="profile-right ml-auto">
-              <a href="#" className="btn btn-light mr-2"> <i className="feather-external-link" /> Visit website </a>
+              <a href={profile.bussines.site} className="btn btn-light mr-2"> <i className="feather-external-link" /> Visit website </a>
             </div>
           </div>
         </div>
+        ))}
       </div>
     </div>
   </div>
@@ -115,10 +120,12 @@ function Feed() {
                 <div className="box-title border-bottom p-3">
                   <h6 className="m-0">Sobre</h6>
                 </div>
-                <div className="box-body p-3">
-                  <p className="mb-0">Since our founding in 1998, Google has grown by leaps and bounds. From offering search in a single language we now offer dozens of products and services—including various forms of advertising and web applications for all kinds of tasks—in scores of languages. And starting from two computer science students in a university dorm room, we now have thousands of employees and offices around the world. A lot has changed since the first Google search engine appeared. But some things haven’t changed: our dedication to our users and our belief in the possibilities of the Internet itself.
+                {profile.map(profile => (
+                <div key={profile._id} className="box-body p-3">
+                  <p className="mb-0">{profile.bussines.bio}
                   </p>
                 </div>
+                ))}
               </div>
               <div className="box shadow-sm border rounded bg-white mb-3">
                 <div className="box-title border-bottom p-3">
@@ -127,70 +134,82 @@ function Feed() {
                 <div className="box-body">
                   <table className="table table-borderless mb-0">
                     <tbody>
-                      <tr className="border-bottom">
+                    {profile.map(profile => (
+                      <tr key={profile._id} className="border-bottom">
                         <th className="p-3">Website</th>
-                        <td className="p-3"><a href="#">www.google.com</a></td>
+                        <td className="p-3"><a href="#">{profile.bussines.site}</a></td>
                       </tr>
-                      <tr className="border-bottom">
+                      ))}
+                      {activity.map(activity => (
+                      <tr key={activity._id} className="border-bottom">
                         <th className="p-3">Ramo</th>
-                        <td className="p-3">Internet</td>
+                        <td className="p-3">{activity.text}</td>
                       </tr>
-                      <tr className="border-bottom">
-                        <th className="p-3">Fundada</th>
-                        <td className="p-3">1998</td>
-                      </tr>
-                      <tr>
-                        <th className="p-3">Especialidades</th>
-                        <td className="p-3">search, ads, mobile, android, online video, apps, machine learning, virtual reality, cloud, hardware, artificial intelligence, youtube, and software</td>
-                      </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
               </div>
               <div className="box shadow-sm border rounded bg-white mb-3">
                 <div className="box-title border-bottom p-3">
-                  <h6 className="m-0">Localizacao</h6>
+                  <h6 className="m-0">Publicaçoes</h6>
                 </div>
-              </div>
-            </div>
-            <div className="tab-pane fade" id="type" role="tabpanel" aria-labelledby="type-tab">
-              <div className="box shadow-sm border rounded bg-white mb-3">
-                <div className="box-title border-bottom p-3">
-                  <h6 className="m-0">Careers at Google</h6>
+                {post.map(post => (
+                  post
+                ? <div key={post._id} className="box-body p-3 border-bottom">
+                  <div className="d-flex align-items-top job-item-header pb-2">
+                    <div className="mr-2">
+                <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
+                <div className="small text-gray-500">{post.createdAt}</div>
+                    </div>
+                    <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
+                  </div>
+                  <p className="mb-0">{post.Text.Text}</p>
+                  <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
                 </div>
-                <div className="box-body p-3">
-                  <p>Google’s mission is to organize the world‘s information and make it universally accessible and useful.
-                  </p>
-                  <p className="mb-0">Since our founding in 1998, Google has grown by leaps and bounds. From offering search in a single language we now offer dozens of products and services—including various forms of advertising and web applications for all kinds of tasks—in scores of languages. And starting from two computer science students in a university dorm room, we now have thousands of employees and offices around the world. A lot has changed since the first Google search engine appeared. But some things haven’t changed: our dedication to our users and our belief in the possibilities of the Internet itself.
-                  </p>
+                : <Lottie options={lottieOptions
+                }
+                height='100%'
+                width='100%'
+                />
+                ))}
+                {add.map(add => (
+                  add
+               ? <div key={add._id} className="box-body p-3 border-bottom">
+                  <div className="d-flex align-items-top job-item-header pb-2">
+                    <div className="mr-2">
+                <h6 className="font-weight-bold text-dark mb-0">{add.user.name}</h6>
+                <div className="small text-gray-500">{add.createdAt}</div>
+                    </div>
+                    <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={add.user.avatar ? add.user.avatar : img_l3} />
+                  </div>
+                  <p className="mb-0">{add.Text.Text}</p>
+                  <img src={add.avatar} style={{width:'100%',height:'50%'}}/>
                 </div>
-              </div>
-              <div className="box shadow-sm border rounded bg-white mb-3">
-                <div className="box-title border-bottom p-3">
-                  <h6 className="m-0">Careers at Google</h6>
-                </div>
-                <div className="box-body p-3">
-                  <p>Google’s mission is to organize the world‘s information and make it universally accessible and useful.
-                  </p>
-                  <p className="mb-0">Since our founding in 1998, Google has grown by leaps and bounds. From offering search in a single language we now offer dozens of products and services—including various forms of advertising and web applications for all kinds of tasks—in scores of languages. And starting from two computer science students in a university dorm room, we now have thousands of employees and offices around the world. A lot has changed since the first Google search engine appeared. But some things haven’t changed: our dedication to our users and our belief in the possibilities of the Internet itself.
-                  </p>
-                </div>
+                : <Lottie options={lottieOptions
+                }
+                height='100%'
+                width='100%'
+                />
+                ))}
               </div>
             </div>
           </div>
         </main>
-        <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+        {profile.map(profile => (
+        <aside key={profile._id} className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="p-5">
-              <img src={img_clogo} className="img-fluid" alt="Responsive image" />
+              <img src={profile.bussines.avatar ? profile.bussines.avatar : img_clogo} className="img-fluid" alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
               <h6 className="font-weight-bold text-dark mb-1 mt-0">Visao geral</h6>
-              <p className="mb-0 text-muted">Google’s mission is to organize the world‘s information and make it universally accessible and useful.
+              <p className="mb-0 text-muted">{profile.bussines.bio}
               </p>
             </div>
           </div>
         </aside>
+        ))}
       </div>
     </div>
   </div>
