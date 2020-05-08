@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import reset_password from './Pages/reset-password'
 import Feed from './Pages/index';
-import Cooming_soon from './Pages/coming-soon'
 import company_profile from './Pages/company-profile'
 import contact from './Pages/contact'
 import edit_profile from './Pages/edit-profile'
@@ -39,7 +38,6 @@ export default function Routes() {
 <BrowserRouter>
 <Switch>
 <PrivateRoute path='/' exact component={Feed}   />
-<PrivateRoute path='/cooming_soon' component={Cooming_soon}/>
 <PrivateRoute path='/company-profile' component={company_profile}/>
 <PrivateRoute path='/contact' component={contact}/>
 <PrivateRoute path='/edit-profile' component={edit_profile}/>

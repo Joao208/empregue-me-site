@@ -18,7 +18,7 @@ import React, {
     const [phone, setPhone] = useState('')
     const [token, setToken] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState('')
+    const [error,setError] = useState([])
   
 
     async function Confirm(event) {

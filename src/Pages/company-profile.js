@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -15,6 +15,20 @@ import img_company from '../img/company-profile.jpg'
 import img_clogo from '../img/clogo.png'
 
 function Feed() {
+
+  const [jobs, setJobs] = useState('')
+
+  useEffect(() => {
+    async function loadSpots() {
+        const response = await api.get('/vacancie/5eb13e5ed5ee7930a89cd619')
+
+        console.log(response)
+        console.log(response.data)
+        console.log(typeof response.data)
+    }
+
+    loadSpots()
+}, [] )
 
 
   return (
@@ -137,7 +151,7 @@ function Feed() {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="card overflow-hidden">
-                        <img src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501889.172354371!2d73.15671299623955!3d31.003573085499198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd263103a38861!2sPunjab!5e0!3m2!1sen!2sin!4v1575738201305!5m2!1sen!2sin" width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
+                        <img src={`https://www.google.com/maps/search/?api=1&query=${47.5951518},${-122.3316393}`} width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
                         <div className="card-body">
                           <h6 className="card-title">Google</h6>
                         </div>
