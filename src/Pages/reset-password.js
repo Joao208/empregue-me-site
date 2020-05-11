@@ -10,7 +10,7 @@ import loadinganimate from '../loading.json'
 
 
 
-import img_logo_svg from '../img/logologin.jpg'
+import img_logo_svg from '../img/logologin.JPG'
 
 function Feed({history}) {
 
