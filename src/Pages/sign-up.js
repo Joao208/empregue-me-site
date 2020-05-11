@@ -7,7 +7,7 @@ import api from '../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 
-import img_logo_svg from '../img/logologin.png'
+import img_logo_svg from '../img/logologin.jpg'
 
 function Feed({history}) {
   

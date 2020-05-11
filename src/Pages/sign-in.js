@@ -5,7 +5,7 @@ import React, {
 
 import '../global2.css';
 
-import img_logo_svg from '../img/logologin.png'
+import img_logo_svg from '../img/logologin.jpg'
 import api from '../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'

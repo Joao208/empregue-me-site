@@ -8,7 +8,7 @@ import '../Main.css';
 
 
 
-import img_logo_svg from '../img/logologin.png'
+import img_logo_svg from '../img/logologin.jpg'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 
