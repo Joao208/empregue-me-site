@@ -50,6 +50,7 @@ function Feed() {
         const response = await api.get('/profileview')
 
         setProfile(response.data.profile)
+        console.log(response.data.profile)
     }
 
     loadSpots()
@@ -84,7 +85,7 @@ function Feed() {
       <ul className="navbar-nav ml-auto d-flex align-items-center">
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle" src={profile.user.avatar} /></a>
+        <a href="profile"><img className="rounded-circle"  style={{height:'130px',width:'130px'}} src={profile.user.avatar} /></a>
         <div className="status-indicator bg-success" />
       </div>
       ))}
