@@ -30,8 +30,8 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
-        console.log(response.data.profile)
-        console.log(typeof response.data.profile)
+        console.log(response.data.profile.bussines)
+        console.log(typeof response.data.profile.bussines)
         setActivity(response.data.profile)
     }
 
