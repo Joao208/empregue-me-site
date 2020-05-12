@@ -30,9 +30,9 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
-        console.log(response.data.profile.bussines)
-        console.log(typeof response.data.profile.bussines)
-        setActivity(response.data.profile.bussines.cnpjI.atividade_principal)
+        console.log(response.data.profile)
+        console.log(typeof response.data.profile)
+        setActivity(response.data.profile)
     }
 
     loadSpots()
