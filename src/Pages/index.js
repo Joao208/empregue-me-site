@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useMemo} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -42,7 +42,13 @@ import img_p4 from '../img/p4.png'
 import api from '../services/api'
 
 function Feed({history}) {
+
+  const preview = useMemo(() => {
+    return avatar ? URL.createObjectURL(avatar) : null
+  },[avatar])
+
  const [profile, setProfile] = useState([])
+ const [avatar, setAvatar] = useState(null)
 
   useEffect(() => {
     async function loadSpots() {
@@ -106,10 +112,11 @@ function Feed({history}) {
                 role="tab" 
                 aria-controls="home" 
                 aria-selected="true"
-                ><i className="feather-edit" /> Share</a>
+                ><i className="feather-edit" />Escrever</a>
               </li>
               <li className="nav-item">
-                <a 
+                <input
+                type="file"
                 className="nav-link" 
                 id="profile-tab" 
                 data-toggle="tab" 
@@ -117,7 +124,9 @@ function Feed({history}) {
                 role="tab" 
                 aria-controls="profile" 
                 aria-selected="false"
-                ><i className="feather-image" /> Upload a photo</a>
+                onChange={event => {
+                  setAvatar(event.target.files[0])}}
+                ><i className="feather-image" />Incluir Imagem</input>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -132,6 +141,12 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
+                  <label
+                  id="thumbnail"
+                  style={{ backgroundImage: `url(${preview})`}}
+                  className={avatar ? 'has-avatar' : ''}
+                  >
+                </label>
                 </div>
               </div>
               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
