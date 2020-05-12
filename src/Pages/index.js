@@ -292,7 +292,7 @@ function Feed() {
           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
               <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
-                <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.name}</h5>
+                <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
               <a href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
             </div>
