@@ -41,8 +41,7 @@ import img_p3 from '../img/p3.png'
 import img_p4 from '../img/p4.png'
 import api from '../services/api'
 
-function Feed() {
-
+function Feed({history}) {
  const [profile, setProfile] = useState([])
 
   useEffect(() => {
@@ -57,7 +56,6 @@ function Feed() {
 }, [] )
 
 
-
   return (
 <>
 <div>
@@ -70,7 +68,7 @@ function Feed() {
 
   <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
     <div className="container">
-      <a className="navbar-brand mr-2"  href="profile"><img src={img_logo_svg} />
+      <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
       </a>
       <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
@@ -112,10 +110,12 @@ function Feed() {
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3 d-flex align-items-center w-100"  href="profile">
-                  <div className="dropdown-list-image mr-3">
-                   <a href="profile"><img className="rounded-circle" src={img_user} /></a> 
+                  {profile.map(profile => (
+                  <div key={profile._id} className="dropdown-list-image mr-3">
+                   <a href="profile"><img className="rounded-circle" src={profile.user.avatar} /></a> 
                     <div className="status-indicator bg-success" />
                   </div>
+                  ))}
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
