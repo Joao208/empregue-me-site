@@ -287,27 +287,19 @@ function Feed() {
           </div>
         </main>
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
-          <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+          {profile.map(profile => (
+          <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img src={img_p13} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
-              <h5 className="font-weight-bold text-dark mb-1 mt-4">Gurdeep Osahan</h5>
+              <img src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
+                <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
               <a href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
-            </div>
-            <div className="d-flex">
-              <div className="col-6 border-right p-3">
-                <h6 className="font-weight-bold text-dark mb-1">358</h6>
-                <p className="mb-0 text-black-50 small">Connections</p>
-              </div>
-              <div className="col-6 p-3">
-                <h6 className="font-weight-bold text-dark mb-1">85</h6>
-                <p className="mb-0 text-black-50 small">Views</p>
-              </div>
             </div>
             <div className="overflow-hidden border-top">
               <a className="font-weight-bold p-3 d-block" href="profile" > View my profile </a>
             </div>
           </div>
+          ))}
           <div className="box mb-3 shadow-sm rounded bg-white view-box overflow-hidden">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Profile Views</h6>
