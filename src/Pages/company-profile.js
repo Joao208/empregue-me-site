@@ -30,7 +30,6 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
-        setVacancies(response.data.vacancies)
         console.log(response.data.profile.bussines.cnpjI.atividade_principal)
         console.log(typeof response.data.profile.bussines.cnpjI.atividade_principal)
         setActivity(response.data.profile.bussines.cnpjI.atividade_principal)
