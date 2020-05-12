@@ -21,7 +21,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const [vacancies, setVacancies] = useState([])
   const [activity, setActivity] = useState([])
 
   useEffect(() => {
@@ -32,6 +31,8 @@ function Feed() {
         setAdd(response.data.add)
         setPost(response.data.post)
         setVacancies(response.data.vacancies)
+        console.log(response.data.profile.bussines.cnpjI.atividade_principal)
+        console.log(typeof response.data.profile.bussines.cnpjI.atividade_principal)
         setActivity(response.data.profile.bussines.cnpjI.atividade_principal)
     }
 
@@ -88,9 +89,11 @@ function Feed() {
       </ul>
     </div>
   </nav>
+  {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" src={img_company} />
+    <img className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
   </div>
+  ))}
   <div className="bg-white shadow-sm border-bottom">
     <div className="container">
       <div className="row">
@@ -159,10 +162,10 @@ function Feed() {
                  <div key={post._id} className="box-body p-3 border-bottom">
                   <div className="d-flex align-items-top job-item-header pb-2">
                     <div className="mr-2">
-                <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
+                <h6 className="font-weight-bold text-dark mb-0">{post.bussines.name}</h6>
                 <div className="small text-gray-500">{post.createdAt}</div>
                     </div>
-                    <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
+                    <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.bussines.avatar ? post.bussines.avatar : img_l3} />
                   </div>
                   <p className="mb-0">{post.Text.Text}</p>
                   <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
@@ -172,10 +175,10 @@ function Feed() {
                 <div key={add._id} className="box-body p-3 border-bottom">
                   <div className="d-flex align-items-top job-item-header pb-2">
                     <div className="mr-2">
-                <h6 className="font-weight-bold text-dark mb-0">{add.user.name}</h6>
+                <h6 className="font-weight-bold text-dark mb-0">{add.bussines.name}</h6>
                 <div className="small text-gray-500">{add.createdAt}</div>
                     </div>
-                    <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={add.user.avatar ? add.user.avatar : img_l3} />
+                    <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={add.bussines.avatar ? add.bussines.avatar : img_l3} />
                   </div>
                   <p className="mb-0">{add.Text.Text}</p>
                   <img src={add.avatar} style={{width:'100%',height:'50%'}}/>
