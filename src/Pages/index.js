@@ -115,17 +115,21 @@ function Feed({history}) {
                 ><i className="feather-edit" />Escrever</a>
               </li>
             </ul>
-            <label className="nav-item">
-               <input
-                type="file"
-                id="fileAttachmentBtn" 
-                name="file-attachment"                   
-                className="d-none"
-                onChange={event => {
-                  setAvatar(event.target.files[0])}}
-                className="btn btn-primary btn-sm"
-                />
-              </label>
+            <label
+                id="thumbnail"
+                style={{ backgroundImage: `url(${preview})`}}
+                className={avatar ? 'has-avatar' : ''}
+                >
+                  <i className="feather-image" />
+                  <input 
+                  id="fileAttachmentBtn" 
+                  name="file-attachment"                   
+                  className="d-none"
+                  type="file" 
+                  onChange={event => {
+                    setAvatar(event.target.files[0])}
+                 }/>
+                 </label>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3 d-flex align-items-center w-100"  href="profile">
@@ -138,12 +142,6 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
-                  <label
-                  id="thumbnail"
-                  style={{ backgroundImage: `url(${preview})`}}
-                  className={avatar ? 'has-avatar' : ''}
-                  >
-                </label>
                 </div>
               </div>
               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
