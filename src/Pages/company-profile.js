@@ -30,8 +30,8 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
-        console.log(response.data.profile.bussines.cnpjI.atividade_principal)
-        console.log(typeof response.data.profile.bussines.cnpjI.atividade_principal)
+        console.log(response.data.profile.bussines)
+        console.log(typeof response.data.profile.bussines)
         setActivity(response.data.profile.bussines.cnpjI.atividade_principal)
     }
 
@@ -201,6 +201,14 @@ function Feed() {
           </div>
         </aside>
         ))}
+        <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
+          <div className="p-3">
+              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
+            </div>
+          </div>
+        </aside>
+
       </div>
     </div>
   </div>
