@@ -116,8 +116,8 @@ function Feed({history}) {
               </li>
             </ul>
             <label className="nav-item">
-               <i className="feather-image" />
                <input
+                type="file"
                 className="nav-link" 
                 id="profile-tab" 
                 data-toggle="tab" 
