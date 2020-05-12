@@ -2,9 +2,8 @@
 import React, {
   useState
 } from 'react';
-
 import '../global2.css';
-
+import {useAlert} from 'react-alert'
 import img_logo_svg from '../img/logologin.JPG'
 import api from '../services/api'
 import Lottie from 'react-lottie'
@@ -14,6 +13,7 @@ function Feed({
   history
 }) {
 
+  const Alert = useAlert
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -78,9 +78,7 @@ function Feed({
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Email ou Senha incorretos
-            </p>}
+            { !! error && <Alert severity="error">This is an error alert — check it out!</Alert>}
             <form onSubmit={SignIn}>
               <div className="form-group">
                 <label className="mb-1">Email</label>

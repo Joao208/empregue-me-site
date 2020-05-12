@@ -50,7 +50,7 @@ function Feed() {
   <meta name="description" content />
   <meta name="author" content />
   <link rel="icon" type="image/png" href={img_fav} />
-  <title>Osahanin - Job Portal &amp; Social Network HTML Template</title>
+  <title>Empregue.me</title>
 
   <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
     <div className="container">
@@ -67,71 +67,11 @@ function Feed() {
         </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
-        {/* Nav Item - Search Dropdown (Visible Only XS) */}
-        <li className="nav-item dropdown no-arrow d-sm-none">
-          <a className="nav-link dropdown-toggle"  href="profile" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-search mr-2" />
-          </a>
-          {/* Dropdown - Messages */}
-          <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-            <form className="form-inline mr-auto w-100 navbar-search">
-              <div className="input-group">
-                <input type="text" className="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div className="input-group-append">
-                  <button className="btn" type="button">
-                    <i className="feather-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="jobs" ><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="conection"><i className="feather-users mr-2" /><span className="d-none d-lg-inline">Conexões</span></a>
-        </li>
-        <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
-          <a className="nav-link dropdown-toggle"  href="messages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-message-square" />
-            {/* Counter - Alerts */}
-            <span className="badge badge-danger badge-counter">8</span>
-          </a>
-          {/* Dropdown - Alerts */}
-        </li>
-        <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
-          <a className="nav-link dropdown-toggle"  href="notification" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-bell" />
-            {/* Counter - Alerts */}
-            <span className="badge badge-info badge-counter">6</span>
-          </a>
-          {/* Dropdown - Alerts */}
-        </li>
-        {/* Nav Item - User Information */}
-        <li className="nav-item dropdown no-arrow ml-1 osahan-profile-dropdown">
-          <a className="nav-link dropdown-toggle pr-0"  href="profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img className="img-profile rounded-circle" src={img_p13} />
-          </a>
-          {/* Dropdown - User Information */}
-          <div className="dropdown-menu dropdown-menu-right shadow-sm">
-            <div className="p-3 d-flex align-items-center">
-              <div className="dropdown-list-image mr-3">
-                <a href="profile"><img className="rounded-circle" src={img_user} /></a>
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="font-weight-bold">
-                <div className="text-truncate">Gurdeep Osahan</div>
-                <div className="small text-gray-500">UI/UX Designer</div>
-              </div>
-            </div>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="profile" ><i className="feather-edit mr-1" /> My Account</a>
-            <a className="dropdown-item" href="edit-profile" ><i className="feather-user mr-1" /> Edit Profile</a>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="sign-in" ><i className="feather-log-out mr-1" /> Logout</a>
-          </div>
-        </li>
+      <div className="dropdown-list-image mr-3">
+        <a href="profile"><img className="rounded-circle" src={img_user} /></a>
+        <div className="status-indicator bg-success" />
+      </div>
+
       </ul>
     </div>
   </nav>
