@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -42,6 +42,20 @@ import img_p4 from '../img/p4.png'
 
 function Feed() {
 
+ const [profile, setProfile] = useState([])
+
+  useEffect(() => {
+    async function loadSpots() {
+        const response = await api.get('/profileview')
+
+        setProfile(response.data.profile)
+    }
+
+    loadSpots()
+}, [] )
+
+
+
   return (
 <>
 <div>
@@ -67,11 +81,12 @@ function Feed() {
         </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
-      <div className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle" src={img_user} /></a>
+        {profile.map(profile => (
+      <div key={profile._id} className="dropdown-list-image mr-3">
+        <a href="profile"><img className="rounded-circle" src={profile.user.avatar} /></a>
         <div className="status-indicator bg-success" />
       </div>
-
+      ))}
       </ul>
     </div>
   </nav>
