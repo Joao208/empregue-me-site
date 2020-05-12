@@ -141,12 +141,6 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
-                  <label
-                  id="thumbnail"
-                  style={{ backgroundImage: `url(${preview})`}}
-                  className={avatar ? 'has-avatar' : ''}
-                  >
-                </label>
                 </div>
               </div>
               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
