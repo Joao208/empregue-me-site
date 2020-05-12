@@ -144,7 +144,7 @@ function Feed() {
                       {activity.map(activity => (
                       <tr key={activity._id} className="border-bottom">
                         <th className="p-3">Ramo</th>
-                        <td className="p-3">{activity.bussines.cnpjI.atividade_principal.text}</td>
+                        <td className="p-3">{activity.bussines.ramo}</td>
                       </tr>
                       ))}
                     </tbody>
