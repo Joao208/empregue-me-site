@@ -26,7 +26,7 @@ function Feed() {
 
   useEffect(() => {
     async function loadSpots() {
-        const response = await api.get('/profilebussinesv/5eb4e39e0143e03aa882e080')
+        const response = await api.get('/profilebussinesv/5eb9f18e848e6f03bc1f75ee')
 
         setProfile(response.data.profile)
         setAdd(response.data.add)
