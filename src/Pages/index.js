@@ -118,13 +118,10 @@ function Feed({history}) {
             <label className="nav-item">
                <input
                 type="file"
-                className="nav-link" 
-                id="profile-tab" 
-                data-toggle="tab" 
-                role="tab" 
-                aria-controls="profile" 
-                aria-selected="false"
-                />Incluir Imagem
+                onChange={event => {
+                  setAvatar(event.target.files[0])}}
+                className="btn btn-primary btn-sm"
+                />
               </label>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
