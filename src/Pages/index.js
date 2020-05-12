@@ -115,8 +115,7 @@ function Feed({history}) {
                 ><i className="feather-edit" />Escrever</a>
               </li>
               <li className="nav-item">
-                <input
-                type="file"
+                <a
                 className="nav-link" 
                 id="profile-tab" 
                 data-toggle="tab" 
@@ -124,9 +123,7 @@ function Feed({history}) {
                 role="tab" 
                 aria-controls="profile" 
                 aria-selected="false"
-                onChange={event => {
-                  setAvatar(event.target.files[0])}}
-                ><i className="feather-image" />Incluir Imagem</input>
+                ><i className="feather-image" />Incluir Imagem</a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -141,6 +138,12 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
+                  <label
+                  id="thumbnail"
+                  style={{ backgroundImage: `url(${preview})`}}
+                  className={avatar ? 'has-avatar' : ''}
+                  >
+                </label>
                 </div>
               </div>
               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
