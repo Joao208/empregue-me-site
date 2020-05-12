@@ -114,17 +114,16 @@ function Feed({history}) {
                 aria-selected="true"
                 ><i className="feather-edit" />Escrever</a>
               </li>
-              <li className="nav-item">
-                <a
+              <label className="nav-item">
+                <input
                 className="nav-link" 
                 id="profile-tab" 
                 data-toggle="tab" 
-                href="profile" 
                 role="tab" 
                 aria-controls="profile" 
                 aria-selected="false"
-                ><i className="feather-image" />Incluir Imagem</a>
-              </li>
+                ><i className="feather-image" />Incluir Imagem</input>
+              </label>
             </ul>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
