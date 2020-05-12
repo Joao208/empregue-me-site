@@ -30,8 +30,6 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
-        console.log(response.data.profile.bussines)
-        console.log(typeof response.data.profile.bussines)
         setActivity(response.data.profile)
     }
 
@@ -146,7 +144,7 @@ function Feed() {
                       {activity.map(activity => (
                       <tr key={activity._id} className="border-bottom">
                         <th className="p-3">Ramo</th>
-                        <td className="p-3">{activity.text}</td>
+                        <td className="p-3">{activity.bussines.cnpjI.atividade_principal.text}</td>
                       </tr>
                       ))}
                     </tbody>
