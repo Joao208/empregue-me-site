@@ -124,7 +124,7 @@ function Feed({history}) {
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
-                  className="d-none"
+                  className="d-none btn btn-primary btn-sm"
                   type="file" 
                   onChange={event => {
                     setAvatar(event.target.files[0])}
