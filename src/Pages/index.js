@@ -39,6 +39,7 @@ import img_p1 from '../img/p1.png'
 import img_p2 from '../img/p2.png'
 import img_p3 from '../img/p3.png'
 import img_p4 from '../img/p4.png'
+import api from '../services/api'
 
 function Feed() {
 
