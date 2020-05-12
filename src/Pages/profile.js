@@ -52,7 +52,6 @@ function Feed() {
 
         setPost(response.data.post)
         setProfile(response.data.profile)
-        setCurriculum(response.data.curriculum)
     }
 
     loadSpots()
