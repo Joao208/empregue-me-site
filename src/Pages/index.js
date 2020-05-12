@@ -118,6 +118,9 @@ function Feed({history}) {
             <label className="nav-item">
                <input
                 type="file"
+                id="fileAttachmentBtn" 
+                name="file-attachment"                   
+                className="d-none"
                 onChange={event => {
                   setAvatar(event.target.files[0])}}
                 className="btn btn-primary btn-sm"
