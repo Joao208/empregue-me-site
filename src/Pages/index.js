@@ -98,13 +98,26 @@ function Feed({history}) {
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
             <ul className="nav nav-justified border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
-                <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i className="feather-edit" /> Share</a>
+                <a 
+                className="nav-link active" 
+                id="home-tab" 
+                data-toggle="tab" 
+                href="#home" 
+                role="tab" 
+                aria-controls="home" 
+                aria-selected="true"
+                ><i className="feather-edit" /> Share</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" id="profile-tab" data-toggle="tab" href="profile" role="tab" aria-controls="profile" aria-selected="false"><i className="feather-image" /> Upload a photo</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i className="feather-clipboard" /> Write an article</a>
+                <a 
+                className="nav-link" 
+                id="profile-tab" 
+                data-toggle="tab" 
+                href="profile" 
+                role="tab" 
+                aria-controls="profile" 
+                aria-selected="false"
+                ><i className="feather-image" /> Upload a photo</a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -135,8 +148,7 @@ function Feed({history}) {
             <div className="border-top p-3 d-flex align-items-center">
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
-                <button type="button" className="btn btn-light btn-sm">Preview</button>
-                <button type="button" className="btn btn-primary btn-sm">Post Status</button>
+                <button type="button" className="btn btn-primary btn-sm">Publicar</button>
               </div>
             </div>
           </div>
