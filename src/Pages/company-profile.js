@@ -183,14 +183,6 @@ function Feed() {
                 </div>
                 ))}
               </div>
-            <div className="p-3">
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="card overflow-hidden">
-                    <img src={`https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393`} width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
-                  </div>
-                </div>
-              </div></div>
             </div>
           </div>
         </main>
