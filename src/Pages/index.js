@@ -133,7 +133,6 @@ function Feed({history}) {
                   className={avatar ? 'has-avatar' : ''}
                   >
                  </label>
-
                 </div>
               </div>
               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -152,7 +151,7 @@ function Feed({history}) {
               <div className="flex-shrink-1">
                 <button type="button" className="btn btn-primary btn-sm">Publicar</button>
                 <label>
-                <i className="feather-image" />
+                <i className="feather-image" />Adicionar Imagem
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
