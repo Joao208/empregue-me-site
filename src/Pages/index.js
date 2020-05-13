@@ -115,21 +115,6 @@ function Feed({history}) {
                 ><i className="feather-edit" />Escrever</a>
               </li>
             </ul>
-            <label
-                id="thumbnail"
-                style={{ backgroundImage: `url(${preview})`}}
-                className={avatar ? 'has-avatar' : ''}
-                >
-                  <i className="feather-image" />
-                  <input 
-                  id="fileAttachmentBtn" 
-                  name="file-attachment"                   
-                  className="d-none btn btn-primary btn-sm"
-                  type="file" 
-                  onChange={event => {
-                    setAvatar(event.target.files[0])}
-                 }/>
-                 </label>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3 d-flex align-items-center w-100"  href="profile">
@@ -142,6 +127,13 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
+                  <label
+                  id="thumbnail"
+                  style={{ backgroundImage: `url(${preview})`}}
+                  className={avatar ? 'has-avatar' : ''}
+                  >
+                 </label>
+
                 </div>
               </div>
               <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -159,6 +151,17 @@ function Feed({history}) {
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
                 <button type="button" className="btn btn-primary btn-sm">Publicar</button>
+                <label>
+                <i className="feather-image" />
+                  <input 
+                  id="fileAttachmentBtn" 
+                  name="file-attachment"                   
+                  className="d-none btn btn-primary btn-sm"
+                  type="file" 
+                  onChange={event => {
+                    setAvatar(event.target.files[0])}
+                 }/>
+                </label>
               </div>
             </div>
           </div>
