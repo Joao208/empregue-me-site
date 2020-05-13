@@ -154,7 +154,8 @@ function Feed({history}) {
               Adicionar Imagem
                   <input 
                   id="fileAttachmentBtn" 
-                  name="file-attachment"                   
+                  name="file-attachment"  
+                  style={{margin:'2px'}}                 
                   className="d-none"
                   type="file" 
                   onChange={event => {
