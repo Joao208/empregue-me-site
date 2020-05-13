@@ -149,13 +149,13 @@ function Feed({history}) {
             <div className="border-top p-3 d-flex align-items-center">
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
-                <button type="button" className="btn btn-primary btn-sm">Publicar</button>
+                <button type="button">Publicar</button>
                 <label>
-                Adicionar Imagem
+              <button className="btn btn-primary btn-sm">Adicionar Imagem</button> 
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
-                  className=" btn btn-primary btn-sm"
+                  className="btn btn-primary btn-sm"
                   type="file" 
                   onChange={event => {
                     setAvatar(event.target.files[0])}
