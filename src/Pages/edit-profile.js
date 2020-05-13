@@ -96,7 +96,7 @@ function Feed({history}) {
           <div className="mb-3 border rounded bg-white profile-box text-center w-10">
             <div className="p-4 d-flex align-items-center">
             <label
-                id="thumbnail"
+                id="avatar"
                 style={{ backgroundImage: `url(${preview})`}}
                 className={avatar ? 'has-avatar' : ''}
                 >
