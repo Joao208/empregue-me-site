@@ -187,8 +187,7 @@ function Feed() {
               <div className="row">
                 <div className="col-md-6">
                   <div className="card overflow-hidden">
-                    <img src={`http://maps.googleapis.com/maps/api/staticmap?center=-22.912869,-43.2289638
-                    &zoom=15&markers=color:red|-22.909410,-43.2329548&size=250x250`} width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
+                    <img src={`https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393`} width="100%" height={150} frameBorder={0} style={{border: 0}} allowFullScreen />
                   </div>
                 </div>
               </div></div>
