@@ -31,7 +31,7 @@ function Feed() {
         setAdd(response.data.add)
         setPost(response.data.post)
         setActivity(response.data.profile)
-        console.log(response.data.profile.bussines)
+        console.log(response.data.profile)
     }
 
     loadSpots()
