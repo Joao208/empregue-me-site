@@ -149,9 +149,9 @@ function Feed({history}) {
             <div className="border-top p-3 d-flex align-items-center">
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
-                <button type="button">Publicar</button>
+                <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
                 <label>
-              <button className="btn btn-primary btn-sm">Adicionar Imagem</button> 
+              <button className="btn btn-primary btn-sm">Adicionar Imagem
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
@@ -160,6 +160,7 @@ function Feed({history}) {
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
+                 </button> 
                 </label>
               </div>
             </div>
