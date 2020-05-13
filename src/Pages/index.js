@@ -127,25 +127,15 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
-                  <label
+                </div>
+              </div>
+            </div>
+            <label
                   id="avatar"
                   style={{ backgroundImage: `url(${preview})`}}
                   className={avatar ? 'has-avatar' : ''}
                   >
                  </label>
-                </div>
-              </div>
-              <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div className="p-3 w-100">
-                  <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={3} defaultValue={""} />
-                </div>
-              </div>
-              <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                <div className="p-3 w-100">
-                  <textarea placeholder="Write an article..." className="form-control border-0 p-0 shadow-none" rows={3} defaultValue={""} />
-                </div>
-              </div>
-            </div>
             <div className="border-top p-3 d-flex align-items-center">
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
