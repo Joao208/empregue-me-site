@@ -155,7 +155,7 @@ function Feed({history}) {
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"  
-                  style={{margin:'2px'}}                 
+                  style={{marginRight:'2px'}}                 
                   className="d-none"
                   type="file" 
                   onChange={event => {
