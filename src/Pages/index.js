@@ -134,21 +134,21 @@ function Feed({history}) {
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
                 <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
-                <label              
-              id="avatar"
-              style={{ backgroundImage: `url(${preview})`}}
-              className={avatar ? 'has-avatar' : ''}
-              >
-              Adicionar Imagem
+                <label
+                id="avatar"
+                style={{ backgroundImage: `url(${preview})`}}
+                className={avatar ? 'has-avatar' : ''}
+                >
+                  <i className="feather-image" />
                   <input 
                   id="fileAttachmentBtn" 
-                  name="file-attachment"  
+                  name="file-attachment"                   
                   className="d-none"
                   type="file" 
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
-                </label>
+           </label>
               </div>
             </div>
           </div>
