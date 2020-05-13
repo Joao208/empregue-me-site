@@ -131,11 +131,11 @@ function Feed({history}) {
               </div>
             </div>
             <label
-                  id="avatar"
-                  style={{ backgroundImage: `url(${preview})`}}
-                  className={avatar ? 'has-avatar' : ''}
-                  >
-                 </label>
+              id="avatar"
+              style={{ backgroundImage: `url(${preview})`}}
+              className={avatar ? 'has-avatar' : ''}
+               >
+             </label>
             <div className="border-top p-3 d-flex align-items-center">
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
