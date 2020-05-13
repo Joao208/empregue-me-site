@@ -151,7 +151,7 @@ function Feed({history}) {
               <div className="flex-shrink-1">
                 <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
                 <label>
-              <button className="btn btn-primary btn-sm" style={{margin:'2px'}}>Adicionar Imagem
+              <button className="btn btn-primary btn-sm" style={{margin:'2px'}}>Adicionar Imagem</button>
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
@@ -160,7 +160,6 @@ function Feed({history}) {
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
-                 </button> 
                 </label>
               </div>
             </div>
