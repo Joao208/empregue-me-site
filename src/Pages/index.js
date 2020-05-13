@@ -14,6 +14,7 @@ import '../vendor/slick/slick-theme.min.css'
 import '../vendor/icons/feather.css'
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
+import '../inputcamera.css'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
@@ -127,7 +128,7 @@ function Feed({history}) {
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
                   <label
-                  id="thumbnail"
+                  id="avatar"
                   style={{ backgroundImage: `url(${preview})`}}
                   className={avatar ? 'has-avatar' : ''}
                   >
@@ -149,12 +150,11 @@ function Feed({history}) {
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
                 <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
-                <label>
+                <label style={{margin:'2px'}} className="btn btn-primary btn-sm"  >
               Adicionar Imagem
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"  
-                  style={{marginRight:'2px'}}                 
                   className="d-none"
                   type="file" 
                   onChange={event => {
