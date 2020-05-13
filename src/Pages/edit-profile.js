@@ -109,7 +109,7 @@ function Feed({history}) {
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
-                 </label>
+           </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>

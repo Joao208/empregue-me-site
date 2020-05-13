@@ -101,7 +101,7 @@ function Feed({history}) {
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-          <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
+          <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post" encType="multipart/form-data">
             <ul className="nav nav-justified border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
                 <a 
@@ -155,7 +155,7 @@ function Feed({history}) {
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
-                  className="d-none btn btn-primary btn-sm"
+                  className="d-none"
                   type="file" 
                   onChange={event => {
                     setAvatar(event.target.files[0])}
