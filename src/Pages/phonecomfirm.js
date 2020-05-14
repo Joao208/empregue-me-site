@@ -35,7 +35,7 @@ import React, {
           token
         });
         console.log(response)
-        history.push('/')
+        history.push('/edit-profile')
       }catch(e){
         setLoading(false)
         setError(e)
