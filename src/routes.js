@@ -24,30 +24,13 @@ import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 import error404 from './Pages/not-found'
 import curriculum from './Pages/curriculum'
-import authConfig from './auth.json'
-import jwt from 'jsonwebtoken'
+
 
 const PrivateRoute = props => {
-    const token = sessionStorage.getItem('token')
+    const isAuthenticated = !! sessionStorage.getItem('token') 
 
-    if(!token)
-    return <Redirect to="/sign-in"/>
-    
-    const parts = token.split(' ')
-
-    if(!parts.length === 2)
-    return <Redirect to="/sign-in"/>
-
-    const [scheme, tokend] = parts
-    
-    if (!/^Bearer$/i.test(scheme))
-    return <Redirect to="/sign-in"/>
-
-    jwt.verify(tokend, authConfig.secret, (err, decoded) => {
-        if(err) return <Redirect to="/sign-in"/>
-
-        return <Route {...props} />
-    } )
+        return isAuthenticated ? <Route {...props} />
+        : <Redirect to="/sign-in"/>
 }
 
 export default function Routes() {
