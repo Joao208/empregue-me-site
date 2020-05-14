@@ -482,7 +482,6 @@ function Feed({history}) {
               <h6 className="m-0">Curriculums
               </h6>
               <hr/>
-              <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp;  Criar curriculo &nbsp;&nbsp;&nbsp;&nbsp; </a>
             </div>           
           </div>
           <div className="border rounded bg-white mb-3">
@@ -494,7 +493,6 @@ function Feed({history}) {
                 Acompanhe com porcentagens seu profissionalismo e vocacao (Ainda em producao)
               </p>
               <hr/>
-              <a className="font-weight-bold btn btn-primary rounded p-3" href="/curriculum"> &nbsp;&nbsp;&nbsp;&nbsp; Fazer teste &nbsp;&nbsp;&nbsp;&nbsp; </a>
             </div>           
           </div>
           <div >
