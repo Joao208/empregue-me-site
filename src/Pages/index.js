@@ -35,7 +35,7 @@ import img_p12 from '../img/p12.png'
 import img_l3 from '../img/l3.png'
 import img_ads1 from '../img/ads1.png'
 import img_fav from '../img/fav.png'
-import img_user from '../img/user.png'
+import camera from '../img/camera.svg'
 import img_p1 from '../img/p1.png'
 import img_p2 from '../img/p2.png'
 import img_p3 from '../img/p3.png'
@@ -138,17 +138,12 @@ function Feed({history}) {
                 id="avatar"
                 style={{ backgroundImage: `url(${preview})`}}
                 className={avatar ? 'has-avatar' : ''}
-                >
-                  <i className="feather-image" />
-                  <input 
-                  id="fileAttachmentBtn" 
-                  name="file-attachment"                   
-                  className="d-none"
-                  type="file" 
-                  onChange={event => {
+                 >
+                <input type="file" onChange={event => {
                     setAvatar(event.target.files[0])}
-                 }/>
-           </label>
+                }/>
+                <img src={camera} alt="Enviar imagem" />
+              </label>
               </div>
             </div>
           </div>
