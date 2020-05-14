@@ -37,13 +37,13 @@ const PrivateRoute = props => {
     if(!parts.length === 2)
     return <Redirect to="/sign-in"/>
 
-    const [scheme, token] = parts
+    const [scheme, tokend] = parts
     
     if (!/^Bearer$/i.test(scheme))
     return <Redirect to="/sign-in"/>
 
-    jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if(err) return res.status(401).send({error:'Token invalid'})
+    jwt.verify(tokend, authConfig.secret, (err, decoded) => {
+        if(err) return <Redirect to="/sign-in"/>
 
         req.userId = decoded.id;
         return <Route {...props} />

@@ -17,10 +17,13 @@ function Feed({
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState('')
-
+  const [fill, setFill] = useState(false)
 
   async function SignIn(event) {
-    event.preventDefault();
+    event.preventDefault()
+    if (!email || !password) {
+      return setFill(true)
+    }
     setLoading(true)
     try{
       const response = await api.post('/auth/authenticate', {
@@ -77,8 +80,8 @@ function Feed({
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Email ou Senha incorretos
+            { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
+              Preencha todos os dados
             </p>}
             <form onSubmit={SignIn}>
               <div className="form-group">
