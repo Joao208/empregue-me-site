@@ -127,6 +127,16 @@ function Feed({history}) {
                   <div className="w-100">
                     <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                   </div>
+                  <label
+                  id="avatar"
+                  style={{ backgroundImage: `url(${preview})`}}
+                  className={avatar ? 'has-avatar' : ''}
+                  >
+                  <input type="file" onChange={event => {
+                      setAvatar(event.target.files[0])}
+                  }/>
+                  <img src={camera} alt="Enviar imagem" />
+                </label>
                 </div>
               </div>
             </div>
@@ -134,16 +144,6 @@ function Feed({history}) {
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
                 <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
-                <label
-                id="avatar"
-                style={{ backgroundImage: `url(${preview})`}}
-                className={avatar ? 'has-avatar' : ''}
-                 >
-                <input type="file" onChange={event => {
-                    setAvatar(event.target.files[0])}
-                }/>
-                <img src={camera} alt="Enviar imagem" />
-              </label>
               </div>
             </div>
           </div>
