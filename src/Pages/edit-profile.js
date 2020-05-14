@@ -1,11 +1,9 @@
 import React,{useState,useEffect,useMemo} from 'react';
-import {toast} from 'react-toastify'
 
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
-import {Container,Button} from '../toatsfy'
 
 import img_logo_svg from '../img/logo.png'
 import imguser from '../img/user.png'
@@ -52,7 +50,6 @@ function Feed({history}) {
 
         history.push('/profile')
     }catch{
-      toast.error('Ops !! Algum erro tente novamente');
     }
   }
   useEffect(() => {
@@ -68,7 +65,6 @@ function Feed({history}) {
 
     loadSpots()
   }catch{
-    toast.error('Parece que você não esta logado, vamos redireciona-lo')
     history.push('/sign-in')
   }
 }, [] )
@@ -500,7 +496,7 @@ function Feed({history}) {
           <div >
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <button className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;  Criar perfil &nbsp;&nbsp;&nbsp;&nbsp; </button>
+            <button className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;Salvar perfil &nbsp;&nbsp;&nbsp;&nbsp; </button>
           </div>
           </div>
         </main>
