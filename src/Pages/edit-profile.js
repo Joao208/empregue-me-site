@@ -54,9 +54,6 @@ function Feed({history}) {
       toast.error('Ops !! Algum erro tente novamente');
     }
   }
-  function handleError() {
-    toast.error('Mensagem error');
-  }
   useEffect(() => {
     try{
     async function loadSpots() {
@@ -127,9 +124,6 @@ function Feed({history}) {
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>
-          <button type="button" onClick={handleError}>
-          Error
-        </button>
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Sobre</h6>
@@ -258,7 +252,7 @@ function Feed({history}) {
                 <div class="col-md-6 mb-3 mb-sm-6">
             <div>
               <label className="form-label">
-                Birth date
+                Data de Nascimento
                 <span className="text-danger">*</span>
               </label>
               <div className="row">
