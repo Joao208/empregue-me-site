@@ -23,6 +23,8 @@ function Feed({
 
   async function SignIn(event) {
     event.preventDefault()
+    setFill(false)
+    setError(false)
     if (!email || !password) {
       return setFill(true)
     }
