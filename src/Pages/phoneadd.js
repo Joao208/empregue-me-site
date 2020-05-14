@@ -17,7 +17,7 @@ import React, {
   
     const [phone, setPhone] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState([])
+    const [error,setError] = useState(false)
   
   
     async function PhoneAdd(event) {
