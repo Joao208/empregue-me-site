@@ -9,6 +9,7 @@ import img_logo_svg from '../img/logologin.JPG'
 import api from '../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
+import img403 from '../img/403error.svg'
 
 function Feed({
   history
