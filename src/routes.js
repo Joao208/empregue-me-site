@@ -46,7 +46,6 @@ const PrivateRoute = props => {
     jwt.verify(tokend, authConfig.secret, (err, decoded) => {
         if(err) return <Redirect to="/sign-in"/>
 
-        req.userId = decoded.id;
         return <Route {...props} />
     } )
 }
