@@ -202,160 +202,25 @@ function Feed() {
             </div>
             {post.map(post => (
               post
-            ? <div key={post._id} className="box-body p-3 border-bottom">
-              <div className="d-flex align-items-top job-item-header pb-2">
-                <div className="mr-2">
-            <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
-            <div className="small text-gray-500">{post.createdAt}</div>
-                </div>
-                <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
-              </div>
-              <p className="mb-0">{post.Text.Text}</p>
-              <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
-            </div>
-            : <Lottie options={lottieOptions
+            ?  <Lottie options={lottieOptions
             }
             height='100%'
             width='100%'
             />
+            : <div key="{post._id}" classname="box-body p-3 border-bottom">
+          <div classname="d-flex align-items-top job-item-header pb-2">
+            <div classname="mr-2">
+              <h6 classname="font-weight-bold text-dark mb-0">{'{'}post.user.name{'}'}</h6>
+              <div classname="small text-gray-500">{'{'}post.createdAt{'}'}</div>
+            </div>
+            <img classname="img-fluid ml-auto mb-auto" style={{{{borderradius: '30}}'}} src="{post.user.avatar" ? post.user.avatar : img_l3} />
+          </div>
+          <p classname="mb-0">{'{'}post.Text.Text{'}'}</p>
+          <img src="{post.avatar}" style={{{{width: '"100%",height:"50%"}}/'}} />
+        </div>
             ))}
           </div>
         </main>
-        <aside className="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Who viewed your profile</h6>
-            </div>
-            <div className="box-body p-3">
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p4} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Sophia Lee</div>
-                  <div className="small text-gray-500">@Harvard
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p9} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">John Doe</div>
-                  <div className="small text-gray-500">Traveler
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p10} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Julia Cox</div>
-                  <div className="small text-gray-500">Art Designer
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p11} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Robert Cook</div>
-                  <div className="small text-gray-500">@Photography
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p12} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Richard Bell</div>
-                  <div className="small text-gray-500">@Envato
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
-            <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
-            <div className="p-3 border-bottom">
-              <h6 className="font-weight-bold text-gold">Osahanin Premium</h6>
-              <p className="mb-0 text-muted">Grow &amp; nurture your network</p>
-            </div>
-            <div className="p-3">
-              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> ACTIVATE </button>
-            </div>
-          </div>
-          <a href="job-profile">
-            <div className="shadow-sm border rounded bg-white job-item mb-3">
-              <div className="d-flex align-items-center p-3 job-item-header">
-                <div className="overflow-hidden mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0 text-truncate">Product Director</h6>
-                  <div className="text-truncate text-primary">Spotify Inc.</div>
-                  <div className="small text-gray-500"><i className="feather-map-pin" /> India, Punjab</div>
-                </div>
-                <img className="img-fluid ml-auto" src={img_l3} />
-              </div>
-              <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                <div className="overlap-rounded-circle">
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p9}   data-original-title="Sophia Lee" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p10}   data-original-title="John Doe" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p11}   data-original-title="Julia Cox" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p10}   data-original-title="John Doe" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p11}   data-original-title="Julia Cox" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p12}   data-original-title="Robert Cook" />
-                </div>
-                <span className="font-weight-bold text-muted">18 connections</span>
-              </div>
-              <div className="p-3 job-item-footer">
-                <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
-              </div>
-            </div>
-          </a>
-          <a href="job-profile">
-            <div className="shadow-sm border rounded bg-white job-item mb-3">
-              <div className="d-flex align-items-center p-3 job-item-header">
-                <div className="overflow-hidden mr-2">
-                  <h6 className="font-weight-bold text-dark mb-0 text-truncate">.NET Developer</h6>
-                  <div className="text-truncate text-primary">Invision</div>
-                  <div className="small text-gray-500"><i className="feather-map-pin" /> London, UK
-                  </div>
-                </div>
-                <img className="img-fluid ml-auto" src={img_l4} />
-              </div>
-              <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                <div className="overlap-rounded-circle">
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p13}   data-original-title="Sophia Lee" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p1}   data-original-title="John Doe" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p2}   data-original-title="Julia Cox" />
-                  <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p3}   data-original-title="Robert Cook" />
-                </div>
-                <span className="font-weight-bold text-muted">18 connections</span>
-              </div>
-              <div className="p-3 job-item-footer">
-                <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
-              </div>
-            </div>
-          </a>
-        </aside>
       </div>
     </div>
   </div>
