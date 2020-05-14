@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useMemo} from 'react';
+import { useToasts } from 'react-toast-notifications'
 
 import '../global.css';
 import '../App.css';
@@ -11,8 +12,8 @@ import api from '../services/api'
 import '../inputcamera.css'
 
 
-function Feed({history}) {
-
+function Feed({history,content}) {
+  const { addToast } = useToasts()
   const [user, setUser] = useState([])
 
   const [avatar, setAvatar] = useState(null)
@@ -50,6 +51,7 @@ function Feed({history}) {
 
         history.push('/profile')
     }catch{
+      
     }
   }
   useEffect(() => {
@@ -151,6 +153,12 @@ function Feed({history}) {
               <p className="mb-0 mt-0 small">Adicione outros links ao seu perfil.
               </p>
             </div>
+            <Button onClick={() => addToast(content, {
+      appearance: 'error',
+      autoDismiss: true,
+    })}>
+      Add Toast
+    </Button>
             <div className="box-body">
               <div className="p-3 border-bottom">
                 <div className="position-relative icon-form-control mb-2">
