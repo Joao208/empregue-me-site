@@ -152,12 +152,12 @@ function Feed({history,content}) {
               <p className="mb-0 mt-0 small">Adicione outros links ao seu perfil.
               </p>
             </div>
-            <Button onClick={() => addToast(content, {
+            <button onClick={() => addToast(content, {
       appearance: 'error',
       autoDismiss: true,
     })}>
       Add Toast
-    </Button>
+    </button>
             <div className="box-body">
               <div className="p-3 border-bottom">
                 <div className="position-relative icon-form-control mb-2">
