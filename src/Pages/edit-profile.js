@@ -251,14 +251,21 @@ function Feed({history}) {
                   {/* End Input */}
                 </div>
                 <div class="col-md-6 mb-3 mb-sm-6">
+                <div>
+                  <label className="form-label">
+                    Data de nascimento
+                    <span className="text-danger">*</span>
+                  </label>
+                  <div className="row">
+                  </div>
              <div class="js-form-message">
                 <div class="form-group">
                    <select class="form-control custom-select" required="" data-msg="Please select month." data-error-class="u-has-error" data-success-class="u-has-success">
-                      <option value="">Select month</option>
+                      <option value="" selected="selected">Selecionar Mês</option>
                       <option value="birthMonthSelect1">January</option>
                       <option value="birthMonthSelect2">February</option>
                       <option value="birthMonthSelect3">March</option>
-                      <option value="birthMonthSelect4" selected="selected">April</option>
+                      <option value="birthMonthSelect4" >April</option>
                       <option value="birthMonthSelect5">May</option>
                       <option value="birthMonthSelect6">June</option>
                       <option value="birthMonthSelect7">July</option>
@@ -275,7 +282,7 @@ function Feed({history}) {
                 <div className="js-form-message">
                   <div className="form-group">
                     <select className="form-control custom-select" required data-msg="Please select date." data-error-class="u-has-error" data-success-class="u-has-success">
-                      <option value>Select date</option>
+                      <option value selected="selected">Data selecionada</option>
                       <option value="birthDateSelect1">1</option>
                       <option value="birthDateSelect2">2</option>
                       <option value="birthDateSelect3">3</option>
@@ -287,7 +294,7 @@ function Feed({history}) {
                       <option value="birthDateSelect9">9</option>
                       <option value="birthDateSelect10">10</option>
                       <option value="birthDateSelect11">11</option>
-                      <option value="birthDateSelect12" selected="selected">12</option>
+                      <option value="birthDateSelect12">12</option>
                       <option value="birthDateSelect13">13</option>
                       <option value="birthDateSelect14">14</option>
                       <option value="birthDateSelect15">15</option>
@@ -308,6 +315,18 @@ function Feed({history}) {
                       <option value="birthDateSelect30">30</option>
                       <option value="birthDateSelect31">31</option>
                     </select>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm-6 mb-2">
+                  <div className="js-form-message">
+                    <label id="phoneNumberLabel" className="form-label">
+                      Ano
+                      <span className="text-danger">*</span>
+                    </label>
+                    <div className="form-group">
+                      <input className="form-control" type="tel" name="phoneNumber" placeholder="Enter your phone number" aria-label="Enter your phone number" required aria-describedby="phoneNumberLabel" data-msg="Please enter a valid phone number" data-error-class="u-has-error" data-success-class="u-has-success" />
+                    </div>
                   </div>
                 </div>
               </div>
