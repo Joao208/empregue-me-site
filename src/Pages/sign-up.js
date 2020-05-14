@@ -110,12 +110,12 @@ function Feed({history}) {
             </div>
             {
               !! error && 
-              <Card style={{ width: '18rem',alignItems:'center',justifyContent:'center',alignContent:'center',marginLeft:'20px' }}>
+              <Card style={{ width: '18rem',alignItems:'center',justifyContent:'center',alignContent:'center',marginLeft:'40px' }}>
               <Card.Img variant="top" src={img403} />
               <Card.Body>
                 <Card.Title>Ops parece que aconteceu algum erro</Card.Title>
                 <Card.Text>
-                  Usuario ou senha incorretos
+                  Usuario já existente
                 </Card.Text>
               </Card.Body>
             </Card>
