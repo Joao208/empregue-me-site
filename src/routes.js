@@ -24,7 +24,8 @@ import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 import error404 from './Pages/not-found'
 import curriculum from './Pages/curriculum'
-
+import authConfig from './auth.json'
+import jwt from 'jsonwebtoken'
 
 const PrivateRoute = props => {
     const token = sessionStorage.getItem('token')
