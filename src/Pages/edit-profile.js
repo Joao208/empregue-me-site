@@ -128,7 +128,7 @@ function Feed({history}) {
                     <textarea 
                     className="form-control" 
                     rows={4} name="text" 
-                    placeholder="Começar Biografia" 
+                    placeholder="Nós do Empregue.me e as Empresas parceiras queremos saber mais de você, descreva aqui na bio..." 
                     value={bio}
                     onChange={event => setBio(event.target.value)}
                     />
@@ -216,7 +216,7 @@ function Feed({history}) {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="text" className="form-control" name="name" placeholder={user.name} aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="text"  readonly="true" className="form-control" name="name" placeholder={user.name} aria-label="Enter your name" required aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Exibido aos outros usúarios.</small>
                       </div>
                     </div>
@@ -232,7 +232,7 @@ function Feed({history}) {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input type="email" className="form-control" name="email" placeholder={user.email} aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input type="email" readonly="true" className="form-control" name="email" placeholder={user.email} aria-label="Enter your email address" required aria-describedby="emailLabel" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" />
                         <small className="form-text text-muted">Nunca compartilhe seu email com ninguém.</small>
                       </div>
                     </div>
