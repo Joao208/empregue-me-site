@@ -207,17 +207,17 @@ function Feed() {
             height='100%'
             width='100%'
             />
-            : <div key="{post._id}" classname="box-body p-3 border-bottom">
-          <div classname="d-flex align-items-top job-item-header pb-2">
-            <div classname="mr-2">
-              <h6 classname="font-weight-bold text-dark mb-0">{'{'}post.user.name{'}'}</h6>
-              <div classname="small text-gray-500">{'{'}post.createdAt{'}'}</div>
+            : <div key={post._id} className="box-body p-3 border-bottom">
+            <div className="d-flex align-items-top job-item-header pb-2">
+              <div className="mr-2">
+          <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
+          <div className="small text-gray-500">{post.createdAt}</div>
+              </div>
+              <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
             </div>
-            <img classname="img-fluid ml-auto mb-auto" style={{{{borderradius: '30}}'}} src="{post.user.avatar" ? post.user.avatar : img_l3} />
+            <p className="mb-0">{post.Text.Text}</p>
+            <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
           </div>
-          <p classname="mb-0">{'{'}post.Text.Text{'}'}</p>
-          <img src="{post.avatar}" style={{{{width: '"100%",height:"50%"}}/'}} />
-        </div>
             ))}
           </div>
         </main>
