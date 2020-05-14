@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useMemo} from 'react';
+import {toast} from 'react-toastify'
 
 import '../global.css';
 import '../App.css';
@@ -50,11 +51,12 @@ function Feed({history}) {
 
         history.push('/profile')
     }catch{
-
+      toast.error('Ops !! Algum erro tente novamente');
     }
   }
 
   useEffect(() => {
+    try{
     async function loadSpots() {
         const response = await api.get('/user')
 
@@ -65,6 +67,10 @@ function Feed({history}) {
     }
 
     loadSpots()
+  }catch{
+    toast.error('Parece que você não esta logado, vamos redireciona-lo')
+    history.push('/sign-in')
+  }
 }, [] )
 
   return (
