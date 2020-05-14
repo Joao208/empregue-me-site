@@ -2,12 +2,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
 
+import {Card} from 'react-bootstrap'
 import '../inputcamera.css';
 import api from '../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 
 import img_logo_svg from '../img/logologin.JPG'
+import img403 from '../img/403error.svg'
 
 function Feed({history}) {
   
@@ -18,6 +20,7 @@ function Feed({history}) {
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState(false)
+  const [fill, setFill] = useState(false)
 
 
   useEffect(() => {
@@ -40,6 +43,11 @@ function Feed({history}) {
 
   async function SignUp(event) {
     event.preventDefault();
+    setFill(false)
+    setError(false)
+    if (!email || !password || !name) {
+      return setFill(true)
+    }
     setLoading(true)
     try{
       const response = await api.post('/auth/userregister', {
@@ -100,8 +108,20 @@ function Feed({history}) {
               <h5 className="font-weight-bold mt-3">Junte-se ao Empregue.me</h5>
               <p className="text-muted">Aproveite ao máximo sua vida profissional</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Usuario ja existente
+            {
+              !! error && 
+              <Card style={{ width: '18rem',alignItems:'center',justifyContent:'center',alignContent:'center',marginLeft:'20px' }}>
+              <Card.Img variant="top" src={img403} />
+              <Card.Body>
+                <Card.Title>Ops parece que aconteceu algum erro</Card.Title>
+                <Card.Text>
+                  Usuario ou senha incorretos
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            }
+            { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
+              Preencha todos os dados
             </p>}
             <form onSubmit={SignUp}>
               <div className="form-row">
