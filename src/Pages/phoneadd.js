@@ -69,9 +69,9 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
                 <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
               </div>
-              { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Número invalido
-              </p>}
+              { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
+              Preencha todos os dados
+            </p>}
               <form onSubmit={PhoneAdd}>
                 <div className="form-group">
                   <label className="mb-1">Número</label>
