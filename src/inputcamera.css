@@ -1,4 +1,4 @@
-label#avatarUrl {
+label#avatar {
     margin-bottom: 20px;
     border: 1px dashed #DDD;
     background-size: cover;
@@ -9,14 +9,14 @@ label#avatarUrl {
     align-items: center;
 }
 
-label#avatarUrl input {
+label#avatar input {
     display: none;
 }
 
-label#avatarUrl.has-avatarUrl {
+label#avatar.has-avatar {
     border: 0;
 }
 
-label#avatarUrl.has-avatarUrl img {
+label#avatar.has-avatar img {
     display: none;
  }
