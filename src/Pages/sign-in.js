@@ -85,7 +85,7 @@ function Feed({
             {
               !! error && 
               <Card style={{ width: '18rem',alignItems:'center',justifyContent:'center',alignContent:'center' }}>
-              <Card.Img variant="top" src={img_logo_svg} />
+              <Card.Img variant="top" src={img403} />
               <Card.Body>
                 <Card.Title>Ops parece que aconteceu algum erro</Card.Title>
                 <Card.Text>
