@@ -17,11 +17,15 @@ import React, {
   
     const [phone, setPhone] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState(false)
+    const [fill, setFill] = useState(false)
   
   
     async function PhoneAdd(event) {
-      event.preventDefault();
+      event.preventDefault()
+      setFill(false)
+      if (!phone) {
+        return setFill(true)
+      }
       setLoading(true)
       try{
         const response = await api.post('/addphone', {
@@ -31,7 +35,6 @@ import React, {
         history.push('/phoneconfirm')
     }catch(e){
       setLoading(false)
-      setError(e)
     }
   }
   const lottieOptions = {
@@ -81,6 +84,9 @@ import React, {
                     className="form-control" 
                     id="email"
                     value={phone}
+                    placeholder="(12)12345-6789"
+                    type="tel"
+                    pattern="([0-9]{2})[0-9]{5}-[0-9]{4}"
                     onChange={event => setPhone(event.target.value)}
                     />
                   </div>

@@ -18,11 +18,16 @@ import React, {
     const [phone, setPhone] = useState('')
     const [token, setToken] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState([])
-  
+    const [error,setError] = useState(false)
+    const [fill, setFill] = useState(false)
+
 
     async function Confirm(event) {
       event.preventDefault();
+      setFill(false)
+      if (!phone || !token) {
+        return setFill(true)
+      }
       setLoading(true)
       try{
         const response = await api.post('/addphone', {
@@ -68,12 +73,14 @@ import React, {
             <div className="osahan-login py-4">
               <div className="text-center mb-4">
                 <img src={img_logo_svg} style={{height:'100%',width:'100%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
-                <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
-                <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
+                <h5 className="font-weight-bold mt-3">Confirme o número Adicionado</h5>
               </div>
-              { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Número ou Token invalidos
-              </p>}
+              { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
+              Preencha todos os dados
+             </p>}
+             { !! error && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
+              Token incorreto
+             </p>}
 
               <form onSubmit={Confirm}>
                 <div className="form-group">
@@ -84,6 +91,9 @@ import React, {
                     className="form-control" 
                     id="email"
                     value={phone}
+                    placeholder="(12)12345-6789"
+                    type="tel"
+                    pattern="([0-9]{2})[0-9]{5}-[0-9]{4}"
                     onChange={event => setPhone(event.target.value)}
                     />
                   </div>
