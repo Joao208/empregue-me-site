@@ -29,7 +29,7 @@ function Feed({history}) {
 
   async function CreateProfile(event) {
     event.preventDefault();
-
+    try{
     const data = new FormData()
 
         data.append('avatar', avatar)
@@ -49,6 +49,9 @@ function Feed({history}) {
        sessionStorage.getItem('profile_id', profile_id)
 
         history.push('/profile')
+    }catch{
+
+    }
   }
 
   useEffect(() => {
@@ -109,8 +112,10 @@ function Feed({history}) {
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
-                 <img src={imguser} style={{borderRadius:'30px'}} />
-           </label>
+                 { user.map(user => (
+                 <img src={user.avatar ? user.avatar : imguser } style={{borderRadius:'30px'}} />
+                 ))}    
+              </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>
