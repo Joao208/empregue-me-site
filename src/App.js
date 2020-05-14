@@ -9,7 +9,6 @@ function App() {
     <>
       <Routes/>
       <ToastContainer />
-      <GlobalStyle/>
     </>
 
     );
