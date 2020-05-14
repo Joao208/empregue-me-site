@@ -6,6 +6,7 @@ import '../Sidebar.css';
 import '../Main.css';
 
 import img_logo_svg from '../img/logo.png'
+import imguser from '../img/user.png'
 import api from '../services/api'
 import '../inputcamera.css'
 
@@ -100,7 +101,6 @@ function Feed({history}) {
                 style={{ backgroundImage: `url(${preview})`}}
                 className={avatar ? 'has-avatar' : ''}
                 >
-                  <i className="feather-image" />
                   <input 
                   id="fileAttachmentBtn" 
                   name="file-attachment"                   
@@ -109,6 +109,7 @@ function Feed({history}) {
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
+                 <img src={imguser} />
            </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
