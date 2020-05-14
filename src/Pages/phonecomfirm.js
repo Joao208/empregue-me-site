@@ -93,7 +93,7 @@ import React, {
                     value={phone}
                     placeholder="12123456789"
                     type="tel"
-                    pattern="[0-9]{9}"
+                    pattern="[0-9]{11}"
                     onChange={event => setPhone(event.target.value)}
                     />
                   </div>
