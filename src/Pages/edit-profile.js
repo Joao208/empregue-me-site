@@ -5,6 +5,7 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
+import {Container,Button} from '../toatsfy'
 
 import img_logo_svg from '../img/logo.png'
 import imguser from '../img/user.png'
@@ -74,6 +75,7 @@ function Feed({history}) {
 
   return (
 <>
+<Container>
 <div>
   <meta charSet="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -507,6 +509,7 @@ function Feed({history}) {
   </form>
 </div>
 {/* Bootstrap core JavaScript */}
+</Container>
 </>
   );
 }
