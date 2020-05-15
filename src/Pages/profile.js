@@ -137,43 +137,6 @@ function Feed() {
           width='100%'
           /> 
           ))}
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Skills &amp; Endorsements</h6>
-            </div>
-            <div className="box-body">
-              <div className="d-flex align-items-center osahan-post-header p-3 border-bottom people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_l4} />
-                </div>
-                <div className="font-weight-bold">
-                  <div className="text-truncate">Character Concept <span className="badge badge-dark ml-1">1</span></div>
-                  <div className="small text-muted"><span className="text-primary">You and 1 connection</span> have given endorsements for this skill
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header p-3 border-bottom people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_l8} />
-                </div>
-                <div className="font-weight-bold">
-                  <div className="text-truncate">Digital Painting <span className="badge badge-danger ml-1">6</span></div>
-                  <div className="small text-muted"><span className="text-primary">Ask</span> has given an endorsement for this skill
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header p-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_l5} />
-                </div>
-                <div className="font-weight-bold">
-                  <div className="text-truncate">Adobe Photoshop <span className="badge badge-info ml-1">3</span></div>
-                  <div className="small text-muted"><span className="text-primary">Julia Cox</span> has given an endorsement for this skill
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
@@ -202,22 +165,21 @@ function Feed() {
             </div>
             {post.map(post => (
               post
-            ?  <Lottie options={lottieOptions
-            }
+            ? <div key={post._id} className="box-body p-3 border-bottom">
+                <div className="d-flex align-items-top job-item-header pb-2">
+                <div className="mr-2">
+                <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
+                <div className="small text-gray-500">{post.createdAt}</div>
+                </div>
+                <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
+                </div>
+                <p className="mb-0">{post.Text.Text}</p>
+                <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
+              </div>
+            :  <Lottie options={lottieOptions}
             height='100%'
             width='100%'
             />
-            : <div key={post._id} className="box-body p-3 border-bottom">
-            <div className="d-flex align-items-top job-item-header pb-2">
-              <div className="mr-2">
-          <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
-          <div className="small text-gray-500">{post.createdAt}</div>
-              </div>
-              <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
-            </div>
-            <p className="mb-0">{post.Text.Text}</p>
-            <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
-          </div>
             ))}
           </div>
         </main>
