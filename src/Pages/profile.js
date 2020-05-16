@@ -115,7 +115,7 @@ function Feed() {
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
             <form onSubmit={SignOut} className="overflow-hidden border-top">
-              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue'}} className="font-weight-bold p-3 d-block" > Sair </button>
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
             </form>
           </div>
           : <Lottie options={lottieOptions
