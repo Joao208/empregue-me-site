@@ -40,6 +40,8 @@ function Feed() {
 
         setPost(response.data.post)
         setProfile(response.data.profile)
+        console.log(response)
+        console.log(response.data)
     }
 
     loadSpots()
@@ -111,9 +113,19 @@ function Feed() {
            profile
           ? <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-          <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
-          <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
+              <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
+              <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
+            </div>
+            <div className="d-flex">
+              <div className="col-6 border-right p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{profile.followersCount}</h6>
+                <p className="mb-0 text-black-50 small">Conexões</p>
+              </div>
+              <div className="col-6 p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{profile.followingCount}</h6>
+                <p className="mb-0 text-black-50 small">Seguindo</p>
+              </div>
             </div>
             <form onSubmit={SignOut} className="overflow-hidden border-top">
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
@@ -237,11 +249,11 @@ function Feed() {
                 </div>
                 <p className="mb-0">{postd.Text.Text}</p>
                 <img src={postd.avatar} style={{width:'100%',height:'50%'}}/>
-                <div class="p-3 border-bottom osahan-post-footer">
-                  <a href="#" class="mr-3 text-secondary"><i class="feather-heart text-danger"></i> 16</a>
-                  <a href="#" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</a>
-                  <a href="#" class="mr-3 text-secondary"><i class="feather-share-2"></i> 2</a>
-                   </div>
+                <div className="p-3 border-bottom osahan-post-footer">
+                  <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
+                  <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
+                  <a href="#" className="mr-3 text-secondary"><i className="feather-share-2" /> 2</a>
+                </div>
               </div>
             :  <Lottie options={lottieOptions}
             height='100%'
