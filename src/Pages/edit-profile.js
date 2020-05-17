@@ -21,7 +21,6 @@ function Feed({history}) {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
-  const [obrigation,setObrigationavatar] = useState(false)
   const [options, setOptions] = useState(false)
 
   const preview = useMemo(() => {
@@ -30,10 +29,8 @@ function Feed({history}) {
 
   async function CreateProfile(event) {
     event.preventDefault()
-    if(obrigation){
       if(!avatar) 
         return setOptions(true) 
-    }
     try{
     const data = new FormData()
 
@@ -62,8 +59,6 @@ function Feed({history}) {
     try{
     async function loadSpots() {
       const response = await api.get('/user')
-      if(response.data.avatar === null)
-       return setObrigationavatar(true)
 
         setUser(response.data)
 

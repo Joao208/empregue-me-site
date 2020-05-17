@@ -70,7 +70,7 @@ import React, {
               <div className="text-center mb-4">
                 <img src={img_logo_svg} style={{height:'100%',width:'100%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
                 <h5 className="font-weight-bold mt-3">Adicione um número de telefone</h5>
-                <p className="text-muted">Ou pule esta etapa clicando <a href="/">aqui</a>.</p>
+                <p className="text-muted">Ou pule esta etapa clicando <a href="/edit-profile">aqui</a>.</p>
               </div>
               { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
