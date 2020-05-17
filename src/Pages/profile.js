@@ -22,6 +22,7 @@ function Feed() {
 
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
+  const [data,setData] = useState('')
 
   async function SignOut(event) {
     sessionStorage.clear()
@@ -40,6 +41,7 @@ function Feed() {
 
         setPost(response.data.post)
         setProfile(response.data.profile)
+        setData(response.data)
         console.log(response)
         console.log(response.data)
     }
@@ -119,11 +121,11 @@ function Feed() {
             </div>
             <div className="d-flex">
               <div className="col-6 border-right p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{profile.followersCount}</h6>
+                <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
                 <p className="mb-0 text-black-50 small">Conexões</p>
               </div>
               <div className="col-6 p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{profile.followingCount}</h6>
+                <h6 className="font-weight-bold text-dark mb-1">{data.followingCount}</h6>
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
