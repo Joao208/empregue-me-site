@@ -207,7 +207,6 @@ function Feed() {
             </div>
           </div>
         </aside>
-
       </div>
     </div>
   </div>

@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
+import moment from 'moment'
 
 import '../global.css';
 import '../App.css';
@@ -134,6 +135,78 @@ function Feed() {
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+          <div className="box shadow-sm border rounded bg-white mb-3">
+            <div className="box-title border-bottom p-3">
+              <h6 className="m-0">Who viewed your profile</h6>
+            </div>
+            <div className="box-body p-3">
+              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
+                <div className="dropdown-list-image mr-3">
+                  <img className="rounded-circle" src="img/p4.png" alt />
+                  <div className="status-indicator bg-success" />
+                </div>
+                <div className="font-weight-bold mr-2">
+                  <div className="text-truncate">Sophia Lee</div>
+                  <div className="small text-gray-500">@Harvard
+                  </div>
+                </div>
+                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
+                </span>
+              </div>
+              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
+                <div className="dropdown-list-image mr-3">
+                  <img className="rounded-circle" src="img/p9.png" alt />
+                  <div className="status-indicator bg-success" />
+                </div>
+                <div className="font-weight-bold mr-2">
+                  <div className="text-truncate">John Doe</div>
+                  <div className="small text-gray-500">Traveler
+                  </div>
+                </div>
+                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
+                </span>
+              </div>
+              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
+                <div className="dropdown-list-image mr-3">
+                  <img className="rounded-circle" src="img/p10.png" alt />
+                  <div className="status-indicator bg-success" />
+                </div>
+                <div className="font-weight-bold mr-2">
+                  <div className="text-truncate">Julia Cox</div>
+                  <div className="small text-gray-500">Art Designer
+                  </div>
+                </div>
+                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
+                </span>
+              </div>
+              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
+                <div className="dropdown-list-image mr-3">
+                  <img className="rounded-circle" src="img/p11.png" alt />
+                  <div className="status-indicator bg-success" />
+                </div>
+                <div className="font-weight-bold mr-2">
+                  <div className="text-truncate">Robert Cook</div>
+                  <div className="small text-gray-500">@Photography
+                  </div>
+                </div>
+                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
+                </span>
+              </div>
+              <div className="d-flex align-items-center osahan-post-header people-list">
+                <div className="dropdown-list-image mr-3">
+                  <img className="rounded-circle" src="img/p12.png" alt />
+                  <div className="status-indicator bg-success" />
+                </div>
+                <div className="font-weight-bold mr-2">
+                  <div className="text-truncate">Richard Bell</div>
+                  <div className="small text-gray-500">@Envato
+                  </div>
+                </div>
+                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
+                </span>
+              </div>
+            </div>
+          </div>
         </aside>
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
@@ -150,18 +223,18 @@ function Feed() {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Publicacões</h6>
             </div>
-            {post.map(post => (
+            {post.map(postd => (
               post
-            ? <div key={post._id} className="box-body p-3 border-bottom">
+            ? <div key={postd._id} className="box-body p-3 border-bottom">
                 <div className="d-flex align-items-top job-item-header pb-2">
                 <div className="mr-2">
-                <h6 className="font-weight-bold text-dark mb-0">{post.user.name}</h6>
-                <div className="small text-gray-500">{post.createdAt}</div>
+                <h6 className="font-weight-bold text-dark mb-0">{postd.user.name}</h6>
+                <div className="small text-gray-500">{moment(postd.createdAt).fromNow()}</div>
                 </div>
-                <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={post.user.avatar ? post.user.avatar : img_l3} />
+                <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={postd.user.avatar ? postd.user.avatar : img_l3} />
                 </div>
-                <p className="mb-0">{post.Text.Text}</p>
-                <img src={post.avatar} style={{width:'100%',height:'50%'}}/>
+                <p className="mb-0">{postd.Text.Text}</p>
+                <img src={postd.avatar} style={{width:'100%',height:'50%'}}/>
               </div>
             :  <Lottie options={lottieOptions}
             height='100%'
@@ -169,6 +242,13 @@ function Feed() {
             />
             ))}
           </div>
+          <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
+          <div className="p-3">
+              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
+            </div>
+          </div>
+        </aside>
         </main>
       </div>
     </div>
