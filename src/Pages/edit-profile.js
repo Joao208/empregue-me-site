@@ -21,13 +21,19 @@ function Feed({history}) {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
+  const [obrigation,setObrigationavatar] = useState(false)
+  const [options, setOptions] = useState(false)
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
 
   async function CreateProfile(event) {
-    event.preventDefault();
+    event.preventDefault()
+    if(obrigation){
+      if(!avatar) 
+        return setOptions(true) 
+    }
     try{
     const data = new FormData()
 
@@ -55,7 +61,9 @@ function Feed({history}) {
   useEffect(() => {
     try{
     async function loadSpots() {
-        const response = await api.get('/user')
+      const response = await api.get('/user')
+      if(response.data.avatar === null)
+       return setObrigationavatar(true)
 
         setUser(response.data)
 
@@ -121,6 +129,18 @@ function Feed({history}) {
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>
+          { !! options
+          && <div>
+              <h6>Escolha um avatar para seu perfil</h6>
+                <hr/>
+                <img style={{height:'15%',width:'15%',borderRadius:20}} src="https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg" onChange={event => {
+                    setAvatar(event.target.files[0])}
+                 }/>
+                 <img style={{height:'15%',width:'15%',borderRadius:20}} src="https://static.vecteezy.com/system/resources/previews/000/635/337/non_2x/line-avatar-woman-head-with-hairstyle-vector.jpg" onChange={event => {
+                    setAvatar(event.target.files[0])}
+                 }/>
+             </div>
+          }
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Sobre</h6>
