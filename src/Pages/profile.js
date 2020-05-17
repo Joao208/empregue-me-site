@@ -135,6 +135,8 @@ function Feed() {
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+        </aside>
+        <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Who viewed your profile</h6>
@@ -207,7 +209,7 @@ function Feed() {
               </div>
             </div>
           </div>
-        </aside>
+          </aside>
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
@@ -235,6 +237,11 @@ function Feed() {
                 </div>
                 <p className="mb-0">{postd.Text.Text}</p>
                 <img src={postd.avatar} style={{width:'100%',height:'50%'}}/>
+                <div class="p-3 border-bottom osahan-post-footer">
+                  <a href="#" class="mr-3 text-secondary"><i class="feather-heart text-danger"></i> 16</a>
+                  <a href="#" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</a>
+                  <a href="#" class="mr-3 text-secondary"><i class="feather-share-2"></i> 2</a>
+                   </div>
               </div>
             :  <Lottie options={lottieOptions}
             height='100%'
@@ -242,13 +249,6 @@ function Feed() {
             />
             ))}
           </div>
-          <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-          <div className="p-3">
-              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
-            </div>
-          </div>
-        </aside>
         </main>
       </div>
     </div>
