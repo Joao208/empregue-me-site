@@ -20,6 +20,7 @@ import EmptyAnimation from '../empty.json'
 
 function Feed() {
 
+  
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
@@ -42,6 +43,7 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
+        console.log(response.data.post.likes.lenght)
         console.log(response)
         console.log(response.data)
     }
