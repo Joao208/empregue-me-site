@@ -24,8 +24,8 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [sujestion, setSujestion] = useState([])
-  const [latituded, setLatitude] = useState('')
-  const [longituded,setLongitude] = useState('')
+  const [latitude, setLatitude] = useState('')
+  const [longitude,setLongitude] = useState('')
 
   async function SignOut(event) {
     sessionStorage.clear()
@@ -71,12 +71,12 @@ function Feed() {
 
   useEffect(() => {
         async function loadUsers() {
-            const latitude = latituded
-            const longitude = longituded
+          console.log(longitude)
+          console.log(latitude)
             const response = await api.get('/sujestion', {
               params: {
-                latitude,
                 longitude,
+                latitude,
               }
             })
 
