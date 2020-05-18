@@ -29,8 +29,9 @@ function Feed({history}) {
 
   async function CreateProfile(event) {
     event.preventDefault()
-      if(!avatar) 
-        return setOptions(true) 
+      if(!avatar){
+        return setOptions(true)
+      } 
     try{
     const data = new FormData()
 

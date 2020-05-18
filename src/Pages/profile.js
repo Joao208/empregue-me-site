@@ -35,6 +35,13 @@ function Feed() {
     autoplay:true,
     animationData:EmptyAnimation
   }
+
+  async function Like(event,id) {
+    event.preventDefault()
+
+    console.log(id)
+    const response = await api.post('/likes/')
+  }
   
   useEffect(() => {
     async function loadSpots() {
@@ -253,7 +260,9 @@ function Feed() {
                 <p className="mb-0">{postd.Text.Text}</p>
                 <img src={postd.avatar} style={{width:'100%',height:'50%'}}/>
                 <div className="p-3 border-bottom osahan-post-footer">
+                  <form onSubmit={() => Like(postd._id)}>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
+                  </form>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-share-2" /> 2</a>
                 </div>
