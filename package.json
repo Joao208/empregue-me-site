@@ -13,6 +13,7 @@
     "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
+    "material-ui": "^0.20.2",
     "moment": "^2.25.3",
     "pusher": "^3.0.1",
     "react": "^16.12.0",

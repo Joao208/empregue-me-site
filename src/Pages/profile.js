@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import Autocomplete from 'autocomplete'
 
 import '../global.css';
 import '../App.css';
@@ -20,11 +19,6 @@ import EmptyAnimation from '../empty.json'
 
 
 function Feed() {
-
-  const defaultProps = {
-    options: top100Films,
-    getOptionLabel: (option) => option.title,
-  }
   
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
@@ -104,12 +98,6 @@ function Feed() {
               <i className="feather-search" />
             </button>
           </div>
-          <Autocomplete
-            {...defaultProps}
-            id="debug"
-            debug
-            renderInput={(params) => <TextField {...params} label="debug" margin="normal" />}
-          />        
           </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
@@ -306,24 +294,4 @@ function Feed() {
 </>
   );
 }
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 },
-  { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
-  { title: 'The Good, the Bad and the Ugly', year: 1966 },
-  { title: 'Fight Club', year: 1999 },
-  { title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
-  { title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
-  { title: 'Forrest Gump', year: 1994 },
-  { title: 'Inception', year: 2010 },
-  { title: 'The Lord of the Rings: The Two Towers', year: 2002 },
-  { title: "One Flew Over the Cuckoo's Nest", year: 1975 },
-  { title: 'Goodfellas', year: 1990 }
-]
-
 export default Feed;
