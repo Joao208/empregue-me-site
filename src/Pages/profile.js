@@ -43,8 +43,7 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
-        console.log(response)
-        console.log(response.data)
+        console.log(response.data.post.likes)
     }
 
     loadSpots()
