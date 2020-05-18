@@ -126,15 +126,25 @@ function Feed({history}) {
               </div>
           </div>
           { !! options
-          && <div>
-              <h6>Escolha um avatar para seu perfil</h6>
+          && <div style={{alignContent:'center',alignItems:'center'}}>
+              <h6>Ops!!, você não alterou nada então mude seu avatar</h6>
                 <hr/>
-                <img style={{height:'15%',width:'15%',borderRadius:20}} src="https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg" onChange={event => {
-                    setAvatar(event.target.files[0])}
-                 }/>
-                 <img style={{height:'15%',width:'15%',borderRadius:20}} src="https://static.vecteezy.com/system/resources/previews/000/635/337/non_2x/line-avatar-woman-head-with-hairstyle-vector.jpg" onChange={event => {
-                    setAvatar(event.target.files[0])}
-                 }/>
+               <label style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}}>
+                 
+                <form onSubmit={setAvatar('https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg')}>
+                  <button style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}}/>
+                </form>
+                <img style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}} src="https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg" alt=""/>
+                
+                </label>
+                <label style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}}>
+
+                   <form onSubmit={setAvatar("https://static.vecteezy.com/system/resources/previews/000/635/337/non_2x/line-avatar-woman-head-with-hairstyle-vector.jpg")}>
+                     <button style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}}/>
+                   </form>
+                   <img style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}} src="https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg" alt=""/>
+                
+                   </label>
              </div>
           }
           <div className="border rounded bg-white mb-3">
