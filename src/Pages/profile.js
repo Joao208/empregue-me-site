@@ -42,7 +42,8 @@ function Feed() {
     navigator.geolocation.getCurrentPosition(
         (position) => {
             const { latitude, longitude } = position.coords;
-
+            console.log(position)
+            console.log(position.coords)
             setLatitude(latitude)
             setLongitude(longitude)
         },
@@ -63,6 +64,8 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
+        console.log(response.data)
+        console.log(response.data.profile.user)
         console.log(response.data.post.likes)
     }
 
