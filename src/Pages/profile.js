@@ -36,7 +36,7 @@ function Feed() {
     animationData:EmptyAnimation
   }
 
-  async function Like(event,id) {
+  async function Like(event,{id}) {
     event.preventDefault()
 
     console.log(id)
@@ -294,4 +294,5 @@ function Feed() {
 </>
   );
 }
+
 export default Feed;
