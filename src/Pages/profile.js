@@ -32,6 +32,23 @@ function Feed() {
     sessionStorage.clear()
   }
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const { latitude, longitude } = position.coords;
+
+            setLatitude(latitude)
+            setLongitude(longitude)
+        },
+        (error) => {
+            console.log(error)
+        },
+        {
+            timeout: 30000
+        }
+    )
+})
+
   const lottieOptions = {
     title:'loading',
     loop:true,
@@ -48,7 +65,6 @@ function Feed() {
         setData(response.data)
 
     }
-
     loadSpots()
 }, [] )
 
@@ -87,9 +103,9 @@ function Feed() {
     <div className="container">
       <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
-      <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+      <form onsubmi className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-          <input type="text" className="form-control shadow-none border-0" placeholder="Search people, jobs & more..." aria-label="Search" aria-describedby="basic-addon2" />
+          <input type="text" className="form-control shadow-none border-0" placeholder={`Search people`} aria-label="Search" aria-describedby="basic-addon2" />
           <div className="input-group-append">
             <button className="btn" type="button">
               <i className="feather-search" />
@@ -264,7 +280,7 @@ function Feed() {
                 <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={postd.user.avatar ? postd.user.avatar : img_l3} />
                 </div>
                 <p className="mb-0">{postd.Text.Text}</p>
-                <iframe allowtransparency="true" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src={postd.avatar ? postd.avatar : white} width="100%" height="100%"/>
+                <embed src={postd.avatar ? postd.avatar : white} width="100%" height="100%"/>
                 <div className="p-3 border-bottom osahan-post-footer">
                   <a className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
