@@ -74,8 +74,8 @@ function Feed() {
       try {
         const response = await api.get('/sujestion', {
         params:{
-          longitude,
-          latitude,
+          longitude:longitude,
+          latitude:latitude,
         }
         })
         setSujestion(response.data)
