@@ -69,12 +69,7 @@ function Feed() {
             timeout: 30000
         }
       )
-        const response = await api.get('/sujestion', {
-        params:{
-          longitude,
-          latitude,
-        }
-        })
+        const response = await api.get(`/sujestions?longitude=${longitude}&latitude=${latitude}`)
         setSujestion(response.data)
         console.log(response)
         console.log(response.data)
@@ -285,7 +280,10 @@ function Feed() {
                 <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={postd.user.avatar ? postd.user.avatar : img_l3} />
                 </div>
                 <p className="mb-0">{postd.Text.Text}</p>
-                <img src={postd.avatar} style={{width:'100%',height:'50%'}}/>
+                <img src={postd.avatar ? postd.avatar : null} style={postd.avatar ? {width:'100%',height:'50%'} : {widht:'1px',height:'1px'}}/>
+                <video  autoplay loop playsinline style={postd.avatar ? {width:'100%',height:'50%'} : {widht:'1px',height:'1px'}}>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
+                </video>
                 <div className="p-3 border-bottom osahan-post-footer">
                   <a className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
