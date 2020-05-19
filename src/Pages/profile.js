@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
+import white from '../img/white.PNG'
 
 import '../global.css';
 import '../App.css';
@@ -38,9 +39,6 @@ function Feed() {
     animationData:EmptyAnimation
   }
 
-    console.log(latitude)
-    console.log(longitude)
-  
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/profileview')
@@ -69,7 +67,14 @@ function Feed() {
             timeout: 30000
         }
       )
-        const response = await api.get(`/sujestions?longitude=${longitude}&latitude=${latitude}`)
+      console.log(latitude)
+      console.log(longitude)
+        const response = await api.get(`/sujestions`,{
+          params:{
+            longitude:longitude,
+            latitude:latitude
+          }
+      })
         setSujestion(response.data)
         console.log(response)
         console.log(response.data)
@@ -280,7 +285,7 @@ function Feed() {
                 <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={postd.user.avatar ? postd.user.avatar : img_l3} />
                 </div>
                 <p className="mb-0">{postd.Text.Text}</p>
-                <img src={postd.avatar ? postd.avatar : null} style={postd.avatar ? {width:'100%',height:'50%'} : {widht:'1px',height:'1px'}}/>
+                <img src={postd.avatar ? postd.avatar : white} style={postd.avatar ? {width:'100%',height:'50%'} : {widht:'1px',height:'1px'}}/>
                 <video  autoplay loop playsinline style={postd.avatar ? {width:'100%',height:'50%'} : {widht:'1px',height:'1px'}}>
                   <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
                 </video>
