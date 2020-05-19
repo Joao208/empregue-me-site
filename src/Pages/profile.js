@@ -52,8 +52,12 @@ function Feed() {
             timeout: 30000
         }
     )
+    console.log(latitude)
+    console.log(longitude)
 })
 
+    console.log(latitude)
+    console.log(longitude)
   
   useEffect(() => {
     async function loadSpots() {
@@ -69,8 +73,6 @@ function Feed() {
 
   useEffect(() => {
     async function loadUsers() {
-      console.log(latitude)
-      console.log(longitude)
       try {
         const response = await api.get('/sujestion', {
         params:{
@@ -81,7 +83,10 @@ function Feed() {
         setSujestion(response.data)
         console.log(response)
         console.log(response.data)
-      } catch {
+      } catch(e) {
+        console.log(e)
+        console.log(latitude)
+        console.log(longitude)  
         loadUsers()
       }
     }
