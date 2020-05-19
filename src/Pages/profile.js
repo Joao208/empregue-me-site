@@ -52,8 +52,6 @@ function Feed() {
             timeout: 30000
         }
     )
-    console.log(latitude)
-    console.log(longitude)
 })
 
   
@@ -71,10 +69,14 @@ function Feed() {
 
   useEffect(() => {
     async function loadUsers() {
+      console.log(latitude)
+      console.log(longitude)
       try {
         const response = await api.get('/sujestion', {
+        query:{
           longitude,
           latitude,
+        }
         })
         setSujestion(response.data)
         console.log(response)
