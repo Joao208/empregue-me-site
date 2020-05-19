@@ -38,24 +38,6 @@ function Feed() {
     animationData:EmptyAnimation
   }
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            const { latitude, longitude } = position.coords;
-            setLatitude(latitude)
-            setLongitude(longitude)
-        },
-        (error) => {
-            console.log(error)
-        },
-        {
-            timeout: 30000
-        }
-    )
-    console.log(latitude)
-    console.log(longitude)
-})
-
     console.log(latitude)
     console.log(longitude)
   
@@ -74,19 +56,29 @@ function Feed() {
   useEffect(() => {
     async function loadUsers() {
       try {
+        navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const { latitude, longitude } = position.coords;
+            setLatitude(latitude)
+            setLongitude(longitude)
+        },
+        (error) => {
+            console.log(error)
+        },
+        {
+            timeout: 30000
+        }
+      )
         const response = await api.get('/sujestion', {
         params:{
-          longitude:longitude,
-          latitude:latitude,
+          longitude,
+          latitude,
         }
         })
         setSujestion(response.data)
         console.log(response)
         console.log(response.data)
       } catch(e) {
-        console.log(e)
-        console.log(latitude)
-        console.log(longitude)  
         loadUsers()
       }
     }
