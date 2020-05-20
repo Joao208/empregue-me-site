@@ -5,13 +5,16 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import Modal from 'react-bootstrap/Modal'
 import img_logo_svg from '../img/logo.png'
 import imguser from '../img/user.png'
 import api from '../services/api'
 import '../inputcamera.css'
+import Lottie from 'react-lottie'
+import loadinganimate from '../loading.json'
+import Modal from 'react-bootstrap/Modal'
 
-
-function Feed({history}) {
+function Feed({history},props) {
   const [user, setUser] = useState([])
 
   const [avatar, setAvatar] = useState(null)
@@ -21,7 +24,8 @@ function Feed({history}) {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
-  const [options, setOptions] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -29,8 +33,9 @@ function Feed({history}) {
 
   async function CreateProfile(event) {
     event.preventDefault()
+    setLoading(true)
       if(!avatar){
-        return setOptions(true)
+        return setAvatar('https://api.adorable.io/avatars/272/abott@adorable.png')
       } 
     try{
     const data = new FormData()
@@ -53,7 +58,7 @@ function Feed({history}) {
 
         history.push('/profile')
     }catch{
-      
+      setError(true)
     }
   }
   useEffect(() => {
@@ -72,6 +77,14 @@ function Feed({history}) {
     history.push('/sign-in')
   }
 }, [] )
+
+const lottieOptions = {
+  title:'loading',
+  loop:true,
+  autoplay:true,
+  animationData:loadinganimate
+}
+
 
   return (
 <>
@@ -125,18 +138,31 @@ function Feed({history}) {
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>
-          { !! options
-          && <div style={{alignContent:'center',alignItems:'center'}}>
-              <h6>Ops!!, você não alterou nada então mude seu avatar</h6>
-                <hr/>
-               <label style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}}>
-                <img style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}} src="https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg" alt=""/>               
-               </label>
-               <label style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}}>
-                  <img style={{height:'15%',width:'15%',borderRadius:20,alignContent:'center',alignItems:'center'}} src="https://static.vecteezy.com/system/resources/previews/000/655/922/non_2x/vector-line-avatar-man-head-with-hairstyle-design.jpg" alt=""/>               
-               </label>
-             </div>
-          }
+          {
+              !! error && 
+              <Modal
+              {...props}
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                  Modal heading
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <img src={img403} style={{height:'30%',width:'30%'}}/>
+                <h4>Ops!! Algum erro</h4>
+                <p>
+                  Tente novamente mais tarde
+                </p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={setError(false)}>Fechar</Button>
+              </Modal.Footer>
+            </Modal>
+            }
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Sobre</h6>
@@ -511,8 +537,16 @@ function Feed({history}) {
           <div >
           <div className="mb-3 text-right">
             <a className="font-weight-bold btn btn-link rounded p-3" href="/profile"> &nbsp;&nbsp;&nbsp;&nbsp; Cancelar &nbsp;&nbsp;&nbsp;&nbsp; </a>
-            <button className="font-weight-bold btn btn-primary rounded p-3" style={{color:"white"}}> &nbsp;&nbsp;&nbsp;&nbsp;Salvar perfil &nbsp;&nbsp;&nbsp;&nbsp; </button>
-          </div>
+            {
+                loading
+              ? <Lottie options={lottieOptions
+              } style={{height:'20%',width:'20%'}} 
+              height='20%'
+              width='20%'
+              />
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Salvar Perfil </button>
+              }          
+            </div>
           </div>
         </main>
       </div>

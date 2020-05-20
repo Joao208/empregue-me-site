@@ -24,6 +24,7 @@ import bussinessign_up from './Pages/bussinessign-up'
 import terms from './Pages/terms'
 import error404 from './Pages/not-found'
 import curriculum from './Pages/curriculum'
+import conections from './Pages/connection'
 
 
 const PrivateRoute = props => {
@@ -38,7 +39,8 @@ export default function Routes() {
 <BrowserRouter>
 <Switch>
 <PrivateRoute path='/' exact component={Feed}   />
-<PrivateRoute path='/company-profile' component={company_profile}/>
+<PrivateRoute path='/company-profile/:id' component={company_profile}/>
+<PrivateRoute path='/conections/:name' component={conections}/>
 <PrivateRoute path='/contact' component={contact}/>
 <PrivateRoute path='/edit-profile' component={edit_profile}/>
 <PrivateRoute path='/faq' component={faq}/>
@@ -49,7 +51,7 @@ export default function Routes() {
 <Route path='/forgot-passwordb' component={forgot_passwordb}/>
 <Route path='/reset-passwordb' component={reset_passwordb}/>
 <PrivateRoute path='/jobs' component={jobs}/>
-<PrivateRoute path='/job-profile' component={job_profile}/>
+<PrivateRoute path='/job-profile/:id' component={job_profile}/>
 <PrivateRoute path='/notification' component={notification}/>
 <PrivateRoute path='/privacy' component={privacy}/>
 <PrivateRoute path='/profile' component={profile}/>

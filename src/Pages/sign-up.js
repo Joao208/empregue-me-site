@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
 
-import {Card} from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal'
 import '../inputcamera.css';
 import api from '../services/api'
 import Lottie from 'react-lottie'
@@ -11,7 +11,7 @@ import loadinganimate from '../loading.json'
 import img_logo_svg from '../img/logologin.JPG'
 import img403 from '../img/403error.svg'
 
-function Feed({history}) {
+function Feed({history},props) {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -110,15 +110,28 @@ function Feed({history}) {
             </div>
             {
               !! error && 
-              <Card style={{ width: '18rem',alignItems:'center',justifyContent:'center',alignContent:'center',marginLeft:'40px' }}>
-              <Card.Img variant="top" src={img403} />
-              <Card.Body>
-                <Card.Title>Ops parece que aconteceu algum erro</Card.Title>
-                <Card.Text>
+              <Modal
+              {...props}
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                  Modal heading
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <img src={img403} style={{height:'30%',width:'30%'}}/>
+                <h4>Ops!! Algum erro</h4>
+                <p>
                   Usuario já existente
-                </Card.Text>
-              </Card.Body>
-            </Card>
+                </p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={setError(false)}>Fechar</Button>
+              </Modal.Footer>
+            </Modal>
             }
             { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados

@@ -91,9 +91,9 @@ import React, {
                     className="form-control" 
                     id="email"
                     value={phone}
-                    placeholder="12123456789"
+                    placeholder="5512123456789"
                     type="tel"
-                    pattern="[0-9]{11}"
+                    pattern="[0-9]{13}"
                     onChange={event => setPhone(event.target.value)}
                     />
                   </div>

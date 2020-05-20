@@ -27,6 +27,7 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [latitude, setLatitude] = useState('')
   const [longitude,setLongitude] = useState('')
+  const [name,setName] = useState('')
 
   async function SignOut(event) {
     sessionStorage.clear()
@@ -68,6 +69,12 @@ function Feed() {
     loadSpots()
 }, [] )
 
+  async function SearchValue(event){
+    event.preventDefault()
+    
+    history.push(`/conections/${name}`)
+  }
+
   useEffect(() => {
     async function loadUsers() {
       try {
@@ -103,9 +110,16 @@ function Feed() {
     <div className="container">
       <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
-      <form onsubmi className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+      <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-          <input type="text" className="form-control shadow-none border-0" placeholder={`Search people`} aria-label="Search" aria-describedby="basic-addon2" />
+          <input 
+          type="text"                   
+          value={name}
+          onChange={event => setName(event.target.value)}
+          className="form-control shadow-none border-0" 
+          placeholder={`Search people`} 
+          aria-label="Search" 
+          aria-describedby="basic-addon2" />
           <div className="input-group-append">
             <button className="btn" type="button">
               <i className="feather-search" />
@@ -161,6 +175,7 @@ function Feed() {
             </div>
             <form onSubmit={SignOut} className="overflow-hidden border-top">
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
+              <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
             </form>
           </div>
           : <Lottie options={lottieOptions
