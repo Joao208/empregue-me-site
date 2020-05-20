@@ -4,12 +4,13 @@ import React, {
 } from 'react';
 import '../global2.css';
 
-import {Card} from 'react-bootstrap'
-import img_logo_svg from '../img/logologin.JPG'
 import api from '../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 import Modal from 'react-bootstrap/Modal'
+import img_logo_svg from '../img/logologin.JPG'
+import img403 from '../img/403error.svg'
+
 
 function Feed({
   history

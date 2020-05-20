@@ -12,7 +12,6 @@ import api from '../services/api'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
-import Modal from 'react-bootstrap/Modal'
 
 function Feed({history},props) {
   const [user, setUser] = useState([])
@@ -139,13 +138,13 @@ const lottieOptions = {
               </div>
           </div>
           {
-              !! error && 
-              <Modal
+              !! qr && 
+            <Modal
               {...props}
               size="lg"
               aria-labelledby="contained-modal-title-vcenter"
               centered
-            >
+             >
               <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                   Modal heading
@@ -153,10 +152,7 @@ const lottieOptions = {
               </Modal.Header>
               <Modal.Body>
                 <img src={img403} style={{height:'30%',width:'30%'}}/>
-                <h4>Ops!! Algum erro</h4>
-                <p>
-                  Tente novamente mais tarde
-                </p>
+                <p>Ops!! Tente novamente mais tarde</p>
               </Modal.Body>
               <Modal.Footer>
                 <Button onClick={setError(false)}>Fechar</Button>

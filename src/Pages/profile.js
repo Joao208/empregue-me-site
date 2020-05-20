@@ -15,11 +15,12 @@ import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
+import Modal from 'react-bootstrap/Modal'
 
 import EmptyAnimation from '../empty.json'
 
 
-function Feed() {
+function Feed({history},props) {
   
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
@@ -28,6 +29,7 @@ function Feed() {
   const [latitude, setLatitude] = useState('')
   const [longitude,setLongitude] = useState('')
   const [name,setName] = useState('')
+  const [qr, SetQr] = useState(false)
 
   async function SignOut(event) {
     sessionStorage.clear()
@@ -177,6 +179,9 @@ function Feed() {
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
               <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
             </form>
+            <form onSubmit={setQr(true)} className="overflow-hidden border-top">
+            <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Gerar QR Code </button>
+            </form>
           </div>
           : <Lottie options={lottieOptions
           } 
@@ -269,6 +274,30 @@ function Feed() {
             </div>
           </div>
           </aside>
+          {
+              !! qr && 
+              <Modal
+              {...props}
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                  Modal heading
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                { profile.map(profile => (
+                <img src={`https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=https://light-empregue-me.herokuapp.com/profileview/${profile._id}`} style={{height:'30%',width:'30%'}}/>
+                ))}
+                </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={setError(false)}>Fechar</Button>
+              </Modal.Footer>
+            </Modal>
+            }
+
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
