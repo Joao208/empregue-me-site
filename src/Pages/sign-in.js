@@ -94,7 +94,6 @@ function Feed({
                 <Card.Text>
                   Usuario ou senha incorretos
                 </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>          
             }
