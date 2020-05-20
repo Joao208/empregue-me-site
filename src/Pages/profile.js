@@ -195,12 +195,6 @@ function Feed({history}) {
           width='100%'
           /> 
           ))}
-          {profile.map(profile => (
-          !! qr && 
-          <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={`https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=https://light-empregue-me.herokuapp.com/profileview/${profile.user._id}`}/>           
-          </Card>
-          ))}
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
