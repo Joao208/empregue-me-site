@@ -12,6 +12,7 @@ import imguser from '../img/user.png'
 import api from '../services/api'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
+import img403 from '../img/403error.svg'
 import loadinganimate from '../loading.json'
 
 function Feed({history},props) {
@@ -139,7 +140,7 @@ const lottieOptions = {
               </div>
           </div>
           {
-              !! qr && 
+              !! error && 
             <Modal
               {...props}
               size="lg"
@@ -541,7 +542,7 @@ const lottieOptions = {
               height='20%'
               width='20%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Salvar Perfil </button>
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={CreateProfile}> Salvar Perfil </button>
               }          
             </div>
           </div>
