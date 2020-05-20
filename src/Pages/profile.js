@@ -81,11 +81,18 @@ function Feed({history},props) {
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get(`/sujestions`)
+        const response = await api.get(`/sujestions`,{
+          params:{
+            longitude,
+            latitude
+          }
+        })
         setSujestion(response.data)
         console.log(response)
         console.log(response.data)
-      } catch (e) {}
+      } catch (e) {
+        loadUsers()
+      }
     }
     loadUsers()
   }, [])
