@@ -3,6 +3,7 @@ import React, {
   useState
 } from 'react';
 import '../global2.css';
+import Button from 'react-bootstrap/Button'
 
 import api from '../services/api'
 import Lottie from 'react-lottie'
@@ -106,7 +107,7 @@ function Feed({
                 </p>
               </Modal.Body>
               <Modal.Footer>
-                <Button onClick={setError(false)}>Fechar</Button>
+                <Button variant="success" onClick={setError(false)}>Fechar</Button>
               </Modal.Footer>
             </Modal>
             }

@@ -5,6 +5,7 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import img_logo_svg from '../img/logo.png'
 import imguser from '../img/user.png'
@@ -155,7 +156,7 @@ const lottieOptions = {
                 <p>Ops!! Tente novamente mais tarde</p>
               </Modal.Body>
               <Modal.Footer>
-                <Button onClick={setError(false)}>Fechar</Button>
+                <Button variant="success" onClick={setError(false)}>Fechar</Button>
               </Modal.Footer>
             </Modal>
             }

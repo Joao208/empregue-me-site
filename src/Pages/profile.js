@@ -10,6 +10,7 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
+import Button from 'react-bootstrap/Button'
 import Lottie from 'react-lottie'
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
@@ -293,7 +294,7 @@ function Feed({history},props) {
                 ))}
                 </Modal.Body>
               <Modal.Footer>
-                <Button onClick={setError(false)}>Fechar</Button>
+                <Button variant="success" onClick={setError(false)}>Fechar</Button>
               </Modal.Footer>
             </Modal>
             }

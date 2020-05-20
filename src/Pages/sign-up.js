@@ -3,6 +3,7 @@
 import React,{useState,useEffect} from 'react';
 
 import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 import '../inputcamera.css';
 import api from '../services/api'
 import Lottie from 'react-lottie'
@@ -129,7 +130,7 @@ function Feed({history},props) {
                 </p>
               </Modal.Body>
               <Modal.Footer>
-                <Button onClick={setError(false)}>Fechar</Button>
+                <Button variant="success" onClick={setError(false)}>Fechar</Button>
               </Modal.Footer>
             </Modal>
             }
