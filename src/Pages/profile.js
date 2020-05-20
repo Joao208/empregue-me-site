@@ -30,7 +30,7 @@ function Feed({history},props) {
   const [latitude, setLatitude] = useState('')
   const [longitude,setLongitude] = useState('')
   const [name,setName] = useState('')
-  const [qr, SetQr] = useState(false)
+  const [qr, setQr] = useState(false)
 
   async function SignOut(event) {
     sessionStorage.clear()
@@ -301,7 +301,7 @@ function Feed({history},props) {
                 ))}
                 </Modal.Body>
               <Modal.Footer>
-                <Button variant="success" onClick={setError(false)}>Fechar</Button>
+                <Button variant="success" onClick={setQr(false)}>Fechar</Button>
               </Modal.Footer>
             </Modal>
             }
