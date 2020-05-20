@@ -5,14 +5,11 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
 import img_logo_svg from '../img/logo.png'
 import imguser from '../img/user.png'
 import api from '../services/api'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
-import img403 from '../img/403error.svg'
 import loadinganimate from '../loading.json'
 
 function Feed({history},props) {
@@ -60,6 +57,7 @@ function Feed({history},props) {
         history.push('/profile')
     }catch{
       setError(true)
+      setLoading(false)
     }
   }
   useEffect(() => {
@@ -139,28 +137,6 @@ const lottieOptions = {
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>
-          {
-              !! error && 
-            <Modal
-              {...props}
-              size="lg"
-              aria-labelledby="contained-modal-title-vcenter"
-              centered
-             >
-              <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                  Modal heading
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <img src={img403} style={{height:'30%',width:'30%'}}/>
-                <p>Ops!! Tente novamente mais tarde</p>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="success" onClick={setError(false)}>Fechar</Button>
-              </Modal.Footer>
-            </Modal>
-            }
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Sobre</h6>

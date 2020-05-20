@@ -10,18 +10,16 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 
-import Button from 'react-bootstrap/Button'
 import Lottie from 'react-lottie'
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
-import Modal from 'react-bootstrap/Modal'
 
 import EmptyAnimation from '../empty.json'
 
 
-function Feed({history},props) {
+function Feed({history}) {
   
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
@@ -81,7 +79,7 @@ function Feed({history},props) {
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get(`/sujestions`,{
+        const response = await api.get('/sujestions',{
           params:{
             longitude,
             latitude
@@ -91,7 +89,6 @@ function Feed({history},props) {
         console.log(response)
         console.log(response.data)
       } catch (e) {
-        loadUsers()
       }
     }
     loadUsers()
@@ -197,6 +194,12 @@ function Feed({history},props) {
           width='100%'
           /> 
           ))}
+          {profile.map(profile => (
+          !! qr && 
+          <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={`https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=https://light-empregue-me.herokuapp.com/profileview/${profile.user._id}`}/>           
+          </Card>
+          ))}
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
@@ -282,30 +285,6 @@ function Feed({history},props) {
             </div>
           </div>
           </aside>
-          {
-              !! qr && 
-              <Modal
-              {...props}
-              size="lg"
-              aria-labelledby="contained-modal-title-vcenter"
-              centered
-            >
-              <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                  Modal heading
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                { profile.map(profile => (
-                <img src={`https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=https://light-empregue-me.herokuapp.com/profileview/${profile._id}`} style={{height:'30%',width:'30%'}}/>
-                ))}
-                </Modal.Body>
-              <Modal.Footer>
-                <Button variant="success" onClick={setQr(false)}>Fechar</Button>
-              </Modal.Footer>
-            </Modal>
-            }
-
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">

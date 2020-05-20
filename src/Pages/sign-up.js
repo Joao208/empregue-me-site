@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
 
-import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import '../inputcamera.css';
 import api from '../services/api'
@@ -111,28 +110,16 @@ function Feed({history},props) {
             </div>
             {
               !! error && 
-              <Modal
-              {...props}
-              size="lg"
-              aria-labelledby="contained-modal-title-vcenter"
-              centered
-            >
-              <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                  Modal heading
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <img src={img403} style={{height:'30%',width:'30%'}}/>
-                <h4>Ops!! Algum erro</h4>
-                <p>
-                  Usuario já existente
-                </p>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="success" onClick={setError(false)}>Fechar</Button>
-              </Modal.Footer>
-            </Modal>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={img403} />
+              <Card.Body>
+                <Card.Title>Ops!! Erro</Card.Title>
+                <Card.Text>
+                  Usuario ou senha incorretos
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>           
             }
             { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
