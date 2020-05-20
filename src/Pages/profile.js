@@ -15,6 +15,7 @@ import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
+import Card from 'react-bootstrap/Card'
 
 import EmptyAnimation from '../empty.json'
 
