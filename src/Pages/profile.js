@@ -15,7 +15,6 @@ import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
-import Card from 'react-bootstrap/Card'
 
 import EmptyAnimation from '../empty.json'
 
@@ -29,7 +28,6 @@ function Feed({history}) {
   const [latitude, setLatitude] = useState('')
   const [longitude,setLongitude] = useState('')
   const [name,setName] = useState('')
-  const [qr, setQr] = useState(false)
 
   async function SignOut(event) {
     sessionStorage.clear()
@@ -82,8 +80,8 @@ function Feed({history}) {
       try {
         const response = await api.get('/sujestions',{
           params:{
-            longitude,
-            latitude
+            longitude:longitude,
+            latitude:latitude
           }
         })
         setSujestion(response.data)
@@ -184,9 +182,6 @@ function Feed({history}) {
             <form onSubmit={SignOut} className="overflow-hidden border-top">
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
               <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
-            </form>
-            <form onSubmit={setQr(true)} className="overflow-hidden border-top">
-            <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Gerar QR Code </button>
             </form>
           </div>
           : <Lottie options={lottieOptions
