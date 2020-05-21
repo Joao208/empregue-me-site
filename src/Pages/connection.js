@@ -36,7 +36,7 @@ function Feed() {
   async function ViewProfile(event,id) {
     try{
       event.prevetDefault()
-      navigate(`/profile/${id}`)
+      navigate(`https://light-empregue-me.herokuapp.com/profile/${id}`)
     }catch(e){
       console.log(e)
     }
