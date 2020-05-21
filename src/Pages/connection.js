@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React,{useEffect,useState,compo} from 'react';
+import React,{useEffect,useState} from 'react';
+import {useParams} from 'react-router-dom'
 
 import '../global.css';
 import '../App.css';
@@ -21,11 +22,12 @@ import api from '../services/api'
 function Feed() {
 
   const [users, setUsers] = useState([])
+  const {name} = useParams()
 
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get('/searchusers')
+        const response = await api.get(`/searchusers/${name}`)
         console.log(response)
         console.log(response.data)
 
