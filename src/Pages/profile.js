@@ -84,10 +84,10 @@ function Feed({history}) {
             latitude:latitude
           }
         })
-        setSujestion(response.data)
-        console.log(response)
-        console.log(response.data)
       } catch (e) {
+        console.log(longitude)
+        console.log(latitude)
+        loadUsers()
       }
     }
     loadUsers()
@@ -120,11 +120,11 @@ function Feed({history}) {
         <div className="input-group">
           <input 
           type="text"                   
+          className="form-control shadow-none border-0" 
+          placeholder='Search people'
+          aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}
-          className="form-control shadow-none border-0" 
-          placeholder={`Search people`} 
-          aria-label="Search" 
           aria-describedby="basic-addon2" />
           <div className="input-group-append">
             <button className="btn" type="button">
@@ -274,6 +274,18 @@ function Feed({history}) {
               </div>
             </div>
           </div>
+        </aside>
+        <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
+          <div className="box shadow-sm border rounded bg-white mb-3">
+            <div className="box-title border-bottom p-3">
+              <h6 className="m-0">Who viewed your profile</h6>
+            </div>
+              <div className="box-body p-3">
+              {profile.map(profile => (
+                <img src={`https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}`} alt=""/>
+              ))}
+              </div>
+            </div>
           </aside>
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">

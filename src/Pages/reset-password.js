@@ -71,8 +71,8 @@ function Feed({history}) {
           <div className="osahan-login py-4">
             <div className="text-center mb-4">
             <img src={img_logo_svg} style={{height:'100%',width:'100%',alignContent:'center',alignItems:'center',justifyContent:'center'}}/>
-              <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
-              <p className="text-muted">Por favor insira seu email</p>
+              <h5 className="font-weight-bold mt-3">Foi enviado um email com seu token</h5>
+              <p className="text-muted">Por favor confira a caixa de spam</p>
             </div>
             { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
               Email ou Token incorretos
