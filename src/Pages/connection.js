@@ -33,15 +33,6 @@ function Feed() {
     loadUsers()
   }, [])
 
-  async function ViewProfile(event,id) {
-    event.prevetDefault()
-    try{
-      navigate(`https://light-empregue-me.herokuapp.com/profile/${id}`)
-    }catch(e){
-      console.log(e)
-    }
-  }
-
   return (
 <>
 <div>
@@ -96,7 +87,7 @@ function Feed() {
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
-                          <form onSubmit={event => ViewProfile(event,user._id)} className="network-item-footer py-3 d-flex text-center">
+                          <form onSubmit={() => navigate(`https://light-empregue-me.herokuapp.com/profile/${user_id}`)} className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
                               <button type="button" className="btn btn-primary btn-sm btn-block"> Ver Perfil </button>
                             </div>
