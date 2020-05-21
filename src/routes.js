@@ -32,31 +32,31 @@ const navigate = useNavigate()
 export default function Routed() {
     return(
 <Routes>
-<PrivateRoute path='/' element={<Feed/>}   />
-<PrivateRoute path='/company-profile/:id' element={<Company_profile/>}/>
-<PrivateRoute path='/conections/:name' element={<Conections/>}/>
-<PrivateRoute path='/profile/:id' element={<ProfileView/>}/>
-<PrivateRoute path='/contact' element={<Contact/>}/>
-<PrivateRoute path='/edit-profile' element={<Edit_profile/>}/>
-<PrivateRoute path='/faq' element={<Faq/>}/>
-<PrivateRoute path='/phone' element={<Phone/>}/>
-<PrivateRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
+<Route path='/' element={<Feed/>}   />
+<Route path='/company-profile/:id' element={<Company_profile/>}/>
+<Route path='/conections/:name' element={<Conections/>}/>
+<Route path='/profile/:id' element={<ProfileView/>}/>
+<Route path='/contact' element={<Contact/>}/>
+<Route path='/edit-profile' element={<Edit_profile/>}/>
+<Route path='/faq' element={<Faq/>}/>
+<Route path='/phone' element={<Phone/>}/>
+<Route path='/phoneconfirm' element={<Phoneconfirm/>}/>
 <Route path='/forgot-password' element={<Forgot_password/>}/>
 <Route path='/reset-password' element={<Reset_password/>}/>
 <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
 <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
-<PrivateRoute path='/jobs' element={<Jobs/>}/>
-<PrivateRoute path='/job-profile/:id' element={<Job_profile/>}/>
-<PrivateRoute path='/notification' element={<Notification/>}/>
-<PrivateRoute path='/privacy' element={<Privacy/>}/>
-<PrivateRoute path='/profile' element={<Profile/>}/>
+<Route path='/jobs' element={<Jobs/>}/>
+<Route path='/job-profile/:id' element={<Job_profile/>}/>
+<Route path='/notification' element={<Notification/>}/>
+<Route path='/privacy' element={<Privacy/>}/>
+<Route path='/profile' element={<Profile/>}/>
 <Route path='/sign-in' element={<Sign_in/>}/>
 <Route path='/sign-up' element={<Sign_up/>}/>
 <Route path='/bussinessign-in' element={<Bussinessign_in/>}/>
 <Route path='/bussinessign-up' element={<Bussinessign_up/>}/>
-<PrivateRoute path='/terms' element={<Terms/>}/>
+<Route path='/terms' element={<Terms/>}/>
 <Route path='*' element={<Error404/>}/>
-<PrivateRoute path='/curriculum' element={<Curriculum/>}/>
+<Route path='/curriculum' element={<Curriculum/>}/>
 </Routes>
     );
 }
