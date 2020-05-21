@@ -86,8 +86,8 @@ console.log(latitude)
 
         const response = await api.get('/sujestions',{
           params:{
-            longitude,
-            latitude
+            longitude:longitude,
+            latitude:latitude
           }
         })
       } catch (e) {
@@ -289,7 +289,7 @@ console.log(latitude)
               <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
               <img src={`https://chart.apis.google.com/chart?cht=qr&chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}&chs=230x230`} className="img-fluid"  alt="Responsive image" />
               <div className="p-3 border-bottom">
-                  <h6 className="font-weight-bold text-dark">QR code do seu perfil</h6>
+            <h6 className="font-weight-bold text-dark">QR code do seu perfil {profile.user.name}</h6>
                   <p className="mb-0 text-muted">Use para apresentar seu perfil a seus amigos</p>
                 </div>
               </div>                
