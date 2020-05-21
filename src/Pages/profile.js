@@ -52,7 +52,7 @@ function Feed({history}) {
   async function SearchValue(event){
     event.preventDefault()
     
-    history.push(`/conections/?name=${name}`)
+    history.push(`/conections/${name}`)
   }
 
   return (
