@@ -88,7 +88,7 @@ function Feed() {
                           </div>
                           <div className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <button type="button" onClick={() => navigate(`https://light-empregue-me.herokuapp.com/profile/${user._id}`)}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </button>
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
                             </div>
                           </div>
                         </div>
@@ -108,7 +108,7 @@ function Feed() {
               <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
             </div>
             <div className="p-3 border-bottom">
-              <h6 className="text-dark">Empregue.me conectando pessoas<span className="font-weight-bold">e Empresas</span></h6>
+              <h6 className="text-dark">Empregue.me conectando pessoas<span className="font-weight-bold"> e Empresas</span></h6>
             </div>
           </div>
         </aside>
