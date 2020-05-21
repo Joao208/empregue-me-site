@@ -68,13 +68,12 @@ function Feed() {
     </div>
   </nav>
   <div className="py-4">
-    {users.map(user => (
-    <div key={user._id} className="container">
+    <div className="container">
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-            <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Foram encontrados {user.lenght} usuarios</h5>
+            <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Usuarios Empregue.me</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
                 <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">People</a>
@@ -84,7 +83,8 @@ function Feed() {
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3">
                   <div className="row">
-                    <div className="col-md-4">
+                  {users.map(user => (
+                    <div key={user._id} className="col-md-4">
                       <a href="profile">
                         <div className="border network-item rounded mb-3">
                           <div className="p-3 d-flex align-items-center network-item-header">
@@ -104,6 +104,7 @@ function Feed() {
                         </div>
                       </a>
                     </div>
+                  ))}
                   </div>
                 </div>
               </div>
@@ -123,7 +124,6 @@ function Feed() {
         </aside>
       </div>
     </div>
-      ))}
   </div>
 </div>
 {/* Bootstrap core JavaScript */}
