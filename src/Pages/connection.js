@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React,{useEffect,useState} from 'react';
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
 import '../global.css';
 import '../App.css';
@@ -10,12 +10,6 @@ import '../Sidebar.css';
 import '../Main.css';
 
 import img_logo_svg from '../img/logo.png'
-import img_p5 from '../img/p5.png'
-import img_l4 from '../img/l4.png'
-import img_p6 from '../img/p6.png'
-import img_p7 from '../img/p7.png'
-import img_p8 from '../img/p8.png'
-import img_user from '../img/user.png'
 import api from '../services/api'
 
 
@@ -23,13 +17,14 @@ function Feed() {
 
   const [users, setUsers] = useState([])
   const {name} = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadUsers() {
       try {
         const response = await api.get(`/searchusers/${name}`)
-        console.log(response)
-        console.log(response.data)
+
+        setUsers(response.data)
 
       } catch (e) {
         loadUsers()
@@ -38,7 +33,14 @@ function Feed() {
     loadUsers()
   }, [])
 
-  
+  async function ViewProfile(event,id) {
+    try{
+      event.prevetDefault()
+      navigate(`/profile/${id}`)
+    }catch(e){
+      console.log(e)
+    }
+  }
 
   return (
 <>
@@ -66,12 +68,13 @@ function Feed() {
     </div>
   </nav>
   <div className="py-4">
-    <div className="container">
+    {users.map(user => (
+    <div key={user._id} className="container">
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-            <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">More suggestions for you</h5>
+            <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Foram encontrados {user.lenght} usuarios</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
                 <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">People</a>
@@ -86,30 +89,18 @@ function Feed() {
                         <div className="border network-item rounded mb-3">
                           <div className="p-3 d-flex align-items-center network-item-header">
                             <div className="dropdown-list-image mr-3">
-                              <img className="rounded-circle" src={img_p5} />
+                              <img className="rounded-circle" src={user.avatar} />
                             </div>
                             <div className="font-weight-bold">
-                              <h6 className="font-weight-bold text-dark mb-0">Stella Bergmann</h6>
+                            <h6 className="font-weight-bold text-dark mb-0">{user.name}</h6>
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
-                          <div className="d-flex align-items-center p-3 border-top border-bottom network-item-body">
-                            <div className="overlap-rounded-circle">
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Sophia Lee" src={img_p5} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="John Doe" src={img_p6} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Julia Cox" src={img_p7} />
-                              <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Robert Cook" src={img_p8} />
-                            </div>
-                            <span className="font-weight-bold small text-primary">4 mutual connections</span>
-                          </div>
-                          <div className="network-item-footer py-3 d-flex text-center">
+                          <form onSubmit={event => ViewProfile(event,user._id)} className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <button type="button" className="btn btn-primary btn-sm btn-block"> Connect </button>
+                              <button type="button" className="btn btn-primary btn-sm btn-block"> Ver Perfil </button>
                             </div>
-                            <div className="col-6 pr-3 pl-1">
-                              <button type="button" className="btn btn-outline-primary btn-sm btn-block"> <i className="feather-user-plus" /> Follow </button>
-                            </div>
-                          </div>
+                          </form>
                         </div>
                       </a>
                     </div>
@@ -122,8 +113,8 @@ function Feed() {
         <aside className="col col-xl-3 order-xl-2 col-lg-12 order-lg-2 col-12">
           <div className="box shadow-sm mb-3 border rounded bg-white ads-box text-center">
             <div className="image-overlap-2 pt-4">
-              <img src={img_l4} className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
-              <img src={img_user} className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
+              <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
+              <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
             </div>
             <div className="p-3 border-bottom">
               <h6 className="text-dark">Empregue.me conectando pessoas<span className="font-weight-bold">e Empresas</span></h6>
@@ -132,6 +123,7 @@ function Feed() {
         </aside>
       </div>
     </div>
+      ))}
   </div>
 </div>
 {/* Bootstrap core JavaScript */}
