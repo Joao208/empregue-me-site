@@ -35,7 +35,7 @@ const PrivateRoute = props => {
         : <Redirect to="/sign-in"/>
 }
 
-export default function Routes() {
+export default function Routed() {
     return(
 <Routes>
 <PrivateRoute path='/' exact element={<Feed/>}   />
