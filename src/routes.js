@@ -1,6 +1,5 @@
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-
+import { Routes, Route, useNavigate} from 'react-router-dom';
 import Reset_password from './Pages/reset-password'
 import Feed from './Pages/index'
 import Company_profile from './Pages/company-profile'
@@ -34,9 +33,8 @@ export default function Routed() {
     const PrivateRoute = props => {
         const isAuthenticated = !! sessionStorage.getItem('token') 
 
-        if(!isAuthenticated){
-            return navigate('sign-in')
-        }
+            return isAuthenticated ? <Route {...props} />
+            : navigate('/sign-in')
     }
 
     return(
