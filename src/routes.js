@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Redirect } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import Reset_password from './Pages/reset-password'
 import Feed from './Pages/index'
@@ -27,12 +27,13 @@ import Curriculum from './Pages/curriculum'
 import Conections from './Pages/connection'
 import ProfileView from './Pages/ProfileView'
 
+const navigate = useNavigate()
 
 const PrivateRoute = props => {
     const isAuthenticated = !! sessionStorage.getItem('token') 
 
         return isAuthenticated ? <Route {...props} />
-        : <Redirect to="/sign-in"/>
+        : navigate('/sign-in')
 }
 
 export default function Routed() {
