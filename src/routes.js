@@ -35,7 +35,7 @@ const PrivateRoute = props => {
     const isAuthenticated = !! sessionStorage.getItem('token') 
 
         return isAuthenticated ? <Route {...props} />
-        : navigate('/sign-')
+        : navigate('/sign-in')
 }
 
     return(
