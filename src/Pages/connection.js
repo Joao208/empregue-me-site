@@ -67,7 +67,6 @@ function Feed() {
             <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Usuarios Empregue.me</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
-                <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">People</a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
