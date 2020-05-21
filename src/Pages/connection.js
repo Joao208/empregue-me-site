@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,compo} from 'react';
 
 import '../global.css';
 import '../App.css';
@@ -15,21 +15,17 @@ import img_p6 from '../img/p6.png'
 import img_p7 from '../img/p7.png'
 import img_p8 from '../img/p8.png'
 import img_user from '../img/user.png'
+import api from '../services/api'
 
 
 function Feed() {
-  const name = query
 
   const [users, setUsers] = useState([])
 
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get('/searchusers',{
-          params:{
-            name:name
-          }
-        })
+        const response = await api.get('/searchusers')
         console.log(response)
         console.log(response.data)
 

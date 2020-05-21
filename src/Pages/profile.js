@@ -22,9 +22,6 @@ function Feed({history}) {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const [sujestion, setSujestion] = useState([])
-  const [latituded, setLatitude] = useState('')
-  const [longituded,setLongitude] = useState('')
   const [name,setName] = useState('')
 
   async function SignOut() {
