@@ -8,8 +8,8 @@ function App() {
     <>
     <Router>
       <Routed/>
-    </Router>
       <EmBot/>
+    </Router>
     </>
 
     );
