@@ -86,11 +86,11 @@ function Feed() {
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
-                          <form onSubmit={() => navigate(`https://light-empregue-me.herokuapp.com/profile/${user._id}`)} className="network-item-footer py-3 d-flex text-center">
+                          <div className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <button type="button" className="btn btn-primary btn-sm btn-block"> Ver Perfil </button>
+                              <button type="button" onClick={() => navigate(`https://light-empregue-me.herokuapp.com/profile/${user._id}`)}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </button>
                             </div>
-                          </form>
+                          </div>
                         </div>
                       </a>
                     </div>
