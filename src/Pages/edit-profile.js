@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useMemo} from 'react';
+import {useNavigate} from 'react-router-dom'
 
 import '../global.css';
 import '../App.css';
@@ -12,7 +13,7 @@ import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 
-function Feed({history}) {
+function Feed() {
   const [user, setUser] = useState([])
 
   const [avatar, setAvatar] = useState(null)
@@ -24,6 +25,7 @@ function Feed({history}) {
   const [bio, setBio] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const history = useNavigate()
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -54,7 +56,7 @@ function Feed({history}) {
 
        sessionStorage.getItem('profile_id', profile_id)
 
-        history.push('/profile')
+        history('/profile')
     }catch{
       setError(true)
       setLoading(false)
@@ -74,7 +76,7 @@ function Feed({history}) {
 
     loadSpots()
   }catch{
-    history.push('/sign-in')
+    history('/sign-in')
   }
 }, [] )
 

@@ -7,18 +7,20 @@ import '../Sidebar.css';
 import '../Main.css';
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
+import {useNavigate} from 'react-router-dom'
 
 
 
 import img_logo_svg from '../img/logologin.JPG'
 
-function Feed({history}) {
+function Feed() {
 
   const [email, setEmail] = useState('')
   const [token, setToken] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState('')
+  const history = useNavigate()
 
   async function ForgotPass(event) {
     event.preventDefault();
@@ -32,7 +34,7 @@ function Feed({history}) {
 
       console.log(response)
 
-      history.push('/')
+      history('/')
     }catch(e){
       setLoading(false)
       setError(e)

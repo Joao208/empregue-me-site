@@ -2,7 +2,8 @@
 import React, {
     useState
   } from 'react';
-  
+  import {useNavigate} from 'react-router-dom'
+
   import '../global2.css';
   
   import img_logo_svg from '../img/logologin.JPG'
@@ -11,14 +12,13 @@ import React, {
   import loadinganimate from '../loading.json'
 
   
-  function Feed({
-    history
-  }) {
+  function Feed() {
   
     const [phone, setPhone] = useState('')
     const [loading, setLoading] = useState(false)
     const [fill, setFill] = useState(false)
-  
+    const history = useNavigate()
+
   
     async function PhoneAdd(event) {
       event.preventDefault()
@@ -32,7 +32,7 @@ import React, {
           phone,
         });
         console.log(response)
-        history.push('/phoneconfirm')
+        history('/phoneconfirm')
     }catch(e){
       setLoading(false)
     }

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import {useParams} from 'react-router-dom'
+import {useParams,useNavigate} from 'react-router-dom'
 
 import '../global.css';
 import '../App.css';
@@ -18,12 +18,13 @@ import img_l3 from '../img/l3.png'
 import EmptyAnimation from '../empty.json'
 
 
-function Feed({history}) {
+function Feed() {
   
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [name,setName] = useState('')
+  const history = useNavigate()
 
   async function SignOut() {
     sessionStorage.clear()
@@ -55,7 +56,7 @@ function Feed({history}) {
   async function SearchValue(event){
     event.preventDefault()
     
-    history.push(`/conections/?name=${name}`)
+    history(`/conections/?name=${name}`)
   }
 
   return (

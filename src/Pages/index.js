@@ -42,7 +42,7 @@ import img_p3 from '../img/p3.png'
 import img_p4 from '../img/p4.png'
 import api from '../services/api'
 
-function Feed({history}) {
+function Feed() {
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null

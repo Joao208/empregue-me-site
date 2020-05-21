@@ -9,17 +9,15 @@ import React, {
   import api from '../services/api'
   import Lottie from 'react-lottie'
   import loadinganimate from '../loading.json'
-
+  import {useNavigate} from 'react-router-dom'
   
-  function Feed({
-    history
-  }) {
+  function Feed() {
   
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const [error,setError] = useState([])
-  
+    const history = useNavigate()
   
     async function SignIn(event) {
       event.preventDefault();
@@ -36,7 +34,7 @@ import React, {
         } = response.data;
   
         sessionStorage.setItem('token', token);
-        history.push('/')
+        history('/')
       }catch(e){
        setLoading(false)
        setError(e)

@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 
 import '../global.css';
 import '../App.css';
@@ -10,7 +11,7 @@ import img_p13 from '../img/p13.png'
 import api from '../services/api'
 
 
-function Feed({history}) {
+function Feed() {
 
   const [user, setUser] = useState('')
   const [selectedFile, setSelectedFile] = useState()
@@ -38,7 +39,8 @@ const onSelectFile = e => {
     // I've kept this example simple by using the first image instead of multiple
     setSelectedFile(e.target.files[0])
 }
-  
+const history = useNavigate()
+ 
   const [avatar, setAvatar] = useState(null)
   const [FacebookUrl, setFacebookUrl] = useState('')
   const [InstagramUrl, setInstagramUrl] = useState('')
@@ -68,7 +70,7 @@ const onSelectFile = e => {
 
        sessionStorage.getItem('profile_id', profile_id)
 
-        history.push('/profile')
+        history('/profile')
   }
   return (
 <>

@@ -3,7 +3,7 @@ import React, {
   useState
 } from 'react';
 import '../global2.css';
-import Button from 'react-bootstrap/Button'
+import {useNavigate} from 'react-router-dom'
 
 import api from '../services/api'
 import Lottie from 'react-lottie'
@@ -12,15 +12,14 @@ import img_logo_svg from '../img/logologin.JPG'
 import img403 from '../img/403error.svg'
 import Card from 'react-bootstrap/Card'
 
-function Feed({
-  history
-},props) {
+function Feed() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState('')
   const [fill, setFill] = useState(false)
+  const history = useNavigate()
 
   async function SignIn(event) {
     event.preventDefault()
@@ -43,7 +42,7 @@ function Feed({
 
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
-      history.push('/')
+      history('/')
     }catch(e){
       setLoading(false)
       setError(e)

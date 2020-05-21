@@ -38,7 +38,7 @@ const PrivateRoute = props => {
 export default function Routed() {
     return(
 <Routes>
-<PrivateRoute path='/' exact element={<Feed/>}   />
+<PrivateRoute path='/' element={<Feed/>}   />
 <PrivateRoute path='/company-profile/:id' element={<Company_profile/>}/>
 <PrivateRoute path='/conections/:name' element={<Conections/>}/>
 <PrivateRoute path='/profile/:id' element={<ProfileView/>}/>

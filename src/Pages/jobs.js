@@ -9,7 +9,7 @@ import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_l3 from '../img/l3.png'
 
-function Feed({history}) {
+function Feed() {
 
   const [jobs, setJobs] = useState([])
 

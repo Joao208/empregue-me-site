@@ -2,7 +2,8 @@
 import React, {
     useState
   } from 'react';
-  
+  import {useNavigate} from 'react-router-dom'
+
   import '../global2.css';
   
   import img_logo_svg from '../img/logologin.JPG'
@@ -11,15 +12,14 @@ import React, {
   import loadinganimate from '../loading.json'
 
   
-  function Feed({
-    history
-  }) {
+  function Feed() {
   
     const [phone, setPhone] = useState('')
     const [token, setToken] = useState('')
     const [loading, setLoading] = useState(false)
     const [error,setError] = useState(false)
     const [fill, setFill] = useState(false)
+    const history = useNavigate()
 
 
     async function Confirm(event) {
@@ -35,7 +35,7 @@ import React, {
           token
         });
         console.log(response)
-        history.push('/edit-profile')
+        history('/edit-profile')
       }catch(e){
         setLoading(false)
         setError(e)

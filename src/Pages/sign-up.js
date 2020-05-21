@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
 
-import Button from 'react-bootstrap/Button'
 import '../inputcamera.css';
 import api from '../services/api'
 import Lottie from 'react-lottie'
@@ -11,8 +10,9 @@ import loadinganimate from '../loading.json'
 import img_logo_svg from '../img/logologin.JPG'
 import img403 from '../img/403error.svg'
 import Card from 'react-bootstrap/Card'
+import {useNavigate} from 'react-router-dom'
 
-function Feed({history},props) {
+function Feed() {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -22,6 +22,7 @@ function Feed({history},props) {
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState(false)
   const [fill, setFill] = useState(false)
+  const history = useNavigate()
 
 
   useEffect(() => {
@@ -68,7 +69,7 @@ function Feed({history},props) {
 
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
-      history.push('/phone')
+      history('/phone')
     }  catch(e){
       setLoading(false)
       setError(e)

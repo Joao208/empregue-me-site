@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
-
+import {useNavigate} from 'react-router-dom'
 import '../inputcamera.css';
 import api from '../services/api'
 
@@ -9,7 +9,7 @@ import img_logo_svg from '../img/logologin.JPG'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 
-function Feed({history}) {
+function Feed() {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -19,7 +19,7 @@ function Feed({history}) {
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState('')
 
-
+  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -57,7 +57,7 @@ function Feed({history}) {
       } = response.data;
 
       sessionStorage.setItem('token', token);
-      history.push('/')
+      history('/')
     }catch(e){
       setLoading(false)
       setError(e)
