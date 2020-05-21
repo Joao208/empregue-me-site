@@ -69,9 +69,6 @@ function Feed({history}) {
     loadSpots()
 }, [] )
 
-console.log(longitude)
-console.log(latitude)
-
   async function SearchValue(event){
     event.preventDefault()
     
@@ -86,8 +83,8 @@ console.log(latitude)
 
         const response = await api.get('/sujestions',{
           params:{
-            longitude:longitude,
-            latitude:latitude
+            longitude,
+            latitude
           }
         })
       } catch (e) {
