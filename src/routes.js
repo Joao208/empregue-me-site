@@ -27,7 +27,7 @@ import Curriculum from './Pages/curriculum'
 import Conections from './Pages/connection'
 import ProfileView from './Pages/ProfileView'
 
-const navigate = useNavigate()
+
 
 export default function Routed() {
     return(
