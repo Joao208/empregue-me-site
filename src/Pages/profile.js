@@ -31,23 +31,6 @@ function Feed({history}) {
     sessionStorage.clear()
   }
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            const { latitude, longitude } = position.coords;
-
-            setLatitude(latitude)
-            setLongitude(longitude)
-        },
-        (error) => {
-            console.log(error)
-        },
-        {
-            timeout: 30000
-        }
-    )
-})
-
   const lottieOptions = {
     title:'loading',
     loop:true,
@@ -74,25 +57,6 @@ function Feed({history}) {
     
     history.push(`/conections/?name=${name}`)
   }
-
-  useEffect(() => {
-    async function loadUsers() {
-      try {
-        const latitude = latituded
-        const longitude = longituded
-
-        const response = await api.get('/sujestions',{
-          params:{
-            longitude,
-            latitude
-          }
-        })
-      } catch (e) {
-        loadUsers()
-      }
-    }
-    loadUsers()
-  }, [])
 
   return (
 <>
@@ -205,82 +169,7 @@ function Feed({history}) {
         <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Who viewed your profile</h6>
-            </div>
-            <div className="box-body p-3">
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src="img/p4.png" alt />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Sophia Lee</div>
-                  <div className="small text-gray-500">@Harvard
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src="img/p9.png" alt />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">John Doe</div>
-                  <div className="small text-gray-500">Traveler
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src="img/p10.png" alt />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Julia Cox</div>
-                  <div className="small text-gray-500">Art Designer
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src="img/p11.png" alt />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Robert Cook</div>
-                  <div className="small text-gray-500">@Photography
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src="img/p12.png" alt />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Richard Bell</div>
-                  <div className="small text-gray-500">@Envato
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm">Connent</button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </aside>
-        <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">QR code do seu perfil</h6>
-            </div>
+            <div className="box shadow-sm border rounded bg-white mb-3">
               <div className="box-body p-3">
             {profile.map(profile => (
               <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
@@ -293,7 +182,9 @@ function Feed({history}) {
             ))}
               </div>
             </div>
-          </aside>
+            </div>
+          </div>
+        </aside>
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
