@@ -40,7 +40,7 @@ export default function Routes() {
 <Switch>
 <PrivateRoute path='/' exact component={Feed}   />
 <PrivateRoute path='/company-profile/:id' component={company_profile}/>
-<PrivateRoute path='/conections/:name' component={conections}/>
+<PrivateRoute path='/conections' component={conections}/>
 <PrivateRoute path='/contact' component={contact}/>
 <PrivateRoute path='/edit-profile' component={edit_profile}/>
 <PrivateRoute path='/faq' component={faq}/>

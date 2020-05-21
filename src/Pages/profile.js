@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import white from '../img/white.PNG'
 
 import '../global.css';
 import '../App.css';
@@ -15,7 +14,7 @@ import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
-
+import Iframe from 'react-iframe'
 import EmptyAnimation from '../empty.json'
 
 
@@ -64,20 +63,31 @@ function Feed({history}) {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
+        console.log(post)
+        console.log(response.data.post)
 
     }
     loadSpots()
 }, [] )
 
+console.log(longitude)
+console.log(latitude)
+
   async function SearchValue(event){
     event.preventDefault()
     
-    history.push(`/conections/${name}`)
+    history.push(`/conections/?name=${name}`)
   }
 
   useEffect(() => {
     async function loadUsers() {
       try {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            setLatitude(latitude)
+            setLongitude(longitude)
+        })
         const response = await api.get('/sujestions',{
           params:{
             longitude:longitude,
@@ -282,7 +292,7 @@ function Feed({history}) {
             </div>
               <div className="box-body p-3">
               {profile.map(profile => (
-                <img src={`https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}`} alt=""/>
+                <img src={`https://chart.apis.google.com/chart?cht=qr&chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}&chs=230x230`} alt=""/>
               ))}
               </div>
             </div>
@@ -303,28 +313,48 @@ function Feed({history}) {
               <h6 className="m-0">Publicacões</h6>
             </div>
             {post.map(postd => (
-              post
-            ? <div key={postd._id} className="box-body p-3 border-bottom">
-                <div className="d-flex align-items-top job-item-header pb-2">
-                <div className="mr-2">
-                <h6 className="font-weight-bold text-dark mb-0">{postd.user.name}</h6>
-                <div className="small text-gray-500">{moment(postd.createdAt).fromNow()}</div>
+              <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{postd.user.name}</div>
+                    <div className="small text-gray-500">Ui/Ux desing</div>
+                  </div>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
-                <img className="img-fluid ml-auto mb-auto" style={{borderRadius:30}} src={postd.user.avatar ? postd.user.avatar : img_l3} />
+                <div className="p-3 border-bottom osahan-post-body">
+                  <p>{postd.Text.Text}</p>
+                  <Iframe url={postd.avatar}
+                  width="100%"
+                  height="100%"
+                  className="img-fluid"
+                  display="initial"
+                  position="relative"
+                  allowFullScreen/>               
                 </div>
-                <p className="mb-0">{postd.Text.Text}</p>
-                <embed src={postd.avatar ? postd.avatar : white} width="100%" height="100%"/>
                 <div className="p-3 border-bottom osahan-post-footer">
-                  <a className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
+                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes}</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-share-2" /> 2</a>
                 </div>
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src="img/p7.png" alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate"> James Spiegel <span className="float-right small">2 min</span></div>
+                    <div className="small text-gray-500">Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam est, quinder dolorem ipsum quia dolor sit amet, consectetur</div>
+                  </div>
+                </div>
+                <div className="p-3">
+                  <textarea placeholder="Add Comment..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
+                </div>
               </div>
-            :  <Lottie options={lottieOptions}
-            height='100%'
-            width='100%'
-            />
-            ))}
+              ))}
           </div>
         </main>
       </div>
