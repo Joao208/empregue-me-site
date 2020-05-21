@@ -266,13 +266,6 @@ const lottieOptions = {
                   {/* End Input */}
                 </div>
                 <div class="col-md-6 mb-3 mb-sm-6">
-                <div>
-                  <label className="form-label">
-                    Data de Nascimento
-                    <span className="text-danger">*</span>
-                  </label>
-                </div>
-                <DatePicker selected={startDate} onChange={date => setStartDate(date)}  dateFormat="dd/MM/yyyy" />
                   <div className="col-sm-6 mb-2">
                   <div className="js-form-message">
                     <label id="phoneNumberLabel" className="form-label">

@@ -14,7 +14,6 @@ import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
-import Iframe from 'react-iframe'
 import EmptyAnimation from '../empty.json'
 
 
@@ -24,11 +23,11 @@ function Feed({history}) {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [sujestion, setSujestion] = useState([])
-  const [latitude, setLatitude] = useState('')
-  const [longitude,setLongitude] = useState('')
+  const [latituded, setLatitude] = useState('')
+  const [longituded,setLongitude] = useState('')
   const [name,setName] = useState('')
 
-  async function SignOut(event) {
+  async function SignOut() {
     sessionStorage.clear()
   }
 
@@ -82,21 +81,16 @@ console.log(latitude)
   useEffect(() => {
     async function loadUsers() {
       try {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            setLatitude(latitude)
-            setLongitude(longitude)
-        })
+        const latitude = latituded
+        const longitude = longituded
+
         const response = await api.get('/sujestions',{
           params:{
-            longitude:longitude,
-            latitude:latitude
+            longitude,
+            latitude
           }
         })
       } catch (e) {
-        console.log(longitude)
-        console.log(latitude)
         loadUsers()
       }
     }
@@ -288,12 +282,18 @@ console.log(latitude)
         <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Who viewed your profile</h6>
+              <h6 className="m-0">QR code do seu perfil</h6>
             </div>
               <div className="box-body p-3">
-              {profile.map(profile => (
-                <img src={`https://chart.apis.google.com/chart?cht=qr&chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}&chs=230x230`} alt=""/>
-              ))}
+            {profile.map(profile => (
+              <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
+              <img src={`https://chart.apis.google.com/chart?cht=qr&chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}&chs=230x230`} className="img-fluid"  alt="Responsive image" />
+              <div className="p-3 border-bottom">
+                  <h6 className="font-weight-bold text-dark">QR code do seu perfil</h6>
+                  <p className="mb-0 text-muted">Use para apresentar seu perfil a seus amigos</p>
+                </div>
+              </div>                
+            ))}
               </div>
             </div>
           </aside>
@@ -327,22 +327,22 @@ console.log(latitude)
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
-                  <Iframe url={postd.avatar}
-                  width="100%"
-                  height="100%"
+                   <img src={postd.avatar ? postd.avatar : null}
                   className="img-fluid"
-                  display="initial"
-                  position="relative"
-                  allowFullScreen/>               
-                </div>
+                  style={{width:'100%',height:'100%'}}
+                  />
+                  <video width="100%" height="100%" controls>
+                    <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
+                  </video>                
+                  </div>
                 <div className="p-3 border-bottom osahan-post-footer">
-                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes}</a>
+                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-share-2" /> 2</a>
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src="img/p7.png" alt />
+                    <img className="rounded-circle" src={postd.user.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
