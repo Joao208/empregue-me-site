@@ -11,7 +11,6 @@ import api from '../services/api'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
-import DatePicker from 'react-datepicker'
 
 function Feed({history}) {
   const [user, setUser] = useState([])
@@ -61,7 +60,6 @@ function Feed({history}) {
       setLoading(false)
     }
   }
-  const [startDate, setStartDate] = useState(new Date())
 
   useEffect(() => {
     try{
