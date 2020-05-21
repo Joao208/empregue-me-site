@@ -18,7 +18,7 @@ function Feed() {
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState('')
-
+  const history = useNavigate()
   
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
