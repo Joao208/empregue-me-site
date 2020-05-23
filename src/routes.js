@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useNavigate} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 
 
 import Reset_password from './Pages/reset-password'
@@ -27,6 +27,7 @@ import Error404 from './Pages/not-found'
 import Curriculum from './Pages/curriculum'
 import Conections from './Pages/connection'
 import ProfileView from './Pages/ProfileView'
+import JobsSearch from './Pages/jobssearch'
 
 
 export default function Routed() {
@@ -54,6 +55,7 @@ export default function Routed() {
 <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
 <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
 <PrivateRoute path='/jobs' element={<Jobs/>}/>
+<PrivateRoute path='/jobs/:title' element={<JobsSearch/>}/>
 <PrivateRoute path='/job-profile/:id' element={<Job_profile/>}/>
 <PrivateRoute path='/notification' element={<Notification/>}/>
 <PrivateRoute path='/privacy' element={<Privacy/>}/>

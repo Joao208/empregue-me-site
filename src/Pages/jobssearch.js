@@ -8,17 +8,19 @@ import '../Main.css';
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
 import img_l3 from '../img/l3.png'
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 function Feed() {
-
+  const title = useParams()
   const navigate = useNavigate()
   const [jobs, setJobs] = useState([])
-  const [title,setTitle] = useState('')
+  const [titled,setTitle] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
-        const response = await api.get('/vacancies')
+        const response = await api.get(`/searchvacancies`,{
+            title
+        })
 
         setJobs(response.data)
     }
@@ -29,7 +31,7 @@ function Feed() {
 async function handleSearch(event) {
   event.preventDefault()
 
-  navigate(`/jobs/${title}`)
+  navigate(`/jobs/${titled}`)
 }
   return (
 <>
