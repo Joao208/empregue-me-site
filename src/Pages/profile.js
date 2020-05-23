@@ -9,7 +9,7 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
-import '../search.scss'
+import '../search.css'
 
 import Lottie from 'react-lottie'
 import api from '../services/api'
@@ -80,32 +80,22 @@ function Feed() {
       <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-      <div className="searchd">
-        <input type="text" placeholder="Search..." />
-        <div className="search" />
-      </div>
-      </form>
-      <ul className="navbar-nav ml-auto d-flex align-items-center">
-        {/* Nav Item - Search Dropdown (Visible Only XS) */}
-        <li className="nav-item dropdown no-arrow d-sm-none">
-          <a className="nav-link dropdown-toggle"  href="" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-search mr-2" />
-          </a>
-          {/* Dropdown - Messages */}
-          <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-            <form className="form-inline mr-auto w-100 navbar-search">
-              <div className="input-group">
-                <input type="text" className="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div className="input-group-append">
-                  <button className="btn" type="button">
-                    <i className="feather-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
+        <div className="input-group">
+        <div id="cover">
+        <form method="get" action>
+          <div className="tb">
+            <div className="td"><input type="text" placeholder="Search" required /></div>
+            <div className="td" id="s-cover">
+              <button type="submit">
+                <div id="s-circle" />
+                <span />
+              </button>
+            </div>
           </div>
-        </li>
-      </ul>
+        </form>
+        </div>
+        </div>
+      </form>
     </div>
   </nav>
   <div className="py-4">
@@ -206,13 +196,14 @@ function Feed() {
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
+                  {console.log(typeof postd.avatar)}
                   <video width="100%" height="100%" controls>
                     <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
                   </video>                
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
-                <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
+                  <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
