@@ -9,6 +9,7 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
+import '../search.scss'
 
 import Lottie from 'react-lottie'
 import api from '../services/api'
@@ -79,21 +80,10 @@ function Feed() {
       <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
       </a>
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-        <div className="input-group">
-          <input 
-          type="text"                   
-          className="form-control shadow-none border-0" 
-          placeholder='Search people'
-          aria-label="Search"
-          value={name}
-          onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" />
-          <div className="input-group-append">
-            <button className="btn" type="button">
-              <i className="feather-search" />
-            </button>
-          </div>
-          </div>
+      <div className="searchd">
+        <input type="text" placeholder="Search..." />
+        <div className="search" />
+      </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
         {/* Nav Item - Search Dropdown (Visible Only XS) */}
