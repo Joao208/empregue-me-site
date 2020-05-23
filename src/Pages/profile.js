@@ -81,18 +81,11 @@ function Feed() {
       </a>
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-        <div id="cover">
-        <form method="get" action>
-          <div className="tb">
-            <div className="td"><input type="text" placeholder="Search" required /></div>
-            <div className="td" id="s-cover">
-              <button type="submit">
-                <div id="s-circle" />
-                <span />
-              </button>
-            </div>
-          </div>
-        </form>
+        <div className="search">
+          <input type="search" className="search-box" />
+          <span className="search-button">
+            <span className="search-icon" />
+          </span>
         </div>
         </div>
       </form>
