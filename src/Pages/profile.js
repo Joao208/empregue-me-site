@@ -38,6 +38,10 @@ function Feed() {
     animationData:EmptyAnimation
   }
 
+  $('.search-button').click(function(){
+    $(this).parent().toggleClass('open');
+  });
+
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/profileview')
