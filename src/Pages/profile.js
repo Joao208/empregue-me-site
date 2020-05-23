@@ -9,7 +9,7 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
-import '../search.css'
+import '../search.scss'
 
 import Lottie from 'react-lottie'
 import api from '../services/api'
