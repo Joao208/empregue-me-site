@@ -7,12 +7,21 @@ import '../Main.css';
 
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
+import EmptyAnimation from '../empty.json'
+import Lottie from 'react-lottie'
 
 function Feed() {
   const title = useParams()
-  const navigate = useNavigate()
   const [jobs, setJobs] = useState([])
+
+  const lottieOptions = {
+    title:'loading',
+    loop:true,
+    autoplay:true,
+    animationData:EmptyAnimation
+  }
+
 
   useEffect(() => {
     async function loadSpots() {
@@ -60,8 +69,9 @@ function Feed() {
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3 border-top">
-                  <div className="row">
-                  {jobs.map(vacancies => (
+                    <div className="row">
+                  {jobs
+                    ? jobs.map(vacancies => (
                     <div key={vacancies._id} className="col-md-6">
                       <a >
                         <div className="border job-item mb-3">
@@ -79,7 +89,13 @@ function Feed() {
                         </div>
                       </a>
                     </div>
-                    ))}
+                    ))
+                   : <Lottie options={lottieOptions} 
+                   height='100%'
+                   width='100%'
+                   /> 
+       
+                }
                   </div>
                 </div>
               </div>

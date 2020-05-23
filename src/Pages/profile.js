@@ -102,9 +102,9 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
-         {profile.map(profile => (
-           profile
-          ? <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+         {profile
+           ? profile.map(profile => (
+           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
               <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
               <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
@@ -125,12 +125,12 @@ function Feed() {
               <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
             </form>
           </div>
-          : <Lottie options={lottieOptions
-          } 
+          ))
+          : <Lottie options={lottieOptions} 
           height='100%'
           width='100%'
           /> 
-          ))}
+          }
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
@@ -176,7 +176,8 @@ function Feed() {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Publicacões</h6>
             </div>
-            {post.map(postd => (
+            {post
+            ? post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -214,7 +215,12 @@ function Feed() {
                   <textarea placeholder="Add Comment..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                 </div>
               </div>
-              ))}
+              ))
+            : <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            /> 
+            }
           </div>
         </main>
       </div>
