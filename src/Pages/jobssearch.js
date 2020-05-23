@@ -111,37 +111,6 @@ async function handleSearch(event) {
             </div>
           </div>
         </main>
-        <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
-          <div className="shadow-sm rounded bg-white job-item-2 p-3 mb-3">
-            <div className="media">
-              <div className="u-avatar mr-3">
-                <img className="img-fluid" src={img_l3}  alt="Image Description" />
-              </div>
-              <div className="media-body">
-                <div className="mb-3">
-                  <h6 className="font-weight-bold mb-0"><a className="text-dark" href="job-profile">C# Developer</a></h6>
-                  <a className="d-inline-block small pt-1" href="job-profile">
-                    <span className="text-warning">
-                      <span className="feather-star" />
-                      <span className="feather-star" />
-                      <span className="feather-star" />
-                      <span className="feather-star text-gray-500" />
-                      <span className="feather-star text-gray-500" />
-                    </span>
-                    <span className="text-dark font-weight-bold ml-2">3.74</span>
-                    <span className="text-muted">(567 reviews)</span>
-                  </a>
-                </div>
-                <div className="d-flex align-items-center">
-                  <div className="border-right pr-3 mr-3">
-                    <a className="text-secondary small" href="job-profile">Salaries</a>
-                  </div>
-                  <a className="small" href="job-profile">Open jobs</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   </div>
