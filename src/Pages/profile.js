@@ -212,7 +212,6 @@ function Feed() {
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
-                
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
