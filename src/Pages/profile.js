@@ -190,10 +190,6 @@ function Feed() {
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
-                  {console.log(typeof postd.avatar)}
-                  <video width="100%" height="100%" controls>
-                    <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
-                  </video>                
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
