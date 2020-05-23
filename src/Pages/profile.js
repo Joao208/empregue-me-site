@@ -83,7 +83,7 @@ function Feed() {
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
         <form className="search">
-          <input onClick={setButtonName('open')} type="search" className="search-box" />
+          <input type="search" className="search-box" />
           <span className={buttonName}>
             <span className="search-icon" />
           </span>
