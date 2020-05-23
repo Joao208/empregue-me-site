@@ -30,13 +30,13 @@ import ProfileView from './Pages/ProfileView'
 
 
 export default function Routed() {
-    const navigate = useNavigate()
+    const Navigte = useNavigate()
 
     const PrivateRoute = props => {
         const isAuthenticated = !! sessionStorage.getItem('token') 
 
             return isAuthenticated ? <Route {...props} />
-            : navigate('/sign-in')
+            : <Navigte to='/sign-in' replace/>
     }
 
     return(
