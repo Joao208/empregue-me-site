@@ -25,6 +25,7 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [name,setName] = useState('')
+  const [buttonName,setButtonName] = useState('search-button')
   const history = useNavigate()
 
   async function SignOut() {
@@ -37,10 +38,6 @@ function Feed() {
     autoplay:true,
     animationData:EmptyAnimation
   }
-
-  $('.search-button').click(function(){
-    $(this).parent().toggleClass('open');
-  });
 
   useEffect(() => {
     async function loadSpots() {
@@ -85,12 +82,12 @@ function Feed() {
       </a>
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-        <div className="search">
-          <input type="search" className="search-box" />
-          <span className="search-button">
+        <form className="search">
+          <input onClick={setButtonName('open')} type="search" className="search-box" />
+          <span className={buttonName}>
             <span className="search-icon" />
           </span>
-        </div>
+        </form>
         </div>
       </form>
     </div>
