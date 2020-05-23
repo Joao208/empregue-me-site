@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React,{useState,useEffect} from 'react';
 import moment from 'moment'
+import {useParams} from 'react-router'
 
 import '../global.css';
 import '../App.css';
