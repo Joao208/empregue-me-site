@@ -9,7 +9,6 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
-import '../search.scss'
 
 import Lottie from 'react-lottie'
 import api from '../services/api'
@@ -25,7 +24,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [name,setName] = useState('')
-  const [buttonName,setButtonName] = useState('search-button')
   const history = useNavigate()
 
   async function SignOut() {
@@ -82,13 +80,20 @@ function Feed() {
       </a>
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-        <form className="search">
-          <input type="search" className="search-box" />
-          <span className={buttonName}>
-            <span className="search-icon" />
-          </span>
-        </form>
-        </div>
+          <input 
+          type="text"                   
+          className="form-control shadow-none border-0" 
+          placeholder='Search people'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" />
+          <div className="input-group-append">
+            <button className="btn" type="button">
+              <i className="feather-search" />
+            </button>
+          </div>
+          </div>
       </form>
     </div>
   </nav>
@@ -190,6 +195,10 @@ function Feed() {
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
+                  {console.log(typeof postd.avatar)}
+                  <video width="100%" height="100%" controls>
+                    <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
+                  </video>                
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
