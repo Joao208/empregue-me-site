@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React,{useState,useEffect} from 'react';
+import moment from 'moment'
 
 import '../global.css';
 import '../App.css';
@@ -245,7 +246,7 @@ const lottieOptionserror = {
             <div className="p-3">
               <div className="d-flex align-items-top mb-2">
                 <p className="mb-0 text-muted">Postado</p>
-                <p className="font-weight-bold text-dark mb-0 mt-0 ml-auto">{jobs.createdAt}</p>
+                <p className="font-weight-bold text-dark mb-0 mt-0 ml-auto">{moment(jobs.createdAt).fromNow()}</p>
               </div>
             </div>
           </div>

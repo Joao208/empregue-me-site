@@ -56,7 +56,18 @@ function Feed() {
   async function SearchValue(event){
     event.preventDefault()
     
-    history(`/conections/?name=${name}`)
+    history(`/conections/${name}`)
+
+  }
+
+  async function Follow(event){
+    event.preventDefault()
+
+    const response = await api.post(`/follow/${id}`)
+
+    console.log(response)
+    console.log(response.data)
+
   }
 
   return (
@@ -145,9 +156,8 @@ function Feed() {
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-            <form onSubmit={SignOut} className="overflow-hidden border-top">
-              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
-              <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
+            <form onSubmit={Follow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
             </form>
           </div>
           : <Lottie options={lottieOptions
