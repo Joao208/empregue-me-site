@@ -35,10 +35,11 @@ function Feed() {
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
+  const {id} = useParams()
 
   useEffect(() => {
     async function loadSpots() {
-        const response = await api.get('/vacancie/5eb13e5ed5ee7930a89cd619')
+        const response = await api.get(`/vacancie/${id}`)
 
         setJobs(response.data)
         setTitle(response.data.text.title)
@@ -62,7 +63,7 @@ async function handleSubmit(event) {
   setButton(false)
   setLoading(true)
   try{
-  await api.post(`vacancies/5eb13e5ed5ee7930a89cd619/booking`)
+  await api.post(`vacancies/${id}/booking`)
 
   setLoading(false)
   setCompleted(true)
