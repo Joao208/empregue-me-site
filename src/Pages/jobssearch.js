@@ -25,9 +25,7 @@ function Feed() {
 
   useEffect(() => {
     async function loadSpots() {
-        const response = await api.get(`/searchvacancies`,{
-            title
-        })
+        const response = await api.get(`/searchvacancies/${title}`)
 
         setJobs(response.data)
     }

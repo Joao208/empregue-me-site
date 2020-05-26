@@ -192,13 +192,13 @@ function Feed() {
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
-                   <img src={postd.avatar ? postd.avatar : null}
+                  <img src={postd.avatar ? postd.avatar : null}
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
-                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
+                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
