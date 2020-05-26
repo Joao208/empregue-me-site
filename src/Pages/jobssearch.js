@@ -12,7 +12,7 @@ import EmptyAnimation from '../empty.json'
 import Lottie from 'react-lottie'
 
 function Feed() {
-  const title = useParams()
+  const {title} = useParams()
   const [jobs, setJobs] = useState([])
 
   const lottieOptions = {
