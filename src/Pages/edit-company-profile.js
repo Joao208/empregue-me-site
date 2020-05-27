@@ -201,50 +201,37 @@ const lottieOptions = {
                   </div>
                   {/* End Input */}
                 </div>
-                <div class="col-md-6 mb-3 mb-sm-6">
+                <div className="row">
+                  {/* Input */}
                   <div className="col-sm-6 mb-2">
-                  <div className="js-form-message">
-                    <label id="phoneNumberLabel" className="form-label">
-                      Seu número
-                      <span className="text-danger">*</span>
-                    </label>
-                    <div className="form-group">
-                      <input className="form-control" readonly="true" type="tel" name="phoneNumber" defaultValue={user.phone} placeholder="Enter your phone number" aria-label="Enter your phone number" required aria-describedby="phoneNumberLabel" data-msg="Please enter a valid phone number" data-error-class="u-has-error" data-success-class="u-has-success" />
+                    <div className="js-form-message">
+                      <label id="nameLabel" className="form-label">
+                        Site
+                        <span className="text-danger">*</span>
+                      </label>
+                      <div className="form-group">
+                        <input 
+                        type="text" 
+                        className="form-control" 
+                        name="name" 
+                        placeholder={user.name} 
+                        aria-label="Enter your name"
+                        required aria-describedby="nameLabel" 
+                        data-msg="Please enter your name." 
+                        data-error-class="u-has-error" 
+                        data-success-class="u-has-success" 
+                        value={site}
+                        onChange={event => setSite(event.target.value)}   
+                       />
+                        <small className="form-text text-muted">Exibido aos outros usúarios.</small>
+                      </div>
                     </div>
                   </div>
+                  {/* End Input */}
                 </div>
-                <div className="col-sm-6 mb-2">
-                  <div className="js-form-message">
-                    <label id="organizationLabel" className="form-label">
-                      Empresa
-                    </label>
-                    <div className="form-group">
-                      <input type="text" className="form-control" name="organization" placeholder="Você ja trabalha, insira sua empresa" aria-label="Enter your organization name" required aria-describedby="organizationLabel" data-msg="Please enter your organization name" data-error-class="u-has-error" data-success-class="u-has-success" />
-                    </div>
-                  </div>
-                </div>
-              </div>
               </form>
               ))} 
             </div>
-          </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Curriculums
-              </h6>
-              <hr/>
-            </div>           
-          </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Evoluocao profissional
-              </h6>
-              <hr/>
-              <p>
-                Acompanhe com porcentagens seu profissionalismo e vocacao (Ainda em producao)
-              </p>
-              <hr/>
-            </div>           
           </div>
           <div >
           <div className="mb-3 text-right">

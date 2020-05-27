@@ -28,6 +28,7 @@ import Curriculum from './Pages/curriculum'
 import Conections from './Pages/connection'
 import ProfileView from './Pages/ProfileView'
 import EditCompanyProfile from './Pages/edit-company-profile'
+import MyCompany_profile from './Pages/MyCompanyProfile'
 
 
 export default function Routed() {
@@ -43,7 +44,7 @@ export default function Routed() {
         const isBussines = !! sessionStorage.getItem('bussines')
 
         return isBussines ? <Route {...props} />
-        : <Route path='/sign-in' element={<Sign_in/>}/>
+        : <PrivateRoute path='/profile' element={<Profile/>}/>
     }
 
     return(
@@ -74,6 +75,7 @@ export default function Routed() {
 <Route path='*' element={<Error404/>}/>
 <PrivateRoute path='/curriculum' element={<Curriculum/>}/>
 <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
+<BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
 </Routes>
     );
 }
