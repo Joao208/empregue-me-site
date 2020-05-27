@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React,{useEffect,useState} from 'react';
-import {useParams, useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 import '../global.css';
 import '../App.css';
@@ -16,6 +16,8 @@ import api from '../services/api'
 function Feed() {
 
   const [users, setUsers] = useState([])
+  const [bussines, setBussines] = useState([])
+  const [vacancies, setVacancies] = useState([])
   const {name} = useParams()
 
   useEffect(() => {
@@ -23,7 +25,9 @@ function Feed() {
       try {
         const response = await api.get(`/search/${name}`)
 
-        setUsers(response.data)
+        setUsers(response.data.users)
+        setBussines(response.data.bussines)
+        setVacancies(response.data.vacancies)
         console.log(response.data)
   
       } catch (e) {
@@ -73,21 +77,21 @@ function Feed() {
                 <div className="p-3">
                   <div className="row">
                   {users.map(user => (
-                    <div key={user.users._id} className="col-md-4">
+                    <div key={user._id} className="col-md-4">
                       <a href="profile">
                         <div className="border network-item rounded mb-3">
                           <div className="p-3 d-flex align-items-center network-item-header">
                             <div className="dropdown-list-image mr-3">
-                              <img className="rounded-circle" src={user.users.avatar} />
+                              <img className="rounded-circle" src={user.avatar} />
                             </div>
                             <div className="font-weight-bold">
-                            <h6 className="font-weight-bold text-dark mb-0">{user.users.name}</h6>
+                            <h6 className="font-weight-bold text-dark mb-0">{user.name}</h6>
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
                           <div className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user.users._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
                             </div>
                           </div>
                         </div>
@@ -111,22 +115,22 @@ function Feed() {
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3">
                   <div className="row">
-                  {users.map(vacancies => (
-                    <div key={vacancies.vacancies._id} className="col-md-4">
+                  {vacancies.map(vacancies => (
+                    <div key={vacancies._id} className="col-md-4">
                       <a href="profile">
                         <div className="border network-item rounded mb-3">
                           <div className="p-3 d-flex align-items-center network-item-header">
                             <div className="dropdown-list-image mr-3">
-                              <img className="rounded-circle" src={vacancies.vacancies.avatar} />
+                              <img className="rounded-circle" src={vacancies.avatar} />
                             </div>
                             <div className="font-weight-bold">
-                            <h6 className="font-weight-bold text-dark mb-0">{vacancies.vacancies.title}</h6>
+                            <h6 className="font-weight-bold text-dark mb-0">{vacancies.title}</h6>
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
                           <div className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <a type="button" href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies.vacancies._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Vaga </a>
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Vaga </a>
                             </div>
                           </div>
                         </div>
@@ -150,22 +154,22 @@ function Feed() {
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3">
                   <div className="row">
-                  {users.map(bussines => (
-                    <div key={bussines.bussines._id} className="col-md-4">
+                  {bussines.map(bussines => (
+                    <div key={bussines._id} className="col-md-4">
                       <a href="profile">
                         <div className="border network-item rounded mb-3">
                           <div className="p-3 d-flex align-items-center network-item-header">
                             <div className="dropdown-list-image mr-3">
-                              <img className="rounded-circle" src={bussines.bussines.avatar} />
+                              <img className="rounded-circle" src={bussines.avatar} />
                             </div>
                             <div className="font-weight-bold">
-                            <h6 className="font-weight-bold text-dark mb-0">{bussines.bussines.nome}</h6>
+                            <h6 className="font-weight-bold text-dark mb-0">{bussines.nome}</h6>
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
                           <div className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <a type="button" href={`https://light-empregue-me.herokuapp.com/company-profile/${bussines.bussines._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Empresa </a>
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/company-profile/${bussines._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Empresa </a>
                             </div>
                           </div>
                         </div>
