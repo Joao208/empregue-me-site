@@ -16,7 +16,7 @@ import React, {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState([])
+    const [error,setError] = useState(false)
     const history = useNavigate()
   
     async function SignIn(event) {
@@ -75,9 +75,18 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
                 <p className="text-muted">Não perca a sua próxima oportunidade de contratar funcionrios melhores. Entre para se manter atualizado sobre o seu mundo profissional.</p>
               </div>
-              { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Email ou Senha incorretos
-              </p>}
+                  {
+                  !! error && 
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={img403} />
+                <Card.Body>
+                <Card.Title>Ops!! Erro</Card.Title>
+                    <Card.Text>
+                      Usuario ou senha incorretos
+                    </Card.Text>
+                </Card.Body>
+              </Card>          
+                }
               <form onSubmit={SignIn}>
                 <div className="form-group">
                   <label className="mb-1">Email</label>
@@ -118,7 +127,7 @@ import React, {
                 <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
                 <div className="py-3 d-flex align-item-center">
                   <a href="forgot-password">Esqueceu a senha?</a>
-                  <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Crie agora</a></span>
+                  <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="/bussinessign-up">Crie agora</a></span>
                 </div>
               </form>
             </div>

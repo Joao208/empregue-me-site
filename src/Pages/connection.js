@@ -22,7 +22,7 @@ function Feed() {
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get(`/searchusers/${name}`)
+        const response = await api.get(`/search/${name}`)
 
         setUsers(response.data)
 
@@ -63,7 +63,7 @@ function Feed() {
         {/* Main Content */}
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-            <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Usuarios Empregue.me</h5>
+          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Usuarios Empregue.me com o nome {name}</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
               </li>
@@ -73,21 +73,99 @@ function Feed() {
                 <div className="p-3">
                   <div className="row">
                   {users.map(user => (
-                    <div key={user._id} className="col-md-4">
+                    <div key={user.users._id} className="col-md-4">
                       <a href="profile">
                         <div className="border network-item rounded mb-3">
                           <div className="p-3 d-flex align-items-center network-item-header">
                             <div className="dropdown-list-image mr-3">
-                              <img className="rounded-circle" src={user.avatar} />
+                              <img className="rounded-circle" src={user.users.avatar} />
                             </div>
                             <div className="font-weight-bold">
-                            <h6 className="font-weight-bold text-dark mb-0">{user.name}</h6>
+                            <h6 className="font-weight-bold text-dark mb-0">{user.users.name}</h6>
                               <div className="small text-black-50">Photography</div>
                             </div>
                           </div>
                           <div className="network-item-footer py-3 d-flex text-center">
                             <div className="col-6 pl-3 pr-1">
-                              <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user.users._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+          <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
+          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Vagas Empregue.me com o nome {name}</h5>
+            <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
+              <li className="nav-item">
+              </li>
+            </ul>
+            <div className="tab-content" id="myTabContent">
+              <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div className="p-3">
+                  <div className="row">
+                  {users.map(vacancies => (
+                    <div key={vacancies.vacancies._id} className="col-md-4">
+                      <a href="profile">
+                        <div className="border network-item rounded mb-3">
+                          <div className="p-3 d-flex align-items-center network-item-header">
+                            <div className="dropdown-list-image mr-3">
+                              <img className="rounded-circle" src={vacancies.vacancies.avatar} />
+                            </div>
+                            <div className="font-weight-bold">
+                            <h6 className="font-weight-bold text-dark mb-0">{vacancies.vacancies.title}</h6>
+                              <div className="small text-black-50">Photography</div>
+                            </div>
+                          </div>
+                          <div className="network-item-footer py-3 d-flex text-center">
+                            <div className="col-6 pl-3 pr-1">
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies.vacancies._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Vaga </a>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+          <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
+          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Empresas Empregue.me com o nome {name}</h5>
+            <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
+              <li className="nav-item">
+              </li>
+            </ul>
+            <div className="tab-content" id="myTabContent">
+              <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div className="p-3">
+                  <div className="row">
+                  {users.map(bussines => (
+                    <div key={bussines.bussines._id} className="col-md-4">
+                      <a href="profile">
+                        <div className="border network-item rounded mb-3">
+                          <div className="p-3 d-flex align-items-center network-item-header">
+                            <div className="dropdown-list-image mr-3">
+                              <img className="rounded-circle" src={bussines.bussines.avatar} />
+                            </div>
+                            <div className="font-weight-bold">
+                            <h6 className="font-weight-bold text-dark mb-0">{bussines.bussines.nome}</h6>
+                              <div className="small text-black-50">Photography</div>
+                            </div>
+                          </div>
+                          <div className="network-item-footer py-3 d-flex text-center">
+                            <div className="col-6 pl-3 pr-1">
+                              <a type="button" href={`https://light-empregue-me.herokuapp.com/company-profile/${bussines.bussines._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Empresa </a>
                             </div>
                           </div>
                         </div>

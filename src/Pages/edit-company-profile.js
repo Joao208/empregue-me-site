@@ -17,14 +17,9 @@ function Feed() {
   const [user, setUser] = useState([])
 
   const [avatar, setAvatar] = useState(null)
-  const [FacebookUrl, setFacebookUrl] = useState('')
-  const [InstagramUrl, setInstagramUrl] = useState('')
-  const [TwitterUrl, setTwitterUrl] = useState('')
-  const [YouTubeUrl, setYouTubeUrl] = useState('')
-  const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
+  const [site, setSite] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
   const history = useNavigate()
 
   const preview = useMemo(() => {
@@ -38,14 +33,10 @@ function Feed() {
     const data = new FormData()
 
         data.append('avatar', avatar)
-        data.append('FacebookUrl', FacebookUrl)
-        data.append('InstagramUrl', InstagramUrl)
-        data.append('TwitterUrl', TwitterUrl)
-        data.append('YouTubeUrl', YouTubeUrl)
-        data.append('GithubUrl', GithubUrl)
         data.append('bio', bio)
+        data.append('site', site)
        
-       const response = await api.post('/profile', data)
+       const response = await api.post('/profilebussines', data)
 
        console.log(response)
 
@@ -53,9 +44,8 @@ function Feed() {
 
        sessionStorage.getItem('profile_id', profile_id)
 
-        history('/profile')
+        history('/mycompany-profile')
     }catch{
-      setError(true)
       setLoading(false)
     }
   }
@@ -63,7 +53,7 @@ function Feed() {
   useEffect(() => {
     try{
     async function loadSpots() {
-      const response = await api.get('/user')
+      const response = await api.get('/mybussines')
 
         setUser(response.data)
 
@@ -167,58 +157,7 @@ const lottieOptions = {
               </p>
             </div>
             <div className="box-body">
-              <div className="p-3 border-bottom">
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-instagram position-absolute text-warning" />
-                  <input 
-                  placeholder="Add Instagram link" 
-                  type="text" 
-                  className="form-control" 
-                  value={InstagramUrl}
-                  onChange={event => setInstagramUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-facebook position-absolute text-primary" />
-                  <input 
-                  placeholder="Add Facebook link" 
-                  type="text" 
-                  className="form-control" 
-                  value={FacebookUrl}
-                  onChange={event => setFacebookUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-twitter position-absolute text-info" />
-                  <input 
-                  placeholder="Add Twitter link" 
-                  type="text" 
-                  className="form-control" 
-                  value={TwitterUrl}
-                  onChange={event => setTwitterUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-youtube position-absolute text-danger" />
-                  <input 
-                  placeholder="Add Youtube link" 
-                  type="text" 
-                  className="form-control" 
-                  value={YouTubeUrl}
-                  onChange={event => setYouTubeUrl(event.target.value)}
-                  />
-                </div>
-                <div className="position-relative icon-form-control mb-0">
-                  <i className="feather-github position-absolute text-dark" />
-                  <input
-                  placeholder="Add Github link" 
-                  type="text" 
-                  className="form-control"
-                  value={GithubUrl}
-                  onChange={event => setGithubUrl(event.target.value)}
-                  />
-                </div>
-              </div>
+
             </div>
           </div>
         </aside>

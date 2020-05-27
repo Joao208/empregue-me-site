@@ -84,18 +84,18 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
-            {
-              !! error && 
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={img403} />
-            <Card.Body>
-            <Card.Title>Ops!! Erro</Card.Title>
-                <Card.Text>
-                  Usuario ou senha incorretos
-                </Card.Text>
-            </Card.Body>
-          </Card>          
-            }
+              {
+                !! error && 
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={img403} />
+              <Card.Body>
+              <Card.Title>Ops!! Erro</Card.Title>
+                  <Card.Text>
+                    Usuario ou senha incorretos
+                  </Card.Text>
+              </Card.Body>
+            </Card>          
+              }
             { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
             </p>}

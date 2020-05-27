@@ -17,7 +17,7 @@ function Feed() {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState('')
+  const [error,setError] = useState(false)
   const history = useNavigate()
   
   useEffect(() => {
@@ -57,7 +57,7 @@ function Feed() {
       } = response.data;
 
       sessionStorage.setItem('token', token);
-      history('/')
+      history('/edit-company-profile')
     }catch(e){
       setLoading(false)
       setError(e)
@@ -101,9 +101,18 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Junte-se ao Empregue.me</h5>
               <p className="text-muted">Aproveite ao máximo sua vida profissional</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Empresa já existente
-            </p>}
+            {
+              !! error && 
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={img403} />
+            <Card.Body>
+            <Card.Title>Ops!! Erro</Card.Title>
+                <Card.Text>
+                  Usuario ou senha incorretos
+                </Card.Text>
+            </Card.Body>
+          </Card>          
+            }
             <form onSubmit={SignUp}>
               <div className="form-row">
                 <div className="col">
