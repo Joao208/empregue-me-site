@@ -29,11 +29,12 @@ import React, {
         });
         console.log(response)
         const {
-          user,
+          bussines,
           token
         } = response.data;
   
         sessionStorage.setItem('token', token);
+        sessionStorage.setItem('bussines',JSON.stringify(bussines))
         history('/')
       }catch(e){
        setLoading(false)

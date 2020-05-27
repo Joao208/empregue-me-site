@@ -53,9 +53,11 @@ function Feed() {
       console.log(response)
 
       const {
-        token
+        token,
+        bussines
       } = response.data;
 
+      sessionStorage.setItem('bussines',JSON.stringify(bussines))
       sessionStorage.setItem('token', token);
       history('/edit-company-profile')
     }catch(e){

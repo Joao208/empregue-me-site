@@ -27,16 +27,23 @@ import Error404 from './Pages/not-found'
 import Curriculum from './Pages/curriculum'
 import Conections from './Pages/connection'
 import ProfileView from './Pages/ProfileView'
-import JobsSearch from './Pages/jobssearch'
+import EditCompanyProfile from './Pages/edit-company-profile'
 
 
 export default function Routed() {
 
     const PrivateRoute = props => {
-        const isAuthenticated = !! sessionStorage.getItem('token') 
+        const isAuthenticated = !! sessionStorage.getItem('user') 
 
             return isAuthenticated ? <Route {...props} />
             : <Route path='/sign-in' element={<Sign_in/>}/>
+    }
+
+    const BussinesRoutes = props => {
+        const isBussines = !! sessionStorage.getItem('bussines')
+
+        return isBussines ? <Route {...props} />
+        : <Route path='/sign-in' element={<Sign_in/>}/>
     }
 
     return(
@@ -55,7 +62,6 @@ export default function Routed() {
 <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
 <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
 <PrivateRoute path='/jobs' element={<Jobs/>}/>
-<PrivateRoute path='/jobs/:title' element={<JobsSearch/>}/>
 <PrivateRoute path='/job-profile/:id' element={<Job_profile/>}/>
 <PrivateRoute path='/notification' element={<Notification/>}/>
 <PrivateRoute path='/privacy' element={<Privacy/>}/>
@@ -67,6 +73,7 @@ export default function Routed() {
 <PrivateRoute path='/terms' element={<Terms/>}/>
 <Route path='*' element={<Error404/>}/>
 <PrivateRoute path='/curriculum' element={<Curriculum/>}/>
+<BussinesRoutes path='/edit-profile' element={<EditCompanyProfile/>}/>
 </Routes>
     );
 }
