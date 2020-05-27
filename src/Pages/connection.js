@@ -104,6 +104,17 @@ function Feed() {
             </div>
           </div>
         </main>
+        <aside className="col col-xl-3 order-xl-2 col-lg-12 order-lg-2 col-12">
+          <div className="box shadow-sm mb-3 border rounded bg-white ads-box text-center">
+            <div className="image-overlap-2 pt-4">
+              <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
+              <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
+            </div>
+            <div className="p-3 border-bottom">
+              <h6 className="text-dark">Empregue.me conectando pessoas<span className="font-weight-bold"> e Empresas</span></h6>
+            </div>
+          </div>
+        </aside>
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
           <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Vagas Empregue.me com o nome {name}</h5>
@@ -182,17 +193,6 @@ function Feed() {
             </div>
           </div>
         </main>
-        <aside className="col col-xl-3 order-xl-2 col-lg-12 order-lg-2 col-12">
-          <div className="box shadow-sm mb-3 border rounded bg-white ads-box text-center">
-            <div className="image-overlap-2 pt-4">
-              <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
-              <img src="https://api.adorable.io/avatars/268/abott@adorable" className="img-fluid rounded-circle shadow-sm"  alt="Responsive image" />
-            </div>
-            <div className="p-3 border-bottom">
-              <h6 className="text-dark">Empregue.me conectando pessoas<span className="font-weight-bold"> e Empresas</span></h6>
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   </div>
