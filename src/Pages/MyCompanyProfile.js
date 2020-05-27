@@ -26,12 +26,13 @@ function Feed() {
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/mybussines')
-
+        
+        console.log(response.data)
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
         setActivity(response.data.profile)
-        console.log(response.data)
+        
     }
 
     loadSpots()

@@ -150,16 +150,6 @@ const lottieOptions = {
               </div>
             </div>
           </div>
-          <div className="border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Redes sociais</h6>
-              <p className="mb-0 mt-0 small">Adicione outros links ao seu perfil.
-              </p>
-            </div>
-            <div className="box-body">
-
-            </div>
-          </div>
         </aside>
         <main className="col-md-8">
           <div className="border rounded bg-white mb-3">
