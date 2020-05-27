@@ -10,7 +10,9 @@ import React, {
   import Lottie from 'react-lottie'
   import loadinganimate from '../loading.json'
   import {useNavigate} from 'react-router-dom'
-  
+  import img403 from '../img/403error.svg'
+  import Card from 'react-bootstrap/Card'
+
   function Feed() {
   
     const [email, setEmail] = useState('')
