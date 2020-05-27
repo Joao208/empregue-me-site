@@ -17,7 +17,6 @@ function Feed() {
 
   const [users, setUsers] = useState([])
   const {name} = useParams()
-  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadUsers() {
@@ -25,7 +24,8 @@ function Feed() {
         const response = await api.get(`/search/${name}`)
 
         setUsers(response.data)
-
+        console.log(response.data)
+  
       } catch (e) {
         loadUsers()
       }
