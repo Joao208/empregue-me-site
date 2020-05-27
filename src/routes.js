@@ -73,7 +73,7 @@ export default function Routed() {
 <PrivateRoute path='/terms' element={<Terms/>}/>
 <Route path='*' element={<Error404/>}/>
 <PrivateRoute path='/curriculum' element={<Curriculum/>}/>
-<BussinesRoutes path='/edit-profile' element={<EditCompanyProfile/>}/>
+<BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
 </Routes>
     );
 }
