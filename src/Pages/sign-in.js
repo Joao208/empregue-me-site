@@ -46,7 +46,7 @@ function Feed() {
       history('/')
     }catch(response){
       setLoading(false)
-      setError(e)
+      setError(true)
       console.log(response.data.error)
     } 
     }
