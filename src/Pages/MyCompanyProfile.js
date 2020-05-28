@@ -90,7 +90,7 @@ function Feed() {
   </nav>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
+    <img className="img-fluid" style={{width:'100%'}} src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">
