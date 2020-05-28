@@ -17,6 +17,7 @@ import img_company from '../img/company-profile.jpg'
 import img_clogo from '../img/clogo.png'
 import img_l3 from '../img/l3.png'
 import api from '../services/api'
+import EmptyAnimation from '../empty.json'
 
 function Feed() {
 
