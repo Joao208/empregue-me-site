@@ -211,7 +211,8 @@ function Feed() {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Publicacões</h6>
             </div>
-            {post.map(postd => (
+            {post
+            ? post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -226,16 +227,18 @@ function Feed() {
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
-                   <img src={postd.avatar ? postd.avatar : null}
+                  { postd.isVideo
+                  ? <video width="100%" height="100%" controls>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
+                  </video>
+                  : <img src={postd.avatar ? postd.avatar : null}
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
-                  <video width="100%" height="100%" controls>
-                    <source src={postd.avatar ? postd.avatar : null} type="video/mp4"/>
-                  </video>                
+                  }
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
-                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likes.lenght}</a>
+                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
                   <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
@@ -252,7 +255,12 @@ function Feed() {
                   <textarea placeholder="Add Comment..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                 </div>
               </div>
-              ))}
+              ))
+            : <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            /> 
+            }
           </div>
         </main>
       </div>

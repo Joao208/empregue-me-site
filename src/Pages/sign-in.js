@@ -18,7 +18,6 @@ function Feed() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState(false)
-  const [errorresponse, setErrorresponse] = useState('')
   const [fill, setFill] = useState(false)
   const history = useNavigate()
 

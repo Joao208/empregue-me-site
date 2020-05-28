@@ -192,10 +192,15 @@ function Feed() {
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
-                  <img src={postd.avatar ? postd.avatar : null}
+                  { postd.isVideo
+                  ? <video width="100%" height="100%" controls>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
+                  </video>
+                  : <img src={postd.avatar ? postd.avatar : null}
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
+                  }
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
