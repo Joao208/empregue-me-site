@@ -17,7 +17,8 @@ function Feed() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState('')
+  const [error,setError] = useState(false)
+  const [errorresponse, setErrorresponse] = useState('')
   const [fill, setFill] = useState(false)
   const history = useNavigate()
 
@@ -43,9 +44,10 @@ function Feed() {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       history('/')
-    }catch(e){
+    }catch(response){
       setLoading(false)
       setError(e)
+      console.log(response.data.error)
     } 
     }
 
