@@ -46,7 +46,7 @@ function Feed() {
         setData(response.data)
         console.log(response.data.post)
         console.log(response.data)
-        console.log(reponse.data.post)
+        console.log(response.data.post)
     }
     loadSpots()
 }, [] )
