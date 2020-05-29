@@ -213,16 +213,18 @@ function Feed() {
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
                 </div>
+                {postd.comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={postd.comments.avatar} alt />
+                    <img className="rounded-circle" src={comments.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
-                    <div className="text-truncate">{postd.comments.username}<span className="float-right small">{moment(postd.comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{postd.comments.text}</div>
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.text}</div>
                   </div>
                 </div>
+                ))}
                 <div className="p-3">
                   <textarea placeholder="Add Comment..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
                 </div>
