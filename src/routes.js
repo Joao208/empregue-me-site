@@ -44,7 +44,7 @@ export default function Routed() {
         const isBussines = !! sessionStorage.getItem('bussines')
 
         return isBussines ? <Route {...props} />
-        : <PrivateRoute path='/profile' element={<Profile/>}/>
+        : <Route path='*' element={<Error404/>}/>
     }
 
     return(

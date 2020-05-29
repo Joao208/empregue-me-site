@@ -44,7 +44,9 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
-
+        console.log(response.data.post)
+        console.log(response.data)
+        console.log(reponse.data.post)
     }
     loadSpots()
 }, [] )
@@ -201,7 +203,12 @@ function Feed() {
                   style={{width:'100%',height:'100%'}}
                   />
                   }
-                  </div>
+                  {
+                    console.log(postd.comments)
+                  }{
+                    console.log(postd.comments.avatar)
+                  }
+                    </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
