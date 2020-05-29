@@ -204,16 +204,16 @@ function Feed() {
                   </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
-                  <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
+                <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <img className="rounded-circle" src={postd.comments.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
-                    <div className="text-truncate"> James Spiegel <span className="float-right small">2 min</span></div>
-                    <div className="small text-gray-500">Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam est, quinder dolorem ipsum quia dolor sit amet, consectetur</div>
+                    <div className="text-truncate">{postd.comments.username}<span className="float-right small">{moment(postd.comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{postd.comments.text}</div>
                   </div>
                 </div>
                 <div className="p-3">
