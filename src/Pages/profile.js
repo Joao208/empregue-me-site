@@ -17,7 +17,6 @@ import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
 import EmptyAnimation from '../empty.json'
-import LikeAnimation from '../like.json'
 
 
 function Feed() {
@@ -241,15 +240,14 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500"></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
                   </div>
                 </div>
                 ))}
                 <div className="p-3">
-                  <textarea 
+                  <input 
                   placeholder="Adicionar Comentario..." 
                   className="form-control border-0 p-0 shadow-none" 
-                  rows={1} 
                   defaultValue={""}
                   value={text}
                   onChange={event => setText(event.target.value)}
