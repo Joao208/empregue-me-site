@@ -244,23 +244,22 @@ function Feed() {
                   </div>
                 </div>
                 ))}
-                <form className="p-3" onChange={event => setText(event.target.value)}>
-                  <input 
-                  placeholder="Adicionar Comentario..." 
-                  className="form-control border-0 p-0 shadow-none" 
-                  defaultValue={""}
-                  value={text}
-                  />
-                  <button style={{border:'none',background:'none',marginLeft:'90%'}}>Enviar</button>
-                </form>
-                {
+                <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
                   await api.post(`/coment/${postd._id}`,{
                     text
                   })
-                }
-                }
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setText(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
               ))
             : <Lottie options={lottieOptions} 
