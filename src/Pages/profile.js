@@ -232,6 +232,7 @@ function Feed() {
                 >
                 <button  
                 href="#" 
+                style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />{postd.likeCount}</button>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
