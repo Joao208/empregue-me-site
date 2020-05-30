@@ -52,6 +52,12 @@ function Feed() {
   }, [post, socket])
 
   useEffect(() => {
+    socket.on('follow_me', (data) => {
+      setProfile([...post, data])
+    })
+  }, [profile, socket])
+
+  useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/profileview')
 
@@ -230,7 +236,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
+                <i className="feather-message-square" />{postd.commentCount}
                 </form>
                 {postd.comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
@@ -240,7 +246,7 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500"></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
                   </div>
                 </div>
                 ))}
