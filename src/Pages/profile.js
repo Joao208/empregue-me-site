@@ -17,6 +17,7 @@ import img_logo_svg from '../img/logo.png'
 import img_job1 from '../img/job1.png'
 import img_l3 from '../img/l3.png'
 import EmptyAnimation from '../empty.json'
+import LikeAnimation from '../like.json'
 
 
 function Feed() {
@@ -44,6 +45,14 @@ function Feed() {
     autoplay:true,
     animationData:EmptyAnimation
   }
+
+  const likeOptions = {
+    title:'like',
+    loop:false,
+    autoplay:true,
+    animationData:LikeAnimation
+  }
+
 
   useEffect(() => {
     socket.on('coment', (data) => {
