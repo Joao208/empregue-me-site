@@ -26,7 +26,7 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [name,setName] = useState('')
-  const [coment, setComent] = useState('')
+  const [text, setText] = useState('')
   const [liked, setLiked] = useState(false)
   const history = useNavigate()
 
@@ -273,15 +273,15 @@ function Feed() {
                   className="form-control border-0 p-0 shadow-none" 
                   rows={1} 
                   defaultValue={""}
-                  value={coment}
-                  onChange={event => setComent(event.target.value)}
+                  value={text}
+                  onChange={event => setText(event.target.value)}
                   />
                 </div>
                 {
                   async function Comentario(event){
                   event.preventDefault()
                   await api.post(`/coment/${postd._id}`,{
-                    text:coment
+                    text
                   })
                 }
                 }
