@@ -240,7 +240,7 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
+                    <div className="small text-gray-500"></div>
                   </div>
                 </div>
                 ))}
@@ -280,5 +280,4 @@ function Feed() {
 </>
   );
 }
-
 export default Feed;
