@@ -221,10 +221,16 @@ function Feed() {
                   />
                   }
                   </div>
-                <div className="p-3 border-bottom osahan-post-footer">
-                <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
+                <form 
+                onClick={api.post(`/likes/${postd._id}`)}
+                className="p-3 border-bottom osahan-post-footer"
+                >
+                <button  
+                href="#" 
+                className="mr-3 text-secondary"
+                ><i className="feather-heart text-danger" />{postd.likeCount}</button>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
-                </div>
+                </form>
                 {postd.comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
