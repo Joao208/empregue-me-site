@@ -222,7 +222,12 @@ function Feed() {
                   }
                   </div>
                 <form 
-                onClick={api.post(`/likes/${postd._id}`)}
+                onClick={
+                  async function Like(event){
+                  event.preventDefault()
+                    await api.post(`/likes/${postd._id}`)
+                  }
+                }
                 className="p-3 border-bottom osahan-post-footer"
                 >
                 <button  
@@ -254,9 +259,12 @@ function Feed() {
                   />
                 </div>
                 {
+                  async function Comentario(event){
+                  event.preventDefault()
                   await api.post(`/coment/${postd._id}`,{
                     text:coment
                   })
+                }
                 }
               </div>
               ))
