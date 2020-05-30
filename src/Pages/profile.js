@@ -27,6 +27,7 @@ function Feed() {
   const [data,setData] = useState('')
   const [name,setName] = useState('')
   const [coment, setComent] = useState('')
+  const [liked, setLiked] = useState(false)
   const history = useNavigate()
 
   async function SignOut() {
@@ -234,6 +235,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
+                  setLiked(true)
                     await api.post(`/likes/${postd._id}`)
                   }
                 }
@@ -243,7 +245,14 @@ function Feed() {
                 href="#" 
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
-                ><i className="feather-heart text-danger" />{postd.likeCount}</button>
+                >{liked 
+                ? <i className="feather-heart text-danger" />
+                : <Lottie
+                  options={lottieOptions} 
+                  height='10%'
+                  width='10%'
+                 />
+                }{postd.likeCount}</button>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
                 </form>
                 {postd.comments.map(comments => (

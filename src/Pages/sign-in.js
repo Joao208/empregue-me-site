@@ -38,11 +38,13 @@ function Feed() {
       const {
         user,
         token,
+        _id
       } = response.data;
 
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
+      console.log(_id)
       console.log(user._id)
       console.log(user.name)
       history('/')
