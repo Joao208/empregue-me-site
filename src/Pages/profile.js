@@ -251,7 +251,7 @@ function Feed() {
                   defaultValue={""}
                   value={text}
                   />
-                  <button>Enviar</button>
+                  <button style={{border:'none',background:'none',marginLeft:'90%'}}>Enviar</button>
                 </form>
                 {
                   async function Comentario(event){
