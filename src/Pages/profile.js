@@ -203,12 +203,7 @@ function Feed() {
                   style={{width:'100%',height:'100%'}}
                   />
                   }
-                  {
-                    console.log(postd.comments)
-                  }{
-                    console.log(postd.comments.avatar)
-                  }
-                    </div>
+                  </div>
                 <div className="p-3 border-bottom osahan-post-footer">
                 <a href="#" className="mr-3 text-secondary"><i className="feather-heart text-danger" />{postd.likeCount}</a>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
@@ -221,7 +216,7 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.text}</div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
                   </div>
                 </div>
                 ))}
