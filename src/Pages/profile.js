@@ -245,14 +245,8 @@ function Feed() {
                 href="#" 
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
-                >{liked 
-                ? <i className="feather-heart text-danger" />
-                : <Lottie
-                  options={lottieOptions} 
-                  height='10%'
-                  width='10%'
-                 />
-                }{postd.likeCount}</button>
+                ><i className="feather-heart text-danger" />
+                {postd.likeCount}</button>
                 <a href="#" className="mr-3 text-secondary"><i className="feather-message-square" />{postd.commentCount}</a>
                 </form>
                 {postd.comments.map(comments => (
@@ -281,7 +275,7 @@ function Feed() {
                   async function Comentario(event){
                   event.preventDefault()
                   await api.post(`/coment/${postd._id}`,{
-                    text
+                    
                   })
                 }
                 }
