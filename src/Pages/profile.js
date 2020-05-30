@@ -244,15 +244,15 @@ function Feed() {
                   </div>
                 </div>
                 ))}
-                <div className="p-3">
+                <form className="p-3" onChange={event => setText(event.target.value)}>
                   <input 
                   placeholder="Adicionar Comentario..." 
                   className="form-control border-0 p-0 shadow-none" 
                   defaultValue={""}
                   value={text}
-                  onChange={event => setText(event.target.value)}
                   />
-                </div>
+                  <button>Enviar</button>
+                </form>
                 {
                   async function Comentario(event){
                   event.preventDefault()
