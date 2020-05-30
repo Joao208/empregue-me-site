@@ -37,11 +37,13 @@ function Feed() {
       console.log(response)
       const {
         user,
-        token
+        token,
+        _id
       } = response.data;
 
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
+      sessionStorage.setItem('user_id', _id)
       history('/')
     }catch(response){
       setLoading(false)

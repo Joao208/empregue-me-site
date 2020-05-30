@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useState,useEffect}  from 'react';
+import React,{useState,useEffect,useMemo}  from 'react';
 import moment from 'moment'
 import {useNavigate} from 'react-router-dom'
+import socketio from 'socket.io-client'
 
 import '../global.css';
 import '../App.css';
@@ -24,11 +25,18 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [name,setName] = useState('')
+  const [coment, setComent] = useState('')
   const history = useNavigate()
 
   async function SignOut() {
     sessionStorage.clear()
   }
+
+  const user_id = sessionStorage.getItem('user_id') 
+
+  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
+        query: { user_id }
+    }), [user_id])
 
   const lottieOptions = {
     title:'loading',
@@ -38,15 +46,24 @@ function Feed() {
   }
 
   useEffect(() => {
+    socket.on('coment', (data) => {
+      setPost([...post, data])
+    })
+  }, [post, socket])
+
+  useEffect(() => {
+    socket.on('like', (data) => {
+      setPost([...post, data])
+    })
+  }, [post, socket])
+
+  useEffect(() => {
     async function loadSpots() {
         const response = await api.get('/profileview')
 
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
-        console.log(response.data.post)
-        console.log(response.data)
-        console.log(response.data.post)
     }
     loadSpots()
 }, [] )
@@ -221,8 +238,20 @@ function Feed() {
                 </div>
                 ))}
                 <div className="p-3">
-                  <textarea placeholder="Add Comment..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
+                  <textarea 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  rows={1} 
+                  defaultValue={""}
+                  value={coment}
+                  onChange={event => setComent(event.target.value)}
+                  />
                 </div>
+                {
+                  await api.post(`/coment/${postd._id}`,{
+                    text:coment
+                  })
+                }
               </div>
               ))
             : <Lottie options={lottieOptions} 

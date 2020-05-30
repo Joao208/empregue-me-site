@@ -64,11 +64,13 @@ function Feed() {
 
       const {
         token,
-        user
+        user,
+        _id
       } = response.data;
 
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
+      sessionStorage.setItem('user_id', _id)
       history('/phone')
     }  catch(e){
       setLoading(false)
