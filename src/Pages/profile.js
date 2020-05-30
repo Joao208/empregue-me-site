@@ -27,7 +27,6 @@ function Feed() {
   const [data,setData] = useState('')
   const [name,setName] = useState('')
   const [text, setText] = useState('')
-  const [liked, setLiked] = useState(false)
   const history = useNavigate()
 
   async function SignOut() {
@@ -46,20 +45,6 @@ function Feed() {
     autoplay:true,
     animationData:EmptyAnimation
   }
-
-  const likeOptions = {
-    title:'like',
-    loop:false,
-    autoplay:true,
-    animationData:LikeAnimation
-  }
-
-
-  useEffect(() => {
-    socket.on('coment', (data) => {
-      setPost([...post, data])
-    })
-  }, [post, socket])
 
   useEffect(() => {
     socket.on('like', (data) => {
@@ -235,7 +220,6 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                  setLiked(true)
                     await api.post(`/likes/${postd._id}`)
                   }
                 }
