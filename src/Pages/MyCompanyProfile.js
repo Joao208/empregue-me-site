@@ -23,7 +23,7 @@ function Feed() {
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
   const [activity, setActivity] = useState([])
-  const [data,setData] = useState()
+  const [data,setData] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
