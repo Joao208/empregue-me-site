@@ -14,8 +14,6 @@ import Lottie from 'react-lottie'
 
 import img_logo_svg from '../img/logo.png'
 import img_company from '../img/company-profile.jpg'
-import img_clogo from '../img/clogo.png'
-import img_l3 from '../img/l3.png'
 import api from '../services/api'
 import EmptyAnimation from '../empty.json'
 
@@ -25,6 +23,7 @@ function Feed() {
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
   const [activity, setActivity] = useState([])
+  const [data,setData] = useState()
 
   useEffect(() => {
     async function loadSpots() {
@@ -35,12 +34,22 @@ function Feed() {
         setAdd(response.data.add)
         setPost(response.data.post)
         setActivity(response.data.profile)
+        setData(response.data)
         
     }
 
     loadSpots()
 }, [] )
 
+  async function Signout(event) {
+    event.preventDefault()
+    try{
+      sessionStorage.clear()
+    }catch(e){
+      console.log(e)
+    }
+
+  }
 const lottieOptions = {
   title:'loading',
   loop:true,
@@ -273,14 +282,25 @@ const lottieOptions = {
         {profile.map(profile => (
         <aside key={profile._id} className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
-            <div className="p-5">
-              <img src={profile.bussines.avatar ? profile.bussines.avatar : img_clogo} className="img-fluid" alt="Responsive image" />
+            <div className="py-4 px-3 border-bottom">
+              <img src={profile.bussines.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" style={{height: 130, width: 130}} />
+              <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.bussines.nome}</h5>
+              <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
-            <div className="p-3 border-top border-bottom">
-              <h6 className="font-weight-bold text-dark mb-1 mt-0">Visao geral</h6>
-              <p className="mb-0 text-muted">{profile.bussines.bio}
-              </p>
+            <div className="d-flex">
+              <div className="col-6 border-right p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
+                <p className="mb-0 text-black-50 small">Conexões</p>
+              </div>
+              <div className="col-6 p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{data.followingCount}</h6>
+                <p className="mb-0 text-black-50 small">Seguindo</p>
+              </div>
             </div>
+            <form onSubmit={Signout} className="overflow-hidden border-top">
+              <button className="font-weight-bold p-3 d-block" style={{textAlign: 'center', width: '100%', backgroundColor: 'white', color: 'blue', border: 'none'}}> Sair </button>
+              <a href="/edit-company" className="font-weight-bold p-3 d-block">Editar Perfil</a>
+            </form>
           </div>
         </aside>
         ))}
