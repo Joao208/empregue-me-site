@@ -15,7 +15,6 @@ import Forgot_passwordb from './Pages/forgot_passwordb'
 import Reset_passwordb from './Pages/reset_passwordb'
 import Job_profile from './Pages/job-profile'
 import Jobs from './Pages/jobs'
-import Notification from './Pages/notifications'
 import Privacy from './Pages/privacy'
 import Profile from './Pages/profile'
 import Sign_in from './Pages/sign-in'
@@ -64,7 +63,6 @@ export default function Routed() {
 <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
 <PrivateRoute path='/jobs' element={<Jobs/>}/>
 <PrivateRoute path='/job-profile/:id' element={<Job_profile/>}/>
-<PrivateRoute path='/notification' element={<Notification/>}/>
 <PrivateRoute path='/privacy' element={<Privacy/>}/>
 <PrivateRoute path='/profile' element={<Profile/>}/>
 <Route path='/sign-in' element={<Sign_in/>}/>

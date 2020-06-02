@@ -11,7 +11,8 @@ import loadinganimate from '../loading.json'
 import img_logo_svg from '../img/logologin.JPG'
 import img403 from '../img/403error.svg'
 import Card from 'react-bootstrap/Card'
-
+import Input from '../components/Input';
+import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 function Feed() {
 
   const [email, setEmail] = useState('')
@@ -106,10 +107,11 @@ function Feed() {
                 <label className="mb-1">Email</label>
                 <div className="position-relative icon-form-control">
                   <i className="feather-user position-absolute" />
-                  <input 
+                  <Input 
                   type="email" 
                   className="form-control" 
                   id="email"
+                  icon={FiMail}
                   value={email}
                   onChange={event => setEmail(event.target.value)}
                   />
@@ -119,10 +121,11 @@ function Feed() {
                 <label className="mb-1">Senha</label>
                 <div className="position-relative icon-form-control">
                   <i className="feather-unlock position-absolute" />
-                  <input 
+                  <Input 
                   type="password" 
                   className="form-control" 
                   id="password"
+                  icon={FiLock}
                   value={password}
                   onChange={event => setPassword(event.target.value)}
                   />
