@@ -114,9 +114,6 @@ function Feed() {
     <div className="container">
       <div className="row d-flex align-items-center">
         <div className="col-md-6">
-          <div className="p-4 border mr-4 rounded overflow-hidden"><iframe width="100%" height={455} src="https://maps.google.com/maps?width=720&height=600&hl=en&coord=30.9090157&q=punjab+(My%20Business%20Name)&ie=UTF8&t=p&z=8&iwloc=B&output=embed" frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} /></div>
-        </div>
-        <div className="col-md-6">
           <div className="mb-5">
             <h4 className="font-weight-light mt-0">Conte-nos sobre<span className="font-weight-bold">você</span></h4>
           </div>

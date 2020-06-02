@@ -41,8 +41,7 @@ function Feed() {
     loadSpots()
 }, [] )
 
-  async function Signout(event) {
-    event.preventDefault()
+  async function Signout() {
     try{
       sessionStorage.clear()
     }catch(e){
