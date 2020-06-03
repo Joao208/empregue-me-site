@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import '../global2.css';
 import {useNavigate} from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
 
