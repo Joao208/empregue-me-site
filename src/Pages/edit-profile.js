@@ -12,6 +12,7 @@ import api from '../services/api'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
+import { toast } from 'react-toastify';
 
 function Feed() {
   const [user, setUser] = useState([])
@@ -24,7 +25,6 @@ function Feed() {
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
   const history = useNavigate()
 
   const preview = useMemo(() => {
@@ -55,7 +55,7 @@ function Feed() {
 
         history('/profile')
     }catch{
-      setError(true)
+      toast.error('Falha ao editar o perfil, verifique seus dados');
       setLoading(false)
     }
   }

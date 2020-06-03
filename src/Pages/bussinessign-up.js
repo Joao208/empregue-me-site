@@ -8,8 +8,7 @@ import api from '../services/api'
 import img_logo_svg from '../img/logologin.JPG'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
-import img403 from '../img/403error.svg'
-import Card from 'react-bootstrap/Card'
+import { toast } from 'react-toastify';
 
 function Feed() {
   
@@ -19,7 +18,6 @@ function Feed() {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState(false)
   const history = useNavigate()
   
   useEffect(() => {
@@ -64,7 +62,7 @@ function Feed() {
       history('/edit-company-profile')
     }catch(e){
       setLoading(false)
-      setError(e)
+      toast.error('Falha na autenticação, verifique seus dados');
     }
 
   }
@@ -105,18 +103,6 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Junte-se ao Empregue.me</h5>
               <p className="text-muted">Aproveite ao máximo sua vida profissional</p>
             </div>
-            {
-              !! error && 
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={img403} />
-            <Card.Body>
-            <Card.Title>Ops!! Erro</Card.Title>
-                <Card.Text>
-                  Usuario ou senha incorretos
-                </Card.Text>
-            </Card.Body>
-          </Card>          
-            }
             <form onSubmit={SignUp}>
               <div className="form-row">
                 <div className="col">

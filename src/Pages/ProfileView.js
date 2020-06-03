@@ -4,6 +4,7 @@
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import {useParams,useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 import '../global.css';
 import '../App.css';
@@ -25,10 +26,6 @@ function Feed() {
   const [data,setData] = useState('')
   const [name,setName] = useState('')
   const history = useNavigate()
-
-  async function SignOut() {
-    sessionStorage.clear()
-  }
 
   const lottieOptions = {
     title:'loading',
@@ -64,9 +61,6 @@ function Feed() {
     event.preventDefault()
 
     const response = await api.post(`/follow/${id}`)
-
-    console.log(response)
-    console.log(response.data)
 
   }
 

@@ -16,6 +16,8 @@ import img_logo_svg from '../img/logo.png'
 import img_company from '../img/company-profile.jpg'
 import api from '../services/api'
 import EmptyAnimation from '../empty.json'
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 function Feed() {
 
@@ -24,6 +26,7 @@ function Feed() {
   const [post, setPost] = useState([])
   const [activity, setActivity] = useState([])
   const [data,setData] = useState('')
+  const history = useNavigate()
 
   useEffect(() => {
     async function loadSpots() {
@@ -41,9 +44,11 @@ function Feed() {
     loadSpots()
 }, [] )
 
-  async function Signout() {
+  async function Signout(event) {
     try{
+      event.preventDefault()
       sessionStorage.clear()
+      history.push('sign-in')
     }catch(e){
       console.log(e)
     }

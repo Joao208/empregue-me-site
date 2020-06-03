@@ -10,6 +10,7 @@ import loadinganimate from '../loading.json'
 import {useNavigate} from 'react-router-dom'
 
 
+import { toast } from 'react-toastify';
 
 import img_logo_svg from '../img/logologin.JPG'
 
@@ -19,7 +20,6 @@ function Feed() {
   const [token, setToken] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState('')
   const history = useNavigate()
 
   async function ForgotPass(event) {
@@ -36,7 +36,7 @@ function Feed() {
 
       history('/')
     }catch(e){
-      setError(e)
+      toast.error('Falha ao resetar senha, verifique seus dados');
       setLoading(false)
     }
     }
@@ -76,9 +76,6 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Foi enviado um email com seu token</h5>
               <p className="text-muted">Por favor confira a caixa de spam</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Email ou Token incorretos
-            </p>}
             <form onSubmit={ForgotPass}>
               <div className="form-group">
                 <label className="mb-1">Email</label>

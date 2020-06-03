@@ -10,6 +10,7 @@ import React, {
   import api from '../services/api'
   import Lottie from 'react-lottie'
   import loadinganimate from '../loading.json'
+  import { toast } from 'react-toastify';
 
   
   function Feed() {
@@ -35,6 +36,8 @@ import React, {
         history('/phoneconfirm')
     }catch(e){
       setLoading(false)
+      toast.error('Falha ao adicionar número, verifique seus dados');
+
     }
   }
   const lottieOptions = {

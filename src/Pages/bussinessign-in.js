@@ -10,15 +10,13 @@ import React, {
   import Lottie from 'react-lottie'
   import loadinganimate from '../loading.json'
   import {useNavigate} from 'react-router-dom'
-  import img403 from '../img/403error.svg'
-  import Card from 'react-bootstrap/Card'
+  import { toast } from 'react-toastify';
 
   function Feed() {
   
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState(false)
     const history = useNavigate()
   
     async function SignIn(event) {
@@ -40,7 +38,7 @@ import React, {
         history('/')
       }catch(e){
        setLoading(false)
-       setError(e)
+       toast.error('Falha na autenticação, verifique seus dados');
       }
     }
     const lottieOptions = {
@@ -78,18 +76,6 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
                 <p className="text-muted">Não perca a sua próxima oportunidade de contratar funcionrios melhores. Entre para se manter atualizado sobre o seu mundo profissional.</p>
               </div>
-                  {
-                  !! error && 
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={img403} />
-                <Card.Body>
-                <Card.Title>Ops!! Erro</Card.Title>
-                    <Card.Text>
-                      Usuario ou senha incorretos
-                    </Card.Text>
-                </Card.Body>
-              </Card>          
-                }
               <form onSubmit={SignIn}>
                 <div className="form-group">
                   <label className="mb-1">Email</label>

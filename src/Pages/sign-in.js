@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 import '../global2.css';
 import {useNavigate} from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
 
@@ -12,21 +11,17 @@ import api from '../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 import img_logo_svg from '../img/logologin.JPG'
-import img403 from '../img/403error.svg'
-import Card from 'react-bootstrap/Card'
 function Feed() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState(false)
   const [fill, setFill] = useState(false)
   const history = useNavigate()
 
   async function SignIn(event) {
     event.preventDefault()
     setFill(false)
-    setError(false)
     if (!email || !password) {
       return setFill(true)
     }
@@ -46,11 +41,9 @@ function Feed() {
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
       history('/')
-    }catch(response){
+    }catch(e){
       setLoading(false)
-      setError(true)
       toast.error('Falha na autenticação, verifique seus dados');
-      console.log(response.data.error)
     } 
     }
 
@@ -89,18 +82,6 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
               <p className="text-muted">Não perca a sua próxima oportunidade. Entre para se manter atualizado sobre o seu mundo profissional.</p>
             </div>
-              {
-                !! error && 
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={img403} />
-              <Card.Body>
-              <Card.Title>Ops!! Erro</Card.Title>
-                  <Card.Text>
-                    Usuario ou senha incorretos
-                  </Card.Text>
-              </Card.Body>
-            </Card>          
-              }
             { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
             </p>}

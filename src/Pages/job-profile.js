@@ -19,6 +19,7 @@ import img_clogo2 from '../img/clogo2.png'
 import api from '../services/api'
 import completedAnimate from '../completed.json'
 import errorAnimate from '../error.json'
+import { toast } from 'react-toastify';
 
 function Feed() {
 
@@ -33,7 +34,6 @@ function Feed() {
   const [nome, setNome] = useState('')
   const [loading,setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
-  const [error,setError] = useState(false)   
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
@@ -71,7 +71,8 @@ async function handleSubmit(event) {
   setCompleted(true)
   }catch{
     setLoading(false)
-    setError(true)
+    setButton(true)
+    toast.error('Falha ao requisitar vaga, verifique seus dados');
   }
 
 }
@@ -171,15 +172,6 @@ const lottieOptionserror = {
                 />
                
               }
-               {
-                !! error 
-               && <Lottie options={lottieOptionserror
-                } 
-                height='100px'
-                width='100px'
-                className="btn btn-primary btn-block text-uppercase"
-                />
-          }
             </form>
           </div>
         </div>

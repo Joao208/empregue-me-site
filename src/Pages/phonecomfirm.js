@@ -10,6 +10,7 @@ import React, {
   import api from '../services/api'
   import Lottie from 'react-lottie'
   import loadinganimate from '../loading.json'
+  import { toast } from 'react-toastify';
 
   
   function Feed() {
@@ -17,7 +18,6 @@ import React, {
     const [phone, setPhone] = useState('')
     const [token, setToken] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState(false)
     const [fill, setFill] = useState(false)
     const history = useNavigate()
 
@@ -38,7 +38,7 @@ import React, {
         history('/edit-profile')
       }catch(e){
         setLoading(false)
-        setError(e)
+        toast.error('Falha ao confirmar número, verifique seus dados');
       }
       }
       const lottieOptions = {
@@ -77,9 +77,6 @@ import React, {
               </div>
               { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
-             </p>}
-             { !! error && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
-              Token incorreto
              </p>}
 
               <form onSubmit={Confirm}>

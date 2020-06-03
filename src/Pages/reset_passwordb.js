@@ -8,6 +8,7 @@ import '../Main.css';
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 import {useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 
 
@@ -19,7 +20,6 @@ function Feed() {
   const [token, setToken] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState('')
   const history = useNavigate()
 
   async function ForgotPass(event) {
@@ -37,7 +37,7 @@ function Feed() {
       history('/')
     }catch(e){
       setLoading(false)
-      setError(e)
+      toast.error('Falha ao resetar senha, verifique seus dados');
     }
     }
 

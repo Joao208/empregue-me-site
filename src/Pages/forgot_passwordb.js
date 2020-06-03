@@ -6,6 +6,7 @@ import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
 import {useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 
 import img_logo_svg from '../img/logologin.JPG'
@@ -16,7 +17,6 @@ function Feed() {
 
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState('')
 
   const history = useNavigate()
 
@@ -33,7 +33,7 @@ function Feed() {
       history('/reset-password')
     }catch(e){
       setLoading(false)
-      setError(e)
+      toast.error('Falha ao buscar conta, verifique seus dados');
     }
     }
     const lottieOptions = {

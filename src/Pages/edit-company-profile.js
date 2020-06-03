@@ -12,6 +12,7 @@ import api from '../services/api'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
+import { toast } from 'react-toastify';
 
 function Feed() {
   const [user, setUser] = useState([])
@@ -47,6 +48,8 @@ function Feed() {
         history('/mycompany-profile')
     }catch{
       setLoading(false)
+      toast.error('Falha ao editar o perfil, verifique seus dados');
+
     }
   }
 
