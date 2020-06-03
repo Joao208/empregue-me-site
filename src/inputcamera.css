@@ -7,8 +7,8 @@ label#avatar {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    border-radius:30px;
+    width: 160px;
+    border-radius:100%;
 }
 
 label#avatar input {

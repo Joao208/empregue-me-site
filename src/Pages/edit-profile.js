@@ -132,7 +132,7 @@ const lottieOptions = {
                     setAvatar(event.target.files[0])}
                  }/>
                  { user.map(user => (
-                 <img src={user.avatar ? user.avatar : imguser } style={{borderRadius:'30px',width:'100%',height:'100%'}} />
+                 <img src={user.avatar ? user.avatar : imguser } style={{borderRadius:'100%',width:'160px',height:'160px'}} />
                  ))}    
               </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
