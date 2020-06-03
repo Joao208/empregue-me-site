@@ -7,6 +7,7 @@ import '../Sidebar.css';
 import '../Main.css';
 import {useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import img_logo_svg from '../img/logologin.JPG'

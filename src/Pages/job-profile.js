@@ -20,6 +20,7 @@ import api from '../services/api'
 import completedAnimate from '../completed.json'
 import errorAnimate from '../error.json'
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Feed() {
 

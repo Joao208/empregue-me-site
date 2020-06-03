@@ -11,6 +11,7 @@ import React, {
   import Lottie from 'react-lottie'
   import loadinganimate from '../loading.json'
   import { toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
   
   function Feed() {
