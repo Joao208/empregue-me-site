@@ -44,24 +44,24 @@ import api from '../services/api'
 
 function Feed() {
 
+  
+  const [profile, setProfile] = useState([])
+  const [avatar, setAvatar] = useState(null)
+  
+  useEffect(() => {
+    async function loadSpots() {
+      const response = await api.get('/profileview')
+      
+      setProfile(response.data.profile)
+      console.log(response.data.profile)
+    }
+    
+    loadSpots()
+  }, [] )
+  
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
-
- const [profile, setProfile] = useState([])
- const [avatar, setAvatar] = useState(null)
-
-  useEffect(() => {
-    async function loadSpots() {
-        const response = await api.get('/profileview')
-
-        setProfile(response.data.profile)
-        console.log(response.data.profile)
-    }
-
-    loadSpots()
-}, [] )
-
 
   return (
 <>
