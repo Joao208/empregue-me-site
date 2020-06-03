@@ -72,9 +72,6 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
               <p className="text-muted">Por favor insira seu email</p>
             </div>
-            { !! error && <p style={{textTransform:'uppercase',color:'red',fontSize:16,textAlign:'center'}}>
-              Email não encontrado
-            </p>}
             <form onSubmit={ForgotPass}>
               <div className="form-group">
                 <label className="mb-1">Email</label>
