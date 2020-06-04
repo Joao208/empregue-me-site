@@ -240,9 +240,15 @@ function Feed() {
                 <button 
                 onClick={
                   async function Share(event){
+                    try{
                     event.preventDefault()
                     await api.post(`/post/share/${postd._id}`)
-                }}
+                    toast.success('Compartilhado ;)');
+                    }catch(e){
+                      console.log(e)
+                      toast.error('Ops!! Não deu para compartilhar tente novamente');
+                    }
+                  }}
                 className="mr-3 text-secondary" 
                 style={{border:'none',background:'none'}}>
                   <i className="feather-share-2" /></button>

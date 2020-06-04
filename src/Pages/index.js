@@ -51,7 +51,25 @@ function Feed() {
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-  const [Modald, setModal] = useState(false)
+  const [latitude, setLatitude] = useState('')
+  const [longitude, setLongitude] = useState('')
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const { latitude, longitude } = position.coords;
+
+            setLatitude(latitude)
+            setLongitude(longitude)
+        },
+        (error) => {
+            console.log(error)
+        },
+        {
+            timeout: 30000
+        }
+    )
+})
 
   useEffect(() => {
     async function loadSpots() {
@@ -77,17 +95,6 @@ function Feed() {
     
     Feed()
   }, [] )
-
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)'
-    }
-  }
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -201,7 +208,20 @@ function Feed() {
             </div>
             <div className="border-top p-3 d-flex align-items-center">
               <form className="mr-auto">
-                <button href="profile" className="text-link small">
+                <button onClick={
+                  async function checkIn(event){
+                    try{
+                    event.preventDefault()
+                    await api.post('/check/location',{
+                      longitude,
+                      latitude
+                    })
+                    toast.success('Check-in postado ;)');
+                    }catch(e){
+                      console.log(e)
+                    }
+                  }
+                } href="profile" className="text-link small">
                 <i className="feather-map-pin" />Check-in</button>
               </form>
               <div className="flex-shrink-1">
