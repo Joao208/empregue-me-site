@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import { useParams } from 'react-router';
+import '../style.css'
 
 function Checkout() {
     const [number,setNumber] = useState('')
@@ -18,7 +19,7 @@ function Checkout() {
       <>
 <div>
   <title>Empregue.me Checkout</title>
-  <div className="containerd">
+  <div className="containercheckout">
     <div className="left">
       <Card
       number={number}
@@ -38,6 +39,7 @@ function Checkout() {
       type="text" 
       placeholder=" Seu nome aqui" 
       onFocus={changeFocus}
+      className="inputcheckout"
       />
       <p>Número do Cartão</p>
       <input 
@@ -46,6 +48,7 @@ function Checkout() {
       value={number}
       onChange={event => setNumber(event.target.value)} 
       onFocus={changeFocus}  
+      className="inputcheckout"
       />
       <div className="side-by-side">
         <div className="exp">
@@ -56,22 +59,23 @@ function Checkout() {
           value={expiry}
           pattern="[0-9]{2}/[0-9]{2}"
           onChange={event => setExpiry(event.target.value)}
-          onFocus={changeFocus}          
+          onFocus={changeFocus}  
+          className="inputcheckout"        
           />
         </div>
         <div className="cvc">
           <p>cvc</p>
           <input 
+          className="inputcheckout"
           type="password" 
           placeholder=" ***" 
-          value={cvc}
           pattern="[0-9]{3}"
           onChange={event => setcvc(event.target.value)}
           onFocus={changeFocus}       
           />
         </div>
       </div>
-      <button>Pagar <b>R${price}</b></button>
+      <button className="buttoncheckout">Pagar <b>R${price}</b></button>
     </div>
   </div>
       </>
