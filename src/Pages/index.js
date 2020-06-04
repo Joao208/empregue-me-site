@@ -3,6 +3,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState,useMemo} from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import '../global.css';
 import '../App.css';
@@ -59,7 +61,21 @@ function Feed() {
     
     loadSpots()
   }, [] )
-  
+
+  useEffect(() => {
+    async function Feed() {
+      try{
+      const response = await api.get('/feed')
+      
+      console.log(response.data)
+      }catch(e){
+      console.log(e)
+      }
+    }
+    
+    Feed()
+  }, [] )
+
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
@@ -72,9 +88,9 @@ function Feed() {
     })
     console.log(response.data)
     }catch(e){
+     toast.error('Ops!! Ainda não conseguimos postar nada sem imagem');
       console.log(e)
     }
-
   }
 
   return (
@@ -140,7 +156,7 @@ function Feed() {
                   ))}
                   <div className="w-100">
                     <textarea 
-                    placeholder="Write your thoughts..." 
+                    placeholder="No que você está pensando..." 
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
                     defaultValue={""} 
