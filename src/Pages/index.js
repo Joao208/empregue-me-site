@@ -17,7 +17,7 @@ import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
-import EmptyAnimation from '../empty.json'
+import loadinganimate from '../loading.json'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
