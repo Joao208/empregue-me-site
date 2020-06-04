@@ -5,6 +5,7 @@ import React,{useState,useEffect,useMemo}  from 'react';
 import moment from 'moment'
 import {useNavigate} from 'react-router-dom'
 import socketio from 'socket.io-client'
+import Modal from 'react-modal'
 
 import '../global.css';
 import '../App.css';
@@ -31,6 +32,18 @@ function Feed() {
   async function SignOut() {
     sessionStorage.clear()
   }
+
+  
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
   const user_id = sessionStorage.getItem('user_id') 
 
@@ -180,6 +193,22 @@ function Feed() {
             </div>
           </div>
         </aside>
+        <Modal
+          isOpen={true}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2>Hello</h2>
+          <button>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
