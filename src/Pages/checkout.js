@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Card from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
-import 'react-credit-cards/src/'
 import '../style.css'
 import { useParams } from 'react-router';
 
