@@ -9,25 +9,23 @@ import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
 import '../Main.css';
-
+import moment from 'moment'
 import '../vendor/slick/slick.min.css'
 import '../vendor/slick/slick-theme.min.css'
 import '../vendor/icons/feather.css'
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
 import '../inputcamera.css'
+import Lottie from 'react-lottie'
+import EmptyAnimation from '../empty.json'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
 import img_l1 from '../img/l1.png'
 import img_l4 from '../img/l4.png'
 import img_l7 from '../img/l7.png'
-import img_p6 from '../img/p6.png'
-import img_post1 from '../img/post1.png'
-import img_p7 from '../img/p7.png'
 import img_p13 from '../img/p13.png'
 import img_job1 from '../img/job1.png'
-import img_p8 from '../img/p8.png'
 import img_p12 from '../img/p12.png'
 import img_ads1 from '../img/ads1.png'
 import img_fav from '../img/fav.png'
@@ -55,6 +53,7 @@ function Feed() {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [name,setName] = useState('')
+  const [text, setTextt] = useState('')
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -470,7 +469,7 @@ function Feed() {
                   className="form-control border-0 p-0 shadow-none" 
                   defaultValue={""}
                   value={text}
-                  onChange={event => setText(event.target.value)}
+                  onChange={event => setTextt(event.target.value)}
                   />
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
