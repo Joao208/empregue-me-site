@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import Card from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
-import '../style.css'
 import { useParams } from 'react-router';
 
 function Checkout() {
     const [number,setNumber] = useState('')
     const [name, setName] = useState('')
     const [expiry, setExpiry] = useState('')
-    const [cvv, setCvv] = useState('')
+    const [cvc, setcvc] = useState('')
     const {price} = useParams()
+    const [focused,setFocused] = useState('')
 
+    function changeFocus(event){
+        setFocused(event.target.name)
+    }
   return (
       <>
 <div>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
   <title>Empregue.me Checkout</title>
   <div className="containerd">
     <div className="left">
@@ -24,7 +24,8 @@ function Checkout() {
       number={number}
       name={name}
       expiry={expiry}
-      cvv={cvv}
+      cvc={cvc}
+      focused={focused}
       />
       </div>
     </div>
@@ -35,13 +36,16 @@ function Checkout() {
       value={name}
       onChange={event => setName(event.target.value)}      
       type="text" 
-      placeholder=" Seu nome aqui" />
+      placeholder=" Seu nome aqui" 
+      onFocus={changeFocus}
+      />
       <p>Número do Cartão</p>
       <input 
       type="number" 
       placeholder=" 0000 0000 0000 0000" 
       value={number}
-      onChange={event => setNumber(event.target.value)}      
+      onChange={event => setNumber(event.target.value)} 
+      onFocus={changeFocus}  
       />
       <div className="side-by-side">
         <div className="exp">
@@ -50,16 +54,18 @@ function Checkout() {
           type="date" 
           placeholder=" MM/YY" 
           value={expiry}
-          onChange={event => setExpiry(event.target.value)}          
+          onChange={event => setExpiry(event.target.value)}
+          onFocus={changeFocus}          
           />
         </div>
-        <div className="cvv">
-          <p>CVV</p>
+        <div className="cvc">
+          <p>cvc</p>
           <input 
           type="password" 
           placeholder=" ***" 
-          value={cvv}
-          onChange={event => setCvv(event.target.value)}          
+          value={cvc}
+          onChange={event => setcvc(event.target.value)}
+          onFocus={changeFocus}       
           />
         </div>
       </div>
