@@ -6,7 +6,7 @@ import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {GoogleMap} from 'react-google-maps'
-import Model from 'react-modal'
+import Modal from 'react-modal'
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
