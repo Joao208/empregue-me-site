@@ -16,8 +16,6 @@ import '../vendor/icons/feather.css'
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
 import '../inputcamera.css'
-import Lottie from 'react-lottie'
-import loadinganimate from '../loading.json'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
@@ -45,6 +43,12 @@ function Feed() {
   const history = useNavigate()
   
   const [profile, setProfile] = useState([])
+  const [post, setPosts] = useState([])
+  const [postb, setPostb] = useState([])
+  const [add, setAdd] = useState([])
+  const [check, setCheck] = useState([])
+  const [checkb, setCheckb] = useState([])
+  const [sujestion, setSujestion] = useState([])
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
@@ -85,7 +89,12 @@ function Feed() {
       try{
       const response = await api.get('/feed')
       
-      console.log(response.data)
+      setPostb(response.data.postbussines)
+      setPosts(response.data.posts)
+      setAdd(response.data.adds)
+      setCheck(response.data.checkuser)
+      setCheckb(response.data.checkbussines)
+
       }catch(e){
       console.log(e)
       }
@@ -102,7 +111,7 @@ function Feed() {
         longitude
       })
       
-      console.log(response.data)
+      setSujestion(response.data)
 
       }catch(e){
       console.log(e)
@@ -263,14 +272,7 @@ function Feed() {
               </label>
               <div className="flex-shrink-1">
                 <form onSubmit={Post}>
-                  {
-                  loading
-                  ? <Lottie options={lottieOptions}
-                  height='20%'
-                  width='20%'
-                  />
-                  : <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>Postar</button>
-                  }
+                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Carregando...' : 'Postar'}</button>
                 </form>
               </div>
             </div>
@@ -290,6 +292,7 @@ function Feed() {
             <div className="p-3 border-bottom osahan-post-body">
               <p className="mb-0">Tmpo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <a  href="profile">laboris consequat.</a></p>
             </div>
+            <iframe src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9860605927793!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzUwLjAiTiA0M8KwNDMnMzQuMyJX!5e0!3m2!1spt-BR!2sbr!4v1591254119087!5m2!1spt-BR!2sbr`} width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             <div className="p-3 border-bottom osahan-post-footer">
               <a  href="profile" className="mr-3 text-secondary"><i className="feather-heart text-danger" /> 16</a>
               <a  href="profile" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
@@ -386,41 +389,282 @@ function Feed() {
               </div>
             </div>
           </div>
-          <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
-            <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p6} />
-                <div className="status-indicator bg-success" />
+          {post
+            ? post.map(postd => (
+              <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{postd.user.name}</div>
+                    <div className="small text-gray-500">Ui/Ux desing</div>
+                  </div>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                </div>
+                <div className="p-3 border-bottom osahan-post-body">
+                  <p>{postd.Text.Text}</p>
+                  { postd.isVideo
+                  ? <video width="100%" height="100%" controls>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
+                  </video>
+                  : <img src={postd.avatar ? postd.avatar : null}
+                  className="img-fluid"
+                  style={{width:'100%',height:'100%'}}
+                  />
+                  }
+                  </div>
+                <form 
+                onClick={
+                  async function Like(event){
+                  event.preventDefault()
+                    await api.post(`/likes/${postd._id}`)
+                  }
+                }
+                className="p-3 border-bottom osahan-post-footer"
+                >
+                <button  
+                style={{background:'none',border:'none'}}
+                className="mr-3 text-secondary"
+                ><i className="feather-heart text-danger" />
+                {postd.likeCount}</button>
+                <i className="feather-message-square" />{postd.commentCount}
+                <button 
+                onClick={
+                  async function Share(event){
+                    try{
+                    event.preventDefault()
+                    await api.post(`/post/share/${postd._id}`)
+                    toast.success('Compartilhado ;)');
+                    }catch(e){
+                      console.log(e)
+                      toast.error('Ops!! Não deu para compartilhar tente novamente');
+                    }
+                  }}
+                className="mr-3 text-secondary" 
+                style={{border:'none',background:'none',marginLeft:'8px'}}>
+                  <i className="feather-share-2" /></button>
+                </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setText(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
-              <div className="font-weight-bold">
-                <div className="text-truncate">Collin Weiland</div>
-                <div className="small text-gray-500">Web Developer @Google</div>
+              ))
+            : <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            /> 
+            }
+            {postb
+            ? postb.map(postd => (
+              <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{postd.user.name}</div>
+                    <div className="small text-gray-500">Ui/Ux desing</div>
+                  </div>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                </div>
+                <div className="p-3 border-bottom osahan-post-body">
+                  <p>{postd.Text.Text}</p>
+                  { postd.isVideo
+                  ? <video width="100%" height="100%" controls>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
+                  </video>
+                  : <img src={postd.avatar ? postd.avatar : null}
+                  className="img-fluid"
+                  style={{width:'100%',height:'100%'}}
+                  />
+                  }
+                  </div>
+                <form 
+                onClick={
+                  async function Like(event){
+                  event.preventDefault()
+                    await api.post(`/likes/${postd._id}`)
+                  }
+                }
+                className="p-3 border-bottom osahan-post-footer"
+                >
+                <button  
+                style={{background:'none',border:'none'}}
+                className="mr-3 text-secondary"
+                ><i className="feather-heart text-danger" />
+                {postd.likeCount}</button>
+                <i className="feather-message-square" />{postd.commentCount}
+                <button 
+                onClick={
+                  async function Share(event){
+                    try{
+                    event.preventDefault()
+                    await api.post(`/post/share/${postd._id}`)
+                    toast.success('Compartilhado ;)');
+                    }catch(e){
+                      console.log(e)
+                      toast.error('Ops!! Não deu para compartilhar tente novamente');
+                    }
+                  }}
+                className="mr-3 text-secondary" 
+                style={{border:'none',background:'none',marginLeft:'8px'}}>
+                  <i className="feather-share-2" /></button>
+                </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setText(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
-              <span className="ml-auto small">3 hours</span>
-            </div>
-            <div className="p-3 border-bottom osahan-post-body">
-              <p>Lorem ipsum dolor sit amet, consectetur 😍😎 adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <a  href="profile">laboris consequat.</a></p>
-              <img src={img_post1} className="img-fluid"  alt="Responsive image" />
-            </div>
-            <div className="p-3 border-bottom osahan-post-footer">
-              <a  href="profile" className="mr-3 text-secondary"><i className="feather-heart text-danger" /> 16</a>
-              <a  href="profile" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
-              <a  href="profile" className="mr-3 text-secondary"><i className="feather-share-2" /> 2</a>
-            </div>
-            <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p7} />
-                <div className="status-indicator bg-success" />
+              ))
+            : <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            /> 
+            }
+           {add
+            ? add.map(postd => (
+              <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{postd.user.name}</div>
+                    <div className="small text-gray-500">Ui/Ux desing</div>
+                  </div>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                </div>
+                <div className="p-3 border-bottom osahan-post-body">
+                  <p>{postd.Text.Text}</p>
+                  { postd.isVideo
+                  ? <video width="100%" height="100%" controls>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
+                  </video>
+                  : <img src={postd.avatar ? postd.avatar : null}
+                  className="img-fluid"
+                  style={{width:'100%',height:'100%'}}
+                  />
+                  }
+                  </div>
+                <form 
+                onClick={
+                  async function Like(event){
+                  event.preventDefault()
+                    await api.post(`/likes/${postd._id}`)
+                  }
+                }
+                className="p-3 border-bottom osahan-post-footer"
+                >
+                <button  
+                style={{background:'none',border:'none'}}
+                className="mr-3 text-secondary"
+                ><i className="feather-heart text-danger" />
+                {postd.likeCount}</button>
+                <i className="feather-message-square" />{postd.commentCount}
+                <button 
+                onClick={
+                  async function Share(event){
+                    try{
+                    event.preventDefault()
+                    await api.post(`/post/share/${postd._id}`)
+                    toast.success('Compartilhado ;)');
+                    }catch(e){
+                      console.log(e)
+                      toast.error('Ops!! Não deu para compartilhar tente novamente');
+                    }
+                  }}
+                className="mr-3 text-secondary" 
+                style={{border:'none',background:'none',marginLeft:'8px'}}>
+                  <i className="feather-share-2" /></button>
+                </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setText(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
-              <div className="font-weight-bold">
-                <div className="text-truncate"> James Spiegel <span className="float-right small">2 min</span></div>
-                <div className="small text-gray-500">Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam est, quinder dolorem ipsum quia dolor sit amet, consectetur</div>
-              </div>
-            </div>
-            <div className="p-3">
-              <textarea placeholder="Add Comment..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
-            </div>
-          </div>
+              ))
+            : <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            /> 
+            }
         </main>
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           {profile.map(profile => (
@@ -452,21 +696,38 @@ function Feed() {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Pessoas que talvez você conheça</h6>
             </div>
-            <div className="box-body p-3">
+            {sujestion.map(user => (
+            <div key={user.id} className="box-body p-3">
               <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p8} />
+                  <img className="rounded-circle" src={user.avatar ? user.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'} />
                   <div className="status-indicator bg-success" />
                 </div>
                 <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Sophia Lee</div>
+                  <div className="text-truncate">{user.name}</div>
                   <div className="small text-gray-500">Student at Harvard
                   </div>
                 </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm"><i className="feather-user-plus" /></button>
+                <span className="ml-auto">
+                  <button  
+                  onClick={
+                    async function Follow(event){
+                    try{
+                      event.preventDefault()
+                      await api.post(`/follow/${user._id}`)    
+                    }catch(e){
+                        toast.success('Uau, você fez novos amigos, isso aí ;)')
+                        console.log(e)
+                      }
+                    }
+                  }
+                  type="button" 
+                  className="btn btn-light btn-sm"
+                  ><i className="feather-user-plus" /></button>
                 </span>
               </div>
             </div>
+           ))}
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
