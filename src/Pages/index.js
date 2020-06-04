@@ -131,7 +131,7 @@ function Feed() {
               </div>
               {!! avatar 
                   && <label
-                  id="avatar"
+                  id="indexfile"
                   style={{ backgroundImage: `url(${preview})`}}
                   className={avatar ? 'has-avatar' : ''}
                   >
@@ -141,9 +141,11 @@ function Feed() {
             <div className="border-top p-3 d-flex align-items-center">
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
-                <input className="btn btn-primary btn-sm" id="avatar" type="file" onChange={event => {
+                <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
+                <input style={{display:'none'}} type="file" onChange={event => {
                       setAvatar(event.target.files[0])}
                   }/>
+                </label>
                 <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
               </div>
             </div>

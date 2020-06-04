@@ -22,3 +22,16 @@ label#avatar.has-avatar {
 label#avatar.has-avatar img {
     display: none;
  }
+
+ label#indexfile {
+    margin-bottom: 20px;
+    border: 1px dashed #DDD;
+    background-size: cover;
+    cursor: pointer;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius:10px;
+}
