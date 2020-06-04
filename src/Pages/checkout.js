@@ -15,6 +15,14 @@ function Checkout() {
     function changeFocus(event){
         setFocused(event.target.name)
     }
+
+    async function HandleSubmit(event){
+      event.preventDefault()
+
+        
+      
+    }
+
   return (
       <>
 <div>
@@ -37,13 +45,15 @@ function Checkout() {
       value={name}
       onChange={event => setName(event.target.value)}      
       type="text" 
+      name="name"
       placeholder=" Seu nome aqui" 
       onFocus={changeFocus}
       className="inputcheckout"
       />
       <p>Número do Cartão</p>
       <input 
-      type="number" 
+      type="number"
+      name="number"
       placeholder=" 0000 0000 0000 0000" 
       value={number}
       onChange={event => setNumber(event.target.value)} 
@@ -54,7 +64,8 @@ function Checkout() {
         <div className="exp">
           <p>Data de validade</p>
           <input 
-          type="text" 
+          type="text"
+          name="expiry" 
           placeholder=" MM/YY" 
           pattern="[0-9]{2}/[0-9]{2}"
           onChange={event => setExpiry(event.target.value)}
@@ -67,6 +78,7 @@ function Checkout() {
           <input 
           className="inputcheckout"
           type="password" 
+          name="cvc"
           placeholder=" ***" 
           pattern="[0-9]{3}"
           onChange={event => setcvc(event.target.value)}
