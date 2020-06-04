@@ -292,7 +292,7 @@ function Feed() {
             <div className="p-3 border-bottom osahan-post-body">
             </div>
             <iframe 
-            src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9860605927793!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzUwLjAiTiA0M8KwNDMnMzQuMyJX!5e0!3m2!1spt-BR!2sbr!4v1591254119087!5m2!1spt-BR!2sbr`} 
+            src={`https://www.google.com.br/maps/@${check.latitude},${check.longitude},16z`} 
             width="100%" 
             height="100%" 
             frameborder="0" 
