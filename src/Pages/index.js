@@ -291,7 +291,7 @@ function Feed() {
             <div className="p-3 border-bottom osahan-post-body">
               <p className="mb-0">Tmpo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <a  href="profile">laboris consequat.</a></p>
             </div>
-            <iframe src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9860605927793!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzUwLjAiTiA0M8KwNDMnMzQuMyJX!5e0!3m2!1spt-BR!2sbr!4v1591254119087!5m2!1spt-BR!2sbr`} width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9860605927793!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzUwLjAiTiA0M8KwNDMnMzQuMyJX!5e0!3m2!1spt-BR!2sbr!4v1591254119087!5m2!1spt-BR!2sbr`} width="100%" height="100%" frameborder="0" style="border:none" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             <div className="p-3 border-bottom osahan-post-footer">
               <a  href="profile" className="mr-3 text-secondary"><i className="feather-heart text-danger" /> 16</a>
               <a  href="profile" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
