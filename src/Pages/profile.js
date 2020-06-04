@@ -33,11 +33,10 @@ function Feed() {
   async function SignOut() {
     sessionStorage.clear()
   }
-
   
   const user_id = sessionStorage.getItem('user_id') 
 
-  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
+  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com', {
         query: { user_id }
     }), [user_id])
 
@@ -105,7 +104,7 @@ function Feed() {
           <input 
           type="text"                   
           className="form-control shadow-none border-0" 
-          placeholder='Search people'
+          placeholder='Search people,jobs and bussines'
           aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}

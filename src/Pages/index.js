@@ -28,14 +28,9 @@ import img_p6 from '../img/p6.png'
 import img_post1 from '../img/post1.png'
 import img_p7 from '../img/p7.png'
 import img_p13 from '../img/p13.png'
-import img_chart from '../img/chart.png'
 import img_job1 from '../img/job1.png'
 import img_p8 from '../img/p8.png'
-import img_p9 from '../img/p9.png'
-import img_p10 from '../img/p10.png'
-import img_p11 from '../img/p11.png'
 import img_p12 from '../img/p12.png'
-import img_l3 from '../img/l3.png'
 import img_ads1 from '../img/ads1.png'
 import img_fav from '../img/fav.png'
 import img_p1 from '../img/p1.png'
@@ -43,9 +38,11 @@ import img_p2 from '../img/p2.png'
 import img_p3 from '../img/p3.png'
 import img_p4 from '../img/p4.png'
 import api from '../services/api'
+import { useNavigate } from 'react-router';
 
 function Feed() {
 
+  const history = useNavigate()
   
   const [profile, setProfile] = useState([])
   const [avatar, setAvatar] = useState(null)
@@ -53,6 +50,7 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
+  const [name,setName] = useState('')
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -124,6 +122,12 @@ function Feed() {
     animationData:loadinganimate
   }
 
+  async function SearchValue(event){
+    event.preventDefault()
+    
+    history(`/conections/${name}`)
+  }
+
   return (
 <>
 <div>
@@ -138,15 +142,22 @@ function Feed() {
     <div className="container">
       <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
       </a>
-      <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+      <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-          <input type="text" className="form-control shadow-none border-0" placeholder="Search people, jobs & more..." aria-label="Search" aria-describedby="basic-addon2" />
+          <input 
+          type="text"                   
+          className="form-control shadow-none border-0" 
+          placeholder='Search people,jobs and bussines'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" />
           <div className="input-group-append">
             <button className="btn" type="button">
               <i className="feather-search" />
             </button>
           </div>
-        </div>
+          </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
         {profile.map(profile => (
@@ -236,8 +247,7 @@ function Feed() {
                 <form onSubmit={Post}>
                   {
                   loading
-                  ? <Lottie options={lottieOptions
-                  } style={{height:'20%',width:'20%'}} 
+                  ? <Lottie options={lottieOptions}
                   height='20%'
                   width='20%'
                   />
@@ -404,28 +414,10 @@ function Feed() {
               <a href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
             </div>
             <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" href="profile" > View my profile </a>
+              <a className="font-weight-bold p-3 d-block" href="profile" >Ver meu perfil</a>
             </div>
           </div>
           ))}
-          <div className="box mb-3 shadow-sm rounded bg-white view-box overflow-hidden">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Profile Views</h6>
-            </div>
-            <div className="d-flex text-center">
-              <div className="col-6 border-right py-4 px-2">
-                <h5 className="font-weight-bold text-info mb-1">08 <i className="feather-bar-chart-2" /></h5>
-                <p className="mb-0 text-black-50 small">last 5 days</p>
-              </div>
-              <div className="col-6 py-4 px-2">
-                <h5 className="font-weight-bold text-success mb-1">+ 43% <i className="feather-bar-chart" /></h5>
-                <p className="mb-0 text-black-50 small">Since last week</p>
-              </div>
-            </div>
-            <div className="overflow-hidden border-top text-center">
-              <img src={img_chart} className="img-fluid"  alt="Responsive image" />
-            </div>
-          </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
@@ -440,7 +432,7 @@ function Feed() {
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">People you might know</h6>
+              <h6 className="m-0">Pessoas que talvez você conheça</h6>
             </div>
             <div className="box-body p-3">
               <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
@@ -456,58 +448,6 @@ function Feed() {
                 <span className="ml-auto"><button type="button" className="btn btn-light btn-sm"><i className="feather-user-plus" /></button>
                 </span>
               </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p9} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">John Doe</div>
-                  <div className="small text-gray-500">Traveler
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm"><i className="feather-user-plus" /></button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p10} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Julia Cox</div>
-                  <div className="small text-gray-500">Art Designer
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm"><i className="feather-user-plus" /></button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p11} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Robert Cook</div>
-                  <div className="small text-gray-500">Photographer at Photography
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm"><i className="feather-user-plus" /></button>
-                </span>
-              </div>
-              <div className="d-flex align-items-center osahan-post-header people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={img_p12} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">Richard Bell</div>
-                  <div className="small text-gray-500">Graphic Designer at Envato
-                  </div>
-                </div>
-                <span className="ml-auto"><button type="button" className="btn btn-light btn-sm"><i className="feather-user-plus" /></button>
-                </span>
-              </div>
             </div>
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
@@ -518,62 +458,6 @@ function Feed() {
             </div>
             <div className="p-3">
               <button type="button" className="btn btn-outline-gold pl-4 pr-4"> ACTIVATE </button>
-            </div>
-          </div>
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Jobs
-              </h6>
-            </div>
-            <div className="box-body p-3">
-              <a href="job-profile" >
-                <div className="shadow-sm border rounded bg-white job-item mb-3">
-                  <div className="d-flex align-items-center p-3 job-item-header">
-                    <div className="overflow-hidden mr-2">
-                      <h6 className="font-weight-bold text-dark mb-0 text-truncate">Product Director</h6>
-                      <div className="text-truncate text-primary">Spotify Inc.</div>
-                      <div className="small text-gray-500"><i className="feather-map-pin" /> India, Punjab</div>
-                    </div>
-                    <img className="img-fluid ml-auto" src={img_l3} />
-                  </div>
-                  <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                    <div className="overlap-rounded-circle">
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p9}   data-original-title="Sophia Lee" />
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p10}   data-original-title="John Doe" />
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p11}   data-original-title="Julia Cox" />
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p12}   data-original-title="Robert Cook" />
-                    </div>
-                    <span className="font-weight-bold text-muted">18 connections</span>
-                  </div>
-                  <div className="p-3 job-item-footer">
-                    <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
-                  </div>
-                </div>
-              </a>
-              <a href="job-profile" >
-                <div className="shadow-sm border rounded bg-white job-item">
-                  <div className="d-flex align-items-center p-3 job-item-header">
-                    <div className="overflow-hidden mr-2">
-                      <h6 className="font-weight-bold text-dark mb-0 text-truncate">.NET Developer</h6>
-                      <div className="text-truncate text-primary">Invision</div>
-                      <div className="small text-gray-500"><i className="feather-map-pin" /> London, UK
-                      </div>
-                    </div>
-                    <img className="img-fluid ml-auto" src={img_l4} />
-                  </div>
-                  <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                    <div className="overlap-rounded-circle">
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p13}   data-original-title="Sophia Lee" />
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p1}   data-original-title="John Doe" />
-                      <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p3}   data-original-title="Robert Cook" />
-                    </div>
-                    <span className="font-weight-bold text-muted">18 connections</span>
-                  </div>
-                  <div className="p-3 job-item-footer">
-                    <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
         </aside>
