@@ -154,11 +154,11 @@ function Feed() {
     </div>
   </nav>
   <Modal
-    isOpen={Modald}
+    isOpen={true}
     style={customStyles}
     contentLabel="Check-in"
   >
-    <button onClick={setModal(false)}>X</button>
+    <button>X</button>
     <GoogleMap
     defaultZoom={10}
     defaultCenter={{lat:22.0653332,lng:-46.9730106}}
@@ -213,7 +213,7 @@ function Feed() {
                   }
             </div>
             <div className="border-top p-3 d-flex align-items-center">
-              <form onSubmit={setModal(true)} className="mr-auto">
+              <form className="mr-auto">
                 <button href="profile" className="text-link small">
                 <i className="feather-map-pin" />Check-in</button>
               </form>
