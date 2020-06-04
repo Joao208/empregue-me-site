@@ -5,8 +5,6 @@
 import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {GoogleMap} from 'react-google-maps'
-import Modal from 'react-modal'
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
@@ -153,17 +151,6 @@ function Feed() {
       </ul>
     </div>
   </nav>
-  <Modal
-    isOpen={true}
-    style={customStyles}
-    contentLabel="Check-in"
-  >
-    <button>X</button>
-    <GoogleMap
-    defaultZoom={10}
-    defaultCenter={{lat:22.0653332,lng:-46.9730106}}
-    ></GoogleMap>
-  </Modal>
   <div className="py-4">
     <div className="container">
       <div className="row">
