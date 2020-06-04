@@ -94,6 +94,24 @@ function Feed() {
     Feed()
   }, [] )
 
+  useEffect(() => {
+    async function Sujestion() {
+      try{
+      const response = await api.get('/sujestions',{
+        latitude,
+        longitude
+      })
+      
+      console.log(response.data)
+
+      }catch(e){
+      console.log(e)
+      }
+    }
+    
+    Sujestion()
+  }, [] )
+
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
