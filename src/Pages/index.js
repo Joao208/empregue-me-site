@@ -17,6 +17,8 @@ import '../vendor/icons/feather.css'
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
 import '../inputcamera.css'
+import Lottie from 'react-lottie'
+import loadinganimate from '../loading.json'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
@@ -37,7 +39,6 @@ import img_p12 from '../img/p12.png'
 import img_l3 from '../img/l3.png'
 import img_ads1 from '../img/ads1.png'
 import img_fav from '../img/fav.png'
-import camera from '../img/camera.svg'
 import img_p1 from '../img/p1.png'
 import img_p2 from '../img/p2.png'
 import img_p3 from '../img/p3.png'
@@ -50,7 +51,8 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
-  
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     async function loadSpots() {
       const response = await api.get('/profileview')
@@ -80,17 +82,28 @@ function Feed() {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
 
-  async function Post() {
+  async function Post(event) {
     try{
+    event.preventDefault()
+    setLoading(true)
     const response = await api.post('/posts',{
       Text,
       avatar
     })
     console.log(response.data)
+    setLoading(false)
+    toast.success('Postado ;)');
     }catch(e){
+    setLoading(false)
      toast.error('Ops!! Ainda não conseguimos postar nada sem imagem');
       console.log(e)
     }
+  }
+  const lottieOptions = {
+    title:'loading',
+    loop:true,
+    autoplay:true,
+    animationData:loadinganimate
   }
 
   return (
@@ -185,7 +198,15 @@ function Feed() {
                   }/>
                 </label>
                 <form onSubmit={Post}>
-                <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
+                  {
+                  loading
+                  ? <Lottie options={lottieOptions
+                  } style={{height:'20%',width:'20%'}} 
+                  height='20%'
+                  width='20%'
+                  />
+                  : <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>Postar</button>
+                  }
                 </form>
               </div>
             </div>
