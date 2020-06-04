@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from 'react-credit-cards'
-import 'react-credit-cards/es/index'
+import 'react-credit-cards/es/styles-compiled.css'
+import 'react-credit-cards/src/'
 import '../style.css'
 import { useParams } from 'react-router';
 
@@ -18,8 +19,7 @@ function Checkout() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
   <title>Empregue.me Checkout</title>
-  <link rel="stylesheet" href="style.css" />
-  <div className="container">
+  <div className="containerd">
     <div className="left">
       <Card
       number={number}

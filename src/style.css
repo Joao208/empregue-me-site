@@ -1,15 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    background: rgb(249,248,238);
-    background: linear-gradient(90deg, rgba(249,248,238,1)
-     37%, rgba(255,251,235,1) 99%);
-     font-family: sans-serif;
-}
-.container {
+.containerd {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -33,10 +22,6 @@ html {
     box-shadow: 7px 24px 64px -39px rgba(0,0,0,0.6);
     /* margin-left: 40px;
     margin-top: 150px; */
-}
-.visa-svg {
-    margin-left: 180px;
-    margin-top: 20px;
 }
 h3 {
     font-family: monospace;

@@ -65,6 +65,7 @@ function Feed() {
         },
         (error) => {
             console.log(error)
+            toast.error('Não conseguimos obter sua localização :(')
         },
         {
             timeout: 30000
@@ -83,6 +84,22 @@ function Feed() {
     loadSpots()
   }, [] )
 
+  async function Sujestion(event) {
+    try{
+    event.preventDefault(event)
+    const response = await api.get('/sujestions',{
+      latitude,
+      longitude
+    })
+    
+    console.log(response.data)
+    setSujestion(response.data)
+
+    }catch(e){
+    console.log(e)
+    }
+  }
+  
   useEffect(() => {
     async function Feed() {
       try{
@@ -100,28 +117,11 @@ function Feed() {
     }
     
     Feed()
-  }, [] )
-
-  useEffect(() => {
-    async function Sujestion() {
-      try{
-      const response = await api.get('/sujestions',{
-        latitude,
-        longitude
-      })
-      
-      console.log(response.data)
-      setSujestion(response.data)
-
-      }catch(e){
-      console.log(e)
-      }
-    }
-    
     Sujestion()
   }, [] )
 
-  const preview = useMemo(() => {
+    
+    const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
 
