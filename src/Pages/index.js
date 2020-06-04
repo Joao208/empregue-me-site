@@ -226,13 +226,13 @@ function Feed() {
                 >
                 <i className="feather-map-pin" />Check-in</button>
               </form>
-              <div className="flex-shrink-1">
-                <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
+              <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
                   Adicionar Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
                       setAvatar(event.target.files[0])}
                   }/>
-                </label>
+              </label>
+              <div className="flex-shrink-1">
                 <form onSubmit={Post}>
                   {
                   loading
