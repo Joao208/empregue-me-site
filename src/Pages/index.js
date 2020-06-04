@@ -221,7 +221,9 @@ function Feed() {
                       console.log(e)
                     }
                   }
-                } href="profile" className="text-link small">
+                } href="profile" className="text-link small"
+                style={{border:'none',background:'none'}}
+                >
                 <i className="feather-map-pin" />Check-in</button>
               </form>
               <div className="flex-shrink-1">
