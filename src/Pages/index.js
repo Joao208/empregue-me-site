@@ -53,7 +53,7 @@ function Feed() {
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-  const [modal, setModal] = useState(false)
+  const [Modald, setModal] = useState(false)
 
   useEffect(() => {
     async function loadSpots() {
@@ -154,8 +154,7 @@ function Feed() {
     </div>
   </nav>
   <Modal
-    isOpen={modal}
-    onAfterOpen={afterOpenModal}
+    isOpen={Modald}
     style={customStyles}
     contentLabel="Check-in"
   >
@@ -214,7 +213,7 @@ function Feed() {
                   }
             </div>
             <div className="border-top p-3 d-flex align-items-center">
-              <form onSubmit={Check} className="mr-auto">
+              <form onSubmit={setModal(true)} className="mr-auto">
                 <button href="profile" className="text-link small">
                 <i className="feather-map-pin" />Check-in</button>
               </form>
