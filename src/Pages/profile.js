@@ -252,7 +252,7 @@ function Feed() {
                     }
                   }}
                 className="mr-3 text-secondary" 
-                style={{border:'none',background:'none'}}>
+                style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
                 </form>
                 {postd.comments.map(comments => (
