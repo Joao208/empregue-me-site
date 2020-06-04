@@ -142,6 +142,7 @@ function Feed() {
               <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
               <div className="flex-shrink-1">
                 <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
+                  Adicionar Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
                       setAvatar(event.target.files[0])}
                   }/>
