@@ -277,20 +277,20 @@ function Feed() {
               </div>
             </div>
           </div>
+          {check.map(check => (
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-post">
             <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
               <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={img_p5} />
+                <img className="rounded-circle" src={check.user.avatar} />
                 <div className="status-indicator bg-success" />
               </div>
               <div className="font-weight-bold">
-                <div className="text-truncate">Tobia Crivellari</div>
+                <div className="text-truncate">{check.user.name}</div>
                 <div className="small text-gray-500">Product Designer at askbootstrap</div>
               </div>
-              <span className="ml-auto small">3 hours</span>
+              <span className="ml-auto small">{moment(check.createdAt).fromNow()}</span>
             </div>
             <div className="p-3 border-bottom osahan-post-body">
-              <p className="mb-0">Tmpo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <a  href="profile">laboris consequat.</a></p>
             </div>
             <iframe 
             src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9860605927793!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzUwLjAiTiA0M8KwNDMnMzQuMyJX!5e0!3m2!1spt-BR!2sbr!4v1591254119087!5m2!1spt-BR!2sbr`} 
@@ -301,18 +301,8 @@ function Feed() {
             allowfullscreen="" 
             aria-hidden="false" 
             tabindex="0"></iframe>
-            <div className="p-3 border-bottom osahan-post-footer">
-              <a  href="profile" className="mr-3 text-secondary"><i className="feather-heart text-danger" /> 16</a>
-              <a  href="profile" className="mr-3 text-secondary"><i className="feather-message-square" /> 8</a>
-              <a  href="profile" className="mr-3 text-secondary"><i className="feather-share-2" /> 2</a>
-            </div>
-            <div className="p-3">
-              <button type="button" className="btn btn-outline-primary btn-sm mr-1">Awesome!!</button>
-              <button type="button" className="btn btn-light btn-sm mr-1">😍</button>
-              <button type="button" className="btn btn-outline-secondary btn-sm mr-1">Whats it about?</button>
-              <button type="button" className="btn btn-outline-secondary btn-sm mr-1">Oooo Great Wow</button>
-            </div>
           </div>
+          ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
               <div className="osahan-slider-item">
@@ -333,59 +323,6 @@ function Feed() {
                         <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p3}   data-original-title="Julia Cox" />
                         <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p4}   data-original-title="Robert Cook" />
                         <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p5}   data-original-title="Sophia Lee" />
-                      </div>
-                      <span className="font-weight-bold text-primary">18 connections</span>
-                    </div>
-                    <div className="p-3 job-item-footer">
-                      <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="osahan-slider-item">
-                <a href="job-profile" >
-                  <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
-                    <div className="d-flex align-items-center p-3 job-item-header">
-                      <div className="overflow-hidden mr-2">
-                        <h6 className="font-weight-bold text-dark mb-0 text-truncate">.NET Developer</h6>
-                        <div className="text-truncate text-primary">Invision</div>
-                        <div className="small text-gray-500"><i className="feather-map-pin" /> London, UK
-                        </div>
-                      </div>
-                      <img className="img-fluid ml-auto" src={img_l4} />
-                    </div>
-                    <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                      <div className="overlap-rounded-circle d-flex">
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p13}   data-original-title="Sophia Lee" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p1}   data-original-title="John Doe" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p2}   data-original-title="Julia Cox" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p3}   data-original-title="Robert Cook" />
-                      </div>
-                      <span className="font-weight-bold text-primary">18 connections</span>
-                    </div>
-                    <div className="p-3 job-item-footer">
-                      <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="osahan-slider-item">
-                <a href="job-profile" >
-                  <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
-                    <div className="d-flex align-items-center p-3 job-item-header">
-                      <div className="overflow-hidden mr-2">
-                        <h6 className="font-weight-bold text-dark mb-0 text-truncate">Channel Sales Director</h6>
-                        <div className="text-truncate text-primary">Slack Inc.</div>
-                        <div className="small text-gray-500"><i className="feather-map-pin" /> London, UK
-                        </div>
-                      </div>
-                      <img className="img-fluid ml-auto" src={img_l7} />
-                    </div>
-                    <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                      <div className="overlap-rounded-circle d-flex">
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p12}   data-original-title="Sophia Lee" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p13}   data-original-title="John Doe" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p2}   data-original-title="Julia Cox" />
                       </div>
                       <span className="font-weight-bold text-primary">18 connections</span>
                     </div>

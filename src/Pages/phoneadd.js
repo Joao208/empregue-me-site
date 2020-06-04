@@ -87,10 +87,10 @@ import React, {
                     <input 
                     className="form-control" 
                     id="email"
-                    value={phone}
                     placeholder="5512123456789"
                     type="tel"
                     pattern="[0-9]{13}"
+                    value={phone}
                     onChange={event => setPhone(event.target.value)}
                     />
                   </div>
