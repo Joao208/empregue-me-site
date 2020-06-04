@@ -232,12 +232,19 @@ function Feed() {
                 className="p-3 border-bottom osahan-post-footer"
                 >
                 <button  
-                href="#" 
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
                 <i className="feather-message-square" />{postd.commentCount}
+                </form>
+                <form onClick={
+                  async function Share(event){
+                    event.preventDefault()
+                    await api.post(`/post/share/${postd._id}`)
+                  }
+                }>
+                <button className="mr-3 text-secondary"><i className="feather-share-2" /></button>
                 </form>
                 {postd.comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">

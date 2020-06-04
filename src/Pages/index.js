@@ -5,7 +5,8 @@
 import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {GoogleMap} from 'react-google-maps'
+import Model from 'react-modal'
 import '../global.css';
 import '../App.css';
 import '../Sidebar.css';
@@ -52,6 +53,7 @@ function Feed() {
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
+  const [modal, setModal] = useState(false)
 
   useEffect(() => {
     async function loadSpots() {
@@ -77,6 +79,17 @@ function Feed() {
     
     Feed()
   }, [] )
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  }
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -140,6 +153,18 @@ function Feed() {
       </ul>
     </div>
   </nav>
+  <Modal
+    isOpen={modal}
+    onAfterOpen={afterOpenModal}
+    style={customStyles}
+    contentLabel="Check-in"
+  >
+    <button onClick={setModal(false)}>X</button>
+    <GoogleMap
+    defaultZoom={10}
+    defaultCenter={{lat:22.0653332,lng:-46.9730106}}
+    ></GoogleMap>
+  </Modal>
   <div className="py-4">
     <div className="container">
       <div className="row">
@@ -189,7 +214,10 @@ function Feed() {
                   }
             </div>
             <div className="border-top p-3 d-flex align-items-center">
-              <div className="mr-auto"><a  href="profile" className="text-link small"><i className="feather-map-pin" /> Add Location</a></div>
+              <form onSubmit={Check} className="mr-auto">
+                <button href="profile" className="text-link small">
+                <i className="feather-map-pin" />Check-in</button>
+              </form>
               <div className="flex-shrink-1">
                 <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
                   Adicionar Imagem
