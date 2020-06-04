@@ -56,7 +56,6 @@ function Checkout() {
           <input 
           type="text" 
           placeholder=" MM/YY" 
-          value={expiry}
           pattern="[0-9]{2}/[0-9]{2}"
           onChange={event => setExpiry(event.target.value)}
           onFocus={changeFocus}  
