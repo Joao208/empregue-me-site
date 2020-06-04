@@ -47,6 +47,7 @@ function Feed() {
   
   const [profile, setProfile] = useState([])
   const [avatar, setAvatar] = useState(null)
+  const [Text, setText] = useState('')
   
   useEffect(() => {
     async function loadSpots() {
@@ -62,6 +63,19 @@ function Feed() {
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
+
+  async function Post() {
+    try{
+    const response = await api.post('/posts',{
+      Text,
+      avatar
+    })
+    console.log(response.data)
+    }catch(e){
+      console.log(e)
+    }
+
+  }
 
   return (
 <>
@@ -125,7 +139,14 @@ function Feed() {
                   </div>
                   ))}
                   <div className="w-100">
-                    <textarea placeholder="Write your thoughts..." className="form-control border-0 p-0 shadow-none" rows={1} defaultValue={""} />
+                    <textarea 
+                    placeholder="Write your thoughts..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    defaultValue={""} 
+                    value={Text}
+                    onChange={event => setText(event.target.value)}  
+                    />
                   </div>
                 </div>
               </div>
@@ -147,7 +168,9 @@ function Feed() {
                       setAvatar(event.target.files[0])}
                   }/>
                 </label>
+                <form onSubmit={Post}>
                 <button type="button" className="btn btn-primary btn-sm" >Publicar</button>
+                </form>
               </div>
             </div>
           </div>
