@@ -110,6 +110,7 @@ function Feed() {
         longitude
       })
       
+      console.log(response.data)
       setSujestion(response.data)
 
       }catch(e){
@@ -493,11 +494,11 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <img className="rounded-circle" src={postd.bussines.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
-                    <div className="text-truncate">{postd.user.name}</div>
+                    <div className="text-truncate">{postd.bussines.nome}</div>
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
@@ -585,11 +586,11 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <img className="rounded-circle" src={postd.bussines.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
-                    <div className="text-truncate">{postd.user.name}</div>
+                    <div className="text-truncate">{postd.bussines.nome}</div>
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
