@@ -102,7 +102,7 @@ function Feed() {
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
           <input 
-          type="text"                   
+          type="search"                   
           className="form-control shadow-none border-0" 
           placeholder='Search people,jobs and bussines'
           aria-label="Search"

@@ -51,9 +51,10 @@ function Checkout() {
         <div className="exp">
           <p>Data de validade</p>
           <input 
-          type="date" 
+          type="text" 
           placeholder=" MM/YY" 
           value={expiry}
+          pattern="[0-9]{2}/[0-9]{2}"
           onChange={event => setExpiry(event.target.value)}
           onFocus={changeFocus}          
           />
@@ -64,6 +65,7 @@ function Checkout() {
           type="password" 
           placeholder=" ***" 
           value={cvc}
+          pattern="[0-9]{3}"
           onChange={event => setcvc(event.target.value)}
           onFocus={changeFocus}       
           />
