@@ -137,7 +137,7 @@ function Feed() {
     toast.success('Postado ;)');
     }catch(e){
     setLoading(false)
-     toast.error('Ops!! Ainda não conseguimos postar nada sem imagem');
+     toast.error('Ops!! Imagem invalida');
       console.log(e)
     }
   }
@@ -271,7 +271,7 @@ function Feed() {
               </label>
               <div className="flex-shrink-1">
                 <form onSubmit={Post}>
-                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Carregando...' : 'Postar'}</button>
+                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Postar'}</button>
                 </form>
               </div>
             </div>
@@ -406,6 +406,98 @@ function Feed() {
                   async function Comentario(event){
                   event.preventDefault()
                   await api.post(`/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
+              </div>
+              ))
+            : <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            /> 
+            }
+          {postb
+            ? postb.map(postd => (
+              <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={postd.bussines.avatar ? postd.bussines.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'}/>
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{postd.bussines.nome}</div>
+                    <div className="small text-gray-500">Ui/Ux desing</div>
+                  </div>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                </div>
+                <div className="p-3 border-bottom osahan-post-body">
+                  <p>{postd.Text.Text}</p>
+                  { postd.isVideo
+                  ? <video width="100%" height="100%" controls>
+                  <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
+                  </video>
+                  : <img src={postd.avatar ? postd.avatar : null}
+                  className="img-fluid"
+                  style={{width:'100%',height:'100%'}}
+                  />
+                  }
+                  </div>
+                <form 
+                onClick={
+                  async function Like(event){
+                  event.preventDefault()
+                    await api.post(`postb/likes/${postd._id}`)
+                  }
+                }
+                className="p-3 border-bottom osahan-post-footer"
+                >
+                <button  
+                style={{background:'none',border:'none'}}
+                className="mr-3 text-secondary"
+                ><i className="feather-heart text-danger" />
+                {postd.likeCount}</button>
+                <i className="feather-message-square" />{postd.commentCount}
+                <button 
+                onClick={
+                  async function Share(event){
+                    try{
+                    event.preventDefault()
+                    await api.post(`/postb/share/${postd._id}`)
+                    toast.success('Compartilhado ;)');
+                    }catch(e){
+                      console.log(e)
+                      toast.error('Ops!! Não deu para compartilhar tente novamente');
+                    }
+                  }}
+                className="mr-3 text-secondary" 
+                style={{border:'none',background:'none',marginLeft:'8px'}}>
+                  <i className="feather-share-2" /></button>
+                </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/postbussines/coment/${postd._id}`,{
                     text
                   })
                 }} >
