@@ -301,6 +301,8 @@ function Feed() {
             <Marker position={check.latitude, check.longitude} />
           </Map>          
           </div>
+            console.log(check.latitude)
+            console.log(check.longitude)
           ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
