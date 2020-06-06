@@ -18,6 +18,7 @@ import '../css/style.css'
 import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
+import { Map, TileLayer, Marker } from 'react-leaflet'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
@@ -291,15 +292,13 @@ function Feed() {
             </div>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
-            <iframe 
-            src={`https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;coord=${check.latitude},${check.longitude}&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(Empregue.me)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed`} 
-            width="100%" 
-            height="100%" 
-            frameborder="0" 
-            style={{border:'none'}} 
-            allowfullscreen="" 
-            aria-hidden="false" 
-            tabindex="0"></iframe>
+            <Map center={check.latitude, check.longitude} zoom={15} >
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={check.latitude, check.longitude} />
+          </Map>          
           </div>
           ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
