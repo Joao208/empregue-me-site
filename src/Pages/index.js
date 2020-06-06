@@ -86,20 +86,6 @@ function Feed() {
     loadSpots()
   }, [] )
 
-  async function Sujestion() {
-    try{
-    const response = await api.get('/sujestions',{
-      latitude,
-      longitude
-    })
-    
-    console.log(response.data)
-    setSujestion(response.data)
-
-    }catch(e){
-    console.log(e)
-    }
-  }
 
   useEffect(() => {
     async function Feed() {
