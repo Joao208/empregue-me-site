@@ -299,10 +299,14 @@ function Feed() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={check.latitude, check.longitude} />
-          </Map>          
+          </Map>  
+          {
+          console.log(check.latitude)
+          }
+          {
+          console.log(check.longitude)            
+          }        
           </div>
-            console.log(check.latitude)
-            console.log(check.longitude)
           ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
