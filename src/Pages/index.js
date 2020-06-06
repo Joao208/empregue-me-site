@@ -464,7 +464,6 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <i className="feather-message-square" />{postd.commentCount}
                 <button 
                 onClick={
                   async function Share(event){
@@ -480,34 +479,6 @@ function Feed() {
                 className="mr-3 text-secondary" 
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
-                </form>
-                {postd.comments.map(comments => (
-                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-                  <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
-                  </div>
-                </div>
-                ))}
-                <form className="p-3" onSubmit={
-                  async function Comentario(event){
-                  event.preventDefault()
-                  await api.post(`/postbussines/coment/${postd._id}`,{
-                    text
-                  })
-                }} >
-                  <input 
-                  placeholder="Adicionar Comentario..." 
-                  className="form-control border-0 p-0 shadow-none" 
-                  defaultValue={""}
-                  value={text}
-                  onChange={event => setTextt(event.target.value)}
-                  />
-                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
               ))
