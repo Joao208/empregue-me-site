@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
+import { ReactTinyLink } from "react-tiny-link";
 import 'react-toastify/dist/ReactToastify.css';
 import '../global.css';
 import '../App.css';
