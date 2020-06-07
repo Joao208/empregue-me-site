@@ -122,7 +122,9 @@ function Feed() {
 
       console.log(response.data)
       setLoading(false)
-      toast.success('Postado ;)');
+      toast.success('Postado ;)')
+      setAvatar(null)
+      setText('')
     } catch (e) {
       setLoading(false)
       toast.error('Ops!! Imagem invalida');
