@@ -20,18 +20,15 @@ import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 import { Map, TileLayer, Marker } from 'react-leaflet'
+import {MapContainer} from '../style'
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
 import img_l1 from '../img/l1.png'
-import img_l4 from '../img/l4.png'
-import img_l7 from '../img/l7.png'
-import img_p13 from '../img/p13.png'
 import img_job1 from '../img/job1.png'
 import img_p12 from '../img/p12.png'
 import img_ads1 from '../img/ads1.png'
 import img_fav from '../img/fav.png'
-import img_p1 from '../img/p1.png'
 import img_p2 from '../img/p2.png'
 import img_p3 from '../img/p3.png'
 import img_p4 from '../img/p4.png'
@@ -277,6 +274,7 @@ function Feed() {
             </div>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
+            <MapContainer>
             <Map center={[-46.9707956,-22.0670434]} zoom={15} >
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -284,6 +282,7 @@ function Feed() {
             />
             <Marker position={[-46.9707956,-22.0670434]} />
           </Map>  
+          </MapContainer>
           </div>
           ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
