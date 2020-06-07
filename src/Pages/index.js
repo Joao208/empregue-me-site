@@ -279,12 +279,12 @@ function Feed() {
             </div>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
-            <Map center={check.latitude, check.longitude} zoom={15} >
+            <Map center={check.longitude,check.latitude} zoom={15} >
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={check.latitude, check.longitude} />
+            <Marker position={check.longitude,check.latitude} />
           </Map>  
           {
           console.log(check.latitude)
