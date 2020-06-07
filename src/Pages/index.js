@@ -20,6 +20,8 @@ import '../inputcamera.css'
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 import { Map, TileLayer, Marker } from 'react-leaflet'
+import { LeafletMouseEvent } from 'leaflet';
+
 
 import img_logo_svg from '../img/logo.png'
 import img_p5 from '../img/p5.png'
