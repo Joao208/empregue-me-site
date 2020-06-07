@@ -275,7 +275,7 @@ function Feed() {
             <div className="p-3 border-bottom osahan-post-body">
             </div>
             <MapContainer>
-              <Map center={[check.latitude, check.longitude]} zoom={15} onClick={handleMapClick}>
+              <Map center={[check.latitude, check.longitude]} zoom={15} >
                 <TileLayer
                   attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
