@@ -64,9 +64,6 @@ function Feed() {
         (error) => {
             console.log(error)
             toast.error('Não conseguimos obter sua localização :(')
-        },
-        {
-            timeout: 30000
         }
     )
 })
