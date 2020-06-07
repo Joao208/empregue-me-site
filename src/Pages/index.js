@@ -416,7 +416,7 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{postd.bussines.nome}</div>
-                    <div className="small text-gray-500">Ui/Ux desing</div>
+                    <div className="small text-gray-500">Patrocinado</div>
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
@@ -437,7 +437,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                    await api.post(`postb/likes/${postd._id}`)
+                    await api.post(`/likesadd/${postd._id}`)
                   }
                 }
                 className="p-3 border-bottom osahan-post-footer"
@@ -446,22 +446,7 @@ function Feed() {
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
-                {postd.likeCount}</button>
-                <button 
-                onClick={
-                  async function Share(event){
-                    try{
-                    event.preventDefault()
-                    await api.post(`/postb/share/${postd._id}`)
-                    toast.success('Compartilhado ;)');
-                    }catch(e){
-                      console.log(e)
-                      toast.error('Ops!! Não deu para compartilhar tente novamente');
-                    }
-                  }}
-                className="mr-3 text-secondary" 
-                style={{border:'none',background:'none',marginLeft:'8px'}}>
-                  <i className="feather-share-2" /></button>
+                {postd.likeCount}</button>               
                 </form>
               </div>
             ))}
