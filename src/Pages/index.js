@@ -263,7 +263,7 @@ function Feed() {
             </div>
           </div>
           {check.map(check => (
-          <div className="box shadow-sm border rounded bg-white mb-3 osahan-post">
+          <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
             <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
               <div className="dropdown-list-image mr-3">
                 <img className="rounded-circle" src={check.user.avatar} />
@@ -278,18 +278,8 @@ function Feed() {
             <div className="p-3 border-bottom osahan-post-body">
             </div>
             <Map center={[check.latitude,check.longitude]} zoom={15} >
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
             <Marker position={[check.latitude,check.longitude]} />
           </Map>  
-          {
-          console.log(check.latitude)
-          }
-          {
-          console.log(check.longitude)            
-          }        
           </div>
           ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
@@ -539,7 +529,6 @@ function Feed() {
                 </span>
               </div>
             </div>
-           ))}
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
