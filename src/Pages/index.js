@@ -48,7 +48,6 @@ function Feed() {
   const [add, setAdd] = useState([])
   const [check, setCheck] = useState([])
   const [checkb, setCheckb] = useState([])
-  const [sujestion, setSujestion] = useState([])
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
@@ -104,7 +103,6 @@ function Feed() {
     }
     
     Feed()
-    Sujestion()
   }, [] )
 
     
@@ -511,15 +509,14 @@ function Feed() {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Pessoas que talvez você conheça</h6>
             </div>
-            {sujestion.map(user => (
-            <div key={user.id} className="box-body p-3">
+            <div className="box-body p-3">
               <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={user.avatar ? user.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'} />
+                  <img className="rounded-circle" src={'https://api.adorable.io/avatars/285/abott@adorable.png'} />
                   <div className="status-indicator bg-success" />
                 </div>
                 <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">{user.name}</div>
+                  <div className="text-truncate">{joao}</div>
                   <div className="small text-gray-500">Student at Harvard
                   </div>
                 </div>
@@ -529,7 +526,7 @@ function Feed() {
                     async function Follow(event){
                     try{
                       event.preventDefault()
-                      await api.post(`/follow/${user._id}`)    
+                      await api.post(`/follow/123456`)    
                     }catch(e){
                         toast.success('Uau, você fez novos amigos, isso aí ;)')
                         console.log(e)
