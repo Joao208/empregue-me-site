@@ -13,7 +13,4 @@ export const MapContainer = styled.div`
     display: block;
     margin-bottom: 24px;
   }
-  & + ${FieldGroup} {
-    margin-top: 24px;
-  }
 `;
