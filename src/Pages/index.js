@@ -108,19 +108,24 @@ function Feed() {
   },[avatar])
 
   async function Post(event) {
-    try{
-    event.preventDefault()
-    setLoading(true)
-    const response = await api.post('/posts',{
-      Text,
-      avatar
-    })
-    console.log(response.data)
-    setLoading(false)
-    toast.success('Postado ;)');
-    }catch(e){
-    setLoading(false)
-     toast.error('Ops!! Imagem invalida');
+    try {
+      event.preventDefault()
+      setLoading(true)
+      const data = new FormData()
+
+      data.append('avatar', avatar)
+      data.append('Text', Text)
+
+      const response = await api.post('/profile', data)
+
+      console.log(response)
+
+      console.log(response.data)
+      setLoading(false)
+      toast.success('Postado ;)');
+    } catch (e) {
+      setLoading(false)
+      toast.error('Ops!! Imagem invalida');
       console.log(e)
     }
   }
@@ -183,7 +188,7 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-          <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post" encType="multipart/form-data">
+          <form className="box shadow-sm border rounded bg-white mb-3 osahan-share-post" encType="multipart/form-data">
             <ul className="nav nav-justified border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
                 <a 
@@ -226,7 +231,7 @@ function Feed() {
                   </label>
                   }
             </div>
-            <div className="border-top p-3 d-flex align-items-center">
+            <div enc className="border-top p-3 d-flex align-items-center">
               <form className="mr-auto">
                 <button onClick={
                   async function checkIn(event){
@@ -258,7 +263,7 @@ function Feed() {
                 </form>
               </div>
             </div>
-          </div>
+          </form>
           {check.map(check => (
           <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
             <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
