@@ -160,7 +160,7 @@ function Feed() {
           <input 
           type="search"                   
           className="form-control shadow-none border-0" 
-          placeholder='Search people,jobs and bussines'
+          placeholder='Buscar pessoas, vagas e empresas'
           aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}
