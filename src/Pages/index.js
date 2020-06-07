@@ -274,15 +274,7 @@ function Feed() {
             </div>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
-            <MapContainer>
-            <Map center={[-46.9707956,-22.0670434]} zoom={15} >
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[-46.9707956,-22.0670434]} />
-          </Map>  
-          </MapContainer>
+            <img src="https://static.scriptcaser.com/uploads/2018/08/Google-Maps-740x388.jpg" />
           </div>
           ))}
           <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
