@@ -512,11 +512,11 @@ function Feed() {
             <div className="box-body p-3">
               <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={'https://api.adorable.io/avatars/285/abott@adorable.png'} />
+                  <img className="rounded-circle" src="https://api.adorable.io/avatars/285/abott@adorable.png" />
                   <div className="status-indicator bg-success" />
                 </div>
                 <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">{joao}</div>
+                  <div className="text-truncate">joao</div>
                   <div className="small text-gray-500">Student at Harvard
                   </div>
                 </div>
