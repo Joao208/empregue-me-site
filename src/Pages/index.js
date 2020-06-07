@@ -423,6 +423,13 @@ function Feed() {
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.text.text}</p>
                   <p>{postd.text.link}</p>
+                  <ReactTinyLink
+                  cardSize="small"
+                  showGraphic={true}
+                  maxLine={2}
+                  minLine={1}
+                  url="https://ecoleta-lt.herokuapp.com"
+                  />
                   { postd.isVideo
                   ? <video width="100%" height="100%" controls>
                   <source src={postd.avatar ? postd.avatar : null} type="video/ogg"/>
