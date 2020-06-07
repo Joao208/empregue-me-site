@@ -113,7 +113,7 @@ function Feed() {
       data.append('avatar', avatar)
       data.append('Text', Text)
 
-      const response = await api.post('/profile', data)
+      const response = await api.post('/posts', data)
 
       console.log(response)
 
