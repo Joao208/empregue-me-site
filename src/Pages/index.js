@@ -422,7 +422,6 @@ function Feed() {
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.text.text}</p>
-                  <p>{postd.text.link}</p>
                   <ReactTinyLink
                   cardSize="small"
                   showGraphic={true}
