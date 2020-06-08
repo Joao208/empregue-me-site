@@ -428,7 +428,7 @@ function Feed() {
                   showGraphic={true}
                   maxLine={2}
                   minLine={1}
-                  url="https://ecoleta-lt.herokuapp.common-struct"
+                  url={postd.text.link}
                   />
                   { postd.isVideo
                   ? <video width="100%" height="100%" controls>
