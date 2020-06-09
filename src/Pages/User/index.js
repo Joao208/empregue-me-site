@@ -8,11 +8,11 @@ import { ReactTinyLink } from "react-tiny-link";
 import 'react-toastify/dist/ReactToastify.css';
  
   import moment from 'moment'
-import '../vendor/slick/slick.min.css'
-import '../vendor/slick/slick-theme.min.css'
-import '../vendor/icons/feather.css'
-import '../vendor/bootstrap/css/bootstrap.min.css'
-import '../css/style.css'
+import '../../vendor/slick/slick.min.css'
+import '../../vendor/slick/slick-theme.min.css'
+import '../../vendor/icons/feather.css'
+import '../../vendor/bootstrap/css/bootstrap.min.css'
+import '../../css/style.css'
  
 import Lottie from 'react-lottie'
 import loadinganimate from '../../loading.json'

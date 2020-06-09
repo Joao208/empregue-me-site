@@ -4,11 +4,11 @@ import React from 'react';
 
  
   
-import '../vendor/slick/slick.min.css'
-import '../vendor/slick/slick-theme.min.css'
-import '../vendor/icons/feather.css'
-import '../vendor/bootstrap/css/bootstrap.min.css'
-import '../css/style.css'
+import '../../vendor/slick/slick.min.css'
+import '../../vendor/slick/slick-theme.min.css'
+import '../../vendor/icons/feather.css'
+import '../../vendor/bootstrap/css/bootstrap.min.css'
+import '../../css/style.css'
 
 
 import img_logo_svg from '../../img/logo.png'
