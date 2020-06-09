@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 
 
-import Reset_password from './Pages/User/User/reset-password'
+import Reset_password from './Pages/User/reset-password'
 import Feed from './Pages/User/index'
 import Company_profile from './Pages/User/company-profile'
 import Contact from './Pages/User/contact'
