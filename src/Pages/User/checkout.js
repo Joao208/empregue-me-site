@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Card from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import { useParams } from 'react-router';
-import '../../style.css'
 
 function Checkout() {
     const [number,setNumber] = useState('')
