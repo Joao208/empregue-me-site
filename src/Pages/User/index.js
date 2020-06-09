@@ -136,7 +136,7 @@ function Feed() {
   useEffect(() => {
     async function Sujestion(){
       try{
-        const response = await api.get('/sujestion',{
+        const response = await api.get('/sujestions',{
           longitude,
           latitude
         })
