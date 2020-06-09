@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { ReactTinyLink } from "react-tiny-link";
 import 'react-toastify/dist/ReactToastify.css';
  
-  import moment from 'moment'
+import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
@@ -15,7 +15,6 @@ import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
  
 import Lottie from 'react-lottie'
-import loadinganimate from '../../loading.json'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import {MapContainer} from '../../style'
 
@@ -148,6 +147,7 @@ function Feed() {
         console.log(e)
       }
     }
+    Sujestion()
   }, [latitude,longitude])
 
 
