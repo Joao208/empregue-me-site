@@ -13,7 +13,8 @@ import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
- 
+
+import LazyLoad from 'react-lazyload';
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import {MapContainer} from '../../style'
@@ -332,6 +333,7 @@ function Feed() {
             </div>
           </div>
           {post.map(postd => (
+            <LazyLoad height={300}>
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -416,6 +418,7 @@ function Feed() {
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
+            </LazyLoad>
             ))}
           {add.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
