@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
 
-import '../inputcamera.css';
 import api from '../../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../loading.json'

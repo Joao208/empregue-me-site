@@ -2,7 +2,7 @@
 import React, {
   useState
 } from 'react';
-import '../global2.css';
+ 
 import {useNavigate} from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 
