@@ -6,8 +6,8 @@ import {useParams} from 'react-router-dom'
 
  import '../App.css';
   
-import img_logo_svg from '../img/logo.png'
-import api from '../services/api'
+import img_logo_svg from '../../img/logo.png'
+import api from '../../services/api'
 
 
 function Feed() {

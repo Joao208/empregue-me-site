@@ -3,11 +3,11 @@
 import React,{useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import '../inputcamera.css';
-import api from '../services/api'
+import api from '../../services/api'
 
-import img_logo_svg from '../img/logologin.JPG'
+import img_logo_svg from '../../img/logologin.JPG'
 import Lottie from 'react-lottie'
-import loadinganimate from '../loading.json'
+import loadinganimate from '../../loading.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

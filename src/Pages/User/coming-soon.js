@@ -11,7 +11,7 @@ import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
 
 
-import img_logo_svg from '../img/logo.png'
+import img_logo_svg from '../../img/logo.png'
 
 function Cooming_soon() {
 

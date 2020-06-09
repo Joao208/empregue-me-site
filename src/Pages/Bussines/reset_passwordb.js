@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState} from 'react'
-import api from '../services/api'
+import api from '../../services/api'
  import '../App.css';
   import Lottie from 'react-lottie'
-import loadinganimate from '../loading.json'
+import loadinganimate from '../../loading.json'
 import {useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 
-import img_logo_svg from '../img/logologin.JPG'
+import img_logo_svg from '../../img/logologin.JPG'
 
 function Feed() {
 

@@ -6,16 +6,16 @@ import React from 'react';
 
  import '../App.css';
   
-import img_logo_svg from '../img/logo.png'
-import img_l4 from '../img/l4.png'
-import img_p13 from '../img/p13.png'
-import img_p8 from '../img/p8.png'
-import img_p9 from '../img/p9.png'
-import img_user from '../img/user.png'
-import img_p1 from '../img/p1.png'
-import img_p2 from '../img/p2.png'
-import img_p3 from '../img/p3.png'
-import img_p4 from '../img/p4.png'
+import img_logo_svg from '../../img/logo.png'
+import img_l4 from '../../img/l4.png'
+import img_p13 from '../../img/p13.png'
+import img_p8 from '../../img/p8.png'
+import img_p9 from '../../img/p9.png'
+import img_user from '../../img/user.png'
+import img_p1 from '../../img/p1.png'
+import img_p2 from '../../img/p2.png'
+import img_p3 from '../../img/p3.png'
+import img_p4 from '../../img/p4.png'
 
 function Feed() {
 

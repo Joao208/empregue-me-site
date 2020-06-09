@@ -5,14 +5,14 @@ import React from 'react';
 
  import '../App.css';
   
-import img_logo_svg from '../img/logo.png'
-import img_p1 from '../img/p1.png'
-import img_p2 from '../img/p2.png'
-import img_p3 from '../img/p3.png'
-import img_p4 from '../img/p4.png'
-import img_p13 from '../img/p13.png'
-import img_job1 from '../img/job1.png'
-import img_user from '../img/user.png'
+import img_logo_svg from '../../img/logo.png'
+import img_p1 from '../../img/p1.png'
+import img_p2 from '../../img/p2.png'
+import img_p3 from '../../img/p3.png'
+import img_p4 from '../../img/p4.png'
+import img_p13 from '../../img/p13.png'
+import img_job1 from '../../img/job1.png'
+import img_user from '../../img/user.png'
 
 function Feed() {
   return (

@@ -5,7 +5,7 @@ import React from 'react';
 
  import '../App.css';
   
-import img_logo_svg from '../img/logo.png'
+import img_logo_svg from '../../img/logo.png'
 
 
 function Feed() {

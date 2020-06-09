@@ -7,15 +7,15 @@ import {useParams} from 'react-router'
 
  import '../App.css';
   
-import img_logo_svg from '../img/logo.png'
-import img_job1 from '../img/job1.png'
+import img_logo_svg from '../../img/logo.png'
+import img_job1 from '../../img/job1.png'
 import Lottie from 'react-lottie'
-import loadinganimate from '../loading.json'
-import img_job_profile from '../img/job-profile.jpg'
-import img_clogo2 from '../img/clogo2.png'
-import api from '../services/api'
-import completedAnimate from '../completed.json'
-import errorAnimate from '../error.json'
+import loadinganimate from '../../loading.json'
+import img_job_profile from '../../img/job-profile.jpg'
+import img_clogo2 from '../../img/clogo2.png'
+import api from '../../services/api'
+import completedAnimate from '../../completed.json'
+import errorAnimate from '../../error.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -5,8 +5,8 @@ import React from 'react';
 
  import '../App.css';
   
-import img_logo_svg from '../img/logo.png'
-import img_p6 from '../img/p6.png'
+import img_logo_svg from '../../img/logo.png'
+import img_p6 from '../../img/p6.png'
 
 
 
