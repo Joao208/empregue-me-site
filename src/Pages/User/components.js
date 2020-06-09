@@ -3,11 +3,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import img_logo_svg from '../img/logo.png'
 import img_p1 from '../img/p1.png'
 import img_p2 from '../img/p2.png'

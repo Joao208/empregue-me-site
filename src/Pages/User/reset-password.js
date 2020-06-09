@@ -1,10 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState} from 'react'
 import api from '../services/api'
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
 import Lottie from 'react-lottie'
 import loadinganimate from '../loading.json'
 import {useNavigate} from 'react-router-dom'

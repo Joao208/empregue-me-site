@@ -8,11 +8,8 @@ import socketio from 'socket.io-client'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../empty.json'
 import api from '../services/api'

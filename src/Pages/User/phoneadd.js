@@ -4,8 +4,7 @@ import React, {
   } from 'react';
   import {useNavigate} from 'react-router-dom'
 
-  import '../global2.css';
-  
+   
   import img_logo_svg from '../img/logologin.JPG'
   import api from '../services/api'
   import Lottie from 'react-lottie'

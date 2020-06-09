@@ -2,11 +2,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import '../vendor/slick/slick.min.css'
 import '../vendor/slick/slick-theme.min.css'
 import '../vendor/icons/feather.css'

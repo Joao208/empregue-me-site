@@ -2,11 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import img_logo_svg from '../img/logo.png'
 
 function Feed() {

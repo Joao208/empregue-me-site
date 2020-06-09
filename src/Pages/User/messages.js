@@ -4,11 +4,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import img_logo_svg from '../img/logo.png'
 import img_l4 from '../img/l4.png'
 import img_p13 from '../img/p13.png'

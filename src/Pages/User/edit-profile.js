@@ -1,11 +1,8 @@
 import React,{useState,useEffect,useMemo} from 'react';
 import {useNavigate} from 'react-router-dom'
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import img_logo_svg from '../img/logo.png'
 import imguser from '../img/user.png'
 import api from '../services/api'

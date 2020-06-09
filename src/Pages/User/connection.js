@@ -4,11 +4,8 @@
 import React,{useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom'
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import img_logo_svg from '../img/logo.png'
 import api from '../services/api'
 

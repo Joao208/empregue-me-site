@@ -6,11 +6,8 @@ import moment from 'moment'
 import {useParams,useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
-import '../global.css';
-import '../App.css';
-import '../Sidebar.css';
-import '../Main.css';
-
+ import '../App.css';
+  
 import Lottie from 'react-lottie'
 import api from '../services/api'
 import img_logo_svg from '../img/logo.png'
