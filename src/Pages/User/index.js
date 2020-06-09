@@ -49,6 +49,7 @@ function Feed() {
   const [longitude, setLongitude] = useState('')
   const [name,setName] = useState('')
   const [text, setTextt] = useState('')
+  const [sujestion, setSujestion] = useState([])
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -125,18 +126,30 @@ function Feed() {
       console.log(e)
     }
   }
-  const lottieOptions = {
-    title:'loading',
-    loop:true,
-    autoplay:true,
-    animationData:loadinganimate
-  }
 
   async function SearchValue(event){
     event.preventDefault()
     
     history(`/conections/${name}`)
   }
+
+  useEffect(() => {
+    async function Sujestion(){
+      try{
+        const response = await api.get('/sujestion',{
+          longitude,
+          latitude
+        })
+
+        setSujestion(response.data)
+        console.log(response.data)
+
+      }catch(e){
+        console.log(e)
+      }
+    }
+  }, [latitude,longitude])
+
 
   return (
 <>
