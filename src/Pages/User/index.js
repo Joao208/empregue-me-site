@@ -14,7 +14,6 @@ import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
 
-import LazyLoad from 'react-lazyload';
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import {MapContainer} from '../../style'
@@ -31,6 +30,7 @@ import img_p3 from '../../img/p3.png'
 import img_p4 from '../../img/p4.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
+import loadinganimate from '../../lazyload.json'
 
 function Feed() {
 
@@ -50,6 +50,7 @@ function Feed() {
   const [name,setName] = useState('')
   const [text, setTextt] = useState('')
   const [sujestion, setSujestion] = useState([])
+  const [lazy, setLazy] = useState(true)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -88,9 +89,11 @@ function Feed() {
       setAdd(response.data.adds)
       setCheck(response.data.checkuser)
       setCheckb(response.data.checkbussines)
-
+      setLazy(false)
+      
       }catch(e){
       console.log(e)
+      setLazy(false)
       }
     }
     
@@ -152,6 +155,13 @@ function Feed() {
     }
     Sujestion()
   }, [latitude,longitude])
+
+  const lottieOptions = {
+    title:'loading',
+    loop:true,
+    autoplay:true,
+    animationData:loadinganimate
+  }
 
 
   return (
@@ -334,9 +344,14 @@ function Feed() {
               </div>
             </div>
           </div>
-          {post.map(postd => (
-            <LazyLoad height={300}>
+          {lazy
+          ? <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            />
+          : post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+              {lazy}
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -420,7 +435,6 @@ function Feed() {
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
-            </LazyLoad>
             ))}
           {add.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
