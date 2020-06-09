@@ -13,7 +13,7 @@ import '../vendor/slick/slick-theme.min.css'
 import '../vendor/icons/feather.css'
 import '../vendor/bootstrap/css/bootstrap.min.css'
 import '../css/style.css'
-import '../inputcamera.css'
+ 
 import Lottie from 'react-lottie'
 import loadinganimate from '../../loading.json'
 import { Map, TileLayer, Marker } from 'react-leaflet'

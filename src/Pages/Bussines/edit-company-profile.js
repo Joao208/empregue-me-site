@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 import img_logo_svg from '../../img/logo.png'
 import imguser from '../../img/user.png'
 import api from '../../services/api'
-import '../inputcamera.css'
+ 
 import Lottie from 'react-lottie'
 import loadinganimate from '../../loading.json'
 import { toast } from 'react-toastify';
