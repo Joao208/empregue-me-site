@@ -5,7 +5,7 @@ import React,{useState,useEffect} from 'react';
 import moment from 'moment'
 import {useParams} from 'react-router'
 
- import '../App.css';
+ 
   
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'

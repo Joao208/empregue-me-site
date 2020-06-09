@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
- import '../App.css';
+ 
   
 import img_logo_svg from '../../img/logo.png'
 import img_p1 from '../../img/p1.png'

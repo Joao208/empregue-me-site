@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
- import '../App.css';
+ 
   
 import api from '../../services/api'
 import img_logo_svg from '../../img/logo.png'

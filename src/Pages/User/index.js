@@ -6,7 +6,7 @@ import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import { ReactTinyLink } from "react-tiny-link";
 import 'react-toastify/dist/ReactToastify.css';
- import '../App.css';
+ 
   import moment from 'moment'
 import '../vendor/slick/slick.min.css'
 import '../vendor/slick/slick-theme.min.css'

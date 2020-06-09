@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
- import '../App.css';
+ 
   
 import '../vendor/slick/slick.min.css'
 import '../vendor/slick/slick-theme.min.css'

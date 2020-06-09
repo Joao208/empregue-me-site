@@ -6,7 +6,7 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
- import '../App.css';
+ 
   import Lottie from 'react-lottie'
 
 import img_logo_svg from '../../img/logo.png'

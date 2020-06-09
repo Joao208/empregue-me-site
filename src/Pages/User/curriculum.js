@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 
- import '../App.css';
+ 
   
 import img_logo_svg from '../../img/logo.png'
 import img_p13 from '../../img/p13.png'
