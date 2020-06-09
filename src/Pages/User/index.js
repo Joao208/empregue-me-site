@@ -141,6 +141,8 @@ function Feed() {
           latitude
         })
 
+        console.log(longitude)
+        console.log(latitude)
         setSujestion(response.data)
         console.log(response.data)
 
