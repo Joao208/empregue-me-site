@@ -3,8 +3,7 @@
 import React from 'react';
 
  
-  import '../Main.css'
-
+ 
 import img_logo_svg from '../../img/logo.png'
 
 function Feed() {
