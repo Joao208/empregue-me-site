@@ -89,7 +89,6 @@ function Feed() {
       setAdd(response.data.adds)
       setCheck(response.data.checkuser)
       setCheckb(response.data.checkbussines)
-      setLazy(false)
       
       }catch(e){
       console.log(e)
@@ -139,13 +138,13 @@ function Feed() {
   useEffect(() => {
     async function Sujestion(){
       try{
+        console.log(longitude)
+        console.log(latitude)
         const response = await api.get('/sujestions',{
           longitude,
           latitude
         })
 
-        console.log(longitude)
-        console.log(latitude)
         setSujestion(response.data)
         console.log(response.data)
 
