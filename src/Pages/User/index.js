@@ -91,7 +91,7 @@ function Feed() {
       setCheck(response.data.checkuser)
       setCheckb(response.data.checkbussines)
       setJobs(response.data.jobs)
-      setLazy(true)
+      setLazy(false)
 
       }catch(e){
       console.log(e)
