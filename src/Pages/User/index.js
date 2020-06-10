@@ -327,7 +327,7 @@ function Feed() {
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
                         <h6 className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.text.title}</h6>
-                        <div className="text-truncate text-primary">{vacancies.bussines.name ? vacancies.name : 'joao'}</div>
+                        <div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
                       <img className="img-fluid ml-auto" src={vacancies.avatar} />
@@ -563,6 +563,33 @@ function Feed() {
                 </form>
               </div>
             ))}
+            {checkb.map(check => (
+              <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
+              <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                <div className="dropdown-list-image mr-3">
+                  <img className="rounded-circle" src={check.bussines.avatar} />
+                  <div className="status-indicator bg-success" />
+                </div>
+                <div className="font-weight-bold">
+                  <div className="text-truncate">{check.bussines.nome}</div>
+                  <div className="small text-gray-500">Product Designer at askbootstrap</div>
+                </div>
+                <span className="ml-auto small">{moment(check.createdAt).fromNow()}</span>
+              </div>
+              <div className="p-3 border-bottom osahan-post-body">
+              </div>
+              <MapContainer>
+                <Map center={[check.latitude, check.longitude]} zoom={15} >
+                  <TileLayer
+                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+
+                  <Marker position={[check.latitude, check.longitude]} />
+                </Map>
+              </MapContainer>
+              </div>
+          ))}
         </main>
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           {profile.map(profile => (
