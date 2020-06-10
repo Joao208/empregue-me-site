@@ -195,6 +195,24 @@ function Feed() {
           </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
+      <li className="nav-item dropdown no-arrow d-sm-none">
+        <a className="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i className="feather-search mr-2" />
+        </a>
+        {/* Dropdown - Messages */}
+        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
+          <form className="form-inline mr-auto w-100 navbar-search">
+            <div className="input-group">
+              <input type="text" className="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2" />
+              <div className="input-group-append">
+                <button className="btn" type="button">
+                  <i className="feather-search" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
         <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
