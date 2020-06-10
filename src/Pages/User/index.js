@@ -30,6 +30,7 @@ import img_p4 from '../../img/p4.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../lazyload.json'
+import '../../style.css'
 
 function Feed() {
 
@@ -200,7 +201,7 @@ function Feed() {
         <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div>
             <div className="search">
-              <input type="text" placeholder=" " />
+              <input type="text" className="inputcss" placeholder=" " />
               <div className="divcss">
                 <svg>
                   <use xlinkHref="#path">
