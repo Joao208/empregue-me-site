@@ -49,6 +49,7 @@ function Feed() {
   const [longitude, setLongitude] = useState('')
   const [name,setName] = useState('')
   const [text, setTextt] = useState('')
+  const [jobs, setJobs] = useState([])
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
 
@@ -89,7 +90,8 @@ function Feed() {
       setAdd(response.data.adds)
       setCheck(response.data.checkuser)
       setCheckb(response.data.checkbussines)
-      console.log(response.data.jobs)
+      setJobs(response.data.jobs)
+      setLazy(true)
 
       }catch(e){
       console.log(e)
@@ -139,12 +141,8 @@ function Feed() {
   useEffect(() => {
     async function Sujestion() {
       try {
-        const data = new FormData()
-
-        data.append('longitude', longitude)
-        data.append('latitude', latitude)
   
-        const response = await api.get('/sujestions',data)
+        const response = await api.get('/sujestions',[longitude,latitude])
 
         setSujestion(response.data)
         console.log(response.data)
@@ -318,37 +316,31 @@ function Feed() {
             </MapContainer>
             </div>
           ))}
-          <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
+          {jobs.map(vacancies => (
+            <div key={vacancies.id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
               <div className="osahan-slider-item">
                 <a href="job-profile" >
                   <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
-                        <h6 className="font-weight-bold text-dark mb-0 text-truncate">UI/UX designer</h6>
-                        <div className="text-truncate text-primary">Envato</div>
-                        <div className="small text-gray-500"><i className="feather-map-pin" /> India, Punjab</div>
+                        <h6 className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.text.title}</h6>
+                        <div className="text-truncate text-primary">{vacancies.bussines.name ? vacancies.name : 'joao'}</div>
+                        <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
-                      <img className="img-fluid ml-auto" src={img_l1} />
+                      <img className="img-fluid ml-auto" src={vacancies.avatar} />
                     </div>
                     <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
-                      <div className="overlap-rounded-circle d-flex">
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p1}   data-original-title="Sophia Lee" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p2}   data-original-title="John Doe" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p3}   data-original-title="Julia Cox" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p4}   data-original-title="Robert Cook" />
-                        <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src={img_p5}   data-original-title="Sophia Lee" />
-                      </div>
-                      <span className="font-weight-bold text-primary">18 connections</span>
                     </div>
                     <div className="p-3 job-item-footer">
-                      <small className="text-gray-500"><i className="feather-clock" /> Posted 3 Days ago</small>
+                      <small className="text-gray-500"><i className="feather-clock" />{moment(vacancies.createdAt).fromNow()}</small>
                     </div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
+          ))}
           {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
               {lazy}
