@@ -206,14 +206,22 @@ function Feed() {
         </a>
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
           <form className="form-inline mr-auto w-100 navbar-search">
-            <div className="input-group">
-              <input type="text" className="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2" />
-              <div className="input-group-append">
-                <button className="btn" type="button">
-                  <i className="feather-search" />
-                </button>
-              </div>
-            </div>
+          <div className="input-group">
+          <input 
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
+            <button className="btn" type="button">
+              <i className="feather-search" />
+            </button>
+          </div>
+          </div>s
           </form>
         </div>
       </li>

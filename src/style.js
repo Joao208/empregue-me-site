@@ -1,4 +1,3 @@
-
 .formd{
     position: relative;
     top: 50%;
@@ -44,16 +43,16 @@
     transition: all 1s;
 }
 
-form:hover{
+.formd:hover{
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input{
+.formd:hover input{
     display: block;
 }
 
-form:hover .fa{
+.formd:hover .fa{
     background: #07051a;
     color: white;
 }
