@@ -142,7 +142,12 @@ function Feed() {
     async function Sujestion() {
       try {
   
-        const response = await api.get('/sujestions',[longitude,latitude])
+        const response = await api.get('/sujestions',{
+          params:{
+            longitude,
+            latitude
+          }
+        })
 
         setSujestion(response.data)
         console.log(response.data)
@@ -320,7 +325,7 @@ function Feed() {
             <div key={vacancies.id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
               <div className="osahan-slider-item">
-                <a href="job-profile" >
+                <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies.id}`}>
                   <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
@@ -329,8 +334,6 @@ function Feed() {
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
                       <img className="img-fluid ml-auto" src={vacancies.avatar} />
-                    </div>
-                    <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
                     </div>
                     <div className="p-3 job-item-footer">
                       <small className="text-gray-500"><i className="feather-clock" />{moment(vacancies.createdAt).fromNow()}</small>
