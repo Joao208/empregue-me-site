@@ -151,7 +151,6 @@ function Feed() {
         setSujestion(response.data)
 
       } catch (e) {
-        console.log(e)
       }
     }
     Sujestion()
