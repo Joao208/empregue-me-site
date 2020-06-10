@@ -89,7 +89,7 @@ function Feed() {
       setAdd(response.data.adds)
       setCheck(response.data.checkuser)
       setCheckb(response.data.checkbussines)
-      console.log(reponse.data.jobs)
+      console.log(response.data.jobs)
 
       }catch(e){
       console.log(e)
