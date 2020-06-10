@@ -89,7 +89,8 @@ function Feed() {
       setAdd(response.data.adds)
       setCheck(response.data.checkuser)
       setCheckb(response.data.checkbussines)
-      
+      console.log(reponse.data.jobs)
+
       }catch(e){
       console.log(e)
       setLazy(false)
@@ -285,7 +286,12 @@ function Feed() {
               </div>
             </div>
           </form>
-          {check.map(check => (
+          {lazy
+          ? <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            />
+          : check.map(check => (
           <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
             <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
               <div className="dropdown-list-image mr-3">
@@ -343,12 +349,7 @@ function Feed() {
               </div>
             </div>
           </div>
-          {lazy
-          ? <Lottie options={lottieOptions} 
-            height='100%'
-            width='100%'
-            />
-          : post.map(postd => (
+          {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
               {lazy}
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
