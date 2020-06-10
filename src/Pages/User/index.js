@@ -73,7 +73,6 @@ function Feed() {
       const response = await api.get('/profileview')
       
       setProfile(response.data.profile)
-      console.log(response.data.profile)
     }
     
     loadSpots()
@@ -150,7 +149,6 @@ function Feed() {
         })
 
         setSujestion(response.data)
-        console.log(response.data)
 
       } catch (e) {
         console.log(e)
@@ -322,10 +320,10 @@ function Feed() {
             </div>
           ))}
           {jobs.map(vacancies => (
-            <div key={vacancies.id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
+            <div key={vacancies._id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
               <div className="osahan-slider-item">
-                <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies.id}`}>
+                <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies._id}`}>
                   <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
@@ -448,7 +446,7 @@ function Feed() {
                   <p>{postd.text.text}</p>
                   <ReactTinyLink
                   cardSize="small"
-                  showGraphic={true}
+                  showGraphic={false}
                   maxLine={2}
                   minLine={1}
                   url={postd.text.link}
@@ -597,14 +595,15 @@ function Feed() {
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Pessoas que talvez você conheça</h6>
             </div>
-            <div className="box-body p-3">
+            {sujestion.map(user => (
+            <div key={user._id} className="box-body p-3">
               <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src="https://api.adorable.io/avatars/285/abott@adorable.png" />
+                  <img className="rounded-circle" src={user.avatar}/>
                   <div className="status-indicator bg-success" />
                 </div>
                 <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">joao</div>
+                  <div className="text-truncate">{user.name}</div>
                   <div className="small text-gray-500">Student at Harvard
                   </div>
                 </div>
@@ -614,9 +613,9 @@ function Feed() {
                     async function Follow(event){
                     try{
                       event.preventDefault()
-                      await api.post(`/follow/123456`)    
+                      await api.post(`/follow/${user._id}`)   
+                      toast.success('Uau, você fez novos amigos, isso aí ;)') 
                     }catch(e){
-                        toast.success('Uau, você fez novos amigos, isso aí ;)')
                         console.log(e)
                       }
                     }
@@ -627,6 +626,7 @@ function Feed() {
                 </span>
               </div>
             </div>
+            ))}
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
