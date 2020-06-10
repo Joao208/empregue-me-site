@@ -136,24 +136,24 @@ function Feed() {
   }
 
   useEffect(() => {
-    async function Sujestion(){
-      try{
-        console.log(longitude)
-        console.log(latitude)
-        const response = await api.get('/sujestions',{
-          longitude,
-          latitude
-        })
+    async function Sujestion() {
+      try {
+        const data = new FormData()
+
+        data.append('longitude', longitude)
+        data.append('latitude', latitude)
+  
+        const response = await api.get('/sujestions',data)
 
         setSujestion(response.data)
         console.log(response.data)
 
-      }catch(e){
+      } catch (e) {
         console.log(e)
       }
     }
     Sujestion()
-  }, [latitude,longitude])
+  }, [latitude, longitude])
 
   const lottieOptions = {
     title:'loading',
