@@ -338,7 +338,6 @@ function Feed() {
             </div>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
-            <MapContainer>
               <Map center={[check.latitude, check.longitude]} zoom={15} >
                 <TileLayer
                   attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -347,7 +346,6 @@ function Feed() {
 
                 <Marker position={[check.latitude, check.longitude]} />
               </Map>
-            </MapContainer>
             </div>
           ))}
           {jobs.map(vacancies => (
