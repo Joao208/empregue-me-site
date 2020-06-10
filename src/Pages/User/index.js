@@ -16,7 +16,6 @@ import '../../css/style.css'
 
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
-import '../../style.scss'
 
 import img_logo_svg from '../../img/logo.png'
 import img_p5 from '../../img/p5.png'
@@ -202,7 +201,7 @@ function Feed() {
           <div>
             <div className="search">
               <input type="text" placeholder=" " />
-              <div>
+              <div className="divcss">
                 <svg>
                   <use xlinkHref="#path">
                   </use></svg>
