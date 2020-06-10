@@ -198,10 +198,22 @@ function Feed() {
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
       <li className="nav-item dropdown no-arrow d-sm-none">
-        <a className="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i className="feather-search mr-2" />
+        <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <input 
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
+            <button className="btn" type="button">
+              <i className="feather-search" />
+            </button>
+          </div>
         </a>
-        {/* Dropdown - Messages */}
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
           <form className="form-inline mr-auto w-100 navbar-search">
             <div className="input-group">
