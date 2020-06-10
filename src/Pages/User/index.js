@@ -182,13 +182,12 @@ function Feed() {
         <div className="input-group">
           <input 
           type="search"                   
-          className="form-control shadow-none border-0" 
           placeholder='Buscar pessoas, vagas e empresas'
           aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}
           aria-describedby="basic-addon2" />
-          <div className="input-group-append">
+          <div>
             <button className="btn" type="button">
               <i className="feather-search" />
             </button>
