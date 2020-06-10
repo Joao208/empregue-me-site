@@ -186,7 +186,9 @@ function Feed() {
           aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" />
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
           <div>
             <button className="btn" type="button">
               <i className="feather-search" />
