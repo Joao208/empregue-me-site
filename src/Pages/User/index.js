@@ -199,6 +199,7 @@ function Feed() {
       <ul className="navbar-nav ml-auto d-flex align-items-center">
       <li className="nav-item dropdown no-arrow d-sm-none">
         <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div className="input-group">
           <input 
           type="search"                   
           placeholder='Buscar pessoas, vagas e empresas'
@@ -212,6 +213,7 @@ function Feed() {
             <button className="btn" type="button">
               <i className="feather-search" />
             </button>
+          </div>
           </div>
         </a>
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
