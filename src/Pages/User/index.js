@@ -200,7 +200,7 @@ function Feed() {
       <li className="nav-item dropdown no-arrow d-sm-none">
         <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <form className="formd" action="">
-          <input className="inputd" type="search">
+          <input className="inputd" type="search"/>
           <i className="fa fa-search"></i>
         </form>
         </a>
