@@ -37,6 +37,7 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const {id} = useParams()
+  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     async function loadSpots() {

@@ -24,6 +24,7 @@ function Feed() {
   const [activity, setActivity] = useState([])
   const history = useNavigate()
   const [name,setName] = useState('')
+  const [profiled, setProfiled] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
@@ -50,7 +51,7 @@ useEffect(() => {
   async function loadSpots() {
     const response = await api.get('/profileview')
     
-    setProfile(response.data.profile)
+    setProfiled(response.data.profile)
   }
   
   loadSpots()
@@ -122,7 +123,7 @@ async function SearchValue(event){
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
         </div>
       </li>
-        {profile.map(profile => (
+        {profiled.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
         <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
         <div className="status-indicator bg-success" />

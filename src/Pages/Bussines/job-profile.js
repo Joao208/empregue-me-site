@@ -36,6 +36,7 @@ function Feed() {
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
   const {id} = useParams()
+  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     async function loadSpots() {

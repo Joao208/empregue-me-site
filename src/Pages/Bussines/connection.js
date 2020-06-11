@@ -16,6 +16,7 @@ function Feed() {
   const [vacancies, setVacancies] = useState([])
   const history = useNavigate()
   const [name,setName] = useState('')
+  const [profile, setProfile] = useState([])
 
   const {named} = useParams()
 

@@ -23,6 +23,7 @@ function Feed() {
   const [data,setData] = useState('')
   const history = useNavigate()
   const [name,setName] = useState('')
+  const [profiled, setProfiled] = useState([])
 
   const lottieOptions = {
     title:'loading',
@@ -43,6 +44,16 @@ function Feed() {
 
     }
     loadSpots()
+}, [] )
+
+useEffect(() => {
+  async function loadSpots() {
+    const response = await api.get('/profileview')
+    
+    setProfiled(response.data.profile)
+  }
+  
+  loadSpots()
 }, [] )
 
 async function SearchValue(event){
@@ -123,7 +134,9 @@ async function SearchValue(event){
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
         </div>
       </li>
-        {profile.map(profile => (
+        {profiled
+        
+        .map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
         <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
         <div className="status-indicator bg-success" />

@@ -17,7 +17,13 @@ function Feed() {
   const {named} = useParams()
   const history = useNavigate()
   const [name,setName] = useState('')
+  const [profile, setProfile] = useState([])
 
+
+
+
+
+  
   useEffect(() => {
     async function loadUsers() {
       try {

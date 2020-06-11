@@ -11,6 +11,7 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const [jobs, setJobs] = useState([])
+  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
