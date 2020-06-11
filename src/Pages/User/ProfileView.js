@@ -21,8 +21,8 @@ function Feed() {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const [name,setName] = useState('')
   const history = useNavigate()
+  const [name,setName] = useState('')
 
   const lottieOptions = {
     title:'loading',
@@ -40,20 +40,16 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
-        console.log(post)
-        console.log(response.data.post)
 
     }
     loadSpots()
 }, [] )
 
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    history(`/conections/${name}`)
-
-  }
-
+async function SearchValue(event){
+  event.preventDefault()
+  
+  history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
+}
   async function Follow(event){
     event.preventDefault()
 
@@ -82,19 +78,20 @@ function Feed() {
   {/* Navigation */}
   <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
     <div className="container">
-      <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
+      <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
       </a>
       <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
           <input 
-          type="text"                   
-          className="form-control shadow-none border-0" 
-          placeholder='Search people'
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
           aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" />
-          <div className="input-group-append">
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
             <button className="btn" type="button">
               <i className="feather-search" />
             </button>
@@ -102,25 +99,36 @@ function Feed() {
           </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
-        {/* Nav Item - Search Dropdown (Visible Only XS) */}
-        <li className="nav-item dropdown no-arrow d-sm-none">
-          <a className="nav-link dropdown-toggle"  href="" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="feather-search mr-2" />
-          </a>
-          {/* Dropdown - Messages */}
-          <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-            <form className="form-inline mr-auto w-100 navbar-search">
-              <div className="input-group">
-                <input type="text" className="form-control border-0 shadow-none" placeholder="Search people, jobs and more..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div className="input-group-append">
-                  <button className="btn" type="button">
-                    <i className="feather-search" />
-                  </button>
-                </div>
-              </div>
-            </form>
+      <li className="nav-item dropdown no-arrow d-sm-none">
+        <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
+          <div className="input-group">
+          <input 
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
+            <button className="btn" type="button">
+              <i className="feather-search" />
+            </button>
           </div>
-        </li>
+          </div>
+          </form>
+        </a>
+        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
+        </div>
+      </li>
+        {profile.map(profile => (
+      <div key={profile._id} className="dropdown-list-image mr-3">
+        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
+        <div className="status-indicator bg-success" />
+      </div>
+      ))}
       </ul>
     </div>
   </nav>

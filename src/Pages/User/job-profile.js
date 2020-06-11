@@ -5,7 +5,6 @@ import React,{useState,useEffect} from 'react';
 import moment from 'moment'
 import {useParams} from 'react-router'
 
- 
   
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
@@ -15,9 +14,9 @@ import img_job_profile from '../../img/job-profile.jpg'
 import img_clogo2 from '../../img/clogo2.png'
 import api from '../../services/api'
 import completedAnimate from '../../completed.json'
-import errorAnimate from '../../error.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router';
 
 function Feed() {
 
@@ -35,6 +34,8 @@ function Feed() {
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
+  const history = useNavigate()
+  const [name,setName] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
@@ -89,11 +90,20 @@ const lottieOptionscompleted = {
   animationData:completedAnimate
 }
 
-const lottieOptionserror = {
-  title:'loading',
-  loop:true,
-  autoplay:true,
-  animationData:errorAnimate
+useEffect(() => {
+  async function loadSpots() {
+    const response = await api.get('/profileview')
+    
+    setProfile(response.data.profile)
+  }
+  
+  loadSpots()
+}, [] )
+
+async function SearchValue(event){
+  event.preventDefault()
+  
+  history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
 }
 
   return (
@@ -118,18 +128,58 @@ const lottieOptionserror = {
   {/* Navigation */}
   <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
     <div className="container">
-      <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
+      <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
       </a>
-      <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+      <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
         <div className="input-group">
-          <input type="text" className="form-control shadow-none border-0" placeholder="Search people, jobs & more..." aria-label="Search" aria-describedby="basic-addon2" />
-          <div className="input-group-append">
+          <input 
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
             <button className="btn" type="button">
               <i className="feather-search" />
             </button>
           </div>
-        </div>
+          </div>
       </form>
+      <ul className="navbar-nav ml-auto d-flex align-items-center">
+      <li className="nav-item dropdown no-arrow d-sm-none">
+        <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
+          <div className="input-group">
+          <input 
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
+            <button className="btn" type="button">
+              <i className="feather-search" />
+            </button>
+          </div>
+          </div>
+          </form>
+        </a>
+        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
+        </div>
+      </li>
+        {profile.map(profile => (
+      <div key={profile._id} className="dropdown-list-image mr-3">
+        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
+        <div className="status-indicator bg-success" />
+      </div>
+      ))}
+      </ul>
     </div>
   </nav>
   <div className="profile-cover text-center">

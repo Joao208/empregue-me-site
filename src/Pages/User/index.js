@@ -29,6 +29,7 @@ import {MapContainer} from '../../style.js'
 function Feed() {
 
   const history = useNavigate()
+  const [name,setName] = useState('')
   
   const [profile, setProfile] = useState([])
   const [post, setPosts] = useState([])
@@ -41,7 +42,6 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
-  const [name,setName] = useState('')
   const [text, setTextt] = useState('')
   const [jobs, setJobs] = useState([])
   const [sujestion, setSujestion] = useState([])
@@ -71,7 +71,12 @@ function Feed() {
     
     loadSpots()
   }, [] )
-
+  
+  async function SearchValue(event){
+    event.preventDefault()
+    
+    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
+  }
 
   useEffect(() => {
     async function Feed() {
@@ -125,11 +130,6 @@ function Feed() {
     }
   }
 
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
-  }
 
   useEffect(() => {
     async function Sujestion() {
@@ -193,7 +193,7 @@ function Feed() {
       <ul className="navbar-nav ml-auto d-flex align-items-center">
       <li className="nav-item dropdown no-arrow d-sm-none">
         <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <form className="form-inline mr-auto w-100 navbar-search">
+        <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
           <div className="input-group">
           <input 
           type="search"                   

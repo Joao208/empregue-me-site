@@ -130,11 +130,11 @@ function Feed() {
       console.log(e)
     }
   }
-
+  
   async function SearchValue(event){
     event.preventDefault()
     
-    history(`/conections/${name}`)
+    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
   }
 
   useEffect(() => {
@@ -186,7 +186,9 @@ function Feed() {
           aria-label="Search"
           value={name}
           onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" />
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
           <div>
             <button className="btn" type="button">
               <i className="feather-search" />
@@ -195,6 +197,30 @@ function Feed() {
           </div>
       </form>
       <ul className="navbar-nav ml-auto d-flex align-items-center">
+      <li className="nav-item dropdown no-arrow d-sm-none">
+        <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
+          <div className="input-group">
+          <input 
+          type="search"                   
+          placeholder='Buscar pessoas, vagas e empresas'
+          aria-label="Search"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          aria-describedby="basic-addon2" 
+          className="form-control shadow-none border-0"
+          />
+          <div>
+            <button className="btn" type="button">
+              <i className="feather-search" />
+            </button>
+          </div>
+          </div>
+          </form>
+        </a>
+        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
+        </div>
+      </li>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
         <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
