@@ -500,6 +500,35 @@ function Feed() {
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>               
                 </form>
+                <i className="feather-message-square" />{postd.commentCount}
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
             ))}
             {postb.map(postd => (
@@ -690,14 +719,14 @@ function Feed() {
             ))}
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
+          <MapContainer>
           <AdSense.Google
             client='ca-pub-7292810486004926'
             slot='7806394673'
-            style={{ display: 'block' }}
-            format='auto'
-            responsive='true'
-            layoutKey='-gw-1+2a-9x+5c'
-          />            
+            style={{ width: 500, height: 300, float: 'left' }}
+            format=''
+          />       
+          </MapContainer>     
             <div className="p-3 border-bottom">
               <h6 className="font-weight-bold text-gold">Osahanin Premium</h6>
               <p className="mb-0 text-muted">Grow &amp; nurture your network</p>
