@@ -193,13 +193,7 @@ function Feed() {
       <ul className="navbar-nav ml-auto d-flex align-items-center">
       <li className="nav-item dropdown no-arrow d-sm-none">
         <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <form className="formd" action="">
-          <input className="inputd" type="search"/>
-          <i className="fa fa-search"></i>
-        </form>
-        </a>
-        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-          <form className="form-inline mr-auto w-100 navbar-search">
+        <form className="form-inline mr-auto w-100 navbar-search">
           <div className="input-group">
           <input 
           type="search"                   
@@ -215,8 +209,10 @@ function Feed() {
               <i className="feather-search" />
             </button>
           </div>
-          </div>s
+          </div>
           </form>
+        </a>
+        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
         </div>
       </li>
         {profile.map(profile => (
