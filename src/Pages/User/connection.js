@@ -14,14 +14,14 @@ function Feed() {
   const [users, setUsers] = useState([])
   const [bussines, setBussines] = useState([])
   const [vacancies, setVacancies] = useState([])
-  const {name} = useParams()
+  const {named} = useParams()
   const history = useNavigate()
   const [name,setName] = useState('')
 
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get(`/search/${name}`)
+        const response = await api.get(`/search/${named}`)
 
         setUsers(response.data.users)
         setBussines(response.data.bussines)

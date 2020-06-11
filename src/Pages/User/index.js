@@ -614,13 +614,23 @@ function Feed() {
           {profile.map(profile => (
           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
-                <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
-              <p className="mb-0 text-muted">UI / UX Designer</p>
-              <a href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
+            <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
+            <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
+              <p className="mb-0 text-muted"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></p>
+            </div>
+            <div className="d-flex">
+              <div className="col-6 border-right p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{profile.followersCount}</h6>
+                <p className="mb-0 text-black-50 small">Conexões</p>
+              </div>
+              <div className="col-6 p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{profile.followingCount}</h6>
+                <p className="mb-0 text-black-50 small">Seguindo</p>
+              </div>
             </div>
             <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" href="profile" >Ver meu perfil</a>
+              <a className="font-weight-bold p-3 d-block" href="profile.html"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Ver meu perfil </font></font></a>
+              <a className="font-weight-bold p-3 d-block" href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
             </div>
           </div>
           ))}

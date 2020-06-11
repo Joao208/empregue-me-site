@@ -17,12 +17,12 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
 
-  const {name} = useParams()
+  const {named} = useParams()
 
   useEffect(() => {
     async function loadUsers() {
       try {
-        const response = await api.get(`/search/${name}`)
+        const response = await api.get(`/search/${named}`)
 
         setUsers(response.data.users)
         setBussines(response.data.bussines)

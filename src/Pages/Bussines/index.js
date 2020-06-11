@@ -16,25 +16,20 @@ import '../../css/style.css'
 
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
-import {MapContainer} from '../../style'
 
 import img_logo_svg from '../../img/logo.png'
-import img_p5 from '../../img/p5.png'
-import img_l1 from '../../img/l1.png'
 import img_job1 from '../../img/job1.png'
-import img_p1 from '../../img/p1.png'
 import img_ads1 from '../../img/ads1.png'
 import img_fav from '../../img/fav.png'
-import img_p2 from '../../img/p2.png'
-import img_p3 from '../../img/p3.png'
-import img_p4 from '../../img/p4.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../lazyload.json'
+import {MapContainer} from '../../style.js'
 
 function Feed() {
 
   const history = useNavigate()
+  const [name,setName] = useState('')
   
   const [profile, setProfile] = useState([])
   const [post, setPosts] = useState([])
@@ -47,7 +42,6 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
-  const [name,setName] = useState('')
   const [text, setTextt] = useState('')
   const [jobs, setJobs] = useState([])
   const [sujestion, setSujestion] = useState([])
@@ -77,7 +71,12 @@ function Feed() {
     
     loadSpots()
   }, [] )
-
+  
+  async function SearchValue(event){
+    event.preventDefault()
+    
+    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
+  }
 
   useEffect(() => {
     async function Feed() {
@@ -130,12 +129,7 @@ function Feed() {
       console.log(e)
     }
   }
-  
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
-  }
+
 
   useEffect(() => {
     async function Sujestion() {
@@ -351,7 +345,7 @@ function Feed() {
                   <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
-                        <h6 className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.text.title}</h6>
+                        <h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6>
                         <div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
@@ -604,14 +598,14 @@ function Feed() {
               <div className="p-3 border-bottom osahan-post-body">
               </div>
               <MapContainer>
-                <Map center={[check.latitude, check.longitude]} zoom={15} >
-                  <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
+              <Map center={[check.latitude, check.longitude]} zoom={15} >
+                <TileLayer
+                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
 
-                  <Marker position={[check.latitude, check.longitude]} />
-                </Map>
+                <Marker position={[check.latitude, check.longitude]} />
+              </Map>
               </MapContainer>
               </div>
           ))}
@@ -620,13 +614,23 @@ function Feed() {
           {profile.map(profile => (
           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
-                <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
-              <p className="mb-0 text-muted">UI / UX Designer</p>
-              <a href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
+            <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
+            <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
+              <p className="mb-0 text-muted"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></p>
+            </div>
+            <div className="d-flex">
+              <div className="col-6 border-right p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{profile.followersCount}</h6>
+                <p className="mb-0 text-black-50 small">Conexões</p>
+              </div>
+              <div className="col-6 p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{profile.followingCount}</h6>
+                <p className="mb-0 text-black-50 small">Seguindo</p>
+              </div>
             </div>
             <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" href="profile" >Ver meu perfil</a>
+              <a className="font-weight-bold p-3 d-block" href="profile.html"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Ver meu perfil </font></font></a>
+              <a className="font-weight-bold p-3 d-block" href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
             </div>
           </div>
           ))}
