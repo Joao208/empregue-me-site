@@ -51,7 +51,7 @@ function Feed() {
         setuf(response.data.text.uf)
         setavatar(response.data.bussines.avatar)
         setlogradouro(response.data.bussines.cnpjI.logradouro)
-        setNome(response.data.bussines.cnpjI.nome)
+        setNome(response.data.bussines.nome)
         setCargo(response.data.cargo)
         setEmployment(response.data.employment)
     }
@@ -104,7 +104,7 @@ useEffect(() => {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
+  history(`/conections/${name}`)
 }
 
   return (

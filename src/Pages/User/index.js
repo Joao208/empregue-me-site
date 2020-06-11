@@ -67,6 +67,7 @@ function Feed() {
       const response = await api.get('/profileview')
       
       setProfile(response.data.profile)
+      console.log(response.data)
     }
     
     loadSpots()
@@ -75,7 +76,7 @@ function Feed() {
   async function SearchValue(event){
     event.preventDefault()
     
-    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
+    history(`/conections/${name}`)
   }
 
   useEffect(() => {

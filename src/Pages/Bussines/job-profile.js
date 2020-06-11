@@ -103,7 +103,7 @@ useEffect(() => {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
+  history(`/conections/${name}`)
 }
 
   return (
