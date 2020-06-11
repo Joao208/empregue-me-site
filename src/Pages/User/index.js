@@ -128,7 +128,7 @@ function Feed() {
   async function SearchValue(event){
     event.preventDefault()
     
-    history(`/conections/${name}`)
+    history(`https://light-empregue-me.herokuapp.com/conections/${name}`)
   }
 
   useEffect(() => {

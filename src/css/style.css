@@ -83,10 +83,10 @@ Version: 1.0
      align-items: center;
 }
  .osahan-nav-top .navbar-search .form-control {
-     background: #132028;
+     background: #edf2f6;
 }
  .osahan-nav-top .navbar-search .btn {
-     background: #132028 !important;
+     background: #9cd3fd !important;
      color: #74828e;
 }
  .dropdown-list .dropdown-item {
@@ -396,7 +396,7 @@ Version: 1.0
      background-color: #b7b9cc;
 }
  .bg-dark {
-     background: #1d2f38 !important;
+     background: #00b3ec !important;
 }
  .form-control, .btn {
      font-size: 13px;
