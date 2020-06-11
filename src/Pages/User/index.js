@@ -218,7 +218,7 @@ function Feed() {
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Jobs</span></a>
+        <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
       </li>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
