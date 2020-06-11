@@ -17,8 +17,8 @@ function Feed() {
     async function loadSpots() {
         const response = await api.get('/vacancies')
 
-        setJobs(response.data)
         console.log(response.data)
+        setJobs(response.data)
     }
 
     loadSpots()
