@@ -18,19 +18,13 @@ import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 
 import img_logo_svg from '../../img/logo.png'
-import img_p5 from '../../img/p5.png'
-import img_l1 from '../../img/l1.png'
 import img_job1 from '../../img/job1.png'
-import img_p1 from '../../img/p1.png'
 import img_ads1 from '../../img/ads1.png'
 import img_fav from '../../img/fav.png'
-import img_p2 from '../../img/p2.png'
-import img_p3 from '../../img/p3.png'
-import img_p4 from '../../img/p4.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../lazyload.json'
-import '../../style.css'
+import {MapContainer} from '../../style.js'
 
 function Feed() {
 
@@ -335,6 +329,7 @@ function Feed() {
             </div>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
+            <MapContainer>
               <Map center={[check.latitude, check.longitude]} zoom={15} >
                 <TileLayer
                   attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -343,6 +338,7 @@ function Feed() {
 
                 <Marker position={[check.latitude, check.longitude]} />
               </Map>
+            </MapContainer>
             </div>
           ))}
           {jobs.map(vacancies => (
@@ -605,14 +601,16 @@ function Feed() {
               </div>
               <div className="p-3 border-bottom osahan-post-body">
               </div>
-                <Map center={[check.latitude, check.longitude]} zoom={15} >
-                  <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
+              <MapContainer>
+              <Map center={[check.latitude, check.longitude]} zoom={15} >
+                <TileLayer
+                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
 
-                  <Marker position={[check.latitude, check.longitude]} />
-                </Map>
+                <Marker position={[check.latitude, check.longitude]} />
+              </Map>
+              </MapContainer>
               </div>
           ))}
         </main>
