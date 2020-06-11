@@ -368,7 +368,6 @@ function Feed() {
           ))}
           {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
-              {lazy}
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -516,7 +515,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/coment/${postd._id}`,{
+                  await api.post(`/add/coment/${postd._id}`,{
                     text
                   })
                 }} >
@@ -560,7 +559,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                    await api.post(`/likes/${postd._id}`)
+                    await api.post(`postb/likes/${postd._id}`)
                   }
                 }
                 className="p-3 border-bottom osahan-post-footer"
@@ -576,7 +575,7 @@ function Feed() {
                   async function Share(event){
                     try{
                     event.preventDefault()
-                    await api.post(`/post/share/${postd._id}`)
+                    await api.post(`/postb/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
                       console.log(e)
@@ -602,7 +601,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/coment/${postd._id}`,{
+                  await api.post(`/postbussines/coment/${postd._id}`,{
                     text
                   })
                 }} >
