@@ -25,6 +25,7 @@ import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../lazyload.json'
 import {MapContainer} from '../../style.js'
+import AdSense from 'react-adsense';
 
 function Feed() {
 
@@ -689,7 +690,14 @@ function Feed() {
             ))}
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
-            <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
+          <AdSense.Google
+            client='ca-pub-7292810486004926'
+            slot='7806394673'
+            style={{ display: 'block' }}
+            format='auto'
+            responsive='true'
+            layoutKey='-gw-1+2a-9x+5c'
+          />            
             <div className="p-3 border-bottom">
               <h6 className="font-weight-bold text-gold">Osahanin Premium</h6>
               <p className="mb-0 text-muted">Grow &amp; nurture your network</p>
