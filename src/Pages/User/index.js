@@ -216,6 +216,9 @@ function Feed() {
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
         </div>
       </li>
+      <li className="nav-item">
+        <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Jobs</span></a>
+      </li>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
         <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
