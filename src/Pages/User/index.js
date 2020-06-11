@@ -46,6 +46,7 @@ function Feed() {
   const [jobs, setJobs] = useState([])
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
+  const [data, setData] = useState('')
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -67,7 +68,7 @@ function Feed() {
       const response = await api.get('/profileview')
       
       setProfile(response.data.profile)
-      console.log(response.data)
+      setData(response.data)
     }
     
     loadSpots()
@@ -624,11 +625,11 @@ function Feed() {
             </div>
             <div className="d-flex">
               <div className="col-6 border-right p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{profile.followersCount}</h6>
+                <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
                 <p className="mb-0 text-black-50 small">Conexões</p>
               </div>
               <div className="col-6 p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{profile.followingCount}</h6>
+                <h6 className="font-weight-bold text-dark mb-1">{data.followingCount}</h6>
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
