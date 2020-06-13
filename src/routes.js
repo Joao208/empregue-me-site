@@ -43,34 +43,10 @@ export default function Routed() {
     }
 
     const PrivateRoute = props => {
-        try {
-       
-        const isAuthenticated = !! sessionStorage.getItem('token') 
+       const isLogged = !! sessionStorage.getItem('user')
 
-        if(!isAuthenticated)
-            return <Route path='/sign-in' element={<Sign_in/>}/>
-
-
-        const parts = isAuthenticated.split(' ')
-        
-        if(!parts.length === 2)
-            return <Route path='/sign-in' element={<Sign_in/>}/>
-
-        const [scheme, token] = parts
-
-        if (!/^Bearer$/i.test(scheme))
-        return <Route path='/sign-in' element={<Sign_in/>}/>
-        
-
-        jwt.verify(token, authConfig.secret, (err, decoded) => {
-            if(err)
-                return <Route path='/sign-in' element={<Sign_in/>}/>
-            })
-    
-        return <Route {...props} />
-        } catch (error) {
-            return <Route path='/sign-in' element={<Sign_in/>}/>
-        }       
+        return isLogged ? <Route {...props}/>
+        : <Route path='/sign-in' element={<Sign_in/>}/>
     }
 
     const BussinesRoutes = props => {
