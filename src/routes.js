@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 
+import jwt from 'jsonwebtoken'
+import authConfig from './auth.json'
 
 import Reset_password from './Pages/User/reset-password'
 import Feed from './Pages/User/index'
@@ -43,8 +45,36 @@ export default function Routed() {
     const PrivateRoute = props => {
         const isAuthenticated = !! sessionStorage.getItem('token') 
 
-            return isAuthenticated ? <Route {...props} />
-            : <Route path='/sign-in' element={<Sign_in/>}/>
+        if(!isAuthenticated){
+        return <Route path='/sign-in' element={<Sign_in/>}/>
+        
+        }else{
+            <Route {...props} />       
+         }
+
+        const parts = isAuthenticated.split(' ')
+        
+        if(!parts.length === 2){
+        return <Route path='/sign-in' element={<Sign_in/>}/>
+        }else{
+            <Route {...props} />          
+        }
+
+        const [scheme, token] = parts
+
+        if (!/^Bearer$/i.test(scheme)){
+        return <Route path='/sign-in' element={<Sign_in/>}/>
+        }else{
+            <Route {...props} />       
+        }
+
+        jwt.verify(token, authConfig.secret, (err, decoded) => {
+            if(err){
+                return <Route path='/sign-in' element={<Sign_in/>}/>
+            }else{
+            <Route {...props} />
+            }
+        } )
     }
 
     const BussinesRoutes = props => {

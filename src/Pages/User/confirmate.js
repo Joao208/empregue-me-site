@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useParams, useNavigate } from 'react-router';
 import api from '../../services/api'
 import { toast } from 'react-toastify';
