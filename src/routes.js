@@ -87,7 +87,7 @@ export default function Routed() {
         return confirmate ? <Route {...props}/>
         : <Route path='*' element={<Error404/>}/>
         }else{
-        <Route path='*' element={<Error404/>}/>
+        return <Route path='*' element={<Error404/>}/>
         }
     }
 
