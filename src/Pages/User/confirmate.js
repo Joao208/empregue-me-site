@@ -16,6 +16,7 @@ function Confirmate() {
               
               console.log(response.data)
               toast.success('Email confirmado')
+              navigate('/')
             } catch (error) {
                 console.log(error)
             }
