@@ -497,9 +497,9 @@ function Feed() {
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
-                {postd.likeCount}</button>               
+                {postd.likeCount}</button> 
+                <i className="feather-message-square" />{postd.commentCount}              
                 </form>
-                <i className="feather-message-square" />{postd.commentCount}
                 {postd.comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">

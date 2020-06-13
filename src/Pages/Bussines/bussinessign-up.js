@@ -161,8 +161,8 @@ function Feed() {
               />
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
               }
-             <a className="btn btn-block text-uppercase" href="/sign-up"style={{backgroundColor:"#8838ca",color:"white"}} > Quero ser contratado </a> 
-              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#3aa54fed",color:"white"}} href="#"> Quero ensinar </a> 
+             <a className="btn btn-block text-uppercase" href="/sign-up"style={{backgroundColor:"#007dff",color:"white"}} > Quero ser contratado </a> 
+              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
                 <span className="ml-auto"> Ja é usuario? <a className="font-weight-bold" href="sign-in">Logar</a></span>
               </div>
