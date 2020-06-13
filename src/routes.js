@@ -35,13 +35,6 @@ import ConfirmatePage from './Pages/User/confirmate'
 
 export default function Routed() {
 
-    const UserRoute = props => {
-        const isAuthenticated = !! sessionStorage.getItem('user') 
-
-            return isAuthenticated ? <Route {...props} />
-            : <Route path='/sign-in' element={<Sign_in/>}/>
-    }
-
     const PrivateRoute = props => {
         const isAuthenticated = !! sessionStorage.getItem('token') 
 
@@ -77,13 +70,6 @@ export default function Routed() {
         } )
     }
 
-    const BussinesRoutes = props => {
-        const isBussines = !! sessionStorage.getItem('bussines')
-
-        return isBussines ? <Route {...props} />
-        : <Route path='*' element={<Error404/>}/>
-    }
-
     const ConfirmateRoute = props => {
         const confirmate = !! sessionStorage.getItem('confirmate')
 
@@ -97,31 +83,25 @@ export default function Routed() {
 
     return(
 <Routes>
-   <ConfirmateRoute> 
-    <PrivateRoute>
-        <UserRoute path='/' element={<Feed/>}   />
-        <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
-        <UserRoute path='/conections/:name' element={<Conections/>}/>
-        <UserRoute path='/profile/:id' element={<ProfileView/>}/>
-        <UserRoute path='/contact' element={<Contact/>}/>
-        <UserRoute path='/edit-profile' element={<Edit_profile/>}/>
-        <UserRoute path='/faq' element={<Faq/>}/>
-        <UserRoute path='/jobs' element={<Jobs/>}/>
-        <UserRoute path='/job-profile/:id' element={<Job_profile/>}/>
-        <UserRoute path='/privacy' element={<Privacy/>}/>
-        <UserRoute path='/terms' element={<Terms/>}/>
-        <UserRoute path='/curriculum' element={<Curriculum/>}/>
-        <UserRoute path='/checkout/:price' element={<Checkout/>}/>
-    </PrivateRoute>
-   </ConfirmateRoute>
-   <PrivateRoute>
-        <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
-        <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
+        <PrivateRoute path='/' element={<Feed/>}   />
+        <PrivateRoute path='/company-profile/:id' element={<Company_profile/>}/>
+        <PrivateRoute path='/conections/:name' element={<Conections/>}/>
+        <PrivateRoute path='/profile/:id' element={<ProfileView/>}/>
+        <PrivateRoute path='/contact' element={<Contact/>}/>
+        <PrivateRoute path='/edit-profile' element={<Edit_profile/>}/>
+        <PrivateRoute path='/faq' element={<Faq/>}/>
+        <PrivateRoute path='/jobs' element={<Jobs/>}/>
+        <PrivateRoute path='/job-profile/:id' element={<Job_profile/>}/>
+        <PrivateRoute path='/privacy' element={<Privacy/>}/>
+        <PrivateRoute path='/terms' element={<Terms/>}/>
+        <PrivateRoute path='/curriculum' element={<Curriculum/>}/>
+        <PrivateRoute path='/checkout/:price' element={<Checkout/>}/>
+        <PrivateRoute path='/edit-company' element={<EditCompanyProfile/>}/>
+        <PrivateRoute path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
-        <UserRoute path='/profile' element={<Profile/>}/>
-        <UserRoute path='/phone' element={<Phone/>}/>
-        <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
-   </PrivateRoute>
+        <PrivateRoute path='/profile' element={<Profile/>}/>
+        <PrivateRoute path='/phone' element={<Phone/>}/>
+        <PrivateRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
         <Route path='/sign-in' element={<Sign_in/>}/>
         <Route path='/sign-up' element={<Sign_up/>}/>
         <Route path='/bussinessign-in' element={<Bussinessign_in/>}/>
