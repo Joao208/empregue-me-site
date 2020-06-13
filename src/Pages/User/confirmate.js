@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router';
 import api from '../../services/api'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import LoadImg from '../../img/loadani.gif'
 
 function Confirmate() {
     const {token} = useParams()
@@ -25,7 +24,7 @@ function Confirmate() {
     }, [token]);
 
     return(
-      <img src={LoadImg} alt="Loading..." style={{height:'100vh',width:'100vw'}}/>
+      <img src='https://i.pinimg.com/originals/e0/7f/6a/e07f6af981d70eb773e6b7d7f1899936.gif' alt="Loading..." style={{height:'100vh',width:'100vw'}}/>
   )
 }
 
