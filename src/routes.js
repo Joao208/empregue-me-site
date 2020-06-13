@@ -43,7 +43,7 @@ export default function Routed() {
     }
 
     const PrivateRoute = props => {
-       const isLogged = !! sessionStorage.getItem('user')
+       const isLogged = !! sessionStorage.getItem('token')
 
         return isLogged ? <Route {...props}/>
         : <Route path='/sign-in' element={<Sign_in/>}/>
@@ -58,7 +58,7 @@ export default function Routed() {
 
     const ConfirmateRoute = props => {
         const confirmate = !! sessionStorage.getItem('confirmate')
-
+        console.log(confirmate)
         if(confirmate == true){
         return confirmate ? <Route {...props}/>
         : <Route path='*' element={<Error404/>}/>
