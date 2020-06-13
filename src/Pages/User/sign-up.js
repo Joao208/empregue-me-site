@@ -69,6 +69,7 @@ function Feed() {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', _id)
+      toast.success('Confirme seu email')
       history('/phone')
     }  catch(e){
       setLoading(false)
