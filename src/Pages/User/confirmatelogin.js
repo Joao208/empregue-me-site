@@ -3,7 +3,7 @@ import React, {
   useState
 } from 'react';
  
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
@@ -19,7 +19,8 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const [fill, setFill] = useState(false)
   const history = useNavigate()
-
+  const {tokend} = useParams()
+  
   async function SignIn(event) {
     event.preventDefault()
     setFill(false)
@@ -41,10 +42,8 @@ function Feed() {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
-      if(user.confirmate === true)
-      return sessionStorage.setItem('confirmate', user.confirmate)
-      
-      history('/')
+      sessionStorage.setItem('confirmate', user.confirmate)
+      history(`/confirmate/user/${tokend}`)
     }catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');
@@ -125,8 +124,6 @@ function Feed() {
               />
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
               }
-              <a className="btn btn-block text-uppercase" href="/bussinessign-in"style={{backgroundColor:"#007dff",color:"white"}} > Quero contratar </a> 
-              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="#"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
                 <a href="forgot-password">Esqueceu a senha?</a>
                 <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="sign-up">Crie agora</a></span>

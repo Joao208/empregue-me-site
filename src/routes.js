@@ -1,9 +1,6 @@
 import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 
-import jwt from 'jsonwebtoken'
-import authConfig from './auth.json'
-
 import Reset_password from './Pages/User/reset-password'
 import Feed from './Pages/User/index'
 import Company_profile from './Pages/User/company-profile'
@@ -32,6 +29,7 @@ import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
 import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
 import Checkout from './Pages/User/checkout'
 import ConfirmatePage from './Pages/User/confirmate'
+import ConfirmateLogin from './Pages/User/confirmatelogin'
 
 export default function Routed() {
 
@@ -87,6 +85,7 @@ export default function Routed() {
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
+        <Route path='/confirmate/:token' element={<ConfirmateLogin/>}/>
         <UserRoute path='/profile' element={<Profile/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
