@@ -132,7 +132,7 @@ function Feed() {
         {/* Main Content */}
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Usuarios Empregue.me com o nome {name}</h5>
+          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Usuarios Empregue.me com o nome {named}</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
               </li>
@@ -182,7 +182,7 @@ function Feed() {
         </aside>
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Vagas Empregue.me com o nome {name}</h5>
+          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Vagas Empregue.me com o nome {named}</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
               </li>
@@ -221,7 +221,7 @@ function Feed() {
         </main>
         <main className="col col-xl-9 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Empresas Empregue.me com o nome {name}</h5>
+          <h5 className="pl-3 pt-3 pr-3 border-bottom mb-0 pb-3">Empresas Empregue.me com o nome {named}</h5>
             <ul className="nav border-bottom osahan-line-tab" id="myTab" role="tablist">
               <li className="nav-item">
               </li>
