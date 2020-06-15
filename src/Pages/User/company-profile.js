@@ -14,7 +14,7 @@ import img_clogo from '../../img/clogo.png'
 import img_l3 from '../../img/l3.png'
 import api from '../../services/api'
 import EmptyAnimation from '../../Animations/empty.json'
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 function Feed() {
 
@@ -25,10 +25,11 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
+  const {id} = useParams()
 
   useEffect(() => {
     async function loadSpots() {
-        const response = await api.get('/profilebussinesv/5eb9f18e848e6f03bc1f75ee')
+        const response = await api.get(`/profilebussinesv/${id}`)
 
         setProfile(response.data.profile)
         setAdd(response.data.add)

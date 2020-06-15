@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-
- 
   
 import img_logo_svg from '../../img/logo.png'
-
-
 function Feed() {
 
   return (
