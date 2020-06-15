@@ -406,7 +406,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd.id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
@@ -471,7 +471,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <a href={`/coment/populate/${postd.id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 </form>
               </div>
             ))}
@@ -514,7 +514,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd.id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
