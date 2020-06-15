@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState,useMemo} from 'react';
+import React,{useEffect,useState} from 'react';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,8 +14,6 @@ import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
 
-import Lottie from 'react-lottie'
-import { Map, TileLayer, Marker } from 'react-leaflet'
 import '../../css/inputcamera.css'
 
 import img_logo_svg from '../../img/logo.png'
@@ -23,7 +21,7 @@ import img_job1 from '../../img/job1.png'
 import img_ads1 from '../../img/ads1.png'
 import img_fav from '../../img/fav.png'
 import api from '../../services/api'
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
@@ -49,21 +47,7 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            const { latitude, longitude } = position.coords;
-
-            setLatitude(latitude)
-            setLongitude(longitude)
-        },
-        (error) => {
-            console.log(error)
-            toast.error('Não conseguimos obter sua localização :(')
-        }
-    )
-})
+  const {id} = useParams()
 
   useEffect(() => {
     async function loadSpots() {
@@ -85,14 +69,11 @@ function Feed() {
   useEffect(() => {
     async function Feed() {
       try{
-      const response = await api.get('/feed')
+      const response = await api.get(`/coments/populate/${id}`)
       
-      setPostb(response.data.postbussines)
-      setPosts(response.data.posts)
-      setAdd(response.data.adds)
-      setCheck(response.data.checkuser)
-      setCheckb(response.data.checkbussines)
-      setJobs(response.data.jobs)
+      setPostb(response.data.postb)
+      setPosts(response.data.post)
+      setAdd(response.data.add)
       setLazy(false)
 
       }catch(e){
@@ -105,54 +86,6 @@ function Feed() {
   }, [] )
 
     
-    const preview = useMemo(() => {
-    return avatar ? URL.createObjectURL(avatar) : null
-  },[avatar])
-
-  async function Post(event) {
-    try {
-      event.preventDefault()
-      setLoading(true)
-      const data = new FormData()
-
-      data.append('avatar', avatar)
-      data.append('Text', Text)
-
-      const response = await api.post('/posts', data)
-
-      console.log(response)
-
-      console.log(response.data)
-      setLoading(false)
-      toast.success('Postado ;)')
-      setAvatar(null)
-      setText('')
-    } catch (e) {
-      setLoading(false)
-      toast.error('Ops!! Imagem invalida');
-      console.log(e)
-    }
-  }
-
-
-  useEffect(() => {
-    async function Sujestion() {
-      try {
-  
-        const response = await api.get('/sujestions',{
-          params:{
-            longitude,
-            latitude
-          }
-        })
-
-        setSujestion(response.data)
-
-      } catch (e) {
-      }
-    }
-    Sujestion()
-  }, [latitude, longitude])
 
   const lottieOptions = {
     title:'loading',
@@ -236,137 +169,6 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-          <form className="box shadow-sm border rounded bg-white mb-3 osahan-share-post" encType="multipart/form-data">
-            <ul className="nav nav-justified border-bottom osahan-line-tab" id="myTab" role="tablist">
-              <li className="nav-item">
-                <a 
-                className="nav-link active" 
-                id="home-tab" 
-                data-toggle="tab" 
-                role="tab" 
-                aria-controls="home" 
-                aria-selected="true"
-                ><i className="feather-edit" />Escrever</a>
-              </li>
-            </ul>
-            <div className="tab-content" id="myTabContent">
-              <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div className="p-3 d-flex align-items-center w-100"  href="profile">
-                  {profile.map(profile => (
-                  <div key={profile._id} className="dropdown-list-image mr-3">
-                   <a href="profile"><img className="rounded-circle" src={profile.user.avatar} /></a> 
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  ))}
-                  <div className="w-100">
-                    <textarea 
-                    placeholder="No que você está pensando..." 
-                    className="form-control border-0 p-0 shadow-none" 
-                    rows={1} 
-                    defaultValue={""} 
-                    value={Text}
-                    onChange={event => setText(event.target.value)}  
-                    />
-                  </div>
-                </div>
-              </div>
-              {!! avatar 
-                  && <label
-                  id="indexfile"
-                  style={{ backgroundImage: `url(${preview})`}}
-                  className={avatar ? 'has-avatar' : ''}
-                  >
-                  </label>
-                  }
-            </div>
-            <div enc className="border-top p-3 d-flex align-items-center">
-              <form className="mr-auto">
-                <button onClick={
-                  async function checkIn(event){
-                    try{
-                    event.preventDefault()
-                    await api.post('/check/location',{
-                      longitude,
-                      latitude
-                    })
-                    toast.success('Check-in postado ;)');
-                    }catch(e){
-                      console.log(e)
-                    }
-                  }
-                } href="profile" className="text-link small"
-                style={{border:'none',background:'none'}}
-                >
-                <i className="feather-map-pin" />Check-in</button>
-              </form>
-              <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
-                  Adicionar Imagem
-                <input style={{display:'none'}} type="file" onChange={event => {
-                      setAvatar(event.target.files[0])}
-                  }/>
-              </label>
-              <div className="flex-shrink-1">
-                <form onSubmit={Post}>
-                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Postar'}</button>
-                </form>
-              </div>
-            </div>
-          </form>
-          {lazy
-          ? <Lottie options={lottieOptions} 
-            height='100%'
-            width='100%'
-            />
-          : check.map(check => (
-          <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
-            <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
-              <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={check.user.avatar} />
-                <div className="status-indicator bg-success" />
-              </div>
-              <div className="font-weight-bold">
-                <div className="text-truncate">{check.user.name}</div>
-                <div className="small text-gray-500">Product Designer at askbootstrap</div>
-              </div>
-              <span className="ml-auto small">{moment(check.createdAt).fromNow()}</span>
-            </div>
-            <div className="p-3 border-bottom osahan-post-body">
-            </div>
-            <MapContainer>
-              <Map center={[check.latitude, check.longitude]} zoom={15} >
-                <TileLayer
-                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-
-                <Marker position={[check.latitude, check.longitude]} />
-              </Map>
-            </MapContainer>
-            </div>
-          ))}
-          {jobs.map(vacancies => (
-            <div key={vacancies._id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
-            <div className="osahan-slider">
-              <div className="osahan-slider-item">
-                <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies._id}`}>
-                  <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
-                    <div className="d-flex align-items-center p-3 job-item-header">
-                      <div className="overflow-hidden mr-2">
-                        <h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6>
-                        <div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
-                        <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
-                      </div>
-                      <img className="img-fluid ml-auto" src={vacancies.avatar} />
-                    </div>
-                    <div className="p-3 job-item-footer">
-                      <small className="text-gray-500"><i className="feather-clock" />{moment(vacancies.createdAt).fromNow()}</small>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          ))}
           {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
@@ -406,7 +208,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd.id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <i className="feather-message-square" />{postd.commentCount}
                 <button 
                 onClick={
                   async function Share(event){
@@ -422,6 +224,34 @@ function Feed() {
                 className="mr-3 text-secondary" 
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
+                </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
             ))}
@@ -471,7 +301,35 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <a href={`/coment/populate/${postd.id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <i className="feather-message-square" />{postd.commentCount}              
+                </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/add/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
             ))}
@@ -514,7 +372,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd.id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <i className="feather-message-square" />{postd.commentCount}
                 <button 
                 onClick={
                   async function Share(event){
@@ -531,60 +389,38 @@ function Feed() {
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
                 </form>
+                {postd.comments.map(comments => (
+                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+                  <div className="dropdown-list-image mr-3">
+                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <div className="status-indicator bg-success" />
+                  </div>
+                  <div className="font-weight-bold">
+                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
+                  </div>
+                </div>
+                ))}
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/postbussines/coment/${postd._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
             ))}
-            {checkb.map(check => (
-              <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
-              <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={check.bussines.avatar} />
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold">
-                  <div className="text-truncate">{check.bussines.nome}</div>
-                  <div className="small text-gray-500">Product Designer at askbootstrap</div>
-                </div>
-                <span className="ml-auto small">{moment(check.createdAt).fromNow()}</span>
-              </div>
-              <div className="p-3 border-bottom osahan-post-body">
-              </div>
-              <MapContainer>
-              <Map center={[check.latitude, check.longitude]} zoom={15} >
-                <TileLayer
-                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-
-                <Marker position={[check.latitude, check.longitude]} />
-              </Map>
-              </MapContainer>
-              </div>
-          ))}
         </main>
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
-          {profile.map(profile => (
-          <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
-            <div className="py-4 px-3 border-bottom">
-            <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
-            <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
-              <p className="mb-0 text-muted"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></p>
-            </div>
-            <div className="d-flex">
-              <div className="col-6 border-right p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
-                <p className="mb-0 text-black-50 small">Conexões</p>
-              </div>
-              <div className="col-6 p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{data.followingCount}</h6>
-                <p className="mb-0 text-black-50 small">Seguindo</p>
-              </div>
-            </div>
-            <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" href="profile.html"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Ver meu perfil </font></font></a>
-              <a className="font-weight-bold p-3 d-block" href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
-            </div>
-          </div>
-          ))}
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
@@ -597,43 +433,6 @@ function Feed() {
           </div>
         </aside>
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Pessoas que talvez você conheça</h6>
-            </div>
-            {sujestion.map(user => (
-            <div key={user._id} className="box-body p-3">
-              <div className="d-flex align-items-center osahan-post-header mb-3 people-list">
-                <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle" src={user.avatar}/>
-                  <div className="status-indicator bg-success" />
-                </div>
-                <div className="font-weight-bold mr-2">
-                  <div className="text-truncate">{user.name}</div>
-                  <div className="small text-gray-500">Student at Harvard
-                  </div>
-                </div>
-                <span className="ml-auto">
-                  <button  
-                  onClick={
-                    async function Follow(event){
-                    try{
-                      event.preventDefault()
-                      await api.post(`/follow/${user._id}`)   
-                      toast.success('Uau, você fez novos amigos, isso aí ;)') 
-                    }catch(e){
-                        console.log(e)
-                      }
-                    }
-                  }
-                  type="button" 
-                  className="btn btn-light btn-sm"
-                  ><i className="feather-user-plus" /></button>
-                </span>
-              </div>
-            </div>
-            ))}
-          </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
           <MapContainer>
           <AdSense.Google

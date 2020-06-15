@@ -30,6 +30,7 @@ import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
 import Checkout from './Pages/User/checkout'
 import ConfirmatePage from './Pages/User/confirmate'
 import Email_confirmate from './Pages/User/email-not-confirmate'
+import CommentD from './Pages/User/coment'
 
 export default function Routed() {
 
@@ -66,7 +67,8 @@ export default function Routed() {
 <Routes>
     <PrivateRoute>
     <ConfirmateRoute> 
-        <UserRoute path='/' element={<Feed/>}   />
+        <UserRoute path='/' element={<Feed/>}/>
+        <UserRoute path='/coment/populate/:id' element={<CommentD/>}/>
         <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
         <UserRoute path='/conections/:named' element={<Conections/>}/>
         <UserRoute path='/profile/:id' element={<ProfileView/>}/>
