@@ -25,6 +25,7 @@ import { useNavigate, useParams } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
+import Lottie from 'react-lottie'
 
 function Feed() {
 
@@ -32,17 +33,9 @@ function Feed() {
   const [name,setName] = useState('')
   
   const [profile, setProfile] = useState([])
-  const [post, setPosts] = useState([])
-  const [postb, setPostb] = useState([])
-  const [add, setAdd] = useState([])
+  const [post, setPosts] = useState('')
   const [text, setTextt] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [latitude, setLatitude] = useState('')
-  const [longitude, setLongitude] = useState('')
-  const [jobs, setJobs] = useState([])
-  const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
-  const [data, setData] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
@@ -50,7 +43,6 @@ function Feed() {
       const response = await api.get('/profileview')
       
       setProfile(response.data.profile)
-      setData(response.data)
     }
     
     loadSpots()
@@ -67,9 +59,7 @@ function Feed() {
       try{
       const response = await api.get(`/coments/populate/${id}`)
       console.log(response.data)
-      setPostb(response.data.postb)
       setPosts(response.data.post)
-      setAdd(response.data.add)
       setLazy(false)
 
       }catch(e){
@@ -165,7 +155,12 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-          {post.map(postd => (
+          {lazy
+          ? <Lottie options={lottieOptions} 
+            height='100%'
+            width='100%'
+            />
+          : post.post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -251,7 +246,7 @@ function Feed() {
                 </form>
               </div>
             ))}
-          {add.map(postd => (
+          {post.add.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -329,7 +324,7 @@ function Feed() {
                 </form>
               </div>
             ))}
-            {postb.map(postd => (
+            {post.postb.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
