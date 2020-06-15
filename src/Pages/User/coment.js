@@ -35,10 +35,6 @@ function Feed() {
   const [post, setPosts] = useState([])
   const [postb, setPostb] = useState([])
   const [add, setAdd] = useState([])
-  const [check, setCheck] = useState([])
-  const [checkb, setCheckb] = useState([])
-  const [avatar, setAvatar] = useState(null)
-  const [Text, setText] = useState('')
   const [text, setTextt] = useState('')
   const [loading, setLoading] = useState(false)
   const [latitude, setLatitude] = useState('')
@@ -70,7 +66,7 @@ function Feed() {
     async function Feed() {
       try{
       const response = await api.get(`/coments/populate/${id}`)
-      
+      console.log(response.data)
       setPostb(response.data.postb)
       setPosts(response.data.post)
       setAdd(response.data.add)
