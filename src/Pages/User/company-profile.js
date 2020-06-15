@@ -25,7 +25,8 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
-  const [text, setText] = useState('')
+  const [Text, setText] = useState('')
+  const [text, setTextt] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
