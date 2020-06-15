@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect} from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router'
 import api from '../../services/api'
 
 import img_logo_svg from '../../img/logologin.JPG'

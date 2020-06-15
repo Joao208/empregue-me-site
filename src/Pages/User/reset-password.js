@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import api from '../../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';

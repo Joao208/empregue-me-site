@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect,useMemo}  from 'react';
 import moment from 'moment'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router'
 import socketio from 'socket.io-client'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

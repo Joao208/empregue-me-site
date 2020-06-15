@@ -40,7 +40,7 @@ function Feed() {
           <p className="lead mb-5">Se acha que é um problema conosco <a  href="/contact">informe-nos</a>.</p>
         </div>
         <div className="col-md-6">
-          <img style={{width:'100%',height:'100%'}} src="https://neilpatel.com/wp-content/uploads/2019/05/ilustracao-sobre-o-error-404-not-found.jpeg"/>
+          <img style={{width:'100%',height:'100%'}} src="https://www.baitzsolutions.com.br/Assets/images/icons/mail.png"/>
         </div>
       </div>
     </div>
