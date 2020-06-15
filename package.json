@@ -41,6 +41,7 @@
     "react-native-base": "^1.1.0",
     "react-native-vector-icons": "^6.6.0",
     "react-perfect-scrollbar": "^1.5.8",
+    "react-recaptcha": "^2.3.10",
     "react-router": "^6.0.0-alpha.5",
     "react-router-dom": "^6.0.0-alpha.5",
     "react-scripts": "^3.3.0",

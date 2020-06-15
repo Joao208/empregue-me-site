@@ -36,6 +36,7 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
+        console.log(response.data)
     }
 
     loadSpots()
@@ -181,20 +182,18 @@ async function SearchValue(event){
                 </div>
                 <div className="box-body">
                   <table className="table table-borderless mb-0">
-                    <tbody>
                     {profile.map(profile => (
+                    <tbody>
                       <tr key={profile._id} className="border-bottom">
                         <th className="p-3">Website</th>
                         <td className="p-3"><a href="#">{profile.bussines.site}</a></td>
                       </tr>
-                      ))}
-                      {profile.atividade_principal.map(activity => (
-                      <tr key={activity._id} className="border-bottom">
+                      <tr className="border-bottom">
                         <th className="p-3">Ramo</th>
-                        <td className="p-3">{activity.text}</td>
+                        <td className="p-3">123</td>
                       </tr>
-                      ))}
                     </tbody>
+                    ))}
                   </table>
                 </div>
               </div>
