@@ -30,7 +30,6 @@ function Feed() {
         },
         (error) => {
             console.log(error)
-            toast.error('Não conseguimos obter sua localização :(')
         },
         {
             timeout: 30000
@@ -42,6 +41,9 @@ function Feed() {
   async function SignUp(event) {
     event.preventDefault();
     setLoading(true)
+    if (!longitude || !latitude )
+      return toast.error('Ops, não conseguimos obter sua localização')
+      
     try{
       const response = await api.post('/bussinesregister', {
         cnpj,
