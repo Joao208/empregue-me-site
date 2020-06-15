@@ -17,6 +17,7 @@ import '../../css/style.css'
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 
+import '../../css/inputcamera.css'
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import img_ads1 from '../../img/ads1.png'

@@ -7,7 +7,7 @@ import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 
 import img_logo_svg from '../../img/logologin.JPG'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -33,7 +33,6 @@ function Feed() {
         },
         (error) => {
             console.log(error)
-            toast.error('Não conseguimos obter sua localização :(')
         },
         {
             timeout: 30000
@@ -45,9 +44,12 @@ function Feed() {
   async function SignUp(event) {
     event.preventDefault();
     setFill(false)
-    if (!email || !password || !name) {
+    if (!email || !password || !name) 
       return setFill(true)
-    }
+    
+    if (!longitude || !latitude )
+      return toast.error('Ops, não conseguimos obter sua localização')
+
     setLoading(true)
     try{
       const response = await api.post('/auth/userregister', {
@@ -56,7 +58,7 @@ function Feed() {
         longitude,
         email,
         password
-      });
+      })
 
       console.log(response)
 
