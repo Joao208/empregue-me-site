@@ -29,6 +29,7 @@ import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
 import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
 import Checkout from './Pages/User/checkout'
 import ConfirmatePage from './Pages/User/confirmate'
+import Email_confirmate from './Pages/User/email-not-confirmate'
 
 export default function Routed() {
 
@@ -58,7 +59,7 @@ export default function Routed() {
         console.log(confirmate)
         
         return confirmate ? <Route {...props}/>
-        : <Route path='*' element={<Error404/>}/>
+        : <Route path='*' element={<Email_confirmate/>}/>
     }
 
     return(
