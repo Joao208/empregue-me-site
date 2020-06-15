@@ -67,7 +67,7 @@ export default function Routed() {
     <ConfirmateRoute> 
         <UserRoute path='/' element={<Feed/>}   />
         <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
-        <UserRoute path='/conections/:name' element={<Conections/>}/>
+        <UserRoute path='/conections/:named' element={<Conections/>}/>
         <UserRoute path='/profile/:id' element={<ProfileView/>}/>
         <UserRoute path='/contact' element={<Contact/>}/>
         <UserRoute path='/edit-profile' element={<Edit_profile/>}/>
