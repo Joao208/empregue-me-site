@@ -4,7 +4,7 @@ import React,{useState,useEffect} from 'react';
 
 import api from '../../services/api'
 import Lottie from 'react-lottie'
-import loadinganimate from '../../loading.json'
+import loadinganimate from '../../Animations/loading.json'
 
 import img_logo_svg from '../../img/logologin.JPG'
 import {useNavigate} from 'react-router-dom'

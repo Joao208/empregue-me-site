@@ -23,7 +23,7 @@ import img_ads1 from '../../img/ads1.png'
 import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
-import loadinganimate from '../../lazyload.json'
+import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 
 function Feed() {

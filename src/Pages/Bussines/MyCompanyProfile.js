@@ -12,7 +12,7 @@ import moment from 'moment'
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
-import EmptyAnimation from '../../empty.json'
+import EmptyAnimation from '../../Animations/empty.json'
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 

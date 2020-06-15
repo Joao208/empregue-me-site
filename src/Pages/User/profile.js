@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
  
   
 import Lottie from 'react-lottie'
-import EmptyAnimation from '../../empty.json'
+import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'

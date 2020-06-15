@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 import api from '../../services/api'
 import Lottie from 'react-lottie'
-import loadinganimate from '../../loading.json'
+import loadinganimate from '../../Animations/loading.json'
 import img_logo_svg from '../../img/logologin.JPG'
 function Feed() {
 
