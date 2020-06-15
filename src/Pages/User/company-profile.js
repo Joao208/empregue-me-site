@@ -6,15 +6,16 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-import Lottie from 'react-lottie'
 
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import img_clogo from '../../img/clogo.png'
-import img_l3 from '../../img/l3.png'
 import api from '../../services/api'
 import EmptyAnimation from '../../Animations/empty.json'
 import { useNavigate, useParams } from 'react-router';
+import { ReactTinyLink } from "react-tiny-link";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Feed() {
 
@@ -24,6 +25,7 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
+  const [text, setText] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
