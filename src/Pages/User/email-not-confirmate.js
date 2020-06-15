@@ -35,7 +35,7 @@ function Feed() {
     <div className="container">
       <div className="row align-items-center vh-100">
         <div className="col-md-6">
-          <h1 className="text-primary display-3 font-weight-light">Confirme seu<span className="font-weight-bold">email</span></h1>
+          <h1 className="text-primary display-3 font-weight-light">Confirme seu <span className="font-weight-bold">email</span></h1>
           <p className="mb-0 lead">Oops! Parece que você não confirmou seu email.</p>
           <p className="lead mb-5">Se acha que é um problema conosco <a  href="/contact">informe-nos</a>.</p>
         </div>
