@@ -29,7 +29,6 @@ import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
 import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
 import Checkout from './Pages/User/checkout'
 import ConfirmatePage from './Pages/User/confirmate'
-import ConfirmateLogin from './Pages/User/confirmatelogin'
 
 export default function Routed() {
 
@@ -64,8 +63,8 @@ export default function Routed() {
 
     return(
 <Routes>
-   <ConfirmateRoute> 
     <PrivateRoute>
+    <ConfirmateRoute> 
         <UserRoute path='/' element={<Feed/>}   />
         <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
         <UserRoute path='/conections/:name' element={<Conections/>}/>
@@ -79,13 +78,12 @@ export default function Routed() {
         <UserRoute path='/terms' element={<Terms/>}/>
         <UserRoute path='/curriculum' element={<Curriculum/>}/>
         <UserRoute path='/checkout/:price' element={<Checkout/>}/>
+    </ConfirmateRoute>
     </PrivateRoute>
-   </ConfirmateRoute>
    <PrivateRoute>
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
-        <Route path='/confirmate/:token' element={<ConfirmateLogin/>}/>
         <UserRoute path='/profile' element={<Profile/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>

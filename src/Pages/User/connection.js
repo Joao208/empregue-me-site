@@ -2,8 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React,{useEffect,useState} from 'react';
-import {useParams} from 'react-router-dom'
-import { useNavigate } from 'react-router';
+import { useNavigate,useParams } from 'react-router';
   
 import img_logo_svg from '../../img/logo.png'
 import api from '../../services/api'
@@ -18,11 +17,6 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const [profile, setProfile] = useState([])
-
-
-
-
-
   
   useEffect(() => {
     async function loadUsers() {
