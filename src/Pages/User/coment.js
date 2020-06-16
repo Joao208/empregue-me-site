@@ -33,6 +33,9 @@ function Feed() {
   const [name,setName] = useState('')
   const [profile,setProfile] = useState([])
   const [post, setPost] = useState('')
+  const [Text, setText] = useState('')
+  const [text, setTextt] = useState('')
+
   const {id} = useParams()
 
   useEffect(() => {
