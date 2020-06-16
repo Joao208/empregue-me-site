@@ -31,10 +31,8 @@ function Feed() {
 
   const history = useNavigate()
   const [name,setName] = useState('')
-  
-  const [profile, setProfile] = useState([])
-  const [postd, setPosts] = useState('')
-  const [text, setTextt] = useState('')
+ 
+  const [post, setPost] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
@@ -57,7 +55,8 @@ function Feed() {
     async function Feed() {
       try{
       const response = await api.get(`/coments/add/populate/${id}`)
-      console.log(response.data)
+      
+      setPost(response.data.avatar)
 
       }catch(e){
       console.log(e)
