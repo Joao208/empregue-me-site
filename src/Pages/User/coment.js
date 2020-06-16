@@ -59,7 +59,7 @@ function Feed() {
       try{
       const response = await api.get(`/coments/populate/${id}`)
       console.log(response.data)
-      console.log(reponse.data.post)
+      console.log(response.data.post)
       setPosts(response.data.post)
       setLazy(false)
 
