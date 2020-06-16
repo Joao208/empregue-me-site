@@ -423,6 +423,22 @@ function Feed() {
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
                 </form>
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/coment/${post._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                </form>
               </div>
             ))}
           {add.map(postd => (
@@ -472,6 +488,22 @@ function Feed() {
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
                 <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                </form>
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/add/coment/${post._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
             ))}
@@ -530,6 +562,22 @@ function Feed() {
                 className="mr-3 text-secondary" 
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
+                </form>
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/postbussines/coment/${post._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
             ))}

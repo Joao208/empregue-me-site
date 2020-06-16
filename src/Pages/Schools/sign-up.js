@@ -126,6 +126,23 @@ function Feed() {
             { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
             </p>}
+            <label
+                id="avatar"
+                style={{ backgroundImage: `url(${preview})`}}
+                className={avatar ? 'has-avatar' : ''}
+                >
+                  <input 
+                  id="fileAttachmentBtn" 
+                  name="file-attachment"                   
+                  className="d-none"
+                  type="file" 
+                  onChange={event => {
+                    setAvatar(event.target.files[0])}
+                 }/>
+                 { user.map(user => (
+                 <img src={user.avatar ? user.avatar : imguser } style={{borderRadius:'100%',width:'160px',height:'160px'}} />
+                 ))}    
+            </label>
             <form onSubmit={SignUp}>
               <div className="form-row">
                 <div className="col">

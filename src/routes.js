@@ -18,6 +18,8 @@ import Privacy from './Pages/Terms/privacy'
 import Profile from './Pages/User/profile'
 import Sign_in from './Pages/User/sign-in'
 import Sign_up from './Pages/User/sign-up'
+import Sign_inS from './Pages/Schools/sign-in'
+import Sign_upS from './Pages/Schools/sign-up'
 import Bussinessign_in from './Pages/Bussines/bussinessign-in'
 import Bussinessign_up from './Pages/Bussines/bussinessign-up'
 import Terms from './Pages/Terms/terms'
@@ -93,6 +95,8 @@ export default function Routed() {
    </PrivateRoute>
         <Route path='/sign-in' element={<Sign_in/>}/>
         <Route path='/sign-up' element={<Sign_up/>}/>
+        <Route path='/school/sign-in' element={<Sign_inS/>}/>
+        <Route path='/school/sign-up' element={<Sign_upS/>}/>
         <Route path='/bussinessign-in' element={<Bussinessign_in/>}/>
         <Route path='/bussinessign-up' element={<Bussinessign_up/>}/>
         <Route path='*' element={<Error404/>}/>
