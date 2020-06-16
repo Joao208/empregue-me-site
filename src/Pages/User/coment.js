@@ -33,7 +33,7 @@ function Feed() {
   const [name,setName] = useState('')
   
   const [profile, setProfile] = useState([])
-  const [post, setPosts] = useState('')
+  const [postd, setPosts] = useState('')
   const [text, setTextt] = useState('')
   const [lazy, setLazy] = useState(true)
   const {id} = useParams()
