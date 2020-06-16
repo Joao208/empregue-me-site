@@ -35,7 +35,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [postd, setPosts] = useState('')
   const [text, setTextt] = useState('')
-  const [lazy, setLazy] = useState(true)
   const {id} = useParams()
 
   useEffect(() => {
@@ -57,15 +56,11 @@ function Feed() {
   useEffect(() => {
     async function Feed() {
       try{
-      const response = await api.get(`/coments/populate/${id}`)
+      const response = await api.get(`/coments/add/populate/${id}`)
       console.log(response.data)
-      console.log(response.data.post)
-      setPosts(response.data.post)
-      setLazy(false)
 
       }catch(e){
       console.log(e)
-      setLazy(false)
       }
     }
     
@@ -73,13 +68,6 @@ function Feed() {
   }, [] )
 
     
-
-  const lottieOptions = {
-    title:'loading',
-    loop:true,
-    autoplay:true,
-    animationData:loadinganimate
-  }
 
 
   return (
