@@ -60,6 +60,8 @@ function Feed() {
       const response = await api.get(`/coments/add/populate/${id}`)
       
       setPost(response.data)
+      console.log(response.data)
+      console.log(response.data.bussines)
 
       }catch(e){
       console.log(e)
@@ -149,11 +151,11 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={post.bussines.avatar ? post.bussines.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'}/>
+                    <img className="rounded-circle" src={'https://api.adorable.io/avatars/285/abott@adorable.png'}/>
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
-                    <div className="text-truncate">{post.bussines.nome}</div>
+                    <div className="text-truncate">Google</div>
                     <div className="small text-gray-500">Patrocinado</div>
                   </div>
                   <span className="ml-auto small">{moment(post.createdAt).fromNow()}</span>
