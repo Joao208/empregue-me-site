@@ -32,6 +32,7 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
  
+  const [profile, setProfile] = useState([])
   const [post, setPost] = useState('')
   const {id} = useParams()
 
