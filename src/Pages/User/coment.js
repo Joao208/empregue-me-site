@@ -155,13 +155,7 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-          {lazy
-          ? <Lottie options={lottieOptions} 
-            height='100%'
-            width='100%'
-            />
-          : post.post.map(postd => (
-              <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+          <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -234,7 +228,7 @@ function Feed() {
                   await api.post(`/coment/${postd._id}`,{
                     text
                   })
-                }} >
+                }}>
                   <input 
                   placeholder="Adicionar Comentario..." 
                   className="form-control border-0 p-0 shadow-none" 
@@ -245,8 +239,6 @@ function Feed() {
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
-            ))}
-          {post.add.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -323,8 +315,6 @@ function Feed() {
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
-            ))}
-            {post.postb.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -409,7 +399,6 @@ function Feed() {
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
-            ))}
         </main>
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
