@@ -31,7 +31,6 @@ function Feed() {
 
   const history = useNavigate()
   const [name,setName] = useState('')
- 
   const [profile, setProfile] = useState([])
   const [post, setPost] = useState('')
   const {id} = useParams()
@@ -57,7 +56,7 @@ function Feed() {
       try{
       const response = await api.get(`/coments/add/populate/${id}`)
       
-      setPost(response.data.avatar)
+      console.log(response.data.avatar)
 
       }catch(e){
       console.log(e)
@@ -67,7 +66,6 @@ function Feed() {
     Feed()
   }, [] )
 
-    
 
 
   return (

@@ -18,9 +18,11 @@ function Feed() {
   const [name, setName] = useState('')
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
+  const [bio, setBio] = useState('')
   const [loading, setLoading] = useState(false)
   const [fill, setFill] = useState(false)
   const history = useNavigate()
+  const [avatar, setAvatar] = useState(null)
 
 
   useEffect(() => {
@@ -50,15 +52,19 @@ function Feed() {
     if (!longitude || !latitude )
       return toast.error('Ops, não conseguimos obter sua localização')
 
+      const data = new FormData()
+
+      data.append('avatar', avatar)
+      data.append('email', email)
+      data.append('name', name)
+      data.append('password', password)
+      data.append('longitude',longitude)
+      data.append('latitude',latitude)
+      data.append('bio', bio)
+
     setLoading(true)
     try{
-      const response = await api.post('/auth/userregister', {
-        name,
-        latitude,
-        longitude,
-        email,
-        password
-      })
+      const response = await api.post('/auth/schoolregisters',data)
 
       console.log(response)
 
@@ -84,6 +90,10 @@ function Feed() {
     autoplay:true,
     animationData:loadinganimate
   }
+  const preview = useMemo(() => {
+    return avatar ? URL.createObjectURL(avatar) : null
+  },[avatar])
+
 
   return (
 <>
