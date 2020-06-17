@@ -185,7 +185,7 @@ function Feed() {
                 </div>
               </div>
               <div className="form-group">
-                <label className="mb-1">Senha (6 ou mais caracteres)</label>
+                <label className="mb-1">Biografia</label>
                 <div className="position-relative icon-form-control">
                 <textarea 
                     className="form-control" 
