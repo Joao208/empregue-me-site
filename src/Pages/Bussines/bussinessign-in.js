@@ -13,7 +13,7 @@ import React, {
   import 'react-toastify/dist/ReactToastify.css';
   import Recaptcha from 'react-recaptcha'
 
-  class extends Component{
+  class Feed extends Component{
   render(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
