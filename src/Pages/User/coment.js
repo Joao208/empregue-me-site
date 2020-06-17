@@ -18,14 +18,11 @@ import '../../css/inputcamera.css'
 
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
-import img_ads1 from '../../img/ads1.png'
 import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';
-import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
-import Lottie from 'react-lottie'
 
 function Feed() {
 
@@ -44,6 +41,7 @@ function Feed() {
   const [link, setLink] = useState('')
   const [idd, setId] = useState('')
   const [createdAt, setCreatedAt] = useState('')
+  const [loading, setLoading] = useState(false)
   const {id} = useParams()
 
   useEffect(() => {
@@ -184,7 +182,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={'https://google.com'}
+                  url={link}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>
@@ -220,17 +218,23 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.Text}</div>
+                    <div className="small text-gray-500">{comments.Text.text}</div>
                   </div>
                 </div>
                 ))}
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
+                  try {
                   event.preventDefault()
+                  setLoading(true)
                   await api.post(`/add/coment/${idd}`,{
                     text
                   })
                   setTextt('')
+                  setLoading(false)
+                } catch (error) {
+                  toast.error('Ops,houve um erro ao comentar esse post')
+                }
                 }} >
                   <input 
                   placeholder="Adicionar Comentario..." 
@@ -239,7 +243,7 @@ function Feed() {
                   value={text}
                   onChange={event => setTextt(event.target.value)}
                   />
-                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>{loading ? 'Comentando...' : 'Enviar'}</button>
                 </form>
               </div>
         </main>
