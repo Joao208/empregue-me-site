@@ -42,7 +42,7 @@ function Feed() {
   const [Text, setText] = useState('')
   const [isVideo, setIsVideo] = useState(false)
   const [link, setLink] = useState('')
-  const [id, setId] = useState('')
+  const [idd, setId] = useState('')
   const [createdAt, setCreatedAt] = useState('')
   const {id} = useParams()
 
@@ -199,7 +199,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                    await api.post(`/likesadd/${id}`)
+                    await api.post(`/likesadd/${idd}`)
                   }
                 }
                 className="p-3 border-bottom osahan-post-footer"
@@ -226,7 +226,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/add/coment/${id}`,{
+                  await api.post(`/add/coment/${idd}`,{
                     text
                   })
                 }} >
