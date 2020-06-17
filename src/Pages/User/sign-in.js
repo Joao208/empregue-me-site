@@ -46,7 +46,7 @@ function Feed() {
       
       if(user.phoneConfirme === true)
       return sessionStorage.setItem('phoneConfirme', user.phoneConfirme)
-      
+
       history('/profile')
     }catch(e){
       setLoading(false)
