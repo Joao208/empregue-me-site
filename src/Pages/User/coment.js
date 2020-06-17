@@ -183,7 +183,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={link}
+                  url={'https://google.com'}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>
