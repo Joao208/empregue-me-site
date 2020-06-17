@@ -11,6 +11,7 @@ import React, {
   import {useNavigate} from 'react-router'  
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import Recaptcha from 'react-recaptcha'
 
   function Feed() {
   
@@ -116,6 +117,11 @@ import React, {
                 <div className="py-3 d-flex align-item-center">
                   <a href="forgot-password">Esqueceu a senha?</a>
                   <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="/bussinessign-up">Crie agora</a></span>
+                  <Recaptcha 
+                    sitekey={"6LcBAqYZAAAAAIgecheCn5AHGEv_wkOqt3xKDsfo"}
+                    ref={ref => recaptcha = ref }
+                    onResolved={ () => console.log( 'Human detected.' ) }
+                  /> 
                 </div>
               </form>
             </div>
