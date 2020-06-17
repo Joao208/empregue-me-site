@@ -220,7 +220,7 @@ function Feed() {
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">joao</div>
+                    <div className="small text-gray-500">{comments.Text.Text}</div>
                   </div>
                 </div>
                 ))}
