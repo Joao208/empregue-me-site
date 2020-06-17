@@ -139,7 +139,7 @@ function Feed() {
                   onChange={event => {
                     setAvatar(event.target.files[0])}
                  }/>
-                 <img src="https://api.adorable.io/avatars/268/abott@adorable" style={{borderRadius:'100%',width:'160px',height:'160px'}} />
+                 <img src="https://api.adorable.io/avatars/268/abott@adorable" style={{borderRadius:'100%',width:'160px',height:'160px',margin:'auto'}} />
             </label>
             <form onSubmit={SignUp}>
               <div className="form-row">
