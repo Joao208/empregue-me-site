@@ -230,6 +230,7 @@ function Feed() {
                   await api.post(`/add/coment/${idd}`,{
                     text
                   })
+                  setTextt('')
                 }} >
                   <input 
                   placeholder="Adicionar Comentario..." 
