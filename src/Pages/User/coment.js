@@ -68,7 +68,7 @@ function Feed() {
       const response = await api.get(`/coments/add/populate/${id}`)
       
       setAvatar(response.data.avatar)
-      setUserAvatar(response.data.bussines.name)
+      setUserAvatar(response.data.bussines.avatar)
       setUsername(response.data.bussines.nome)
       setComent(response.data.comments)
       setLike(response.data.likeCount)
@@ -79,6 +79,8 @@ function Feed() {
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
       console.log(response.data.comments)
+      console.log(response.data)
+      console.log(response.data.text)
 
       }catch(e){
       console.log(e)
@@ -168,7 +170,7 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={`${userAvatar}`}/>
+                    <img className="rounded-circle" src={userAvatar}/>
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
@@ -184,7 +186,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={`${link}`}
+                  url={'https://google.com'}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>

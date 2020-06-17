@@ -64,15 +64,6 @@ async function SearchValue(event){
   
   history(`/conections/${name}`)
 }
-async function Signout(event) {
-  try{
-    event.preventDefault()
-    sessionStorage.clear()
-    history.push('sign-in')
-  }catch(e){
-    console.log(e)
-  }
-}
 
   return (
      <>
@@ -339,10 +330,8 @@ async function Signout(event) {
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-            <form onSubmit={Signout} className="overflow-hidden border-top">
-              <button className="font-weight-bold p-3 d-block" style={{textAlign: 'center', width: '100%', backgroundColor: 'white', color: 'blue', border: 'none'}}> Sair </button>
-              <a href="/edit-company" className="font-weight-bold p-3 d-block">Editar Perfil</a>
-            </form>
+              <button className="font-weight-bold p-3 d-block" style={{textAlign: 'center', width: '100%', backgroundColor: 'white', color: 'blue', border: 'none'}}> Seguir </button>
+              <a href="/edit-company" className="font-weight-bold p-3 d-block">Deixar de seguir</a>
           </div>
         </aside>
         ))}
