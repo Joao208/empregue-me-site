@@ -19,8 +19,7 @@ function Cooming_soon() {
   return (
      <>
 <div>
-  <link rel="icon" type="image/png" href="img/fav.png" />
-  <title>Osahanin - Job Portal &amp; Social Network HTML Template</title>
+    <title>Osahanin - Job Portal &amp; Social Network HTML Template</title>
   {/* Slick Slider */}
   <nav className="navbar navbar-expand navbar-light bg-white osahan-nav-top py-4 fixed-top">
     <div className="container">

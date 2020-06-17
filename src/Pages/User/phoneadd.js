@@ -53,8 +53,7 @@ import React, {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="description" content />
     <meta name="author" content />
-    <link rel="icon" type="image/png" href="img/fav.png" />
-    <title>Empregue.me | Add Celular</title>
+        <title>Empregue.me | Add Celular</title>
     {/* Slick Slider */}
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />

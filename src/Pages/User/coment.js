@@ -39,7 +39,7 @@ function Feed() {
   const [comments, setComent] = useState([])
   const [like, setLike] = useState('')
   const [commentCount, setComentCount] = useState('')
-  const [text, setText] = useState('')
+  const [Text, setText] = useState('')
   const [isVideo, setIsVideo] = useState(false)
   const [link, setLink] = useState('')
   const [id, setId] = useState('')
@@ -167,11 +167,11 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={'https://api.adorable.io/avatars/285/abott@adorable.png'}/>
+                    <img className="rounded-circle" src={userAvatar}/>
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
-                    <div className="text-truncate">Google</div>
+                    <div className="text-truncate">{username}</div>
                     <div className="small text-gray-500">Patrocinado</div>
                   </div>
                   <span className="ml-auto small">{moment(createdAt).fromNow()}</span>
@@ -208,7 +208,7 @@ function Feed() {
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
-                {likeCount}</button> 
+                {like}</button> 
                 <i className="feather-message-square" />{commentCount}              
                 </form>
                 {comments.map(comments => (
