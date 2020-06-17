@@ -330,7 +330,23 @@ async function SearchValue(event){
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-              <button className="font-weight-bold p-3 d-block" style={{textAlign: 'center', width: '100%', backgroundColor: 'white', color: 'blue', border: 'none'}}> Seguir </button>
+              <button onSubmit={
+                async function Follow(event){
+                  event.preventDefault()
+                  const response = await api.post(`/user/followb/${profile.bussines._id}`)
+                  console.log(response.data)
+                }
+              } 
+              className="font-weight-bold p-3 d-block" 
+              style={{
+                textAlign: 'center', 
+                width: '100%', 
+                backgroundColor: 'white', 
+                color: 'blue', 
+                border: 'none'
+              }}>
+              Seguir 
+              </button>
               <a href="/edit-company" className="font-weight-bold p-3 d-block">Deixar de seguir</a>
           </div>
         </aside>
