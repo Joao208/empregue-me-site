@@ -25,6 +25,7 @@ function Feed() {
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
   const {id} = useParams()
+  const [data,setData] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
@@ -33,6 +34,7 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
+        setData(response.data)
         console.log(response.data)
     }
 
@@ -51,6 +53,7 @@ useEffect(() => {
     const response = await api.get('/profileview')
     
     setProfiled(response.data.profile)
+    
   }
   
   loadSpots()
@@ -61,7 +64,15 @@ async function SearchValue(event){
   
   history(`/conections/${name}`)
 }
-
+async function Signout(event) {
+  try{
+    event.preventDefault()
+    sessionStorage.clear()
+    history.push('sign-in')
+  }catch(e){
+    console.log(e)
+  }
+}
 
   return (
      <>
