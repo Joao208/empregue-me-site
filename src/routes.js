@@ -59,16 +59,23 @@ export default function Routed() {
 
     const ConfirmateRoute = props => {
         const confirmate = !! sessionStorage.getItem('confirmate')
-        console.log(confirmate)
         
         return confirmate ? <Route {...props}/>
         : <Route path='*' element={<Email_confirmate/>}/>
+    }
+
+    const PhoneConfirmeRoute = props => {
+        const confirmate = !! sessionStorage.getItem('phoneConfirme')
+        
+        return confirmate ? <Route {...props}/>
+        : <Route path='*' element={<Phoneconfirm/>}/>
     }
 
     return(
 <Routes>
     <PrivateRoute>
     <ConfirmateRoute> 
+    <PhoneConfirmeRoute>
         <UserRoute path='/' element={<Feed/>}/>
         <UserRoute path='/coment/populate/:id' element={<CommentD/>}/>
         <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
@@ -83,13 +90,14 @@ export default function Routed() {
         <UserRoute path='/terms' element={<Terms/>}/>
         <UserRoute path='/curriculum' element={<Curriculum/>}/>
         <UserRoute path='/checkout/:price' element={<Checkout/>}/>
+        <UserRoute path='/profile' element={<Profile/>}/>
+    </PhoneConfirmeRoute>
     </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
-        <UserRoute path='/profile' element={<Profile/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
    </PrivateRoute>
