@@ -330,11 +330,12 @@ async function SearchValue(event){
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-              <button onSubmit={
+              <button onClick={
                 async function Follow(event){
                   event.preventDefault()
                   const response = await api.post(`/user/followb/${profile.bussines._id}`)
                   console.log(response.data)
+                  console.log(profile.bussines._id)
                 }
               } 
               className="font-weight-bold p-3 d-block" 
