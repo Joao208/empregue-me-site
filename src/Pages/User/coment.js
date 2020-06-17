@@ -32,10 +32,18 @@ function Feed() {
   const history = useNavigate()
   const [name,setName] = useState('')
   const [profile,setProfile] = useState([])
-  const [post, setPost] = useState('')
-  const [Text, setText] = useState('')
   const [text, setTextt] = useState('')
-
+  const [avatar, setAvatar] = useState('')
+  const [userAvatar, setUserAvatar] = useState('')
+  const [username, setUsername] = useState('')
+  const [comments, setComent] = useState([])
+  const [like, setLike] = useState('')
+  const [commentCount, setComentCount] = useState('')
+  const [text, setText] = useState('')
+  const [isVideo, setIsVideo] = useState(false)
+  const [link, setLink] = useState('')
+  const [id, setId] = useState('')
+  const [createdAt, setCreatedAt] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
@@ -59,9 +67,17 @@ function Feed() {
       try{
       const response = await api.get(`/coments/add/populate/${id}`)
       
-      setPost(response.data)
-      console.log(response.data)
-      console.log(response.data.bussines)
+      setAvatar(response.data.avatar)
+      setUserAvatar(response.data.bussines.name)
+      setUsername(response.data.bussines.nome)
+      setComent(response.data.comments)
+      setLike(response.data.likeCount)
+      setComentCount(response.data.commentCount)
+      setIsVideo(response.data.isVideo)
+      setText(response.data.text.text)
+      setLink(response.data.text.link)
+      setId(response.data._id)
+      setCreatedAt(response.data.createdAt)
 
       }catch(e){
       console.log(e)
@@ -158,22 +174,22 @@ function Feed() {
                     <div className="text-truncate">Google</div>
                     <div className="small text-gray-500">Patrocinado</div>
                   </div>
-                  <span className="ml-auto small">{moment(post.createdAt).fromNow()}</span>
+                  <span className="ml-auto small">{moment(createdAt).fromNow()}</span>
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
-                  <p>{post.text.text}</p>
+                  <p>{Text}</p>
                   <ReactTinyLink
                   cardSize="small"
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={post.text.link}
+                  url={link}
                   />
-                  { post.isVideo
+                  { isVideo
                   ? <video width="100%" height="100%" controls>
-                  <source src={post.avatar ? post.avatar : null} type="video/ogg"/>
+                  <source src={avatar ? avatar : null} type="video/ogg"/>
                   </video>
-                  : <img src={post.avatar ? post.avatar : null}
+                  : <img src={avatar ? avatar : null}
                   className="img-fluid"
                   style={{width:'100%',height:'100%'}}
                   />
@@ -183,7 +199,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                    await api.post(`/likesadd/${post._id}`)
+                    await api.post(`/likesadd/${id}`)
                   }
                 }
                 className="p-3 border-bottom osahan-post-footer"
@@ -192,10 +208,10 @@ function Feed() {
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
-                {post.likeCount}</button> 
-                <i className="feather-message-square" />{post.commentCount}              
+                {likeCount}</button> 
+                <i className="feather-message-square" />{commentCount}              
                 </form>
-                {post.comments.map(comments => (
+                {comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={comments.avatar} alt />
@@ -210,7 +226,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/add/coment/${post._id}`,{
+                  await api.post(`/add/coment/${id}`,{
                     text
                   })
                 }} >

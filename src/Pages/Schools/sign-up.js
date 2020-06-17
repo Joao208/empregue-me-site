@@ -128,7 +128,7 @@ function Feed() {
             </p>}
             <label
                 id="avatar"
-                style={{ backgroundImage: `url(${preview})`}}
+                style={{ backgroundImage: `url(${preview})`,margin:'auto'}}
                 className={avatar ? 'has-avatar' : ''}
                 >
                   <input 
@@ -186,6 +186,18 @@ function Feed() {
                 </div>
               </div>
               <div className="form-group">
+                <label className="mb-1">Senha (6 ou mais caracteres)</label>
+                <div className="position-relative icon-form-control">
+                <textarea 
+                    className="form-control" 
+                    rows={4} name="text" 
+                    placeholder="Nós do Empregue.me e as Empresas parceiras queremos saber mais de você, descreva aqui na bio..." 
+                    value={bio}
+                    onChange={event => setBio(event.target.value)}
+                />
+              </div>
+              </div>
+              <div className="form-group">
                 <label className="mb-1">Você concorda com o Contrato de <a  href="">Usuario</a>, <a  href=""> Politica de Privacidade</a>, e <a  href="">Cookies</a>.</label>
               </div>
               {
@@ -198,9 +210,9 @@ function Feed() {
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
               }
              <a className="btn btn-block text-uppercase" href="/bussinessign-up"style={{backgroundColor:"#007dff",color:"white"}} > Quero contratar </a> 
-              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="#"> Quero ensinar </a> 
+              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="sign-up"> Quero ser contratado </a> 
               <div className="py-3 d-flex align-item-center">
-                <span className="ml-auto"> Ja é usuario? <a className="font-weight-bold" href="sign-in">Logar</a></span>
+                <span className="ml-auto"> Ja é usuario? <a className="font-weight-bold" href="/school/sign-in">Logar</a></span>
               </div>
             </form>
           </div>
