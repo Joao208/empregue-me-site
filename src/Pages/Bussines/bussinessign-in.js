@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, {
-    useState
+    useState, Component
   } from 'react';
   
    
@@ -13,8 +13,8 @@ import React, {
   import 'react-toastify/dist/ReactToastify.css';
   import Recaptcha from 'react-recaptcha'
 
-  function Feed() {
-  
+  class extends Component{
+  render(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -135,8 +135,7 @@ import React, {
   </div>
   
   </>
-    );
+    )}
   }
   
   export default Feed;
-  
