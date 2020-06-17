@@ -6,22 +6,21 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-import Lottie from 'react-lottie'
 
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
-import img_clogo from '../../img/clogo.png'
-import img_l3 from '../../img/l3.png'
 import api from '../../services/api'
 import EmptyAnimation from '../../Animations/empty.json'
 import { useNavigate, useParams } from 'react-router';
+import { ReactTinyLink } from "react-tiny-link";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Feed() {
 
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const [activity, setActivity] = useState([])
   const history = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
@@ -34,6 +33,7 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
+        console.log(response.data)
     }
 
     loadSpots()
@@ -179,20 +179,18 @@ async function SearchValue(event){
                 </div>
                 <div className="box-body">
                   <table className="table table-borderless mb-0">
-                    <tbody>
                     {profile.map(profile => (
+                    <tbody>
                       <tr key={profile._id} className="border-bottom">
                         <th className="p-3">Website</th>
                         <td className="p-3"><a href="#">{profile.bussines.site}</a></td>
                       </tr>
-                      ))}
-                      {profile.atividade_principal.map(activity => (
-                      <tr key={activity._id} className="border-bottom">
+                      <tr className="border-bottom">
                         <th className="p-3">Ramo</th>
-                        <td className="p-3">{activity.text}</td>
+                        <td className="p-3">123</td>
                       </tr>
-                      ))}
                     </tbody>
+                    ))}
                   </table>
                 </div>
               </div>
@@ -239,7 +237,7 @@ async function SearchValue(event){
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <i className="feather-message-square" />{postd.commentCount}
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
@@ -255,35 +253,7 @@ async function SearchValue(event){
                 className="mr-3 text-secondary" 
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
-                </form>
-                {postd.comments.map(comments => (
-                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-                  <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
-                  </div>
-                </div>
-                ))}
-                <form className="p-3" onSubmit={
-                  async function Comentario(event){
-                  event.preventDefault()
-                  await api.post(`/postbussines/coment/${postd._id}`,{
-                    text
-                  })
-                }} >
-                  <input 
-                  placeholder="Adicionar Comentario..." 
-                  className="form-control border-0 p-0 shadow-none" 
-                  defaultValue={""}
-                  value={text}
-                  onChange={event => setTextt(event.target.value)}
-                  />
-                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
-                </form>
+                </form>               
               </div>
             ))}
           {add.map(postd => (
@@ -332,35 +302,7 @@ async function SearchValue(event){
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <i className="feather-message-square" />{postd.commentCount}              
-                </form>
-                {postd.comments.map(comments => (
-                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-                  <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
-                  </div>
-                </div>
-                ))}
-                <form className="p-3" onSubmit={
-                  async function Comentario(event){
-                  event.preventDefault()
-                  await api.post(`/add/coment/${postd._id}`,{
-                    text
-                  })
-                }} >
-                  <input 
-                  placeholder="Adicionar Comentario..." 
-                  className="form-control border-0 p-0 shadow-none" 
-                  defaultValue={""}
-                  value={text}
-                  onChange={event => setTextt(event.target.value)}
-                  />
-                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 </form>
               </div>
             ))}
@@ -371,14 +313,25 @@ async function SearchValue(event){
         {profile.map(profile => (
         <aside key={profile._id} className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
-            <div className="p-5">
-              <img src={profile.bussines.avatar ? profile.bussines.avatar : img_clogo} className="img-fluid" alt="Responsive image" />
+            <div className="py-4 px-3 border-bottom">
+              <img src={profile.bussines.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" style={{height: 130, width: 130}} />
+              <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.bussines.nome}</h5>
+              <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
-            <div className="p-3 border-top border-bottom">
-              <h6 className="font-weight-bold text-dark mb-1 mt-0">Visao geral</h6>
-              <p className="mb-0 text-muted">{profile.bussines.bio}
-              </p>
+            <div className="d-flex">
+              <div className="col-6 border-right p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
+                <p className="mb-0 text-black-50 small">Conexões</p>
+              </div>
+              <div className="col-6 p-3">
+                <h6 className="font-weight-bold text-dark mb-1">{data.followingCount}</h6>
+                <p className="mb-0 text-black-50 small">Seguindo</p>
+              </div>
             </div>
+            <form onSubmit={Signout} className="overflow-hidden border-top">
+              <button className="font-weight-bold p-3 d-block" style={{textAlign: 'center', width: '100%', backgroundColor: 'white', color: 'blue', border: 'none'}}> Sair </button>
+              <a href="/edit-company" className="font-weight-bold p-3 d-block">Editar Perfil</a>
+            </form>
           </div>
         </aside>
         ))}

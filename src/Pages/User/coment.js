@@ -78,6 +78,7 @@ function Feed() {
       setLink(response.data.text.link)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
+      console.log(response.data.comments)
 
       }catch(e){
       console.log(e)
@@ -167,7 +168,7 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={userAvatar}/>
+                    <img className="rounded-circle" src={`${userAvatar}`}/>
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
@@ -183,7 +184,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={'https://google.com'}
+                  url={`${link}`}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>
