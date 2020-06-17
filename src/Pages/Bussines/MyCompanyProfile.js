@@ -137,7 +137,7 @@ async function SearchValue(event){
       </li>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
+        <a href="profile"><img className="rounded-circle"  src={profile.bussines.avatar} /></a>
         <div className="status-indicator bg-success" />
       </div>
       ))}
