@@ -96,7 +96,6 @@ function Feed() {
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="description" content />
   <meta name="author" content />
-  <link rel="icon" type="image/png" href={img_fav} />
   <title>Empregue.me</title>
 
   <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
@@ -182,7 +181,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={link}
+                  url={'https://temquemudarissodps.com'}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>
