@@ -245,7 +245,7 @@ async function SearchValue(event){
                 </div>
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={postd.user.avatar} alt />
+                    <img className="rounded-circle" src={postd.bussines.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
