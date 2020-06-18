@@ -33,7 +33,7 @@ import React, {
           phone,
           token
         });
-        console.log(response)
+        sessionStorage.setItem('phoneConfirme', true)
         history('/edit-profile')
       }catch(e){
         setLoading(false)

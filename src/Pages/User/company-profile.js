@@ -41,12 +41,6 @@ function Feed() {
     loadSpots()
 }, [] )
 
-const lottieOptions = {
-  title:'loading',
-  loop:true,
-  autoplay:true,
-  animationData:EmptyAnimation
-}
 
 useEffect(() => {
   async function loadSpots() {
@@ -187,9 +181,15 @@ async function SearchValue(event){
                         <th className="p-3">Website</th>
                         <td className="p-3"><a href="#">{profile.bussines.site}</a></td>
                       </tr>
+                      {profile.bussines.cnpjI.atividade_principal.map(text => (
                       <tr className="border-bottom">
-                        <th className="p-3">Ramo</th>
-                        <td className="p-3">123</td>
+                        <th className="p-3">Atividade Principal</th>
+                        <td className="p-3">{text.text}</td>
+                      </tr>
+                      ))}
+                      <tr className="border-bottom">
+                        <th className="p-3">Telefone</th>
+                        <td className="p-3"><a href="#">{profile.bussines.cnpjI.telefone}</a></td>
                       </tr>
                     </tbody>
                     ))}
