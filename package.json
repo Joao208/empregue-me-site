@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@sentry/browser": "^5.17.0",
+    "@sentry/node": "5.17.0",
     "axios": "^0.19.1",
     "jquery": "^3.5.0",
     "leaflet": "^1.6.0",
