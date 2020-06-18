@@ -24,7 +24,6 @@ import Bussinessign_in from './Pages/Bussines/bussinessign-in'
 import Bussinessign_up from './Pages/Bussines/bussinessign-up'
 import Terms from './Pages/Terms/terms'
 import Error404 from './Pages/User/not-found'
-import Curriculum from './Pages/User/curriculum'
 import Conections from './Pages/User/connection'
 import ProfileView from './Pages/User/ProfileView'
 import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
@@ -88,7 +87,6 @@ export default function Routed() {
         <UserRoute path='/job-profile/:id' element={<Job_profile/>}/>
         <UserRoute path='/privacy' element={<Privacy/>}/>
         <UserRoute path='/terms' element={<Terms/>}/>
-        <UserRoute path='/curriculum' element={<Curriculum/>}/>
         <UserRoute path='/checkout/:price' element={<Checkout/>}/>
         <UserRoute path='/profile' element={<Profile/>}/>
     </PhoneConfirmeRoute>
