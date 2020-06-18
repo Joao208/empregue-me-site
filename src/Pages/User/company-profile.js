@@ -139,7 +139,7 @@ async function SearchValue(event){
         <div key={profile._id} className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.cnpjI.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
               <p className="mb-0 text-muted">{profile.bussines.cnpjI.logradouro}</p>
             </div>
             <div className="profile-right ml-auto">
