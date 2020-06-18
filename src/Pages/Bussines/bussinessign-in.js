@@ -14,6 +14,11 @@ import React, {
   import Recaptcha from 'react-recaptcha'
 
   class Feed extends Component{
+
+  SignInRecaptcha = () => {
+    this.recaptcha.execute()
+  }
+
   render(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -119,7 +124,7 @@ import React, {
                   <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="/bussinessign-up">Crie agora</a></span>
                   <Recaptcha 
                     sitekey={"6LcBAqYZAAAAAIgecheCn5AHGEv_wkOqt3xKDsfo"}
-                    ref={ref => recaptcha = ref }
+                    ref={ref => this.recaptcha = ref }
                     onResolved={ () => console.log( 'Human detected.' ) }
                   /> 
                 </div>
