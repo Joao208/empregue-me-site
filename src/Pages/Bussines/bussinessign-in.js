@@ -11,10 +11,11 @@ import React, {
   import {useNavigate} from 'react-router'  
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-  import Recaptcha from 'react-recaptcha'
+  import { useRecaptcha, Badge } from 'react-recaptcha-hook'
 
-  function Feed() {
+  const Feed = ({ action, sitekey, onToken }) => {
 
+    const execute = useRecaptcha({ sitekey, hideDefaultBadge: true });
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -42,6 +43,15 @@ import React, {
        toast.error('Falha na autenticação, verifique seus dados');
       }
     }
+    useEffect(() => {
+      const getToken = async () => {
+        const token = await execute(action);
+        onToken(token);
+      };
+  
+      getToken();
+    }, []);
+  
     const lottieOptions = {
       title:'loading',
       loop:true,
@@ -117,11 +127,12 @@ import React, {
                 <div className="py-3 d-flex align-item-center">
                   <a href="forgot-password">Esqueceu a senha?</a>
                   <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="/bussinessign-up">Crie agora</a></span>
-                  <Recaptcha 
+                  {/* <Recaptcha 
                     sitekey={"6LcBAqYZAAAAAIgecheCn5AHGEv_wkOqt3xKDsfo"}
                     ref="recaptcha"
                     onResolved={ () => console.log( 'Human detected.' ) }
-                  /> 
+                  />  */}
+                  <Badge />
                 </div>
               </form>
             </div>
