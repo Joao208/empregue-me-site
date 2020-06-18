@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, {
-    useState, Component
+    useState
   } from 'react';
   
    
@@ -13,13 +13,8 @@ import React, {
   import 'react-toastify/dist/ReactToastify.css';
   import Recaptcha from 'react-recaptcha'
 
-  class Feed extends Component{
+  function Feed() {
 
-  SignInRecaptcha = () => {
-    this.recaptcha.execute()
-  }
-
-  render(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -124,7 +119,7 @@ import React, {
                   <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="/bussinessign-up">Crie agora</a></span>
                   <Recaptcha 
                     sitekey={"6LcBAqYZAAAAAIgecheCn5AHGEv_wkOqt3xKDsfo"}
-                    ref={ref => this.recaptcha = ref }
+                    ref="recaptcha"
                     onResolved={ () => console.log( 'Human detected.' ) }
                   /> 
                 </div>
@@ -140,7 +135,7 @@ import React, {
   </div>
   
   </>
-    )}
+    )
   }
   
   export default Feed;

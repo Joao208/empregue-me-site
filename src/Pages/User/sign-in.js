@@ -37,7 +37,7 @@ function Feed() {
         user,
         token,
       } = response.data;
-
+      console.log(user.phoneConfirme)
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
