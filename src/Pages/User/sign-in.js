@@ -42,13 +42,11 @@ function Feed() {
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
       
-      if(user.confirmate === true)
+      if(user.confirmate === true,user.phoneConfirme === true)
       return sessionStorage.setItem('confirmate', user.confirmate)
       
-      console.log(user.phoneConfirme)
-      if(user.phoneConfirme === true)
-      return sessionStorage.setItem('phoneConfirme', user.phoneConfirme)
-      console.log(user.phoneConfirme)
+      // if(user.phoneConfirme === true)
+      // return sessionStorage.setItem('phoneConfirme', user.phoneConfirme)
 
       history('/profile')
     }catch(e){
