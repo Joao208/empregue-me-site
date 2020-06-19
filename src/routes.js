@@ -32,6 +32,7 @@ import Checkout from './Pages/Payments/checkout'
 import ConfirmatePage from './Pages/User/confirmate'
 import Email_confirmate from './Pages/User/email-not-confirmate'
 import CommentD from './Pages/User/coment'
+import Company_ProfileB from './Pages/Bussines/company-profile'
 
 export default function Routed() {
 
@@ -95,6 +96,7 @@ export default function Routed() {
    <PrivateRoute>
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
+        <BussinesRoutes path='/company-profile/:id' element={<Company_ProfileB/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
