@@ -25,6 +25,7 @@ function Feed() {
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
   const {id} = useParams()
+  const [data,setData] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
@@ -33,24 +34,21 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
+        setData(response.data)
         console.log(response.data)
     }
 
     loadSpots()
 }, [] )
 
-const lottieOptions = {
-  title:'loading',
-  loop:true,
-  autoplay:true,
-  animationData:EmptyAnimation
-}
 
 useEffect(() => {
   async function loadSpots() {
-    const response = await api.get('/profileview')
+    const response = await api.get('/profilebussinesv')
     
     setProfiled(response.data.profile)
+    console.log(response.data)
+    
   }
   
   loadSpots()
@@ -61,7 +59,6 @@ async function SearchValue(event){
   
   history(`/conections/${name}`)
 }
-
 
   return (
      <>
@@ -143,7 +140,7 @@ async function SearchValue(event){
         <div key={profile._id} className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.cnpjI.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
               <p className="mb-0 text-muted">{profile.bussines.cnpjI.logradouro}</p>
             </div>
             <div className="profile-right ml-auto">
@@ -185,9 +182,15 @@ async function SearchValue(event){
                         <th className="p-3">Website</th>
                         <td className="p-3"><a href="#">{profile.bussines.site}</a></td>
                       </tr>
+                      {profile.bussines.cnpjI.atividade_principal.map(text => (
                       <tr className="border-bottom">
-                        <th className="p-3">Ramo</th>
-                        <td className="p-3">123</td>
+                        <th className="p-3">Atividade Principal</th>
+                        <td className="p-3">{text.text}</td>
+                      </tr>
+                      ))}
+                      <tr className="border-bottom">
+                        <th className="p-3">Telefone</th>
+                        <td className="p-3"><a href="#">{profile.bussines.cnpjI.telefone}</a></td>
                       </tr>
                     </tbody>
                     ))}
@@ -328,10 +331,31 @@ async function SearchValue(event){
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-            <form onSubmit={Signout} className="overflow-hidden border-top">
-              <button className="font-weight-bold p-3 d-block" style={{textAlign: 'center', width: '100%', backgroundColor: 'white', color: 'blue', border: 'none'}}> Sair </button>
-              <a href="/edit-company" className="font-weight-bold p-3 d-block">Editar Perfil</a>
-            </form>
+              <button onClick={
+                async function Follow(event){
+                  event.preventDefault()
+                  const response = await api.post(`/user/followb/${profile.bussines._id}`)
+                  console.log(response.data)
+                  console.log(profile.bussines._id)
+                }
+              } 
+              className="font-weight-bold p-3 d-block" 
+              style={{
+                textAlign: 'center', 
+                width: '100%', 
+                backgroundColor: 'white', 
+                color: 'blue', 
+                border: 'none'
+              }}>
+              Seguir 
+              </button>
+              <button onClick={
+                async function Unfollow(event){
+                  event.preventDefault()
+                  const response = await api.delete(`/user/unfollowb/${profile.bussines._id}`)
+                  console.log(response.data)
+                }
+              } className="font-weight-bold p-3 d-block">Deixar de seguir</button>
           </div>
         </aside>
         ))}
