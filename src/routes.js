@@ -25,6 +25,7 @@ import Bussinessign_up from './Pages/Bussines/bussinessign-up'
 import Terms from './Pages/Terms/terms'
 import Error404 from './Pages/User/not-found'
 import Conections from './Pages/User/connection'
+import ConectionsB from './Pages/Bussines/connection'
 import ProfileView from './Pages/User/ProfileView'
 import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
 import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
@@ -97,6 +98,7 @@ export default function Routed() {
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <BussinesRoutes path='/company-profileb/:id' element={<Company_ProfileB/>}/>
+        <BussinesRoutes path='/conectionsb' element={<ConectionsB/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
