@@ -254,7 +254,7 @@ function Feed() {
                 <div className="p-3 d-flex align-items-center w-100"  href="profile">
                   {profile.map(profile => (
                   <div key={profile._id} className="dropdown-list-image mr-3">
-                   <a href="profile"><img className="rounded-circle" src={profile.user.avatar} /></a> 
+                   <a href="profile"><img className="rounded-circle" src={profile.bussines.avatar} /></a> 
                     <div className="status-indicator bg-success" />
                   </div>
                   ))}
@@ -613,8 +613,8 @@ function Feed() {
           {profile.map(profile => (
           <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-            <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
-            <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
+            <img style={{height:'130px',width:'130px'}} src={profile.bussines.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
+            <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.bussines.nome}</h5>
               <p className="mb-0 text-muted"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></p>
             </div>
             <div className="d-flex">

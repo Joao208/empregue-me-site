@@ -58,7 +58,6 @@ export default function Routed() {
         return isBussines ? <Route {...props} />
         : <Route path='*' element={<Error404/>}/>
     }
-
     const ConfirmateRoute = props => {
         const confirmate = !! sessionStorage.getItem('confirmate')
         
