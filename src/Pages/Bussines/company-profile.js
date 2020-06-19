@@ -334,7 +334,7 @@ async function SearchValue(event){
               <button onClick={
                 async function Follow(event){
                   event.preventDefault()
-                  const response = await api.post(`/user/followb/${profile.bussines._id}`)
+                  const response = await api.post(`/bussines/followb/${profile.bussines._id}`)
                   console.log(response.data)
                   console.log(profile.bussines._id)
                 }
@@ -352,7 +352,7 @@ async function SearchValue(event){
               <button onClick={
                 async function Unfollow(event){
                   event.preventDefault()
-                  const response = await api.delete(`/user/unfollowb/${profile.bussines._id}`)
+                  const response = await api.delete(`/bussines/unfollowb/${profile.bussines._id}`)
                   console.log(response.data)
                 }
               } 
