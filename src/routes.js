@@ -98,7 +98,7 @@ export default function Routed() {
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <BussinesRoutes path='/company-profileb/:id' element={<Company_ProfileB/>}/>
-        <BussinesRoutes path='/conectionsb' element={<ConectionsB/>}/>
+        <BussinesRoutes path='/conectionsb/:named' element={<ConectionsB/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
