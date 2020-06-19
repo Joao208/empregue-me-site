@@ -28,6 +28,7 @@ import Error404 from './Pages/User/not-found'
 import Conections from './Pages/User/connection'
 import ConectionsB from './Pages/Bussines/connection'
 import ProfileView from './Pages/User/ProfileView'
+import ProfileViewB from './Pages/Bussines/ProfileView'
 import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
 import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
 import Checkout from './Pages/Payments/checkout'
@@ -99,6 +100,7 @@ export default function Routed() {
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <BussinesRoutes path='/company-profileb/:id' element={<Company_ProfileB/>}/>
         <BussinesRoutes path='/conectionsb/:named' element={<ConectionsB/>}/>
+        <BussinesRoutes path='/profileb/:id' element={<ProfileViewB/>}/>
         <BussinesRoutes path='/feed' element={<FeedB/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
