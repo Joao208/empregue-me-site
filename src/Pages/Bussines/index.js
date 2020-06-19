@@ -3,8 +3,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState,useMemo} from 'react';
-import { toast } from 'react-toastify';
 import { ReactTinyLink } from "react-tiny-link";
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
  
 import moment from 'moment'
@@ -16,8 +16,8 @@ import '../../css/style.css'
 
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
-
 import '../../css/inputcamera.css'
+
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import img_ads1 from '../../img/ads1.png'
@@ -26,6 +26,7 @@ import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
+import AdSense from 'react-adsense';
 
 function Feed() {
 
@@ -40,13 +41,14 @@ function Feed() {
   const [checkb, setCheckb] = useState([])
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
+  const [text, setTextt] = useState('')
   const [loading, setLoading] = useState(false)
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
-  const [text, setTextt] = useState('')
   const [jobs, setJobs] = useState([])
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
+  const [data, setData] = useState('')
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -65,9 +67,10 @@ function Feed() {
 
   useEffect(() => {
     async function loadSpots() {
-      const response = await api.get('/profileview')
+      const response = await api.get('/profilebussinesv')
       
       setProfile(response.data.profile)
+      setData(response.data)
     }
     
     loadSpots()
@@ -82,7 +85,7 @@ function Feed() {
   useEffect(() => {
     async function Feed() {
       try{
-      const response = await api.get('/feed')
+      const response = await api.get('/bussines/feed')
       
       setPostb(response.data.postbussines)
       setPosts(response.data.posts)
@@ -115,7 +118,7 @@ function Feed() {
       data.append('avatar', avatar)
       data.append('Text', Text)
 
-      const response = await api.post('/posts', data)
+      const response = await api.post('/bussines/posts', data)
 
       console.log(response)
 
@@ -216,9 +219,12 @@ function Feed() {
         <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
         </div>
       </li>
+      <li className="nav-item">
+        <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
+      </li>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
+        <a href="profile"><img className="rounded-circle"  src={profile.bussines.avatar} /></a>
         <div className="status-indicator bg-success" />
       </div>
       ))}
@@ -363,7 +369,6 @@ function Feed() {
           ))}
           {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
-              {lazy}
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -401,7 +406,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <i className="feather-message-square" />{postd.commentCount}
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
@@ -418,22 +423,10 @@ function Feed() {
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
                 </form>
-                {postd.comments.map(comments => (
-                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-                  <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
-                  </div>
-                </div>
-                ))}
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/coment/${postd._id}`,{
+                  await api.post(`/coment/${post._id}`,{
                     text
                   })
                 }} >
@@ -493,7 +486,24 @@ function Feed() {
                 style={{background:'none',border:'none'}}
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
-                {postd.likeCount}</button>               
+                {postd.likeCount}</button> 
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                </form>
+                <form className="p-3" onSubmit={
+                  async function Comentario(event){
+                  event.preventDefault()
+                  await api.post(`/add/coment/${post._id}`,{
+                    text
+                  })
+                }} >
+                  <input 
+                  placeholder="Adicionar Comentario..." 
+                  className="form-control border-0 p-0 shadow-none" 
+                  defaultValue={""}
+                  value={text}
+                  onChange={event => setTextt(event.target.value)}
+                  />
+                  <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
             ))}
@@ -526,7 +536,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                    await api.post(`/likes/${postd._id}`)
+                    await api.post(`postb/likes/${postd._id}`)
                   }
                 }
                 className="p-3 border-bottom osahan-post-footer"
@@ -536,13 +546,13 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <i className="feather-message-square" />{postd.commentCount}
+                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
                     try{
                     event.preventDefault()
-                    await api.post(`/post/share/${postd._id}`)
+                    await api.post(`/postb/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
                       console.log(e)
@@ -553,22 +563,10 @@ function Feed() {
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
                 </form>
-                {postd.comments.map(comments => (
-                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-                  <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
-                  </div>
-                </div>
-                ))}
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/coment/${postd._id}`,{
+                  await api.post(`/postbussines/coment/${post._id}`,{
                     text
                   })
                 }} >
@@ -621,11 +619,11 @@ function Feed() {
             </div>
             <div className="d-flex">
               <div className="col-6 border-right p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{profile.followersCount}</h6>
+                <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
                 <p className="mb-0 text-black-50 small">Conexões</p>
               </div>
               <div className="col-6 p-3">
-                <h6 className="font-weight-bold text-dark mb-1">{profile.followingCount}</h6>
+                <h6 className="font-weight-bold text-dark mb-1">{data.followingCount}</h6>
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
@@ -685,7 +683,14 @@ function Feed() {
             ))}
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
-            <img src={img_ads1} className="img-fluid"  alt="Responsive image" />
+          <MapContainer>
+          <AdSense.Google
+            client='ca-pub-7292810486004926'
+            slot='7806394673'
+            style={{ width: 500, height: 300, float: 'left' }}
+            format=''
+          />       
+          </MapContainer>     
             <div className="p-3 border-bottom">
               <h6 className="font-weight-bold text-gold">Osahanin Premium</h6>
               <p className="mb-0 text-muted">Grow &amp; nurture your network</p>

@@ -3,8 +3,9 @@ import { Routes, Route} from 'react-router-dom';
 
 import Reset_password from './Pages/User/reset-password'
 import Feed from './Pages/User/index'
+import FeedB from './Pages/Bussines/index'
 import Company_profile from './Pages/User/company-profile'
-import Contact from './Pages/User/contact'
+import Contact from './Pages/Terms/contact'
 import Edit_profile from './Pages/User/edit-profile'
 import Phone from './Pages/User/phoneadd'
 import Phoneconfirm from './Pages/User/phonecomfirm'
@@ -99,6 +100,7 @@ export default function Routed() {
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <BussinesRoutes path='/company-profileb/:id' element={<Company_ProfileB/>}/>
         <BussinesRoutes path='/conectionsb/:named' element={<ConectionsB/>}/>
+        <BussinesRoutes path='/feed' element={<FeedB/>}/>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
