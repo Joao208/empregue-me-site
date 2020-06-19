@@ -348,7 +348,13 @@ async function SearchValue(event){
               }}>
               Seguir 
               </button>
-              <a href="/edit-company" className="font-weight-bold p-3 d-block">Deixar de seguir</a>
+              <button onClick={
+                async function Unfollow(event){
+                  event.preventDefault()
+                  const response = await api.delete(`/user/unfollowb/${profile.bussines._id}`)
+                  console.log(response.data)
+                }
+              } className="font-weight-bold p-3 d-block">Deixar de seguir</button>
           </div>
         </aside>
         ))}
