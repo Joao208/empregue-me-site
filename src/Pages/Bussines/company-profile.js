@@ -355,7 +355,15 @@ async function SearchValue(event){
                   const response = await api.delete(`/user/unfollowb/${profile.bussines._id}`)
                   console.log(response.data)
                 }
-              } className="font-weight-bold p-3 d-block">Deixar de seguir</button>
+              } 
+              style={{
+                textAlign: 'center', 
+                width: '100%', 
+                backgroundColor: 'white', 
+                color: 'blue', 
+                border: 'none'
+              }}
+              className="font-weight-bold p-3 d-block">Deixar de seguir</button>
           </div>
         </aside>
         ))}
