@@ -38,6 +38,7 @@ import CommentAdd from './Pages/User/coment-add'
 import CommentPost from './Pages/User/coment-post'
 import CommentPostB from './Pages/User/coment-postb'
 import Company_ProfileB from './Pages/Bussines/company-profile'
+import ComingSoom from './Pages/cooming-soon'
 
 export default function Routed() {
 
@@ -75,8 +76,16 @@ export default function Routed() {
         : <Route path='*' element={<Phoneconfirm/>}/>
     }
 
+    const Privated = props => {
+    const private = !! sessionStorage.getItem('8789887348975')
+    
+    return private ? <Route {...props}/>
+    : <Route path="*" element={<ComingSoom/>}/>
+    }
+
     return(
 <Routes>
+    <Privated>
     <PrivateRoute>
     <ConfirmateRoute> 
     <PhoneConfirmeRoute>
@@ -121,6 +130,7 @@ export default function Routed() {
         <Route path='/reset-password' element={<Reset_password/>}/>
         <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
         <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
+</Privated>
 </Routes>
     );
 }
