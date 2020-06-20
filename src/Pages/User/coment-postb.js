@@ -175,13 +175,6 @@ function Feed() {
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{Text}</p>
-                  <ReactTinyLink
-                  cardSize="small"
-                  showGraphic={false}
-                  maxLine={2}
-                  minLine={1}
-                  url={'https://temquemudarissodps.com'}
-                  />
                   { isVideo
                   ? <video width="100%" height="100%" controls>
                   <source src={avatar ? avatar : null} type="video/ogg"/>
