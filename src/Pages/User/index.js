@@ -366,6 +366,242 @@ function Feed() {
             </div>
           </div>
           ))}
+          <div className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
+            <div className="osahan-slider slick-initialized slick-slider"><button className="slick-prev slick-arrow" aria-label="Anterior" type="button" style={{display: 'inline-block'}}><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Anterior</font></font></button>
+              <div className="slick-list draggable" style={{padding: '0px 30px'}}><div className="slick-track" style={{opacity: 1, width: 2835, transform: 'translate3d(-630px, 0px, 0px)'}}><div className="osahan-slider-item slick-slide slick-cloned" data-slick-index={-3} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Envato</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> India, Punjab</font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l1.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p1.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p3.png" alt data-original-title="Julia Cox" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p4.png" alt data-original-title="Robert Cook" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p5.png" alt data-original-title="Sophia Lee" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-cloned" data-slick-index={-2} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Desenvolvedor .NET</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Invision</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Londres, Reino Unido
+                                </font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l4.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p13.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p1.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="Julia Cox" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p3.png" alt data-original-title="Robert Cook" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-cloned" data-slick-index={-1} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Diretor de vendas de canais</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Slack Inc.</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Londres, Reino Unido
+                                </font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l7.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p12.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p13.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="Julia Cox" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-current slick-active slick-center" data-slick-index={0} aria-hidden="false" tabIndex={0} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={0}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Envato</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> India, Punjab</font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l1.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p1.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p3.png" alt data-original-title="Julia Cox" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p4.png" alt data-original-title="Robert Cook" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p5.png" alt data-original-title="Sophia Lee" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-active" data-slick-index={1} aria-hidden="false" tabIndex={0} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={0}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Desenvolvedor .NET</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Invision</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Londres, Reino Unido
+                                </font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l4.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p13.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p1.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="Julia Cox" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p3.png" alt data-original-title="Robert Cook" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide" data-slick-index={2} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Diretor de vendas de canais</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Slack Inc.</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Londres, Reino Unido
+                                </font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l7.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p12.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p13.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="Julia Cox" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-cloned slick-center" data-slick-index={3} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Envato</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> India, Punjab</font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l1.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p1.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p3.png" alt data-original-title="Julia Cox" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p4.png" alt data-original-title="Robert Cook" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p5.png" alt data-original-title="Sophia Lee" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-cloned" data-slick-index={4} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Desenvolvedor .NET</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Invision</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Londres, Reino Unido
+                                </font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l4.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p13.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p1.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="Julia Cox" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p3.png" alt data-original-title="Robert Cook" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div><div className="osahan-slider-item slick-slide slick-cloned" data-slick-index={5} aria-hidden="true" tabIndex={-1} style={{width: 315}}>
+                    <a href="job-profile.html" tabIndex={-1}>
+                      <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
+                        <div className="d-flex align-items-center p-3 job-item-header">
+                          <div className="overflow-hidden mr-2">
+                            <h6 className="font-weight-bold text-dark mb-0 text-truncate"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Diretor de vendas de canais</font></font></h6>
+                            <div className="text-truncate text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Slack Inc.</font></font></div>
+                            <div className="small text-gray-500"><i className="feather-map-pin" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Londres, Reino Unido
+                                </font></font></div>
+                          </div>
+                          <img className="img-fluid ml-auto" src="img/l7.png" alt />
+                        </div>
+                        <div className="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                          <div className="overlap-rounded-circle d-flex">
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p12.png" alt data-original-title="Sophia Lee" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p13.png" alt data-original-title="John Doe" />
+                            <img className="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title src="img/p2.png" alt data-original-title="Julia Cox" />
+                          </div>
+                          <span className="font-weight-bold text-primary"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>18 conexões</font></font></span>
+                        </div>
+                        <div className="p-3 job-item-footer">
+                          <small className="text-gray-500"><i className="feather-clock" /><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Postado 3 dias atrás</font></font></small>
+                        </div>
+                      </div>
+                    </a>
+                  </div></div></div>
+              <button className="slick-next slick-arrow" aria-label="Próximo" type="button" style={{}}><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Próximo</font></font></button></div>
+          </div>
           {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
