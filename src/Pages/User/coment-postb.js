@@ -73,10 +73,9 @@ function Feed() {
       setComentCount(response.data.commentCount)
       setIsVideo(response.data.isVideo)
       setText(response.data.text.text)
-      setLink(response.data.text.link)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
-      console.log(response.data.text.link)
+      console.log(response.data)
 
       }catch(e){
       console.log(e)
@@ -213,7 +212,7 @@ function Feed() {
                   async function Share(event){
                     try{
                     event.preventDefault()
-                    await api.post(`/postb/share/${postd._id}`)
+                    await api.post(`/postb/share/${id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
                       console.log(e)
