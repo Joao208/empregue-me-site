@@ -66,8 +66,8 @@ function Feed() {
       const response = await api.get(`/coments/post/populate/${id}`)
       
       setAvatar(response.data.avatar)
-      setUserAvatar(response.data.bussines.avatar)
-      setUsername(response.data.bussines.nome)
+      setUserAvatar(response.data.user.avatar)
+      setUsername(response.data.user.name)
       setComent(response.data.comments)
       setLike(response.data.likeCount)
       setComentCount(response.data.commentCount)
