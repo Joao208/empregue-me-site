@@ -20,7 +20,6 @@ import '../../css/inputcamera.css'
 
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
-import img_ads1 from '../../img/ads1.png'
 import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';

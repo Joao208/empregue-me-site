@@ -72,7 +72,7 @@ function Feed() {
       setLike(response.data.likeCount)
       setComentCount(response.data.commentCount)
       setIsVideo(response.data.isVideo)
-      setText(response.data.text.text)
+      setText(response.data.Text.Text)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
       console.log(response.data)
