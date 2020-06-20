@@ -21,8 +21,6 @@ function coomingsoon()  {
         {/* Navigation */}
         <nav className="navbar navbar-expand navbar-light bg-white osahan-nav-top py-4 fixed-top">
             <div className="container">
-            <a className="navbar-brand mr-2" href="index.html"><img src="img/logo.svg" alt /> <span className="small ml-3">Home</span>
-            </a>
             </div>
         </nav>
         <div className="vh-100 bg-white">
