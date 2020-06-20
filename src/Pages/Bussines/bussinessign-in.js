@@ -112,7 +112,7 @@ import React, {
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
               }
                 <a className="btn btn-block text-uppercase" href="/sign-in"style={{backgroundColor:"#007dff",color:"white"}} > Quero ser contratado </a> 
-                <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="#"> Quero ensinar </a> 
+                <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="/school/sign-up"> Quero ensinar </a> 
                 <div className="py-3 d-flex align-item-center">
                   <a href="forgot-password">Esqueceu a senha?</a>
                   <span className="ml-auto"> Novo no Empregue.me? <a className="font-weight-bold" href="/bussinessign-up">Crie agora</a></span>
