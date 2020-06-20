@@ -77,9 +77,9 @@ export default function Routed() {
     }
 
     const Privated = props => {
-    const private = !! sessionStorage.getItem('8789887348975')
+    const privated = !! sessionStorage.getItem('8789887348975')
     
-    return private ? <Route {...props}/>
+    return privated ? <Route {...props}/>
     : <Route path="*" element={<ComingSoom/>}/>
     }
 
