@@ -353,7 +353,7 @@ function Feed() {
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
                       <a href={`/job-profile/${vacancies._id}`}><h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6></a>
-                        <a href={`/company-profile/${vacancies.bussines._id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div></a>
+                      <a href={`/company-profile/${vacancies.bussines._id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : ''}</div></a>
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
                       <img className="img-fluid ml-auto" src={vacancies.avatar} />
@@ -427,7 +427,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/bussines/coment/${post._id}`,{
+                  await api.post(`/bussines/coment/${postd._id}`,{
                     text
                   })
                 }} >
@@ -495,7 +495,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/bussines/add/coment/${post._id}`,{
+                  await api.post(`/bussines/add/coment/${postd._id}`,{
                     text
                   })
                 }} >
@@ -571,7 +571,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/bussines/postbussines/coment/${post._id}`,{
+                  await api.post(`/bussines/postbussines/coment/${postd._id}`,{
                     text
                   })
                 }} >

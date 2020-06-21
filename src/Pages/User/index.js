@@ -221,12 +221,6 @@ function Feed() {
       <li className="nav-item">
         <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
       </li>
-        {profile.map(profile => (
-      <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
-        <div className="status-indicator bg-success" />
-      </div>
-      ))}
       <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
         <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i className="feather-bell" />
@@ -274,6 +268,12 @@ function Feed() {
           <a className="dropdown-item text-center small text-gray-500" href="notifications.html">Show All Alerts</a>
         </div>
       </li>
+        {profile.map(profile => (
+      <div key={profile._id} className="dropdown-list-image mr-3">
+        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
+        <div className="status-indicator bg-success" />
+      </div>
+      ))}
     </ul>
     </div>
   </nav>
@@ -400,7 +400,7 @@ function Feed() {
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
                       <a href={`/job-profile/${vacancies._id}`}><h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6></a>
-                        <a href={`/company-profile/${vacancies.bussines._id}`}></a><div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
+                        <a href={`/company-profile/${vacancies.bussines._id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : ''}</div></a>
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
                       <img className="img-fluid ml-auto" src={vacancies.avatar} />
@@ -474,7 +474,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/coment/${post._id}`,{
+                  await api.post(`/coment/${postd._id}`,{
                     text
                   })
                 }} >
@@ -542,7 +542,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/add/coment/${post._id}`,{
+                  await api.post(`/add/coment/${postd._id}`,{
                     text
                   })
                 }} >
@@ -618,7 +618,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/postbussines/coment/${post._id}`,{
+                  await api.post(`/postbussines/coment/${postd._id}`,{
                     text
                   })
                 }} >
