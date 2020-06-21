@@ -247,7 +247,7 @@ function coomingsoon()  {
                     <path d="M174.51,532.1s-12.71-.47-15.68,4.18" transform="translate(-28.43 -18.54)" opacity="0.1" />
                 </svg>
                 <h1 className="text-dark font-weight-bold">Estamos apenas ajustando algumas coisas.</h1>
-                <p className="lead mb-5">Pedimos desculpas pelo inconveniente, mas o Front está atualmente em manutenção planejada.
+                <p className="lead mb-5">Pedimos desculpas pelo inconveniente, mas o Empregue.me está atualmente em manutenção planejada.
                 </p>
                 </div>
             </div>

@@ -318,6 +318,7 @@ function Feed() {
             />
           : check.map(check => (
           <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
+            <a href={`/profile/${check.user._id}`}>
             <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
               <div className="dropdown-list-image mr-3">
                 <img className="rounded-circle" src={check.user.avatar} />
@@ -329,6 +330,7 @@ function Feed() {
               </div>
               <span className="ml-auto small">{moment(check.createdAt).fromNow()}</span>
             </div>
+            </a>
             <div className="p-3 border-bottom osahan-post-body">
             </div>
             <MapContainer>
@@ -347,12 +349,12 @@ function Feed() {
             <div key={vacancies._id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
               <div className="osahan-slider-item">
-                <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies._id}`}>
+                <a href={`/job-profile/${vacancies._id}`}>
                   <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
                         <h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6>
-                        <div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
+                        <a href={`/company-profile/${vacancies.bussines._id}`}></a><div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
                       <img className="img-fluid ml-auto" src={vacancies.avatar} />
@@ -368,6 +370,7 @@ function Feed() {
           ))}
           {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <a href={`/profile/${postd.user._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -379,6 +382,7 @@ function Feed() {
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
+                </a>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
                   { postd.isVideo
@@ -442,6 +446,7 @@ function Feed() {
             ))}
           {add.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <a href={`/company-profile/${postd.bussines._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.bussines.avatar ? postd.bussines.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'}/>
@@ -453,6 +458,7 @@ function Feed() {
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
+                </a>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.text.text}</p>
                   <ReactTinyLink
@@ -508,6 +514,7 @@ function Feed() {
             ))}
             {postb.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <a href={`/company-profile/${postd.bussines._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.bussines.avatar} alt />
@@ -519,6 +526,7 @@ function Feed() {
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
+                </a>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
                   { postd.isVideo
@@ -582,6 +590,7 @@ function Feed() {
             ))}
             {checkb.map(check => (
               <div key={check.id} className="box shadow-sm border rounded bg-white mb-3 osahan-post">
+              <a href={`/company-profile/${check.bussines._id}`}>
               <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                 <div className="dropdown-list-image mr-3">
                   <img className="rounded-circle" src={check.bussines.avatar} />
@@ -593,6 +602,7 @@ function Feed() {
                 </div>
                 <span className="ml-auto small">{moment(check.createdAt).fromNow()}</span>
               </div>
+              </a>
               <div className="p-3 border-bottom osahan-post-body">
               </div>
               <MapContainer>

@@ -48,7 +48,7 @@ function Feed() {
 
 useEffect(() => {
   async function loadSpots() {
-    const response = await api.get('/profileview')
+    const response = await api.get('/profilebussinesv')
     
     setProfiled(response.data.profile)
   }
@@ -65,7 +65,7 @@ async function SearchValue(event){
   async function Follow(event){
     event.preventDefault()
 
-    const response = await api.post(`/follow/${id}`)
+    await api.post(`/unfollowb/${id}`)
 
   }
 
