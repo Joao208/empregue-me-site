@@ -1,6 +1,7 @@
 import React from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
-
+import '../css/notification.css'
+import '../scss/notification.scss'
 export default class Notifications extends React.Component {
   constructor(props) {
     super(props);
