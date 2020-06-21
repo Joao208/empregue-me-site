@@ -349,11 +349,10 @@ function Feed() {
             <div key={vacancies._id} className="mb-3 shadow-sm rounded box bg-white osahan-slider-main">
             <div className="osahan-slider">
               <div className="osahan-slider-item">
-                <a href={`/job-profile/${vacancies._id}`}>
                   <div className="shadow-sm border rounded bg-white job-item job-item mr-2 mt-3 mb-3">
                     <div className="d-flex align-items-center p-3 job-item-header">
                       <div className="overflow-hidden mr-2">
-                        <h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6>
+                      <a href={`/job-profile/${vacancies._id}`}><h6 className="font-weight-bold text-dark mb-0 text-truncate" style={{textTransform:'capitalize'}}>{vacancies.text.title}</h6></a>
                         <a href={`/company-profile/${vacancies.bussines._id}`}></a><div className="text-truncate text-primary">{vacancies.bussines.nome ? vacancies.bussines.nome : 'joao'}</div>
                         <div className="small text-gray-500"><i className="feather-map-pin" />{vacancies.text.city}</div>
                       </div>
@@ -363,7 +362,6 @@ function Feed() {
                       <small className="text-gray-500"><i className="feather-clock" />{moment(vacancies.createdAt).fromNow()}</small>
                     </div>
                   </div>
-                </a>
               </div>
             </div>
           </div>
