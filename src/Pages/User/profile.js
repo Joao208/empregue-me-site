@@ -152,9 +152,9 @@ async function SearchValue(event){
     <div className="container">
       <div className="row">
         {/* Main Content */}
-        <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
-         {profile
+        {profile
            ? profile.map(profile => (
+        <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
            <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
               <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
@@ -176,12 +176,6 @@ async function SearchValue(event){
               <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
             </form>
           </div>
-          ))
-          : <Lottie options={lottieOptions} 
-          height='100%'
-          width='100%'
-          /> 
-          }
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
@@ -192,7 +186,72 @@ async function SearchValue(event){
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+          <div className="border rounded bg-white mb-3">
+            <div className="box-title border-bottom p-3">
+              <h6 className="m-0">Redes sociais</h6>
+            </div>
+            <div className="box-body">
+              <div className="p-3 border-bottom">
+                <div className="position-relative icon-form-control mb-2">
+                  <i className="feather-instagram position-absolute text-warning" />
+                  <p 
+                  className="form-control" 
+                  >
+                  {
+                    profile.user.FacebookUrl
+                  }
+                  </p>
+                </div>
+                <div className="position-relative icon-form-control mb-2">
+                  <i className="feather-facebook position-absolute text-primary" />
+                  <p 
+                  className="form-control" 
+                  >
+                  {
+                    profile.user.InstagramUrl
+                  }
+                  </p>
+                </div>
+                <div className="position-relative icon-form-control mb-2">
+                  <i className="feather-twitter position-absolute text-info" />
+                  <p 
+                  className="form-control" 
+                  >
+                  {
+                    profile.user.TwitterUrl
+                  }
+                  </p>
+                </div>
+                <div className="position-relative icon-form-control mb-2">
+                  <i className="feather-youtube position-absolute text-danger" />
+                  <p 
+                  className="form-control" 
+                  >
+                  {
+                    profile.user.YouTubeUrl
+                  }
+                  </p>
+                </div>
+                <div className="position-relative icon-form-control mb-0">
+                  <i className="feather-github position-absolute text-dark" />
+                  <p 
+                  className="form-control" 
+                  >
+                  {
+                    profile.user.GithubUrl
+                  }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </aside>
+        ))
+        : <Lottie options={lottieOptions} 
+        height='100%'
+        width='100%'
+        /> 
+        }
         <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
