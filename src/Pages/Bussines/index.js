@@ -415,7 +415,7 @@ function Feed() {
                   async function Share(event){
                     try{
                     event.preventDefault()
-                    await api.post(`/post/share/${postd._id}`)
+                    await api.post(`/bussines/post/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
                       console.log(e)
@@ -429,7 +429,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/coment/${post._id}`,{
+                  await api.post(`/bussines/coment/${post._id}`,{
                     text
                   })
                 }} >
@@ -497,7 +497,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/add/coment/${post._id}`,{
+                  await api.post(`/bussines/add/coment/${post._id}`,{
                     text
                   })
                 }} >
@@ -559,7 +559,7 @@ function Feed() {
                   async function Share(event){
                     try{
                     event.preventDefault()
-                    await api.post(`/postb/share/${postd._id}`)
+                    await api.post(`/bussines/postb/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
                       console.log(e)
@@ -573,7 +573,7 @@ function Feed() {
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
-                  await api.post(`/postbussines/coment/${post._id}`,{
+                  await api.post(`/bussines/postbussines/coment/${post._id}`,{
                     text
                   })
                 }} >
