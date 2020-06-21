@@ -186,6 +186,30 @@ async function SearchValue(event){
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+        </aside>
+        ))
+        : <Lottie options={lottieOptions} 
+        height='100%'
+        width='100%'
+        /> 
+        }
+        {profile.map(profile => (
+        <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
+          <div className="box shadow-sm border rounded bg-white mb-3">
+            <div className="box-title border-bottom p-3">
+            <div className="box shadow-sm border rounded bg-white mb-3">
+              <div className="box-body p-3">
+              <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
+              <img src={`https://chart.apis.google.com/chart?cht=qr&chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}&chs=230x230`} className="img-fluid"  alt="Responsive image" />
+              <div className="p-3 border-bottom">
+              <h6 className="font-weight-bold text-dark">QR code do seu perfil {profile.user.name}</h6>
+                  <p className="mb-0 text-muted">Use para apresentar seu perfil a seus amigos</p>
+                </div>
+              </div>                
+              </div>
+            </div>
+            </div>
+          </div>
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Redes sociais</h6>
@@ -246,31 +270,7 @@ async function SearchValue(event){
             </div>
           </div>
         </aside>
-        ))
-        : <Lottie options={lottieOptions} 
-        height='100%'
-        width='100%'
-        /> 
-        }
-        <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-            <div className="box shadow-sm border rounded bg-white mb-3">
-              <div className="box-body p-3">
-            {profile.map(profile => (
-              <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
-              <img src={`https://chart.apis.google.com/chart?cht=qr&chl=https://light-empregue-me.herokuapp.com/profile/${profile.user._id}&chs=230x230`} className="img-fluid"  alt="Responsive image" />
-              <div className="p-3 border-bottom">
-            <h6 className="font-weight-bold text-dark">QR code do seu perfil {profile.user.name}</h6>
-                  <p className="mb-0 text-muted">Use para apresentar seu perfil a seus amigos</p>
-                </div>
-              </div>                
-            ))}
-              </div>
-            </div>
-            </div>
-          </div>
-        </aside>
+        ))}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">

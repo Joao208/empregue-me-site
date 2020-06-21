@@ -227,7 +227,54 @@ function Feed() {
         <div className="status-indicator bg-success" />
       </div>
       ))}
-      </ul>
+      <li className="nav-item dropdown no-arrow mx-1 osahan-list-dropdown">
+        <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i className="feather-bell" />
+          {/* Counter - Alerts */}
+          <span className="badge badge-info badge-counter">6</span>
+        </a>
+        {/* Dropdown - Alerts */}
+        <div className="dropdown-list dropdown-menu dropdown-menu-right shadow-sm">
+          <h6 className="dropdown-header">
+            Alerts Center
+          </h6>
+          <a className="dropdown-item d-flex align-items-center" href="notifications.html">
+            <div className="mr-3">
+              <div className="icon-circle bg-primary">
+                <i className="feather-download-cloud text-white" />
+              </div>
+            </div>
+            <div>
+              <div className="small text-gray-500">December 12, 2019</div>
+              <span className="font-weight-bold">A new monthly report is ready to download!</span>
+            </div>
+          </a>
+          <a className="dropdown-item d-flex align-items-center" href="notifications.html">
+            <div className="mr-3">
+              <div className="icon-circle bg-success">
+                <i className="feather-edit text-white" />
+              </div>
+            </div>
+            <div>
+              <div className="small text-gray-500">December 7, 2019</div>
+              $290.29 has been deposited into your account!
+            </div>
+          </a>
+          <a className="dropdown-item d-flex align-items-center" href="notifications.html">
+            <div className="mr-3">
+              <div className="icon-circle bg-warning">
+                <i className="feather-folder text-white" />
+              </div>
+            </div>
+            <div>
+              <div className="small text-gray-500">December 2, 2019</div>
+              Spending Alert: We've noticed unusually high spending for your account.
+            </div>
+          </a>
+          <a className="dropdown-item text-center small text-gray-500" href="notifications.html">Show All Alerts</a>
+        </div>
+      </li>
+    </ul>
     </div>
   </nav>
   <div className="py-4">
