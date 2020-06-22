@@ -1,7 +1,6 @@
 import React from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
 import '../css/notification.css'
-import '../scss/notification.scss'
 export default class Notifications extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +26,7 @@ export default class Notifications extends React.Component {
           onClick={this.toggleNotifications}
         >
           <div className="nav-link-icon__wrapper">
-            <i className="material-icons">&#xE7F4;</i>
+            <i className="feather-bell"></i>
             <Badge pill theme="danger">
               2
             </Badge>
@@ -40,35 +39,32 @@ export default class Notifications extends React.Component {
           <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
-                <i className="material-icons">&#xE6E1;</i>
+                <i className="feather-bell"></i>
               </div>
             </div>
             <div className="notification__content">
-              <span className="notification__category">Analytics</span>
+              <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
-                Your website’s active users count increased by{" "}
-                <span className="text-success text-semibold">28%</span> in the
-                last week. Great job!
+                Isso aí, a empresa{" "}
+                <span className="text-success text-semibold">Google</span> aceitou
+                seu curriculo. Bom trabalho!
               </p>
             </div>
           </DropdownItem>
           <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
-                <i className="material-icons">&#xE8D1;</i>
+                <i className="feather-bell"></i>
               </div>
             </div>
             <div className="notification__content">
-              <span className="notification__category">Sales</span>
+              <span className="notification__category">Tente novamente ;)</span>
               <p>
-                Last week your store’s sales count decreased by{" "}
-                <span className="text-danger text-semibold">5.52%</span>. It
-                could have been worse!
+                Infelizmente a empresa{" "}
+                <span className="text-danger text-semibold">Google</span>. Não aceitou
+                seu curriculo, tente novamente!
               </p>
             </div>
-          </DropdownItem>
-          <DropdownItem className="notification__all text-center">
-            View all Notifications
           </DropdownItem>
         </Collapse>
       </NavItem>
