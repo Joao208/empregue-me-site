@@ -225,7 +225,7 @@ function Feed() {
       <Notification></Notification>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
+        <a href="profile"><img className="rounded-circle" style={{marginLeft:'4px'}}  src={profile.user.avatar} /></a>
         <div className="status-indicator bg-success" />
       </div>
       ))}

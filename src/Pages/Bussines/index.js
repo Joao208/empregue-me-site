@@ -17,7 +17,7 @@ import '../../css/style.css'
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import '../../css/inputcamera.css'
-
+import Notification from '../../components/Notifications_Bussines'
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import img_fav from '../../img/fav.png'
@@ -221,9 +221,10 @@ function Feed() {
       <li className="nav-item">
         <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
       </li>
+      <Notification></Notification>
         {profile.map(profile => (
       <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle"  src={profile.bussines.avatar} /></a>
+        <a href="profile"><img className="rounded-circle" style={{marginLeft:'4px'}}  src={profile.bussines.avatar} /></a>
         <div className="status-indicator bg-success" />
       </div>
       ))}
