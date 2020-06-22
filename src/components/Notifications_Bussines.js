@@ -46,8 +46,8 @@ export default class Notifications extends React.Component {
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
                 Isso aí, a empresa{" "}
-                <span className="text-success text-semibold">Google</span> aceitou
-                seu curriculo. Bom trabalho!
+                <a href={'/profile/:id'}><span className="text-success text-semibold">Joao</span></a> requisitou sua vaga 
+                de <a href={'/job-profile/:id'}><span className="text-success text-semibold">Atendente</span></a> veja já.
               </p>
             </div>
           </DropdownItem>
@@ -60,9 +60,9 @@ export default class Notifications extends React.Component {
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
-                Infelizmente a empresa{" "}
-                <span className="text-danger text-semibold">Google</span>. Não aceitou
-                seu curriculo, tente novamente!
+                O usuario{" "}
+                <a href={'/profile/:id'}><span className="text-success text-semibold">Joao</span></a> requisitou sua vaga 
+                de <a href={'/job-profile/:id'}><span className="text-success text-semibold">Atendente</span></a> veja já.
               </p>
             </div>
           </DropdownItem>

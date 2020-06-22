@@ -46,7 +46,7 @@ export default class Notifications extends React.Component {
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
                 Isso aí, a empresa{" "}
-                <span className="text-success text-semibold">Google</span> aceitou
+                <a href={'/company-profile/:id'}><span className="text-success text-semibold">Google</span></a> aceitou
                 seu curriculo. Bom trabalho!
               </p>
             </div>
@@ -61,7 +61,7 @@ export default class Notifications extends React.Component {
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
                 Infelizmente a empresa{" "}
-                <span className="text-danger text-semibold">Google</span>. Não aceitou
+                <a href={'/company-profile/:id'}><span className="text-success text-semibold">Google</span></a> Não aceitou
                 seu curriculo, tente novamente!
               </p>
             </div>
