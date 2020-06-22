@@ -1,6 +1,9 @@
 import React from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
 import '../css/notification.css'
+import socketio from 'socket.io-client'
+import api from '../../src/services/api'
+
 export default class Notifications extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +22,18 @@ export default class Notifications extends React.Component {
   }
 
   render() {
+    const user_id = sessionStorage.getItem('user_id')
+
+    const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
+      query: { user_id }
+  }), [user_id])
+
+  useEffect(() => {
+            socket.on('booking_response', booking => {
+                console.log(`${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
+            })
+  },[socket])
+
     return (
       <NavItem className="border-right dropdown notifications">
         <NavLink
