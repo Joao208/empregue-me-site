@@ -4619,6 +4619,9 @@ input[type="button"].btn-block {
 
 .navbar-expand .navbar-nav .dropdown-menu {
   position: absolute;
+  right: 0;
+  left: auto;
+  margin: auto;
 }
 
 .navbar-expand .navbar-nav .nav-link {

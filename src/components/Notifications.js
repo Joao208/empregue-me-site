@@ -58,7 +58,7 @@ export default class Notifications extends React.Component {
               </div>
             </div>
             <div className="notification__content">
-              <span className="notification__category">Tente novamente ;)</span>
+              <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
                 Infelizmente a empresa{" "}
                 <span className="text-danger text-semibold">Google</span>. Não aceitou
