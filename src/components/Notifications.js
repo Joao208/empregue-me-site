@@ -34,7 +34,7 @@ export default class Notifications extends React.Component {
         </NavLink>
         <Collapse
           open={this.state.visible}
-          className="dropdown-menu dropdown-menu-small"
+          className="navbar-expand navbar-nav dropdown-menu"
         >
           <DropdownItem>
             <div className="notification__icon-wrapper">
