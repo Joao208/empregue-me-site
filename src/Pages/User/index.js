@@ -57,7 +57,7 @@ function Feed() {
       query: { user_id }
   }), [user_id])
 
-  useEsffect(() => {
+  useEffect(() => {
             socket.on('booking_response', booking => {
                 console.log(`${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
             })
