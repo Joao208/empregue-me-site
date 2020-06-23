@@ -6,7 +6,8 @@ import React,{useEffect,useState,useMemo} from 'react';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
- 
+import socketio from 'socket.io-client'
+
 import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
@@ -49,6 +50,19 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
+
+  const user_id = sessionStorage.getItem('user_id')
+
+    const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
+      query: { user_id }
+  }), [user_id])
+
+  useEsffect(() => {
+            socket.on('booking_response', booking => {
+                console.log(`${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
+            })
+  },[socket])
+
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
