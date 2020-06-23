@@ -18,10 +18,8 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_response', booking => {
-                console.log(booking.text)
-                console.log(booking)
                 setApproved(booking.approved)
-                setTitle(booking.text.title)
+                setTitle(booking.vacancies.text.title)
                 setId(booking.bussines)
                 setBooking(true)
             })
