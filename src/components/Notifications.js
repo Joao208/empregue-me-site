@@ -1,31 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
 import '../css/notification.css'
 
-export default class Notifications extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Notifications(){
+  const [visible,setVisible] = useState(false)
 
-    this.state = {
-      visible: false
-    };
-
-    this.toggleNotifications = this.toggleNotifications.bind(this);
+  async function HandleButton(event) {
+    event.preventDefault()
+    try {
+      setVisible(true)
+    } catch (error) {
+      console.log(error)
+    }
   }
-
-  toggleNotifications() {
-    this.setState({
-      visible: !this.state.visible
-    });
-  }
-
-  render() {
-
     return (
       <NavItem className="border-right dropdown notifications">
         <NavLink
           className="nav-link-icon text-center"
-          onClick={this.toggleNotifications}
+          onClick={HandleButton}
         >
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
@@ -35,7 +27,7 @@ export default class Notifications extends React.Component {
           </div>
         </NavLink>
         <Collapse
-          open={this.state.visible}
+          open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
           <DropdownItem>
@@ -71,5 +63,4 @@ export default class Notifications extends React.Component {
         </Collapse>
       </NavItem>
     );
-  }
 }
