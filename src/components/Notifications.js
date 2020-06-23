@@ -5,7 +5,10 @@ import '../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-
+  const [approved, setApproved] = useState(false)
+  const [Title, setTitle] = useState('')
+  const [id, setId] = useState('')
+  
   const user_id = sessionStorage.getItem('user_id')
 
   const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
@@ -14,7 +17,9 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_response', booking => {
-                console.log(booking)
+                setApproved(booking.approved)
+                setTitle(booking.text.title)
+                setId(booking.bussines)
             })
   },[socket])
 
@@ -47,36 +52,41 @@ export default function Notifications(){
           open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
-          <DropdownItem>
+        { approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
+            <a href={`/company-profile/${id}`}> 
             <div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
-                Isso aí, a empresa{" "}
-                <a href={'/company-profile/:id'}><span className="text-success text-semibold">Google</span></a> aceitou
-                seu curriculo. Bom trabalho!
+                Isso aí, a vaga de{" "}
+                <span className="text-success text-semibold">{Title}</span> foi aprovada
+                entre em contato com a empresa agora. Bom trabalho!
               </p>
             </div>
+            </a>
           </DropdownItem>
-          <DropdownItem>
+          :<DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
+            <a href={`/company-profile/${id}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
-                Infelizmente a empresa{" "}
-                <a href={'/company-profile/:id'}><span className="text-success text-semibold">Google</span></a> Não aceitou
-                seu curriculo, tente novamente!
+                Infelizmente a vaga de{" "}
+                <span className="text-success text-semibold">{Title}</span> não foi aprovada
+                , tente novamente!
               </p>
             </div>
+            </a>
           </DropdownItem>
+        }
         </Collapse>
       </NavItem>
     );

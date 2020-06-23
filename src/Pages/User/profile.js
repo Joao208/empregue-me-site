@@ -46,7 +46,7 @@ function Feed() {
 
   useEffect(() => {
     socket.on('like', (data) => {
-      setPost([data])
+      setPost([...post, data])
       console.log(data)
     })
   }, [post, socket])
