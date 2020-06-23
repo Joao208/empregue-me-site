@@ -5,7 +5,7 @@ import '../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-  const [approved, setApproved] = useState(true)
+  const [approved, setApproved] = useState(false)
   const [Title, setTitle] = useState('')
   const [id, setId] = useState('')
   const [bookingg, setBooking] = useState(false)
@@ -19,6 +19,7 @@ export default function Notifications(){
   useEffect(() => {
             socket.on('booking_response', booking => {
                 console.log(booking.text.title)
+                console.log(booking.text)
                 console.log(booking)
                 setApproved(booking.approved)
                 setTitle(booking.text.title)
@@ -79,7 +80,8 @@ export default function Notifications(){
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/company-profile/${id}`}>
+          {bookingg
+            ?<a href={`/company-profile/${id}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
@@ -89,6 +91,8 @@ export default function Notifications(){
               </p>
             </div>
             </a>
+            : <p>Nenhuma notificação no momento</p>
+          }
           </DropdownItem>
           }
 
