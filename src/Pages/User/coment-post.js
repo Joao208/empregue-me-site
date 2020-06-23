@@ -5,7 +5,6 @@
 import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import socketio from 'socket.io-client'
 
 import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
