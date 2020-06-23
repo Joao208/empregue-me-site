@@ -19,10 +19,6 @@ export default function Notifications(){
   useEffect(() => {
             socket.on('booking_request', booking => {
                 console.log(booking)
-                setApproved(booking.approved)
-                setTitle(booking.vacancies.text.title)
-                setId(booking.vacancies.bussines)
-                setBooking(true)
             })
   },[socket])
 
@@ -61,7 +57,6 @@ export default function Notifications(){
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/company-profile/${id}`}> 
             <div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
@@ -70,11 +65,10 @@ export default function Notifications(){
                 entre em contato com a empresa agora. Bom trabalho!
               </p>
               <div style={{flexDirection:'row'}}>
-              <button style={{color:'white',fontWeight:'bold',backgroundColor:'green'}}>Aceitar</button>
-              <button style={{color:'white',fontWeight:'bold',backgroundColor:'red'}}>Rejeitar</button>
+              <button style={{color:'white',fontWeight:'bold',backgroundColor:'green',border:'none',marginRight:'20px'}}>Aceitar</button>
+              <button style={{color:'white',fontWeight:'bold',backgroundColor:'red',border:'none'}}>Rejeitar</button>
               </div>
             </div>
-            </a>
           </DropdownItem>
           :<DropdownItem>
             <div className="notification__icon-wrapper">
