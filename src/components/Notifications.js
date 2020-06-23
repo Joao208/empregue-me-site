@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState,useEffect,useMemo } from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
+import socketio from 'socket.io-client'
 import '../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
 
+  const user_id = sessionStorage.getItem('user_id')
+
+  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
+      query: { user_id }
+  }), [user_id])
+
+  useEffect(() => {
+            socket.on('booking_response', booking => {
+                console.log(booking)
+            })
+  },[socket])
+
   async function HandleButton(event) {
     event.preventDefault()
     try {
+      if(visible === true){
+        setVisible(false)
+      }else{
       setVisible(true)
+      }
     } catch (error) {
       console.log(error)
     }
