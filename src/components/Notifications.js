@@ -5,10 +5,11 @@ import '../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-  const [approved, setApproved] = useState(false)
+  const [approved, setApproved] = useState(true)
   const [Title, setTitle] = useState('')
   const [id, setId] = useState('')
-  
+  const [bookingg, setBooking] = useState(false)
+
   const user_id = sessionStorage.getItem('user_id')
 
   const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
@@ -20,6 +21,9 @@ export default function Notifications(){
                 setApproved(booking.approved)
                 setTitle(booking.text.title)
                 setId(booking.bussines)
+                setBooking(true)
+                console.log(booking.text.title)
+                console.log(booking)
             })
   },[socket])
 
@@ -44,7 +48,7 @@ export default function Notifications(){
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
             <Badge pill theme="danger">
-              2
+              1
             </Badge>
           </div>
         </NavLink>
@@ -75,7 +79,8 @@ export default function Notifications(){
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/company-profile/${id}`}>
+          {bookingg
+            ?<a href={`/company-profile/${id}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
@@ -85,8 +90,11 @@ export default function Notifications(){
               </p>
             </div>
             </a>
+            : <p>Nenhuma notificação no momento</p>
+          }
           </DropdownItem>
-        }
+          }
+
         </Collapse>
       </NavItem>
     );

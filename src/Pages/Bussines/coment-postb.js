@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState,useMemo} from 'react';
+import React,{useEffect,useState} from 'react';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,11 +18,11 @@ import '../../css/inputcamera.css'
 
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
+import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
-import socketio from 'socket.io-client'
 
 function Feed() {
 
@@ -44,40 +44,17 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
 
-  const user_id = sessionStorage.getItem('user_id') 
-
-  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com', {
-        query: { user_id }
-    }), [user_id])
-   
-    useEffect(() => {
-      socket.on('like', (data) => {
-        setAvatar(data.avatar)
-        setUserAvatar(data.bussines.avatar)
-        setUsername(data.bussines.nome)
-        setComent(data.comments)
-        setLike(data.likeCount)
-        setComentCount(data.commentCount)
-        setIsVideo(data.isVideo)
-        setText(data.text.text)
-        setLink(data.text.link)
-        setId(data._id)
-        setCreatedAt(data.createdAt)
-        console.log(data)
-      })
-    }, [socket])
-    
-    useEffect(() => {
-      async function loadSpots() {
-        const response = await api.get('/profileview')
-        
-        setProfile(response.data.profile)
-      }
+  useEffect(() => {
+    async function loadSpots() {
+      const response = await api.get('/profileview')
       
-      loadSpots()
-    }, [] )
-
-    async function SearchValue(event){
+      setProfile(response.data.profile)
+    }
+    
+    loadSpots()
+  }, [] )
+  
+  async function SearchValue(event){
     event.preventDefault()
     
     history(`/conections/${name}`)
@@ -86,7 +63,7 @@ function Feed() {
   useEffect(() => {
     async function Feed() {
       try{
-      const response = await api.get(`/coments/add/populate/${id}`)
+      const response = await api.get(`/coments/postb/populate/${id}`)
       
       setAvatar(response.data.avatar)
       setUserAvatar(response.data.bussines.avatar)
@@ -95,11 +72,10 @@ function Feed() {
       setLike(response.data.likeCount)
       setComentCount(response.data.commentCount)
       setIsVideo(response.data.isVideo)
-      setText(response.data.text.text)
-      setLink(response.data.text.link)
+      setText(response.data.Text.Text)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
-      console.log(response.data.text.link)
+      console.log(response.data)
 
       }catch(e){
       console.log(e)
@@ -199,13 +175,6 @@ function Feed() {
                 </div>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{Text}</p>
-                  <ReactTinyLink
-                  cardSize="small"
-                  showGraphic={false}
-                  maxLine={2}
-                  minLine={1}
-                  url={'https://temquemudarissodps.com'}
-                  />
                   { isVideo
                   ? <video width="100%" height="100%" controls>
                   <source src={avatar ? avatar : null} type="video/ogg"/>
@@ -220,7 +189,7 @@ function Feed() {
                 onClick={
                   async function Like(event){
                   event.preventDefault()
-                    await api.post(`/likesadd/${idd}`)
+                    await api.post(`/postb/likes/${idd}`)
                   }
                 }
                 className="p-3 border-bottom osahan-post-footer"
@@ -230,7 +199,22 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {like}</button> 
-                <i className="feather-message-square" />{commentCount}              
+                <i className="feather-message-square" />{commentCount}
+                <button 
+                onClick={
+                  async function Share(event){
+                    try{
+                    event.preventDefault()
+                    await api.post(`/postb/share/${id}`)
+                    toast.success('Compartilhado ;)');
+                    }catch(e){
+                      console.log(e)
+                      toast.error('Ops!! Não deu para compartilhar tente novamente');
+                    }
+                  }}
+                className="mr-3 text-secondary" 
+                style={{border:'none',background:'none',marginLeft:'8px'}}>
+                  <i className="feather-share-2" /></button>  
                 </form>
                 {comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
@@ -249,7 +233,7 @@ function Feed() {
                   try {
                   event.preventDefault()
                   setLoading(true)
-                  await api.post(`/add/coment/${idd}`,{
+                  await api.post(`/postbussines/coment/${idd}`,{
                     text
                   })
                   setTextt('')

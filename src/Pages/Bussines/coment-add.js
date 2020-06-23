@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState,useMemo} from 'react';
+import React,{useEffect,useState} from 'react';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,11 +18,11 @@ import '../../css/inputcamera.css'
 
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
+import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
-import socketio from 'socket.io-client'
 
 function Feed() {
 
@@ -44,40 +44,17 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
 
-  const user_id = sessionStorage.getItem('user_id') 
-
-  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com', {
-        query: { user_id }
-    }), [user_id])
-   
-    useEffect(() => {
-      socket.on('like', (data) => {
-        setAvatar(data.avatar)
-        setUserAvatar(data.bussines.avatar)
-        setUsername(data.bussines.nome)
-        setComent(data.comments)
-        setLike(data.likeCount)
-        setComentCount(data.commentCount)
-        setIsVideo(data.isVideo)
-        setText(data.text.text)
-        setLink(data.text.link)
-        setId(data._id)
-        setCreatedAt(data.createdAt)
-        console.log(data)
-      })
-    }, [socket])
-    
-    useEffect(() => {
-      async function loadSpots() {
-        const response = await api.get('/profileview')
-        
-        setProfile(response.data.profile)
-      }
+  useEffect(() => {
+    async function loadSpots() {
+      const response = await api.get('/profileview')
       
-      loadSpots()
-    }, [] )
-
-    async function SearchValue(event){
+      setProfile(response.data.profile)
+    }
+    
+    loadSpots()
+  }, [] )
+  
+  async function SearchValue(event){
     event.preventDefault()
     
     history(`/conections/${name}`)

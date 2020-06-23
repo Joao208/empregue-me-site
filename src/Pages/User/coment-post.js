@@ -2,11 +2,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState} from 'react';
-import { ReactTinyLink } from "react-tiny-link";
+import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
- 
+import socketio from 'socket.io-client'
+
 import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
@@ -43,6 +43,29 @@ function Feed() {
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
+
+  const user_id = sessionStorage.getItem('user_id') 
+
+  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com', {
+        query: { user_id }
+    }), [user_id])
+   
+    useEffect(() => {
+      socket.on('like', (data) => {
+        setAvatar(data.avatar)
+        setUserAvatar(data.user.avatar)
+        setUsername(data.user.name)
+        setComent(data.comments)
+        setLike(data.likeCount)
+        setComentCount(data.commentCount)
+        setIsVideo(data.isVideo)
+        setText(data.Text.Text)
+        setId(data._id)
+        setCreatedAt(data.createdAt)
+        console.log(data)
+      })
+    }, [socket])
+    
 
   useEffect(() => {
     async function loadSpots() {
@@ -84,9 +107,6 @@ function Feed() {
     
     Feed()
   }, [] )
-
-    
-
 
   return (
 <>
