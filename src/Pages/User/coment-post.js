@@ -13,6 +13,7 @@ import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
+import socketio from 'socket.io-client'
 
 import '../../css/inputcamera.css'
 

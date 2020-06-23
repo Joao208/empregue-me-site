@@ -22,6 +22,7 @@ import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
+import socketio from 'socket.io-client'
 
 function Feed() {
 
@@ -52,7 +53,7 @@ function Feed() {
     useEffect(() => {
       socket.on('like', (data) => {
         setAvatar(data.avatar)
-        setUserAvatar(bussines.avatar)
+        setUserAvatar(data.bussines.avatar)
         setUsername(data.bussines.nome)
         setComent(data.comments)
         setLike(data.likeCount)
