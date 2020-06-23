@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useState,useEffect,useMemo}  from 'react';
+import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import {useNavigate} from 'react-router'
-import socketio from 'socket.io-client'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -31,11 +30,6 @@ function Feed() {
     sessionStorage.clear()
   }
   
-  const user_id = sessionStorage.getItem('user_id') 
-
-  const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com', {
-        query: { user_id }
-    }), [user_id])
 
   const lottieOptions = {
     title:'loading',
@@ -43,19 +37,6 @@ function Feed() {
     autoplay:true,
     animationData:EmptyAnimation
   }
-
-  useEffect(() => {
-    socket.on('like', (data) => {
-      setPost([...post, data])
-      console.log(data)
-    })
-  }, [post, socket])
-
-  useEffect(() => {
-    socket.on('follow_me', (data) => {
-      setProfile([...post, data])
-    })
-  }, [profile, socket])
 
   useEffect(() => {
     async function loadSpots() {

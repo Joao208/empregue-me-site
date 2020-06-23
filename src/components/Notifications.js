@@ -20,7 +20,7 @@ export default function Notifications(){
             socket.on('booking_response', booking => {
                 setApproved(booking.approved)
                 setTitle(booking.vacancies.text.title)
-                setId(booking.bussines)
+                setId(booking.vacancies.bussines)
                 setBooking(true)
             })
   },[socket])
