@@ -18,12 +18,12 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_response', booking => {
+                console.log(booking.text.title)
+                console.log(booking)
                 setApproved(booking.approved)
                 setTitle(booking.text.title)
                 setId(booking.bussines)
                 setBooking(true)
-                console.log(booking.text.title)
-                console.log(booking)
             })
   },[socket])
 
@@ -79,8 +79,7 @@ export default function Notifications(){
                 <i className="feather-bell"></i>
               </div>
             </div>
-          {bookingg
-            ?<a href={`/company-profile/${id}`}>
+            <a href={`/company-profile/${id}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
@@ -90,8 +89,6 @@ export default function Notifications(){
               </p>
             </div>
             </a>
-            : <p>Nenhuma notificação no momento</p>
-          }
           </DropdownItem>
           }
 
