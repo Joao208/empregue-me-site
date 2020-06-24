@@ -86,7 +86,7 @@ export default function Notifications(){
               }
               } style={{color:'white',fontWeight:'bold',backgroundColor:'green',border:'none',marginRight:'20px'}}>Aceitar</button>
             }
-              {loadding ? <p>Aguarde...</p> 
+              {loadding ? <div></div> 
               :<button onClick={
               async function Accept(event){
                 event.preventDefault()
