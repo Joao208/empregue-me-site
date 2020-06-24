@@ -35,6 +35,7 @@ import React, {
   
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('bussines',JSON.stringify(bussines))
+        sessionStorage.setItem('user_id', bussines._id)
         history('/')
       }catch(e){
        setLoading(false)

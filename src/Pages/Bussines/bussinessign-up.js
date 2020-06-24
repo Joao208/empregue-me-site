@@ -62,6 +62,7 @@ function Feed() {
 
       sessionStorage.setItem('bussines',JSON.stringify(bussines))
       sessionStorage.setItem('token', token);
+      sessionStorage.setItem('user_id', bussines._id)
       history('/edit-company-profile')
     }catch(e){
       setLoading(false)
