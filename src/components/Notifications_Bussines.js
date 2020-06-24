@@ -62,15 +62,16 @@ export default function Notifications(){
               </div>
             </div>
             {bookingg
-            ? <div className="notification__content">
+            ?<div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>{response.user.name}</span>
               <p>
                 O usuario{" "}
-                <a href={`/profile/${response.user._id}`}><span className="text-success text-semibold">{response.user.name}</span></a> requisitou
+                <a href={`/profileb/${response.user._id}`}><span className="text-success text-semibold">{response.user.name}</span></a> requisitou
                 sua vaga em {response.vacancies.text.title}.Veja o curriculo do usuario!
               </p>
               <div style={{flexDirection:'row'}}>
-              { loadding ? <button onClick={
+              { loadding ? <p>Aguarde...</p>
+              : <button onClick={
               async function Accept(event){
                 event.preventDefault()
                 setLoadding(true)
@@ -84,9 +85,9 @@ export default function Notifications(){
                 }
               }
               } style={{color:'white',fontWeight:'bold',backgroundColor:'green',border:'none',marginRight:'20px'}}>Aceitar</button>
-            : <p>Aguarde...</p>
             }
-              {loadding ? <button onClick={
+              {loadding ? <p>Aguarde...</p> 
+              :<button onClick={
               async function Accept(event){
                 event.preventDefault()
                 setLoadding(true)
@@ -98,8 +99,7 @@ export default function Notifications(){
                 setLoadding(false)
                 toast.error('Erro, tente novamente ;)')
                 }
-              }} style={{color:'white',fontWeight:'bold',backgroundColor:'red',border:'none'}}>Rejeitar</button>
-              : <p>Aguarde...</p>
+              }} style={{color:'white',fontWeight:'bold',backgroundColor:'red',border:'none'}}>Rejeitar</button>              
             }
               </div>
             </div>
@@ -107,8 +107,6 @@ export default function Notifications(){
           }
           </DropdownItem>
           ))}
-          
-
         </Collapse>
       </NavItem>
     );

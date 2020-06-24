@@ -3,3 +3,6 @@
     left: auto;
     margin: auto;
 }
+.nav-link-icon .text-center{
+    cursor: pointer;
+}
