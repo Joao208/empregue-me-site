@@ -5,10 +5,8 @@ import '../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-  const [approved, setApproved] = useState(false)
-  const [Title, setTitle] = useState('')
-  const [id, setId] = useState('')
   const [bookingg, setBooking] = useState(false)
+  const [response, setResponse] = useState([])
 
   const user_id = sessionStorage.getItem('user_id')
 
@@ -18,10 +16,8 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_response', booking => {
-                setApproved(booking.approved)
-                setTitle(booking.vacancies.text.title)
-                setId(booking.vacancies.bussines)
                 setBooking(true)
+                setResponse([booking])
             })
   },[socket])
 
@@ -54,18 +50,19 @@ export default function Notifications(){
           open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
-        { approved ? <DropdownItem>
+        {response.map(response => (
+         response.approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/company-profile/${id}`}> 
+            <a href={`/company-profile/${response.vacancies.bussines}`}> 
             <div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
                 Isso aí, a vaga de{" "}
-                <span className="text-success text-semibold">{Title}</span> foi aprovada
+                <span className="text-success text-semibold">{response.vacancies.text.title}</span> foi aprovada
                 entre em contato com a empresa agora. Bom trabalho!
               </p>
             </div>
@@ -78,12 +75,12 @@ export default function Notifications(){
               </div>
             </div>
           {bookingg
-            ?<a href={`/company-profile/${id}`}>
+            ?<a href={`/company-profile/${response.vacancies.bussines}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
               <p>
                 Infelizmente a vaga de{" "}
-                <span className="text-success text-semibold">{Title}</span> não foi aprovada
+                <span className="text-success text-semibold">{response.vacancies.text.title}</span> não foi aprovada
                 , tente novamente!
               </p>
             </div>
@@ -91,8 +88,7 @@ export default function Notifications(){
             : <p>Nenhuma notificação no momento</p>
           }
           </DropdownItem>
-          }
-
+        ))}
         </Collapse>
       </NavItem>
     );

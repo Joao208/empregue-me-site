@@ -1,14 +1,14 @@
 import React, { useState,useEffect,useMemo } from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
+import toast from 'react-toastify'
 import socketio from 'socket.io-client'
 import '../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-  const [approved, setApproved] = useState(true)
-  const [Title, setTitle] = useState('')
-  const [id, setId] = useState('')
   const [bookingg, setBooking] = useState(false)
+  const [loadding, setLoadding] = useState(false)
+  const [response, setResponse] = useState([])
 
   const user_id = sessionStorage.getItem('user_id')
 
@@ -18,7 +18,8 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_request', booking => {
-                console.log(booking)
+                setBooking(true)
+                setResponse([booking])
             })
   },[socket])
 
@@ -51,46 +52,60 @@ export default function Notifications(){
           open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
-        { approved ? <DropdownItem>
+      {response.map(response => (
+       <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <div className="notification__content">
-              <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
+            {bookingg
+            ? <div className="notification__content">
+              <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>{response.user.name}</span>
               <p>
-                Isso aí, a vaga de{" "}
-                <span className="text-success text-semibold">{Title}</span> foi aprovada
-                entre em contato com a empresa agora. Bom trabalho!
+                O usuario{" "}
+                <a href={`/profile/${response.user._id}`}><span className="text-success text-semibold">{response.user.name}</span></a> requisitou
+                sua vaga em {response.vacancies.text.title}.Veja o curriculo do usuario!
               </p>
               <div style={{flexDirection:'row'}}>
-              <button style={{color:'white',fontWeight:'bold',backgroundColor:'green',border:'none',marginRight:'20px'}}>Aceitar</button>
-              <button style={{color:'white',fontWeight:'bold',backgroundColor:'red',border:'none'}}>Rejeitar</button>
+              { loadding ? <button onClick={
+              async function Accept(event){
+                event.preventDefault()
+                setLoadding(true)
+                try{
+                await api.post(`/bookings/${response._id}/approvals`)
+                setLoadding(false)
+                toast.success('Aceitado ;)')
+              }catch{
+                setLoadding(false)
+                toast.error('Erro, tente novamente ;)')
+                }
+              }
+              } style={{color:'white',fontWeight:'bold',backgroundColor:'green',border:'none',marginRight:'20px'}}>Aceitar</button>
+            : <p>Aguarde...</p>
+            }
+              {loadding ? <button onClick={
+              async function Accept(event){
+                event.preventDefault()
+                setLoadding(true)
+                try{
+                await api.post(`/bookings/${response._id}/rejectins`)
+                setLoadding(false)
+                toast.success('Rejeitado ;)')
+                }catch{
+                setLoadding(false)
+                toast.error('Erro, tente novamente ;)')
+                }
+              }} style={{color:'white',fontWeight:'bold',backgroundColor:'red',border:'none'}}>Rejeitar</button>
+              : <p>Aguarde...</p>
+            }
               </div>
             </div>
-          </DropdownItem>
-          :<DropdownItem>
-            <div className="notification__icon-wrapper">
-              <div className="notification__icon">
-                <i className="feather-bell"></i>
-              </div>
-            </div>
-          {bookingg
-            ?<a href={`/company-profile/${id}`}>
-            <div className="notification__content">
-              <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
-              <p>
-                Infelizmente a vaga de{" "}
-                <span className="text-success text-semibold">{Title}</span> não foi aprovada
-                , tente novamente!
-              </p>
-            </div>
-            </a>
             : <p>Nenhuma notificação no momento</p>
           }
           </DropdownItem>
-          }
+          ))}
+          
 
         </Collapse>
       </NavItem>
