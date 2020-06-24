@@ -44,7 +44,7 @@ function Feed() {
       if(user.confirmate === true)
       return sessionStorage.setItem('confirmate', user.confirmate)
       
-      history('/')
+      history('https://panelem.herokuapp.com/')
     }catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');
