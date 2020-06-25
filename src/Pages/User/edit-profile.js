@@ -22,7 +22,7 @@ function Feed() {
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -50,7 +50,7 @@ function Feed() {
 
        sessionStorage.getItem('profile_id', profile_id)
 
-        history('/profile')
+        navigate('/profile')
     }catch{
       toast.error('Falha ao editar o perfil, verifique seus dados');
       setLoading(false)
@@ -70,7 +70,7 @@ function Feed() {
 
     loadSpots()
   }catch{
-    history('/sign-in')
+    navigate('/sign-in')
   }
 }, [] )
 

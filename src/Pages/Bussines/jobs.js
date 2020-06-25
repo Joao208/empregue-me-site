@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router';
 function Feed() {
 
   const [jobs, setJobs] = useState([])
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const [profile, setProfile] = useState([])
 
@@ -36,7 +36,7 @@ useEffect(() => {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`/conections/${name}`)
+  navigate(`/conections/${name}`)
 }
 
 return (

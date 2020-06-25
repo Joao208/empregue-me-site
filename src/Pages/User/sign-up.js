@@ -20,7 +20,7 @@ function Feed() {
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
   const [fill, setFill] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function Feed() {
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', _id)
       toast.success('Confirme seu email')
-      history('/phone')
+      navigate('/phone')
     }  catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');

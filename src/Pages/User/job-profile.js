@@ -34,7 +34,7 @@ function Feed() {
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const {id} = useParams()
   const [profile, setProfile] = useState([])
@@ -104,7 +104,7 @@ useEffect(() => {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`/conections/${name}`)
+  navigate(`/conections/${name}`)
 }
 
   return (

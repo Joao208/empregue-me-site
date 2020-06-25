@@ -16,7 +16,7 @@ function Feed() {
   const [token, setToken] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   async function ForgotPass(event) {
     event.preventDefault();
@@ -30,7 +30,7 @@ function Feed() {
 
       console.log(response)
 
-      history('/')
+      navigate('/')
     }catch(e){
       toast.error('Falha ao resetar senha, verifique seus dados');
       setLoading(false)

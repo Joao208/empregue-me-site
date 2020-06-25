@@ -17,7 +17,7 @@ import React, {
     const [phone, setPhone] = useState('')
     const [loading, setLoading] = useState(false)
     const [fill, setFill] = useState(false)
-    const history = useNavigate()
+    const navigate = useNavigate()
 
   
     async function PhoneAdd(event) {
@@ -32,7 +32,7 @@ import React, {
           phone,
         });
         console.log(response)
-        history('/phoneconfirm')
+        navigate('/phoneconfirm')
     }catch(e){
       setLoading(false)
       toast.error('Falha ao adicionar número, verifique seus dados');

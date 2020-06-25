@@ -21,7 +21,7 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
   const {id} = useParams()
@@ -57,7 +57,7 @@ useEffect(() => {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`/conections/${name}`)
+  navigate(`/conections/${name}`)
 }
 
   return (

@@ -18,7 +18,7 @@ import React, {
     const [token, setToken] = useState('')
     const [loading, setLoading] = useState(false)
     const [fill, setFill] = useState(false)
-    const history = useNavigate()
+    const navigate = useNavigate()
 
 
     async function Confirm(event) {
@@ -34,7 +34,7 @@ import React, {
           token
         });
         sessionStorage.setItem('phoneConfirme', true)
-        history('/edit-profile')
+        navigate('/edit-profile')
       }catch(e){
         setLoading(false)
         toast.error('Falha ao confirmar número, verifique seus dados');

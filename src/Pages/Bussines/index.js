@@ -29,7 +29,7 @@ import AdSense from 'react-adsense';
 
 function Feed() {
 
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   
   const [profile, setProfile] = useState([])
@@ -78,7 +78,7 @@ function Feed() {
   async function SearchValue(event){
     event.preventDefault()
     
-    history(`/conections/${name}`)
+    navigate(`/conections/${name}`)
   }
 
   useEffect(() => {

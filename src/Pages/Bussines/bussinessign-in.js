@@ -17,7 +17,7 @@ import React, {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const history = useNavigate()
+    const navigate = useNavigate()
   
     async function SignIn(event) {
       event.preventDefault();
@@ -36,7 +36,7 @@ import React, {
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('bussines',JSON.stringify(bussines))
         sessionStorage.setItem('user_id', bussines._id)
-        history('/')
+        navigate('/')
       }catch(e){
        setLoading(false)
        toast.error('Falha na autenticação, verifique seus dados');

@@ -18,7 +18,7 @@ function Feed() {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
   
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -63,7 +63,7 @@ function Feed() {
       sessionStorage.setItem('bussines',JSON.stringify(bussines))
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user_id', bussines._id)
-      history('/edit-company-profile')
+      navigate('/edit-company-profile')
     }catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');

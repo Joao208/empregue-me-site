@@ -18,7 +18,7 @@ function Feed() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [fill, setFill] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   async function SignIn(event) {
     event.preventDefault()
@@ -44,7 +44,7 @@ function Feed() {
       if(user.confirmate === true)
       return sessionStorage.setItem('confirmate', user.confirmate)
       
-      history('https://panelem.herokuapp.com/')
+      navigate('https://panelem.herokuapp.com/')
     }catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');

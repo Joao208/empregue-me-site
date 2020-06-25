@@ -16,7 +16,7 @@ function Feed() {
 
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
 
   async function ForgotPass(event) {
@@ -29,7 +29,7 @@ function Feed() {
 
       console.log(response)
 
-      history('/reset-password')
+      navigate('/reset-password')
     }catch(e){
       setLoading(false)
       toast.error('Falha ao buscar conta, verifique seus dados');

@@ -26,7 +26,7 @@ import socketio from 'socket.io-client'
 
 function Feed() {
 
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const [profile,setProfile] = useState([])
   const [text, setTextt] = useState('')
@@ -80,7 +80,7 @@ function Feed() {
     async function SearchValue(event){
     event.preventDefault()
     
-    history(`/conections/${name}`)
+    navigate(`/conections/${name}`)
   }
 
   useEffect(() => {

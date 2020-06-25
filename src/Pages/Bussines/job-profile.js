@@ -30,7 +30,7 @@ function Feed() {
   const [nome, setNome] = useState('')
   const [loading,setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
@@ -103,7 +103,7 @@ useEffect(() => {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`/conections/${name}`)
+  navigate(`/conections/${name}`)
 }
 
   return (

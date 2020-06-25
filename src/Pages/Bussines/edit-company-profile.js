@@ -18,7 +18,7 @@ function Feed() {
   const [bio, setBio] = useState('')
   const [site, setSite] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
@@ -42,7 +42,7 @@ function Feed() {
 
        sessionStorage.getItem('profile_id', profile_id)
 
-        history('/mycompany-profile')
+        navigate('/mycompany-profile')
     }catch{
       setLoading(false)
       toast.error('Falha ao editar o perfil, verifique seus dados');
@@ -63,7 +63,7 @@ function Feed() {
 
     loadSpots()
   }catch{
-    history('/sign-in')
+    navigate('/sign-in')
   }
 }, [] )
 

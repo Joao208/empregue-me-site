@@ -14,7 +14,7 @@ function Feed() {
   const [bussines, setBussines] = useState([])
   const [vacancies, setVacancies] = useState([])
   const {named} = useParams()
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const [profile, setProfile] = useState([])
   
@@ -48,7 +48,7 @@ function Feed() {
   async function SearchValue(event){
     event.preventDefault()
     
-    history(`/conections/${name}`)
+    navigate(`/conections/${name}`)
   }
 
 

@@ -22,7 +22,7 @@ function Feed() {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const history = useNavigate()
+  const navigate = useNavigate()
   const [name,setName] = useState('')
   const [text, setText] = useState('')
 
@@ -53,7 +53,7 @@ function Feed() {
 async function SearchValue(event){
   event.preventDefault()
   
-  history(`/conections/${name}`)
+  navigate(`/conections/${name}`)
 }
 
   return (

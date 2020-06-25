@@ -2,6 +2,7 @@ import React, { useState,useEffect,useMemo } from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
 import socketio from 'socket.io-client'
 import '../css/notification.css'
+import api from '../services/api'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
@@ -20,6 +21,20 @@ export default function Notifications(){
                 setResponse(booking.bookings)
             })
   },[socket])
+
+  useEffect(() => {
+    async function notifications(event){
+      try {
+        event.preventDefault()
+        const response = await api.get('/notifications')
+          setResponse(response.data)
+        console.log(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    notifications()
+  },[])
 
   async function HandleButton(event) {
     event.preventDefault()
@@ -41,9 +56,11 @@ export default function Notifications(){
         >
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
+            {response.map(response => (
             <Badge pill theme="danger">
-              1
+              {response.lenght}
             </Badge>
+            ))}
           </div>
         </NavLink>
         <Collapse
