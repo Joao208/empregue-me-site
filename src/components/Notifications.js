@@ -17,8 +17,7 @@ export default function Notifications(){
   useEffect(() => {
             socket.on('booking_response', booking => {
                 setBooking(true)
-                console.log(booking)
-                // setResponse([booking])
+                setResponse(booking.bookings)
             })
   },[socket])
 
@@ -51,20 +50,20 @@ export default function Notifications(){
           open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
-        {/* {response.map(response => (
+        {response.map(response => (
          response.approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/company-profile/${response.vacancies.bussines}`}> 
+            <a href={`/job-profile/${response.vacancies}`}> 
             <div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
-                Isso aí, a vaga de{" "}
-                <span className="text-success text-semibold">{response.vacancies.text.title}</span> foi aprovada
-                entre em contato com a empresa agora. Bom trabalho!
+                Isso aí, a requisição em uma de suas vagas{" "}
+                <span className="text-success text-semibold">foi aprovada</span> clique agora e confira.
+                 Bom trabalho!
               </p>
             </div>
             </a>
@@ -76,20 +75,20 @@ export default function Notifications(){
               </div>
             </div>
           {bookingg
-            ?<a href={`/company-profile/${response.vacancies.bussines}`}>
+            ?<a href={`/job-profile/${response.vacancies}`}>
             <div className="notification__content">
-              <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;)</span>
-              <p>
-                Infelizmente a vaga de{" "}
-                <span className="text-success text-semibold">{response.vacancies.text.title}</span> não foi aprovada
-                , tente novamente!
+              <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;(</span>
+                <p>
+                Ha não, a requisição em uma de suas vagas{" "}
+                <span className="text-success text-semibold">foi rejeitada</span> clique agora e confira o porque. 
+                Tente novamente!
               </p>
             </div>
             </a>
             : <p>Nenhuma notificação no momento</p>
           }
           </DropdownItem>
-        ))} */}
+        ))} 
         </Collapse>
       </NavItem>
     );
