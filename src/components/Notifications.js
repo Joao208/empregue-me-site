@@ -17,7 +17,8 @@ export default function Notifications(){
   useEffect(() => {
             socket.on('booking_response', booking => {
                 setBooking(true)
-                setResponse([booking])
+                console.log(booking)
+                // setResponse([booking])
             })
   },[socket])
 
@@ -50,7 +51,7 @@ export default function Notifications(){
           open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
-        {response.map(response => (
+        {/* {response.map(response => (
          response.approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
@@ -88,7 +89,7 @@ export default function Notifications(){
             : <p>Nenhuma notificação no momento</p>
           }
           </DropdownItem>
-        ))}
+        ))} */}
         </Collapse>
       </NavItem>
     );
