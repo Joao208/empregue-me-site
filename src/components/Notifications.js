@@ -26,7 +26,7 @@ export default function Notifications(){
     async function notifications(){
       try {
         const response = await api.get('/notifications')
-          setResponse(response.data.bookings)
+          setResponse([response.data.bookings])
         console.log(response)
       } catch (error) {
         console.log(error)
