@@ -7,8 +7,7 @@ import {useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
- 
-  
+import Upload from '../../components/Upload'
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
@@ -168,6 +167,7 @@ async function SearchValue(event){
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+          <Upload></Upload>
         </aside>
         ))
         : <Lottie options={lottieOptions} 
