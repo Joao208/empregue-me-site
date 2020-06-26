@@ -19,6 +19,7 @@ export default function Notifications(){
             socket.on('booking_response', booking => {
                 setBooking(true)
                 setResponse(booking.bookings)
+                console.log(response)
             })
   },[socket])
 
@@ -59,7 +60,7 @@ export default function Notifications(){
             {response.map(response => (
               response.bookings.map(response => (
             <Badge pill theme="danger">
-              response.lenght
+              {response.lenght}
             </Badge>
               ))
             ))}
