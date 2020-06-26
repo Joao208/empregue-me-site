@@ -57,7 +57,7 @@ export default function Notifications(){
             <i className="feather-bell"></i>
             {response.map(response => (
             <Badge pill theme="danger">
-              {response.lenght}
+              1
             </Badge>
             ))}
           </div>
