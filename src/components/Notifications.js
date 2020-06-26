@@ -68,13 +68,14 @@ export default function Notifications(){
           className="navbar-expand navbar-nav dropdown-menu"
         >
         {response.map(response => (
-         response.bookings.approved ? <DropdownItem>
+          response.bookings.map(response => (
+         response.approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/job-profile/${response.bookings.vacancies}`}> 
+            <a href={`/job-profile/${response.vacancies}`}> 
             <div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
@@ -91,8 +92,7 @@ export default function Notifications(){
                 <i className="feather-bell"></i>
               </div>
             </div>
-          {bookingg
-            ?<a href={`/job-profile/${response.bookings.vacancies}`}>
+            <a href={`/job-profile/${response.vacancies}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;(</span>
                 <p>
@@ -102,10 +102,8 @@ export default function Notifications(){
               </p>
             </div>
             </a>
-            : console.log(response.bookings)
-
-          }
           </DropdownItem>
+          ))
         ))} 
         </Collapse>
       </NavItem>
