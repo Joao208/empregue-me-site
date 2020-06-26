@@ -83,6 +83,9 @@ export default function Notifications(){
                  Bom trabalho!
               </p>
             </div>
+            {
+              console.log(response.bookings.approved)
+            }
             </a>
           </DropdownItem>
           :<DropdownItem>
