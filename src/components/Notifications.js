@@ -102,7 +102,7 @@ export default function Notifications(){
               </p>
             </div>
             </a>
-            : console.log(response.bookings.approved)
+            : console.log(response.bookings)
 
           }
           </DropdownItem>
