@@ -26,8 +26,8 @@ export default function Notifications(){
     async function notifications(){
       try {
         const response = await api.get('/notifications')
+        console.log(response.data.bookings)
           setResponse([response.data.bookings])
-        console.log(response)
       } catch (error) {
         console.log(error)
       }
@@ -49,17 +49,15 @@ export default function Notifications(){
   }
     return (
       <NavItem className="border-right dropdown notifications">
-        <NavLink
+        {/* <NavLink
           className="nav-link-icon text-center"
           onClick={HandleButton}
         >
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
-            {response.map(response => (
             <Badge pill theme="danger">
               1
             </Badge>
-            ))}
           </div>
         </NavLink>
         <Collapse
@@ -105,7 +103,7 @@ export default function Notifications(){
           }
           </DropdownItem>
         ))} 
-        </Collapse>
+        </Collapse> */}
       </NavItem>
     );
 }
