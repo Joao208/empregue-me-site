@@ -27,7 +27,7 @@ export default function Notifications(){
       try {
         const response = await api.get('/notifications')
         console.log(response.data)
-          setResponse([response.data.bookings])
+          setResponse(response.data.bookings)
       } catch (error) {
         console.log(error)
       }
