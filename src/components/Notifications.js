@@ -83,9 +83,6 @@ export default function Notifications(){
                  Bom trabalho!
               </p>
             </div>
-            {
-              console.log(response.bookings.approved)
-            }
             </a>
           </DropdownItem>
           :<DropdownItem>
@@ -105,7 +102,8 @@ export default function Notifications(){
               </p>
             </div>
             </a>
-            : <p>Nenhuma notificação no momento</p>
+            : console.log(response.bookings.approved)
+
           }
           </DropdownItem>
         ))} 
