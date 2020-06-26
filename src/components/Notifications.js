@@ -23,9 +23,8 @@ export default function Notifications(){
   },[socket])
 
   useEffect(() => {
-    async function notifications(event){
+    async function notifications(){
       try {
-        event.preventDefault()
         const response = await api.get('/notifications')
           setResponse(response.data)
         console.log(response)
