@@ -18,7 +18,7 @@ export default function Notifications(){
   useEffect(() => {
             socket.on('booking_response', booking => {
                 setBooking(true)
-                setResponse(booking.bookings)
+                setResponse([booking.bookings])
                 console.log(response)
             })
   },[socket])
