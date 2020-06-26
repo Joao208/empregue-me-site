@@ -57,9 +57,11 @@ export default function Notifications(){
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
             {response.map(response => (
+              response.bookings.map(response => (
             <Badge pill theme="danger">
-              1
+              response.lenght
             </Badge>
+              ))
             ))}
           </div>
         </NavLink>
