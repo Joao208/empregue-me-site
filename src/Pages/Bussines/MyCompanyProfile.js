@@ -46,7 +46,7 @@ function Feed() {
     try{
       event.preventDefault()
       sessionStorage.clear()
-      history.push('sign-in')
+     navigate('/sign-in')
     }catch(e){
       console.log(e)
     }
