@@ -49,15 +49,17 @@ export default function Notifications(){
   }
     return (
       <NavItem className="border-right dropdown notifications">
-        {/* <NavLink
+        <NavLink
           className="nav-link-icon text-center"
           onClick={HandleButton}
         >
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
+            {response.map(response => (
             <Badge pill theme="danger">
-              1
+              {response.bookings.lenght}
             </Badge>
+            ))}
           </div>
         </NavLink>
         <Collapse
@@ -65,13 +67,13 @@ export default function Notifications(){
           className="navbar-expand navbar-nav dropdown-menu"
         >
         {response.map(response => (
-         response.approved ? <DropdownItem>
+         response.bookings.approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
                 <i className="feather-bell"></i>
               </div>
             </div>
-            <a href={`/job-profile/${response.vacancies}`}> 
+            <a href={`/job-profile/${response.bookings.vacancies}`}> 
             <div className="notification__content">
               <span className="notification__category" style={{color:'green',fontWeight:'bold'}}>Aceito</span>
               <p>
@@ -89,7 +91,7 @@ export default function Notifications(){
               </div>
             </div>
           {bookingg
-            ?<a href={`/job-profile/${response.vacancies}`}>
+            ?<a href={`/job-profile/${response.bookings.vacancies}`}>
             <div className="notification__content">
               <span className="notification__category" style={{color:'red',fontWeight:'bold'}}>Tente novamente ;(</span>
                 <p>
@@ -103,7 +105,7 @@ export default function Notifications(){
           }
           </DropdownItem>
         ))} 
-        </Collapse> */}
+        </Collapse>
       </NavItem>
     );
 }
