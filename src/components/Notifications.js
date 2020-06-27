@@ -18,7 +18,8 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_response', booking => {
-              console.log(booking)
+              console.log(typeof booking.bookings)
+              console.log(booking.bookings)
                 setBooking(true)
                 setResponse(booking.bookings)
                 setSocket(true)
