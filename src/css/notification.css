@@ -6,3 +6,6 @@
 .nav-link-icon .text-center{
     cursor: pointer;
 }
+.navbar-expand .navbar-nav .dropdown-menu{
+    overflow-y: scroll;
+}
