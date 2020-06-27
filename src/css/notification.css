@@ -8,5 +8,5 @@
 }
 .navbar-expand .navbar-nav .dropdown-menu{
     overflow-y: scroll;
-    max-width: 500%;
+    max-height: 500%;
 }
