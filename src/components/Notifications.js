@@ -19,7 +19,7 @@ export default function Notifications(){
             socket.on('booking_response', booking => {
               console.log(typeof booking.bookings)
               console.log(booking.bookings)
-                setResponse(booking.bookings)
+                setResponse([booking.bookings])
                 setSocket(true)
             })
   },[socket])

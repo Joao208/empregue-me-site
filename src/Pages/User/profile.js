@@ -14,6 +14,7 @@ import api from '../../services/api'
 import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
+import List from '../../components/FileList'
 
 
 function Feed() {
@@ -169,6 +170,7 @@ async function SearchValue(event){
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <Upload></Upload>
+          <List></List>
         </aside>
         ))
         : <Lottie options={lottieOptions} 
