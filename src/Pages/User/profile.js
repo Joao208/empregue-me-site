@@ -167,6 +167,7 @@ async function SearchValue(event){
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+          <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <Upload></Upload>
         </aside>
         ))
