@@ -6,7 +6,6 @@ import api from '../services/api'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-  const [bookingg, setBooking] = useState(false)
   const [response, setResponse] = useState([])
   const [socketed, setSocket] = useState(false)
 
@@ -20,7 +19,6 @@ export default function Notifications(){
             socket.on('booking_response', booking => {
               console.log(typeof booking.bookings)
               console.log(booking.bookings)
-                setBooking(true)
                 setResponse(booking.bookings)
                 setSocket(true)
             })
