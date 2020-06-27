@@ -69,6 +69,7 @@ export default function Notifications(){
           className="navbar-expand navbar-nav dropdown-menu"
         >
         {response.map(response => (
+         response.bookings.map(response => (
          response.approved ? <DropdownItem>
             <div className="notification__icon-wrapper">
               <div className="notification__icon">
@@ -103,6 +104,7 @@ export default function Notifications(){
             </div>
             </a>
           </DropdownItem>
+         ))
         ))}
         </Collapse>
       : <Collapse
@@ -110,7 +112,6 @@ export default function Notifications(){
       className="navbar-expand navbar-nav dropdown-menu"
       >
     {response.map(response => (
-    response.bookings.map(response => (
      response.approved ? <DropdownItem>
         <div className="notification__icon-wrapper">
           <div className="notification__icon">
@@ -145,7 +146,6 @@ export default function Notifications(){
         </div>
         </a>
       </DropdownItem>
-    ))
     ))}
     </Collapse>
       }
