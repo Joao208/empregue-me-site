@@ -6,15 +6,14 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
- 
-  import Lottie from 'react-lottie'
-
+import Lottie from 'react-lottie'
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
 import EmptyAnimation from '../../Animations/empty.json'
 import { useNavigate } from 'react-router';
-import { toast } from 'react-toastify';
+import { Map, TileLayer, Marker } from 'react-leaflet'
+import {MapContainer} from '../../style.js'
 
 function Feed() {
 
@@ -159,6 +158,9 @@ async function SearchValue(event){
               <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.cnpjI.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
               <p className="mb-0 text-muted">{profile.bussines.cnpjI.logradouro}</p>
             </div>
+            {
+              console.log(profile.bussines.location.coordinates)
+            }
             <div className="profile-right ml-auto">
               <a href={profile.bussines.site} className="btn btn-light mr-2"> <i className="feather-external-link" /> Visit website </a>
             </div>
@@ -208,6 +210,20 @@ async function SearchValue(event){
                     </tbody>
                   </table>
                 </div>
+              </div>
+              <div className="box shadow-sm border rounded bg-white mb-3">
+                <div className="box-title border-bottom p-3">
+                  <h6 className="m-0">Localização</h6>
+                </div>
+                <MapContainer>
+                  <Map center={[-22.0670433,-46.9707956]} zoom={15} >
+                    <TileLayer
+                      attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[-22.0670433,-46.9707956]} />
+                  </Map>
+                </MapContainer>
               </div>
               <div className="box shadow-sm border rounded bg-white mb-3">
                 <div className="box-title border-bottom p-3">
