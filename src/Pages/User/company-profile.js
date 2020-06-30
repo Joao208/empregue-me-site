@@ -10,11 +10,12 @@ import moment from 'moment'
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
-import EmptyAnimation from '../../Animations/empty.json'
 import { useNavigate, useParams } from 'react-router';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Map, TileLayer, Marker } from 'react-leaflet'
+import {MapContainer} from '../../style.js'
 
 function Feed() {
 
@@ -26,6 +27,8 @@ function Feed() {
   const [profiled, setProfiled] = useState([])
   const {id} = useParams()
   const [data,setData] = useState('')
+  const [followed, setFollowed] = useState(false)
+
 
   useEffect(() => {
     async function loadSpots() {
@@ -58,6 +61,22 @@ async function SearchValue(event){
   
   navigate(`/conections/${name}`)
 }
+
+async function Follow(event){
+  event.preventDefault()
+
+  await api.post(`/followb/${id}`)
+  setFollowed(true)
+
+}
+
+async function Unfollow(event){
+  event.preventDefault()
+
+  await api.delete(`/unfollowb/${id}`)
+  setFollowed(false)
+}
+
 
   return (
      <>
@@ -198,6 +217,24 @@ async function SearchValue(event){
               </div>
               <div className="box shadow-sm border rounded bg-white mb-3">
                 <div className="box-title border-bottom p-3">
+                  <h6 className="m-0">Localização</h6>
+                </div>
+                {profile.map(profile => (
+                  profile.bussines.location.coordinates.map(location => (
+                <MapContainer>
+                  <Map center={[location.longitude,location.latitude]} zoom={15} >
+                    <TileLayer
+                      attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[location.longitude,location.latitude]} />
+                  </Map>
+                </MapContainer>
+                  ))
+                ))}
+              </div>
+              <div className="box shadow-sm border rounded bg-white mb-3">
+                <div className="box-title border-bottom p-3">
                   <h6 className="m-0">Publicaçoes</h6>
                 </div>
                 {post.map(postd => (
@@ -330,40 +367,15 @@ async function SearchValue(event){
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-              <button onClick={
-                async function Follow(event){
-                  event.preventDefault()
-                  const response = await api.post(`/user/followb/${profile.bussines._id}`)
-                  console.log(response.data)
-                  console.log(profile.bussines._id)
-                }
-              } 
-              className="font-weight-bold p-3 d-block" 
-              style={{
-                textAlign: 'center', 
-                width: '100%', 
-                backgroundColor: 'white', 
-                color: 'blue', 
-                border: 'none'
-              }}>
-              Seguir 
-              </button>
-              <button onClick={
-                async function Unfollow(event){
-                  event.preventDefault()
-                  const response = await api.delete(`/user/unfollowb/${profile.bussines._id}`)
-                  console.log(response.data)
-                }
-              } 
-              style={{
-                textAlign: 'center', 
-                width: '100%', 
-                backgroundColor: 'white', 
-                color: 'blue', 
-                border: 'none'
-              }}
-              className="font-weight-bold p-3 d-block">Deixar de seguir</button>
-          </div>
+            {followed
+            ?<form onSubmit={Unfollow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Deixar de seguir </button>
+            </form>
+            :<form onSubmit={Follow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
+            </form>          
+            }
+            </div>
         </aside>
         ))}
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">

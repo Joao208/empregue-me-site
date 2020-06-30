@@ -155,7 +155,7 @@ async function SearchValue(event){
         <div key={profile._id} className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.cnpjI.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
+              <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
               <p className="mb-0 text-muted">{profile.bussines.cnpjI.logradouro}</p>
             </div>
             {
@@ -196,17 +196,23 @@ async function SearchValue(event){
                   <table className="table table-borderless mb-0">
                     <tbody>
                     {profile.map(profile => (
+                    <tbody>
                       <tr key={profile._id} className="border-bottom">
                         <th className="p-3">Website</th>
                         <td className="p-3"><a href="#">{profile.bussines.site}</a></td>
                       </tr>
-                      ))}
-                      {activity.map(activity => (
-                      <tr key={activity._id} className="border-bottom">
-                        <th className="p-3">Ramo</th>
-                        <td className="p-3">{activity.bussines.ramo}</td>
+                      {profile.bussines.cnpjI.atividade_principal.map(text => (
+                      <tr className="border-bottom">
+                        <th className="p-3">Atividade Principal</th>
+                        <td className="p-3">{text.text}</td>
                       </tr>
                       ))}
+                      <tr className="border-bottom">
+                        <th className="p-3">Telefone</th>
+                        <td className="p-3"><a href="#">{profile.bussines.cnpjI.telefone}</a></td>
+                      </tr>
+                    </tbody>
+                    ))}
                     </tbody>
                   </table>
                 </div>
@@ -215,15 +221,19 @@ async function SearchValue(event){
                 <div className="box-title border-bottom p-3">
                   <h6 className="m-0">Localização</h6>
                 </div>
+                {profile.map(profile => (
+                  profile.bussines.location.coordinates.map(location => (
                 <MapContainer>
-                  <Map center={[-22.0670433,-46.9707956]} zoom={15} >
+                  <Map center={[location.longitude,location.latitude]} zoom={15} >
                     <TileLayer
                       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[-22.0670433,-46.9707956]} />
+                    <Marker position={[location.longitude,location.latitude]} />
                   </Map>
                 </MapContainer>
+                  ))
+                ))}
               </div>
               <div className="box shadow-sm border rounded bg-white mb-3">
                 <div className="box-title border-bottom p-3">
