@@ -6,8 +6,6 @@ import moment from 'moment'
 import {useParams,useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
- 
-  
 import Lottie from 'react-lottie'
 import api from '../../services/api'
 import img_logo_svg from '../../img/logo.png'
@@ -56,6 +54,13 @@ useEffect(() => {
   loadSpots()
 }, [] )
 
+useEffect(() => {
+  async function followed() {
+    const response = await api.get(`/followed/${id}`)
+
+    console.log(response.data)    
+  }
+})
 async function SearchValue(event){
   event.preventDefault()
   
