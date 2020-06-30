@@ -423,7 +423,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
@@ -506,7 +506,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`https://light-empregue-me.herokuapp.com/add/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 </form>
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
@@ -567,7 +567,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`https://light-empregue-me.herokuapp.com/postb/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
@@ -652,7 +652,6 @@ function Feed() {
             </div>
             <div className="overflow-hidden border-top">
               <a className="font-weight-bold p-3 d-block" href="profile.html"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Ver meu perfil </font></font></a>
-              <a className="font-weight-bold p-3 d-block" href="https://dark-empregue-me.herokuapp.com/dark"><h5>Testar modo noturno</h5></a>
             </div>
           </div>
           ))}
