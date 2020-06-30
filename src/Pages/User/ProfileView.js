@@ -22,7 +22,7 @@ function Feed() {
   const navigate = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
-  const [followed, setFollowed] = useState('')
+  const [followed, setFollowed] = useState(false)
 
   const lottieOptions = {
     title:'loading',
@@ -59,7 +59,7 @@ useEffect(() => {
   async function followed() {
     const response = await api.get(`/followed/${id}`)
 
-    setFollowed(response.data)
+    setFollowed(response.data.followed)
     console.log(response.data)
     console.log(response.data.followed)
 
@@ -76,7 +76,15 @@ async function SearchValue(event){
     event.preventDefault()
 
     await api.post(`/follow/${id}`)
+    setFollowed(true)
 
+  }
+
+  async function Unfollow(event){
+    event.preventDefault()
+
+    await api.delete(`/unfollow/${id}`)
+    setFollowed(false)
   }
 
   return (
@@ -176,9 +184,14 @@ async function SearchValue(event){
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-            <form onSubmit={Follow} className="overflow-hidden border-top">
-              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
+            {followed
+            ?<form onSubmit={Unfollow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Deixar de seguir </button>
             </form>
+            :<form onSubmit={Follow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
+            </form>          
+            }
           </div>
           : <Lottie options={lottieOptions
           } 

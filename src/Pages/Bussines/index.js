@@ -6,7 +6,7 @@ import React,{useEffect,useState,useMemo} from 'react';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
- 
+
 import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
@@ -408,7 +408,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" /></a>{postd.commentCount}
                 <button 
                 onClick={
                   async function Share(event){
