@@ -18,7 +18,7 @@ export default function Notifications(){
             socket.on('booking_response', booking => {
               console.log(typeof booking.bookings)
               console.log(booking.bookings)
-                setResponse([booking.bookings])
+                setResponse(booking.bookings)
             })
   },[socket])
 
@@ -26,7 +26,7 @@ export default function Notifications(){
     async function notifications(){
       try {
         const response = await api.get('/notifications')
-        console.log(response.data)
+        console.log(response.data.bookings)
         console.log(typeof response.data)
           setResponse(response.data.bookings)
       } catch (error) {

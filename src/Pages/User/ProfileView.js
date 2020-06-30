@@ -22,6 +22,7 @@ function Feed() {
   const navigate = useNavigate()
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
+  const [followed, setFollowed] = useState('')
 
   const lottieOptions = {
     title:'loading',
@@ -58,7 +59,10 @@ useEffect(() => {
   async function followed() {
     const response = await api.get(`/followed/${id}`)
 
-    console.log(response.data)    
+    setFollowed(response.data)
+    console.log(response.data)
+    console.log(response.data.followed)
+
   }
   followed()
 },[])
