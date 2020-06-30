@@ -25,6 +25,7 @@ function Feed() {
   const navigate = useNavigate()
   const [name,setName] = useState('')
   const [text, setText] = useState('')
+  const [uploadedFiles, setUploadedFiles] = useState([])
 
   async function SignOut() {
     sessionStorage.clear()
@@ -170,7 +171,9 @@ async function SearchValue(event){
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <Upload></Upload>
-          <List></List>
+          {!!uploadedFiles.length && (
+            <List files={uploadedFiles} onDelete={this.handleDelete} />
+          )}
         </aside>
         ))
         : <Lottie options={lottieOptions} 
