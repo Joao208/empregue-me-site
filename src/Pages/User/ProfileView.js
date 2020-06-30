@@ -60,7 +60,9 @@ useEffect(() => {
 
     console.log(response.data)    
   }
-})
+  followed()
+},[])
+
 async function SearchValue(event){
   event.preventDefault()
   
@@ -69,7 +71,7 @@ async function SearchValue(event){
   async function Follow(event){
     event.preventDefault()
 
-    const response = await api.post(`/follow/${id}`)
+    await api.post(`/follow/${id}`)
 
   }
 
