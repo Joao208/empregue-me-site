@@ -30,16 +30,6 @@ function Feed() {
     }
     loadUsers()
   }, [])
-
-  useEffect(() => {
-    async function loadSpots() {
-      const response = await api.get('/profileview')
-      
-      setProfile(response.data.profile)
-    }
-    
-    loadSpots()
-  }, [] )
   
 
   return (
