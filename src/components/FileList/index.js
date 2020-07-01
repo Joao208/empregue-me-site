@@ -4,7 +4,8 @@ import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
 
 import { Container, FileInfo, Preview } from "./styles";
 
-const FileList = ({ files, onDelete }) => (
+function List(){
+return (
   <Container>
     {files.map(uploadedFile => (
       <li key={uploadedFile.id}>
@@ -52,6 +53,6 @@ const FileList = ({ files, onDelete }) => (
       </li>
     ))}
   </Container>
-);
+)}
 
-export default FileList;
+export default List;

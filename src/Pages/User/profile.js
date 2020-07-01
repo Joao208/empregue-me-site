@@ -11,7 +11,6 @@ import Upload from '../../components/Upload'
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
-import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
 import List from '../../components/FileList'
@@ -38,7 +37,7 @@ function Feed() {
     setUploadedFiles(response.data.map(file => ({
           id: file._id,
           name: file.name,
-          readableSize: filesize(file.size),
+          readableSize: file.size,
           preview: file.url,
           uploaded: true,
           url: file.url
