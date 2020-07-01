@@ -23,6 +23,7 @@ function Feed() {
   const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
   const [followed, setFollowed] = useState(false)
+  const [text, setTextt] = useState('')
 
   const lottieOptions = {
     title:'loading',
