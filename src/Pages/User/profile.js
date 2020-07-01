@@ -24,7 +24,7 @@ function Feed() {
   const [data,setData] = useState('')
   const navigate = useNavigate()
   const [name,setName] = useState('')
-  const [text, setText] = useState('')
+  const [text, setTextt] = useState('')
   const [uploadedFiles, setUploadedFiles] = useState([])
 
   async function SignOut() {
