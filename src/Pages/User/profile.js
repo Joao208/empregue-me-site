@@ -221,7 +221,7 @@ function Feed() {
                     <div className="text-truncate">{postd.user.name}</div>
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
-                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}<DeletePost></DeletePost></span>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><DeletePost></DeletePost>
                 </div>
                 </a>
                 <div className="p-3 border-bottom osahan-post-body">

@@ -154,7 +154,7 @@ useEffect(() => {
                       ))}
                       <tr className="border-bottom">
                         <th className="p-3">Telefone</th>
-                        <td className="p-3"><a href="#">{profile.bussines.cnpjI.telefone}</a></td>
+                        <td className="p-3"><a href={`tel:${profile.bussines.cnpjI.telefone}`}>{profile.bussines.cnpjI.telefone}</a></td>
                       </tr>
                     </tbody>
                     ))}
