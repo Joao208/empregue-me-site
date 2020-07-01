@@ -29,7 +29,6 @@ function Feed() {
   const [data,setData] = useState('')
   const [followed, setFollowed] = useState(false)
 
-
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get(`/profilebussinesv/${id}`)
@@ -65,7 +64,7 @@ async function SearchValue(event){
 async function Follow(event){
   event.preventDefault()
 
-  await api.post(`/followb/${id}`)
+  await api.post(`/user/followb/${id}`)
   setFollowed(true)
 
 }
@@ -73,10 +72,21 @@ async function Follow(event){
 async function Unfollow(event){
   event.preventDefault()
 
-  await api.delete(`/unfollowb/${id}`)
+  await api.delete(`/user/unfollowb/${id}`)
   setFollowed(false)
 }
 
+useEffect(() => {
+  async function followed() {
+    const response = await api.get(`/followedb/${id}`)
+
+    setFollowed(response.data.followed)
+    console.log(response.data)
+    console.log(response.data.followed)
+
+  }
+  followed()
+},[])
 
   return (
      <>
