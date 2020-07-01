@@ -6,7 +6,6 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';

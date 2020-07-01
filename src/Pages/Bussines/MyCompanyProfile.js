@@ -6,11 +6,12 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 import { ReactTinyLink } from "react-tiny-link";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
-import EmptyAnimation from '../../Animations/empty.json'
 import { useNavigate } from 'react-router';
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import {MapContainer} from '../../style.js'
