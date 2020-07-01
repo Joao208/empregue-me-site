@@ -64,7 +64,7 @@ function Feed() {
 
     setLoading(true)
     try{
-      const response = await api.post('/auth/schoolregisters',data)
+      const response = await api.post('/schoolregisters',data)
 
       console.log(response)
 

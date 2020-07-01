@@ -28,7 +28,7 @@ function Feed() {
     }
     setLoading(true)
     try{
-      const response = await api.post('/auth/authenticate', {
+      const response = await api.post('/authenticate', {
         email,
         password
       });

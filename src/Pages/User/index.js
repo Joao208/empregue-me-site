@@ -6,7 +6,6 @@ import React,{useEffect,useState,useMemo} from 'react';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import socketio from 'socket.io-client'
 
 import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
@@ -14,25 +13,19 @@ import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
+import Header from '../../components/Header'
 
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import '../../css/inputcamera.css'
 
-import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
-import img_fav from '../../img/fav.png'
 import api from '../../services/api'
-import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
-import Notification from '../../components/Notification/Notifications'
 
 function Feed() {
-
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   
   const [profile, setProfile] = useState([])
   const [post, setPosts] = useState([])
@@ -50,18 +43,6 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
-
-  const user_id = sessionStorage.getItem('user_id')
-
-    const socket = useMemo(() => socketio('https://empregue-me-backend.herokuapp.com/', {
-      query: { user_id }
-  }), [user_id])
-
-  useEffect(() => {
-            socket.on('booking_response', booking => {
-                console.log(`${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
-            })
-  },[socket])
 
 
   useEffect(() => {
@@ -90,12 +71,6 @@ function Feed() {
     loadSpots()
   }, [] )
   
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    navigate(`/conections/${name}`)
-  }
-
   useEffect(() => {
     async function Feed() {
       try{
@@ -179,73 +154,7 @@ function Feed() {
   return (
 <>
 <div>
-  <meta charSet="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <meta name="description" content />
-  <meta name="author" content />
-  <link rel="icon" type="image/png" href={img_fav} />
-  <title>Empregue.me</title>
-
-  <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
-    <div className="container">
-      <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
-      </a>
-      <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-        <div className="input-group">
-          <input 
-          type="search"                   
-          placeholder='Buscar pessoas, vagas e empresas'
-          aria-label="Search"
-          value={name}
-          onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" 
-          className="form-control shadow-none border-0"
-          />
-          <div>
-            <button className="btn" type="button">
-              <i className="feather-search" />
-            </button>
-          </div>
-          </div>
-      </form>
-      <ul className="navbar-nav ml-auto d-flex align-items-center">
-      <li className="nav-item dropdown no-arrow d-sm-none">
-        <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
-          <div className="input-group">
-          <input 
-          type="search"                   
-          placeholder='Buscar pessoas, vagas e empresas'
-          aria-label="Search"
-          value={name}
-          onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" 
-          className="form-control shadow-none border-0"
-          />
-          <div>
-            <button className="btn" type="button">
-              <i className="feather-search" />
-            </button>
-          </div>
-          </div>
-          </form>
-        </a>
-        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-        </div>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="jobs.html"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
-      </li>
-      <Notification></Notification>
-        {profile.map(profile => (
-      <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle" style={{marginLeft:'4px'}}  src={profile.user.avatar} /></a>
-        <div className="status-indicator bg-success" />
-      </div>
-      ))}
-    </ul>
-    </div>
-  </nav>
+  <Header></Header>
   <div className="py-4">
     <div className="container">
       <div className="row">

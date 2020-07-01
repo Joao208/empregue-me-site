@@ -20,7 +20,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const [activity, setActivity] = useState([])
   const [data,setData] = useState('')
   const navigate = useNavigate()
   const [name,setName] = useState('')
@@ -34,7 +33,6 @@ function Feed() {
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
-        setActivity(response.data.profile)
         setData(response.data)
         
     }
@@ -52,12 +50,6 @@ function Feed() {
     }
 
   }
-const lottieOptions = {
-  title:'loading',
-  loop:true,
-  autoplay:true,
-  animationData:EmptyAnimation
-}
 
 useEffect(() => {
   async function loadSpots() {

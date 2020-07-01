@@ -23,7 +23,7 @@ import React, {
       event.preventDefault();
       setLoading(true)
       try{
-        const response = await api.post('/auth/bussinesauthenticate', {
+        const response = await api.post('/bussinesauthenticate', {
           email,
           password
         });

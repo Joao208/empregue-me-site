@@ -52,7 +52,7 @@ function Feed() {
 
     setLoading(true)
     try{
-      const response = await api.post('/auth/userregister', {
+      const response = await api.post('/userregister', {
         name,
         latitude,
         longitude,

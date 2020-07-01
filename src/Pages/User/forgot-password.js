@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useState} from 'react'
+import React, {
+  useState
+} from 'react'
 import api from '../../services/api'
- 
-  import {useNavigate} from 'react-router'
-  import { toast } from 'react-toastify';
+
+import {
+  useNavigate
+} from 'react-router'
+import {
+  toast
+} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 
 import img_logo_svg from '../../img/logologin.JPG'
 import Lottie from 'react-lottie'
@@ -23,7 +27,7 @@ function Feed() {
     event.preventDefault();
     setLoading(true)
     try{
-      const response = await api.post('/auth/forgot_password', {
+      const response = await api.post('/forgot_password', {
         email,
       });
 

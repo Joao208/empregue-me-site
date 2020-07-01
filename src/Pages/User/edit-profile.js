@@ -9,6 +9,7 @@ import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/Header';
 
 function Feed() {
   const [user, setUser] = useState([])
@@ -84,27 +85,7 @@ const lottieOptions = {
   return (
 <>
 <div>
-  <meta charSet="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <meta name="description" content />
-  <meta name="author" content />
-    <title>Empregue.me | Profile</title>
-  {/* Slick Slider */}
-  <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
-  {/* Feather Icon*/}
-  <link href="vendor/icons/feather.css" rel="stylesheet" type="text/css" />
-  {/* Bootstrap core CSS */}
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  {/* Custom styles for this template */}
-  <link href="css/style.css" rel="stylesheet" />
-  {/* Navigation */}
-  <nav className="navbar navbar-expand navbar-light bg-white border-bottom osahan-nav-top p-0">
-    <div className="container">
-      <a className="navbar-brand mr-2" href="index"><img src={img_logo_svg} />
-      </a>
-    </div>
-  </nav>
+  <Header></Header>
   <form onSubmit={CreateProfile} className="py-4" encType="multipart/form-data">
     <div className="container">
       <div className="row">

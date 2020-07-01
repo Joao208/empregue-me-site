@@ -6,7 +6,6 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
@@ -16,6 +15,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import {MapContainer} from '../../style.js'
+import Header from '../../components/Header';
 
 function Feed() {
 
@@ -28,6 +28,7 @@ function Feed() {
   const {id} = useParams()
   const [data,setData] = useState('')
   const [followed, setFollowed] = useState(false)
+  const [text, setTextt] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
@@ -91,71 +92,7 @@ useEffect(() => {
   return (
      <>
 <div>
-  <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
-  {/* Feather Icon*/}
-  <link href="vendor/icons/feather.css" rel="stylesheet" type="text/css" />
-  {/* Bootstrap core CSS */}
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  {/* Custom styles for this template */}
-  <link href="css/style.css" rel="stylesheet" />
-  {/* Navigation */}
-  <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
-    <div className="container">
-      <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
-      </a>
-      <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-        <div className="input-group">
-          <input 
-          type="search"                   
-          placeholder='Buscar pessoas, vagas e empresas'
-          aria-label="Search"
-          value={name}
-          onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" 
-          className="form-control shadow-none border-0"
-          />
-          <div>
-            <button className="btn" type="button">
-              <i className="feather-search" />
-            </button>
-          </div>
-          </div>
-      </form>
-      <ul className="navbar-nav ml-auto d-flex align-items-center">
-      <li className="nav-item dropdown no-arrow d-sm-none">
-        <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
-          <div className="input-group">
-          <input 
-          type="search"                   
-          placeholder='Buscar pessoas, vagas e empresas'
-          aria-label="Search"
-          value={name}
-          onChange={event => setName(event.target.value)}
-          aria-describedby="basic-addon2" 
-          className="form-control shadow-none border-0"
-          />
-          <div>
-            <button className="btn" type="button">
-              <i className="feather-search" />
-            </button>
-          </div>
-          </div>
-          </form>
-        </a>
-        <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
-        </div>
-      </li>
-        {profiled.map(profile => (
-      <div key={profile._id} className="dropdown-list-image mr-3">
-        <a href="profile"><img className="rounded-circle"  src={profile.user.avatar} /></a>
-        <div className="status-indicator bg-success" />
-      </div>
-      ))}
-      </ul>
-    </div>
-  </nav>
+  <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
     <img className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
