@@ -25,7 +25,7 @@ export default function Notifications(){
           onClick={HandleButton}
         >
           <div className="nav-link-icon__wrapper">
-            <i>...</i>
+            <span>...</span>
           </div>
         </NavLink>
        <Collapse
