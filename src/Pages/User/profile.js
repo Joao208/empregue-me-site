@@ -115,9 +115,6 @@ async function SearchValue(event){
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <Upload onUpload={this.handleUpload}></Upload>
-          {!!uploadedFiles.length && (
-            <List files={uploadedFiles} onDelete={this.handleDelete} />
-          )}
         </aside>
         ))
         : <Lottie options={lottieOptions} 
