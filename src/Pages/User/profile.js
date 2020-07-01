@@ -65,12 +65,6 @@ function Feed() {
 }, [] )
 
 
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
-
   return (
 <>
 <div>
@@ -114,7 +108,7 @@ async function SearchValue(event){
             </div>
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
-          <Upload onUpload={this.handleUpload}></Upload>
+          <Upload></Upload>
         </aside>
         ))
         : <Lottie options={lottieOptions} 
