@@ -1,7 +1,7 @@
 import React, { useState,useEffect,useMemo } from "react";
 import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
 import socketio from 'socket.io-client'
-import '../css/notification.css'
+import '../../css/notification.css'
 import api from '../../services/api'
 
 export default function Notifications(){
