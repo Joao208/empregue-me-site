@@ -222,12 +222,12 @@ async function Unfollow(event){
                 {profile.map(profile => (
                   profile.bussines.location.coordinates.map(location => (
                 <MapContainer>
-                  <Map center={[location.longitude,location.latitude]} zoom={15} >
+                  <Map center={[location.coordinates[0],location.coordinates[1]]} zoom={15} >
                     <TileLayer
                       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[location.longitude,location.latitude]} />
+                    <Marker position={[location.coordinates[0],location.coordinates[1]]} />
                   </Map>
                 </MapContainer>
                   ))

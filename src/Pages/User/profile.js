@@ -274,9 +274,9 @@ async function SearchValue(event){
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Publicacões</h6>
             </div>
-            {post
-            ? post.map(postd => (
+            {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                <a href={`/profile/${postd.user._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -288,6 +288,7 @@ async function SearchValue(event){
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
+                </a>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
                   { postd.isVideo
@@ -314,7 +315,7 @@ async function SearchValue(event){
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <i className="feather-message-square" />{postd.commentCount}
+                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
                 <button 
                 onClick={
                   async function Share(event){
@@ -331,18 +332,6 @@ async function SearchValue(event){
                 style={{border:'none',background:'none',marginLeft:'8px'}}>
                   <i className="feather-share-2" /></button>
                 </form>
-                {postd.comments.map(comments => (
-                <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-                  <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  <div className="font-weight-bold">
-                    <div className="text-truncate">{comments.username}<span className="float-right small">{moment(comments.createdAt).fromNow()}</span></div>
-                    <div className="small text-gray-500">{comments.Text.text}</div>
-                  </div>
-                </div>
-                ))}
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
                   event.preventDefault()
@@ -355,17 +344,12 @@ async function SearchValue(event){
                   className="form-control border-0 p-0 shadow-none" 
                   defaultValue={""}
                   value={text}
-                  onChange={event => setText(event.target.value)}
+                  onChange={event => setTextt(event.target.value)}
                   />
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
               </div>
-              ))
-            : <Lottie options={lottieOptions} 
-            height='100%'
-            width='100%'
-            /> 
-            }
+            ))}
           </div>
         </main>
       </div>
