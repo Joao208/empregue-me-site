@@ -3,7 +3,7 @@ import { NavItem, NavLink, Badge, Collapse, DropdownItem } from "shards-react";
 import {toast} from 'react-toastify'
 import socketio from 'socket.io-client'
 import '../../css/notification.css'
-import api from '../services/api'
+import api from '../../services/api'
 
 
 export default function Notifications(){
