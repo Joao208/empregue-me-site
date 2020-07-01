@@ -47,59 +47,6 @@ function Feed() {
     Listd()
   },[])
   
-  handleUpload = files => {
-    const uploadedFiles = files.map(file => ({
-      file,
-      id: uniqueId(),
-      name: file.name,
-      readableSize: filesize(file.size),
-      preview: URL.createObjectURL(file),
-      progress: 0,
-      uploaded: false,
-      error: false,
-      url: null
-    }));
-
-    setUploadedFiles(uploadedFiles.concat(uploadedFiles));
-
-    uploadedFiles.forEach(processUpload);
-  };
-
-  processUpload = uploadedFile => {
-    const data = new FormData();
-
-    data.append("file", uploadedFile.file, uploadedFile.name);
-    api
-      .post("/curriculum/add", data, {
-        onUploadProgress: e => {
-          const progress = parseInt(Math.round((e.loaded * 100) / e.total));
-
-        updateFile(uploadedFile.id, {
-            progress
-          });
-        }
-      })
-      .then(response => {
-        this.updateFile(uploadedFile.id, {
-          uploaded: true,
-          id: response.data._id,
-          url: response.data.url
-        });
-      })
-      .catch(() => {
-        this.updateFile(uploadedFile.id, {
-          error: true
-        });
-      });
-  };
-
-  async function handleDelete(id){
-    await api.delete(`posts/${id}`);
-
-    setState(uploadedFiles.filter(file => file.id !== id))
-  }
-
-
   const lottieOptions = {
     title:'loading',
     loop:true,
