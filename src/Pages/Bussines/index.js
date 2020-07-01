@@ -247,7 +247,7 @@ function Feed() {
                 role="tab" 
                 aria-controls="home" 
                 aria-selected="true"
-                ><i className="feather-edit" /><AddAdd></AddAdd></a>
+                ><i className="feather-edit" />Escrever</a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -295,10 +295,16 @@ function Feed() {
                       console.log(e)
                     }
                   }
-                } href="profile" className="text-link small"
+                } className="text-link small"
                 style={{border:'none',background:'none'}}
                 >
                 <i className="feather-map-pin" />Check-in</button>
+              </form>
+              <form className="mr-auto">
+                <button className="text-link small"
+                style={{border:'none',background:'none'}}
+                >
+                <i className="feather-edit" />Adicionar Post</button>
               </form>
               <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
                   Adicionar Imagem

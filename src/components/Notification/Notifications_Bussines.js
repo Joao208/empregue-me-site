@@ -20,6 +20,7 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_request', booking => {
+                console.log(booking)
                 setBooking(true)
                 setResponse([booking])
             })
@@ -37,6 +38,22 @@ export default function Notifications(){
       console.log(error)
     }
   }
+
+    useEffect(() => {
+    async function notifications(){
+      try {
+        const response = await api.get('/bussines/notifications')
+        console.log(response.data.bookings)
+        console.log(typeof response.data)
+          setResponse(response.data.bookings)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    notifications()
+  },[])
+
+
     return (
       <NavItem className="border-right dropdown notifications">
         <NavLink
