@@ -3,7 +3,7 @@ import Notification from '../../components/Notification/Notifications'
 import api from '../../services/api'
 import {useNavigate} from 'react-router'
 import img_fav from '../../img/fav.png'
-import img_logo_svg from '../../img/logo.svg'
+import img_logo_svg from '../../img/logo.png'
 
 function Header()  {
 
