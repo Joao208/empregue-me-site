@@ -4,7 +4,7 @@ import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
 
 import { Container, FileInfo, Preview } from "./styles";
 
-function List(){
+function List({files, onDelete}){
 return (
   <Container>
     {files.map(uploadedFile => (
