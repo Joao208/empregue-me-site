@@ -1,15 +1,20 @@
 import React,{useEffect,useState} from 'react';
 import Notification from '../../components/Notification/Notifications'
 import api from '../../services/api'
+import {useHistory} from 'react-router'
+import img_fav from '../../img/fav.png'
+import img_logo_svg from '../../img/logo.svg'
 
-function Header() {
+function Header()  {
 
     const [profile, setProfile] = useState([])
+    const [name, setName] = useState('')
+    const hitory = useHistory()
 
     async function SearchValue(event){
         event.preventDefault()
         
-        navigate(`/conections/${name}`)
+        hitory(`/conections/${name}`)
       }
       
       useEffect(() => {

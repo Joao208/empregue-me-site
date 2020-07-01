@@ -250,7 +250,7 @@ useEffect(() => {
                 </form>
               </div>
             ))}
-            {postb.map(postd => (
+            {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <a href={`/company-profile/${postd.bussines._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
