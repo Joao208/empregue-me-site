@@ -220,17 +220,15 @@ async function Unfollow(event){
                   <h6 className="m-0">Localização</h6>
                 </div>
                 {profile.map(profile => (
-                  profile.bussines.location.coordinates.map(location => (
                 <MapContainer>
-                  <Map center={[location.coordinates[0],location.coordinates[1]]} zoom={15} >
+                  <Map center={[profile.bussines.location.coordinates[0],profile.bussines.location.coordinates[1]]} zoom={15} >
                     <TileLayer
                       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[location.coordinates[0],location.coordinates[1]]} />
+                    <Marker position={[profile.bussines.location.coordinates[0],profile.bussines.location.coordinates[1]]} />
                   </Map>
                 </MapContainer>
-                  ))
                 ))}
               </div>
               <div className="box shadow-sm border rounded bg-white mb-3">
