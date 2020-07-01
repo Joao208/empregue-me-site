@@ -15,7 +15,7 @@ import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
 import List from '../../components/FileList'
-
+import DeletePost from '../../components/Posts'
 
 function Feed() {
   
@@ -30,7 +30,74 @@ function Feed() {
   async function SignOut() {
     sessionStorage.clear()
   }
+
+  useEffect(() => {
+   async function Listd(){
+    const response = await api.get('/curriculums')  
+    setUploadedFiles(response.data.map(file => ({
+          id: file._id,
+          name: file.name,
+          readableSize: filesize(file.size),
+          preview: file.url,
+          uploaded: true,
+          url: file.url
+        })));
+    }
+    Listd()
+  },[])
   
+  handleUpload = files => {
+    const uploadedFiles = files.map(file => ({
+      file,
+      id: uniqueId(),
+      name: file.name,
+      readableSize: filesize(file.size),
+      preview: URL.createObjectURL(file),
+      progress: 0,
+      uploaded: false,
+      error: false,
+      url: null
+    }));
+
+    setUploadedFiles(uploadedFiles.concat(uploadedFiles));
+
+    uploadedFiles.forEach(processUpload);
+  };
+
+  processUpload = uploadedFile => {
+    const data = new FormData();
+
+    data.append("file", uploadedFile.file, uploadedFile.name);
+    api
+      .post("/curriculum/add", data, {
+        onUploadProgress: e => {
+          const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+
+        updateFile(uploadedFile.id, {
+            progress
+          });
+        }
+      })
+      .then(response => {
+        this.updateFile(uploadedFile.id, {
+          uploaded: true,
+          id: response.data._id,
+          url: response.data.url
+        });
+      })
+      .catch(() => {
+        this.updateFile(uploadedFile.id, {
+          error: true
+        });
+      });
+  };
+
+  async function handleDelete(id){
+    await api.delete(`posts/${id}`);
+
+    setState(uploadedFiles.filter(file => file.id !== id))
+  }
+
 
   const lottieOptions = {
     title:'loading',
@@ -170,9 +237,9 @@ async function SearchValue(event){
             </div>
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
-          <Upload></Upload>
+          <Upload onUpload={handleUpload}></Upload>
           {!!uploadedFiles.length && (
-            <List files={uploadedFiles} onDelete={this.handleDelete} />
+            <List files={uploadedFiles} onDelete={handleDelete} />
           )}
         </aside>
         ))
@@ -286,7 +353,7 @@ async function SearchValue(event){
                     <div className="text-truncate">{postd.user.name}</div>
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
-                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}<DeletePost></DeletePost></span>
                 </div>
                 </a>
                 <div className="p-3 border-bottom osahan-post-body">

@@ -27,7 +27,7 @@ import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
-import Notification from '../../components/Notifications'
+import Notification from '../../components/Notification/Notifications'
 
 function Feed() {
 
