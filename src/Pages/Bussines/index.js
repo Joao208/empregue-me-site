@@ -26,6 +26,7 @@ import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
+import AddAdd from '../../components/Notification/Notifications'
 
 function Feed() {
 
@@ -246,7 +247,7 @@ function Feed() {
                 role="tab" 
                 aria-controls="home" 
                 aria-selected="true"
-                ><i className="feather-edit" />Escrever</a>
+                ><i className="feather-edit" /><AddAdd></AddAdd></a>
               </li>
             </ul>
             <div className="tab-content" id="myTabContent">

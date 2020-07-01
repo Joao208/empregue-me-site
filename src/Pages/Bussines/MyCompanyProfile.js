@@ -5,8 +5,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
+import { ReactTinyLink } from "react-tiny-link";
 
-import Lottie from 'react-lottie'
 import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
@@ -24,6 +24,7 @@ function Feed() {
   const [data,setData] = useState('')
   const navigate = useNavigate()
   const [name,setName] = useState('')
+  const [text, setTextt] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
@@ -305,7 +306,7 @@ async function SearchValue(event){
                 </form>
               </div>
             ))}
-            {postb.map(postd => (
+            {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <a href={`/company-profile/${postd.bussines._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
