@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import {useParams,useNavigate} from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
 import { toast } from 'react-toastify';
 import App from '../../components/AppView'
 import Lottie from 'react-lottie'

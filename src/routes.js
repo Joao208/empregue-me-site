@@ -40,6 +40,8 @@ import CommentPost from './Pages/User/coment-post'
 import CommentPostB from './Pages/User/coment-postb'
 import Company_ProfileB from './Pages/Bussines/company-profile'
 import ComingSoom from './Pages/cooming-soon'
+import Blog from './Pages/Blog/blog'
+import Entrevista_de_Emprego from './Pages/Blog/DicasEntrevista'
 
 export default function Routed() {
 
@@ -150,6 +152,8 @@ export default function Routed() {
         <Route path='/reset-password' element={<Reset_password/>}/>
         <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
         <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
+        <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
+        <Route path='/blog' element={<Blog/>}/>
 </Privated>
 </Routes>
     );
