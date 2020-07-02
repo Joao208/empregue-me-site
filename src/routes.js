@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 
@@ -53,7 +54,7 @@ export default function Routed() {
        const isLogged = !! sessionStorage.getItem('token')
 
         return isLogged ? <Route {...props}/>
-        : <Route path='/sign-in' element={<Sign_in/>}/>
+        : <Route path='*' element={<Sign_in/>}/>
     }
 
     const BussinesRoutes = props => {
@@ -83,12 +84,28 @@ export default function Routed() {
     : <Route path="*" element={<ComingSoom/>}/>
     }
 
+    const ProfileUser = props => {
+        const privated = !! sessionStorage.getItem('user_avatar')
+
+        return privated ? <Route {...props}/>
+        : <Route path="*" element={<Edit_profile/>}/>
+    }
+
+    const ProfileBussines = props => {
+        const privated = !! sessionStorage.getItem('bussines_avatar')
+
+        return privated ? <Route {...props}/>
+        : <Route path="*" element={<EditCompanyProfile/>}/>
+    }
+
+
     return(
 <Routes>
     <Privated>
     <PrivateRoute>
     <ConfirmateRoute> 
     <PhoneConfirmeRoute>
+    <ProfileUser>
         <UserRoute path='/' element={<Feed/>}/>
         <UserRoute path='/add/populate/:id' element={<CommentAdd/>}/>
         <UserRoute path='/postb/populate/:id' element={<CommentPostB/>}/>
@@ -105,10 +122,12 @@ export default function Routed() {
         <UserRoute path='/terms' element={<Terms/>}/>
         <UserRoute path='/checkout/:price' element={<Checkout/>}/>
         <UserRoute path='/profile' element={<Profile/>}/>
+    </ProfileUser>
     </PhoneConfirmeRoute>
     </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>
+    <ProfileBussines>
         <BussinesRoutes path='/edit-company' element={<EditCompanyProfile/>}/>
         <BussinesRoutes path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <BussinesRoutes path='/company-profileb/:id' element={<Company_ProfileB/>}/>
@@ -118,6 +137,7 @@ export default function Routed() {
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
+    </ProfileBussines>
    </PrivateRoute>
         <Route path='/sign-in' element={<Sign_in/>}/>
         <Route path='/sign-up' element={<Sign_up/>}/>

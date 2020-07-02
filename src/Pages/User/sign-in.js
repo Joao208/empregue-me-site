@@ -43,8 +43,8 @@ function Feed() {
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
       
-      if(user.confirmate === true,user.phoneConfirme === true)
-      return sessionStorage.setItem('confirmate', user.confirmate),sessionStorage.setItem('phoneConfirme', user.phoneConfirme)
+      if(user.confirmate === true || user.phoneConfirme === true || user.avatar)
+      return sessionStorage.setItem('confirmate', user.confirmate),sessionStorage.setItem('phoneConfirme', user.phoneConfirme),sessionStorage.setItem('user_avatar', user.avatar)
       
       navigate('/profile')
     }catch(e){

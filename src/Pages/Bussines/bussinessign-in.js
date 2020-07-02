@@ -37,6 +37,9 @@ import React, {
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('bussines',JSON.stringify(bussines))
         sessionStorage.setItem('user_id', bussines._id)
+        if(bussines.avatar){
+          sessionStorage.setItem('bussines_avatar',bussines.avatar)
+        }
         navigate('/')
       }catch(e){
        setLoading(false)
