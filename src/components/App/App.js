@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { uniqueId } from "lodash";
 import filesize from "filesize";
 
-import api from "./services/api";
+import api from "../../services/api";
 
 import { Content } from "../../style";
 
