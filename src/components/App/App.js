@@ -4,7 +4,7 @@ import filesize from "filesize";
 
 import api from "./services/api";
 
-import { Content } from "./styles";
+import { Content } from "../../style";
 
 import Upload from "./components/Upload";
 import FileList from "./components/FileList";
