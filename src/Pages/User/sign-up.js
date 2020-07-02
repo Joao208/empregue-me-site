@@ -10,6 +10,7 @@ import img_logo_svg from '../../img/logologin.JPG'
 import {useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Recaptcha from '../../components/Recaptcha';
 
 function Feed() {
   
@@ -171,6 +172,7 @@ function Feed() {
               />
               : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
               }
+              <Recaptcha></Recaptcha>
              <a className="btn btn-block text-uppercase" href="/bussinessign-up"style={{backgroundColor:"#007dff",color:"white"}} > Quero contratar </a> 
               <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="/school/sign-up"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
