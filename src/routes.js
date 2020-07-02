@@ -154,9 +154,9 @@ export default function Routed() {
         <Route path='/reset-password' element={<Reset_password/>}/>
         <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
         <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
+</Privated>
         <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
         <Route path='/blog' element={<Blog/>}/>
-</Privated>
 </Routes>
     );
 }

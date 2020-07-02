@@ -72,11 +72,7 @@ import {
                         </div>
                         </div>
                         <div className="card-footer border-0">
-                        <div className="footer-social"><span>Compartilhar</span> : &nbsp;
-                        <WhatsappShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'}/>
-                        <FacebookShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'} />
-                        <TwitterShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'} />
-                        <FacebookShareCount url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'}/>
+                        <div className="footer-social"><span>Compartilhe com seus amigos</span> &nbsp;
                         </div>
                         </div>
                     </div>
