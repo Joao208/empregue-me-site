@@ -8,7 +8,6 @@ function Feed() {
   return (
 <>
 <div>
-  <Header></Header>
   <div className="vh-100">
     <div className="container">
       <div className="row align-items-center vh-100">
