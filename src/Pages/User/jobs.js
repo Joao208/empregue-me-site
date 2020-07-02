@@ -1,17 +1,14 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
 import api from '../../services/api'
-import img_logo_svg from '../../img/logo.png'
-import { useNavigate } from 'react-router';
 import Header from '../../components/Header';
 
 function Feed() {
 
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [jobs, setJobs] = useState([])
-  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
@@ -24,21 +21,6 @@ function Feed() {
     loadSpots()
 }, [] )
 
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profileview')
-    
-    setProfile(response.data.profile)
-  }
-  
-  loadSpots()
-}, [] )
-
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
 
 return (
 <>

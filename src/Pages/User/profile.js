@@ -11,7 +11,6 @@ import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
 import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
-import DeletePost from '../../components/Posts'
 import Header from '../../components/Header';
 import App from '../../components/App/App';
 
@@ -201,7 +200,8 @@ function Feed() {
                     <div className="text-truncate">{postd.user.name}</div>
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
-                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><DeletePost></DeletePost>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button>
+
                 </div>
                 </a>
                 <div className="p-3 border-bottom osahan-post-body">

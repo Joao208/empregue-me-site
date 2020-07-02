@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect,useMemo} from 'react';
 import {useNavigate} from 'react-router'
 
