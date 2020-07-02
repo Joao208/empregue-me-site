@@ -190,20 +190,28 @@ function Feed() {
             </div>
             {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
-                <a href={`/profile/${postd.user._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
                     <div className="status-indicator bg-success" />
                   </div>
+                  <a href={`/profile/${postd.user._id}`}>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{postd.user.name}</div>
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
-                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button>
-
+                  </a>
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><button style={{marginLeft:'5%'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={
+                    async function Delete(event) {
+                       event.preventDefault()
+                       try{
+                      await api.delete(`/posts/${postd._id}`)
+                       }catch(e){
+                         console.log(e)
+                       }
+                    }
+                  } className="btn btn-danger">Apagar post</button>
                 </div>
-                </a>
                 <div className="p-3 border-bottom osahan-post-body">
                   <p>{postd.Text.Text}</p>
                   { postd.isVideo
