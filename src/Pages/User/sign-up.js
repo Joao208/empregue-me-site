@@ -170,7 +170,7 @@ function Feed() {
               height='20%'
               width='20%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" style={{marginBottom:'2%'}} onSubmit={SignUp}> Concordar e Criar </button>
               }
               <Recaptcha></Recaptcha>
              <a className="btn btn-block text-uppercase" href="/bussinessign-up"style={{backgroundColor:"#007dff",color:"white"}} > Quero contratar </a> 

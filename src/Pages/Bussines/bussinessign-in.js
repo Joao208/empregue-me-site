@@ -11,6 +11,7 @@ import React, {
   import {useNavigate} from 'react-router'  
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import Recaptcha from '../../components/Recaptcha'
 
   function Feed (){
 
@@ -110,8 +111,9 @@ import React, {
               height='20%'
               width='20%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
+              : <button style={{marginBottom:'2%'}} className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
               }
+              <Recaptcha></Recaptcha>
                 <a className="btn btn-block text-uppercase" href="/sign-in"style={{backgroundColor:"#007dff",color:"white"}} > Quero ser contratado </a> 
                 <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="/school/sign-up"> Quero ensinar </a> 
                 <div className="py-3 d-flex align-item-center">

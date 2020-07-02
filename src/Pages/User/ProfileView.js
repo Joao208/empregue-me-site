@@ -10,7 +10,6 @@ import api from '../../services/api'
 import img_job1 from '../../img/job1.png'
 import Header from '../../components/Header';
 
-
 function Feed() {
   
   const [post, setPost] = useState([])

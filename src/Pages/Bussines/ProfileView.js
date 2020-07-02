@@ -5,9 +5,7 @@ import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import {useParams,useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
-
- 
-  
+import App from '../../components/AppView'
 import Lottie from 'react-lottie'
 import api from '../../services/api'
 import img_logo_svg from '../../img/logo.png'
@@ -186,6 +184,8 @@ async function SearchValue(event){
               <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
             </div>
           </div>
+          <p>Aqui está os curriculos do usuario feito com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
+          <App></App>
         </aside>
         {profile.map(profile => (
         <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">

@@ -27,6 +27,7 @@ import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
 import AddAdd from '../../components/Notification/Notifications_Bussines'
+import { TRUE } from 'node-sass';
 
 function Feed() {
 
@@ -49,6 +50,7 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
+  const [addadd, setAddAdd] = useState(false)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -303,8 +305,14 @@ function Feed() {
               <form className="mr-auto">
                 <button className="text-link small"
                 style={{border:'none',background:'none'}}
+                onClick={
+                  async function AddAdd(){
+                    setAddAdd(true)
+                    console.log(addadd)
+                  }
+                }
                 >
-                <i className="feather-edit" />Adicionar Post</button>
+                <i className="feather-edit" />Promover minha empresa</button>
               </form>
               <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
                   Adicionar Imagem

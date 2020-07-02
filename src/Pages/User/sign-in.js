@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 /* eslint-disable jsx-a11y/alt-text */
 import React, {
   useState
@@ -7,7 +8,7 @@ import {useNavigate} from 'react-router'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
-
+import Recaptcha from '../../components/Recaptcha'
 import api from '../../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
@@ -123,8 +124,9 @@ function Feed() {
               height='20%'
               width='20%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignIn}> Logar </button>
+              : <button className="btn btn-primary btn-block text-uppercase" type="submit" style={{marginBottom:'2%'}} onSubmit={SignIn}> Logar </button>
               }
+              <Recaptcha></Recaptcha>
               <a className="btn btn-block text-uppercase" href="/bussinessign-in"style={{backgroundColor:"#007dff",color:"white"}} > Quero contratar </a> 
               <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="/school/sign-in"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">

@@ -9,6 +9,7 @@ import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Recaptcha from '../../components/Recaptcha'
 
 function Feed() {
   
@@ -161,8 +162,9 @@ function Feed() {
               height='20%'
               width='20%'
               />
-              : <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
+              : <button style={{marginBottom:'2%'}} className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={SignUp}> Concordar e Criar </button>
               }
+              <Recaptcha></Recaptcha>
              <a className="btn btn-block text-uppercase" href="/sign-up"style={{backgroundColor:"#007dff",color:"white"}} > Quero ser contratado </a> 
              <a className="btn btn-block text-uppercase" style={{backgroundColor:"#00c7e4",color:"white"}} href="/school/sign-up"> Quero ensinar </a> 
               <div className="py-3 d-flex align-item-center">
