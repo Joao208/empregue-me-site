@@ -6,8 +6,8 @@ import api from "../../services/api";
 
 import { Content } from "../../style";
 
-import Upload from "./components/Upload";
-import FileList from "./components/FileList";
+import Upload from "../Upload";
+import FileList from "../FileList";
 
 class App extends Component {
   state = {
