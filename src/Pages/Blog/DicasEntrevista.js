@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
+import {
+    FacebookShareButton,
+    TwitterShareButton,
+    WhatsappShareButton,
+  } from "react-share";
 
-function blog_single() {
+  function blog_single() {
     return (
         <div>
             <meta charSet="utf-8" />
@@ -67,15 +72,9 @@ function blog_single() {
                         </div>
                         <div className="card-footer border-0">
                         <div className="footer-social"><span>Compartilhar</span> : &nbsp;
-                            <button onClick={
-                            () => { 
-                            navigator.share({
-                            title:'Empregue.me - Blog', 
-                            text: 'Como se sair bem em um entrevista de emprego',                     
-                            url:'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'
-                            }
-                            )}
-                            }><i className="feather-share" /></button>
+                        <WhatsappShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'}/>
+                        <FacebookShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'} />
+                        <TwitterShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'} />
                         </div>
                         </div>
                     </div>

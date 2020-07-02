@@ -39,7 +39,7 @@ function blog(){
           <div className="row">
             <div className="col-lg-4 col-md-4">
               <div className="box shadow-sm rounded bg-white mb-3 blog-card border-0">
-                <a href="https://light-empregue-me.herokuapp.com/dicas-de-entrevistas"><img className="card-img-top" src="img/blog/1.png" alt="Card image cap" />
+                <a href="https://light-empregue-me.herokuapp.com/dicas-de-entrevistas"><img className="card-img-top" src="https://cdn.pixabay.com/photo/2020/02/10/02/36/interview-4835116_960_720.jpg" alt="Card image cap" />
                   <div className="card-body">
                     <span className="badge badge-success">Erik Gotti</span>
                     <h6 className="text-dark">Dicas de como sair bem em uma entrevista</h6>
