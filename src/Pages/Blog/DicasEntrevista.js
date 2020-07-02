@@ -4,6 +4,7 @@ import {
     FacebookShareButton,
     TwitterShareButton,
     WhatsappShareButton,
+    FacebookShareCount
   } from "react-share";
 
   function blog_single() {
@@ -75,6 +76,7 @@ import {
                         <WhatsappShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'}/>
                         <FacebookShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'} />
                         <TwitterShareButton url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'} />
+                        <FacebookShareCount url={'https://light-empregue-me.herokuapp.com/dicas-de-entrevistas'}/>
                         </div>
                         </div>
                     </div>

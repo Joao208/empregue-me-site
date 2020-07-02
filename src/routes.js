@@ -131,12 +131,12 @@ export default function Routed() {
    <PrivateRoute>
         <BussinesRoutes>
         <ProfileBussines>
-        <Routes path='/edit-company' element={<EditCompanyProfile/>}/>
-        <Routes path='/mycompany-profile' element={<MyCompany_profile/>}/>
-        <Routes path='/company-profileb/:id' element={<Company_ProfileB/>}/>
-        <Routes path='/conectionsb/:named' element={<ConectionsB/>}/>
-        <Routes path='/profileb/:id' element={<ProfileViewB/>}/>
-        <Routes path='/feed' element={<FeedB/>}/>
+        <Route path='/edit-company' element={<EditCompanyProfile/>}/>
+        <Route path='/mycompany-profile' element={<MyCompany_profile/>}/>
+        <Route path='/company-profileb/:id' element={<Company_ProfileB/>}/>
+        <Route path='/conectionsb/:named' element={<ConectionsB/>}/>
+        <Route path='/profileb/:id' element={<ProfileViewB/>}/>
+        <Route path='/feed' element={<FeedB/>}/>
         </ProfileBussines>
         </BussinesRoutes>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
