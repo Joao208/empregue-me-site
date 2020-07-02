@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import {useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,7 +11,6 @@ import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
 import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
-import List from '../../components/FileList'
 import DeletePost from '../../components/Posts'
 import Header from '../../components/Header';
 import App from '../../components/App/App';
@@ -22,29 +20,11 @@ function Feed() {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [text, setTextt] = useState('')
-  const [uploadedFiles, setUploadedFiles] = useState([])
 
   async function SignOut() {
     sessionStorage.clear()
   }
-
-  useEffect(() => {
-   async function Listd(){
-    const response = await api.get('/curriculums')  
-    setUploadedFiles(response.data.map(file => ({
-          id: file._id,
-          name: file.name,
-          readableSize: file.size,
-          preview: file.url,
-          uploaded: true,
-          url: file.url
-        })));
-    }
-    Listd()
-  },[])
   
   const lottieOptions = {
     title:'loading',

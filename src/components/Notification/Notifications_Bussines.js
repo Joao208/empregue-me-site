@@ -39,20 +39,6 @@ export default function Notifications(){
     }
   }
 
-    useEffect(() => {
-    async function notifications(){
-      try {
-        const response = await api.get('/bussines/notifications')
-        console.log(response.data)
-        console.log(typeof response.data)
-          setResponse(response.data.bookings)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    notifications()
-  },[])
-
 
     return (
       <NavItem className="border-right dropdown notifications">

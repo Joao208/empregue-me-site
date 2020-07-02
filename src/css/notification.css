@@ -11,3 +11,6 @@
     overflow-y: scroll;
     max-height: 500%;
 }
+.border-right .dropdown .notifications{
+    list-style: none;
+}

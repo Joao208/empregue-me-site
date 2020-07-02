@@ -3,15 +3,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import {useParams,useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
-import Lottie from 'react-lottie'
 import api from '../../services/api'
-import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
-import img_l3 from '../../img/l3.png'
-import EmptyAnimation from '../../Animations/empty.json'
 import Header from '../../components/Header';
 
 
@@ -20,18 +16,8 @@ function Feed() {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
-  const [profiled, setProfiled] = useState([])
   const [followed, setFollowed] = useState(false)
   const [text, setTextt] = useState('')
-
-  const lottieOptions = {
-    title:'loading',
-    loop:true,
-    autoplay:true,
-    animationData:EmptyAnimation
-  }
 
   const {id} = useParams()
 
@@ -45,16 +31,7 @@ function Feed() {
 
     }
     loadSpots()
-}, [] )
-
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profileview')
-    
-    setProfiled(response.data.profile)
-  }
-  
-  loadSpots()
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [] )
 
 useEffect(() => {
@@ -67,13 +44,9 @@ useEffect(() => {
 
   }
   followed()
+// eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
   async function Follow(event){
     event.preventDefault()
 
@@ -98,14 +71,14 @@ async function SearchValue(event){
       <div className="row">
         {/* Main Content */}
         <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
-         {profile.map(profile => (
-           profile
-          ? <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+          <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+          {profile.map(profile => (
             <div className="py-4 px-3 border-bottom">
-              <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
+              <img src={profile.user.avatar ? profile.user.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
               <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
               <p className="mb-0 text-muted">UI / UX Designer</p>
             </div>
+          ))}
             <div className="d-flex">
               <div className="col-6 border-right p-3">
                 <h6 className="font-weight-bold text-dark mb-1">{data.followersCount}</h6>
@@ -125,12 +98,6 @@ async function SearchValue(event){
             </form>          
             }
           </div>
-          : <Lottie options={lottieOptions
-          } 
-          height='100%'
-          width='100%'
-          /> 
-          ))}
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">
