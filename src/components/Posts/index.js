@@ -5,7 +5,6 @@ import '../../css/notification.css'
 
 export default function Notifications(){
   const [visible,setVisible] = useState(false)
-  const [response, setResponse] = useState([])
 
   async function HandleButton(event) {
     event.preventDefault()
@@ -25,9 +24,7 @@ export default function Notifications(){
           className="nav-link-icon text-center"
           onClick={HandleButton}
         >
-          <div className="nav-link-icon__wrapper">
             <span>...</span>
-          </div>
         </NavLink>
        <Collapse
           open={visible}

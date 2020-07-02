@@ -7,7 +7,6 @@ import {useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Upload from '../../components/Upload'
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
@@ -16,6 +15,7 @@ import img_l3 from '../../img/l3.png'
 import List from '../../components/FileList'
 import DeletePost from '../../components/Posts'
 import Header from '../../components/Header';
+import App from '../../components/App/App';
 
 function Feed() {
   
@@ -108,7 +108,7 @@ function Feed() {
             </div>
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
-          <Upload></Upload>
+          <App></App>
         </aside>
         ))
         : <Lottie options={lottieOptions} 

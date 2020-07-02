@@ -6,12 +6,15 @@
     "@sentry/browser": "^5.17.0",
     "@sentry/node": "5.17.0",
     "axios": "^0.19.1",
+    "filesize": "^6.1.0",
     "jquery": "^3.5.0",
     "leaflet": "^1.6.0",
+    "lodash": "^4.17.15",
     "moment": "^2.25.3",
     "node-sass": "^4.14.1",
     "react": "^16.12.0",
     "react-adsense": "^0.1.0",
+    "react-circular-progressbar": "^1.0.0",
     "react-credit-cards": "^0.8.2",
     "react-dom": "^16.12.0",
     "react-dropzone": "^11.0.1",
@@ -33,7 +36,6 @@
     "serve": "^11.3.0",
     "shards-react": "^1.0.0",
     "socket.io-client": "^2.3.0",
-    "react-circular-progressbar": "^1.0.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {

@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Dropzone from "react-dropzone";
 
 import { DropContainer, UploadMessage } from "./styles";
-import api from "../../services/api";
 
 export default class Upload extends Component {
   renderDragMessage = (isDragActive, isDragReject) => {
@@ -19,20 +18,7 @@ export default class Upload extends Component {
   };
 
   render() {
-    async function onUpload(event){
-      event.preventDefault()
-      const data = new FormData()
-
-      data.append('file',file)
-      
-      try{
-        const response = await api.post('/add/curriculum',data)
-        console.log(response.data)
-
-      }catch(e){
-        console.log(e)
-      }
-    }
+    const { onUpload } = this.props;
 
     return (
       <Dropzone accept=".pdf" onDropAccepted={onUpload}>
