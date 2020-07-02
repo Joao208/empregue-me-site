@@ -2,6 +2,7 @@
     right: 0;
     left: auto;
     margin: auto;
+    list-style: none;
 }
 .nav-link-icon .text-center{
     cursor: pointer;
