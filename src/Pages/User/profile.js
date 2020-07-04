@@ -201,7 +201,7 @@ function Feed() {
                     <div className="small text-gray-500">Ui/Ux desing</div>
                   </div>
                   </a>
-                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><button style={{marginLeft:'5%'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={
+                  <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><button style={{marginLeft:'5%',background:'#fff',color:'red'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={
                     async function Delete(event) {
                        event.preventDefault()
                        try{
