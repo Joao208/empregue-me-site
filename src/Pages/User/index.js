@@ -23,7 +23,6 @@ import api from '../../services/api'
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
-import { Link } from 'react-router-dom';
 import Add from '../../components/AddComponent';
 import PostComponent from '../../components/PostComponent'
 import Postb from '../../components/PostbComponet';
@@ -38,7 +37,6 @@ function Feed() {
   const [checkb, setCheckb] = useState([])
   const [avatar, setAvatar] = useState(null)
   const [Text, setText] = useState('')
-  const [text, setTextt] = useState('')
   const [loading, setLoading] = useState(false)
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')

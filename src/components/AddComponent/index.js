@@ -1,8 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import {ReactTinyLink} from 'react-tiny-link'
+import moment from 'moment'
+import api from '../../services/api'
 
 const Add = (add) => {
+    const [text, setTextt] = useState('')
+
     return (
         <div>
             {add.map(postd => (

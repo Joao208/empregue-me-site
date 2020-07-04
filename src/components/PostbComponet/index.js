@@ -1,7 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment'
+import api from '../../services/api'
 
 const Postb = (postb) => {
+    const [text, setTextt] = useState('')
+
     return (
         <div>
             {postb.map(postd => (
