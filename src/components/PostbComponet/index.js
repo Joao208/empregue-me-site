@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 import api from '../../services/api'
+import { toast } from 'react-toastify';
 
 const Postb = (postb) => {
     const [text, setTextt] = useState('')
