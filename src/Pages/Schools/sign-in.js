@@ -3,7 +3,7 @@ import React, {
   useState
 } from 'react';
  
-import {useNavigate} from 'react-router'
+import {useNavigate} from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
@@ -44,7 +44,7 @@ function Feed() {
       if(user.confirmate === true)
       return sessionStorage.setItem('confirmate', user.confirmate)
       
-      navigate('https://panelem.herokuapp.com/')
+      navigate('/schools/panel')
     }catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');

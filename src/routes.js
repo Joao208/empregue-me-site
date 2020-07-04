@@ -42,6 +42,7 @@ import Company_ProfileB from './Pages/Bussines/company-profile'
 import ComingSoom from './Pages/cooming-soon'
 import Blog from './Pages/Blog/blog'
 import Entrevista_de_Emprego from './Pages/Blog/DicasEntrevista'
+import Coming_Schools from './Pages/Schools/cooming-soon'
 
 export default function Routed() {
 
@@ -157,6 +158,7 @@ export default function Routed() {
 </Privated>
         <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
         <Route path='/blog' element={<Blog/>}/>
+        <Route path="/schools/panel" element={<Coming_Schools/>}/>
 </Routes>
     );
 }

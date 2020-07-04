@@ -78,7 +78,7 @@ function Feed() {
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', _id)
       toast.success('Confirme seu email')
-      navigate('/phone')
+      navigate('/schools/panel')
     }  catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');

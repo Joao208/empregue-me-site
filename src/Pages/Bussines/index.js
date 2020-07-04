@@ -49,7 +49,7 @@ function Feed() {
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
   const [addadd, setAddAdd] = useState(false)
-
+  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -682,12 +682,12 @@ function Feed() {
                   </div>
                 </div>
                 <span className="ml-auto">
-                  <button  
+                <button  
                   onClick={
                     async function Follow(event){
                     try{
                       event.preventDefault()
-                      await api.post(`/followb/${user._id}`)   
+                      await api.post(`/bussines/follow/${user._id}`)   
                       toast.success('Uau, você fez novos amigos, isso aí ;)') 
                     }catch(e){
                         console.log(e)
