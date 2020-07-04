@@ -24,6 +24,7 @@ import api from '../../services/api'
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
+import { Link } from 'react-router-dom';
 
 function Feed() {
   
@@ -43,7 +44,6 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
-
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -332,7 +332,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" /></a>{postd.commentCount}
+                <Link to={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 <button 
                 onClick={
                   async function Share(event){
