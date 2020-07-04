@@ -13,6 +13,7 @@ import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
 import Header from '../../components/Header';
 import App from '../../components/App/App';
+import { Link } from 'react-router-dom';
 
 function Feed() {
   
