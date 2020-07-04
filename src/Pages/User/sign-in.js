@@ -4,7 +4,7 @@ import React, {
   useState
 } from 'react';
  
-import {useNavigate} from 'react-router'
+import {useNavigate} from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
