@@ -70,7 +70,7 @@ export default function Notifications(){
               <p>
                 O usuario{" "}
                 <a href={`/profileb/${response.user._id}`}><span className="text-success text-semibold">{response.user.name}</span></a> requisitou
-                sua vaga em {response.vacancies.text.title}.Veja o curriculo do usuario!
+                sua vaga em {response.vacancies.title}.Veja o curriculo do usuario!
               </p>
               <div style={{flexDirection:'row'}}>
               { loadding ? <p>Aguarde...</p>

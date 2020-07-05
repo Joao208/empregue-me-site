@@ -39,7 +39,7 @@ function Feed() {
         const response = await api.get(`/vacancie/${id}`)
 
         setJobs(response.data)
-        setTitle(response.data.text.title)
+        setTitle(response.data.title)
         setdescription(response.data.text.description)
         setsalary(response.data.text.salary)
         setcity(response.data.text.city)

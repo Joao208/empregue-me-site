@@ -40,7 +40,7 @@ import React, {
         if(bussines.avatar){
           sessionStorage.setItem('bussines_avatar',bussines.avatar)
         }
-        navigate('/')
+        navigate('/feed')
       }catch(e){
        setLoading(false)
        toast.error('Falha na autenticação, verifique seus dados');
