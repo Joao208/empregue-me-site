@@ -15,6 +15,9 @@ import completedAnimate from '../../Animations/completed.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
+import { Link } from 'react-router-dom';
+import { Map, TileLayer, Marker } from 'react-leaflet'
+import {MapContainer} from '../../style.js'
 
 function Feed() {
 
@@ -32,6 +35,8 @@ function Feed() {
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
+  const [bussines_id, setBussines_id] = useState('')
+  const [location, setLocation] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
@@ -49,6 +54,8 @@ function Feed() {
         setNome(response.data.bussines.nome)
         setCargo(response.data.cargo)
         setEmployment(response.data.employment)
+        setBussines_id(response.data.bussines._id)
+        setLocation(response.bussines.location)
     }
 
     loadSpots()
@@ -189,7 +196,7 @@ const lottieOptionscompleted = {
               <img src={avatar ? avatar : img_clogo2} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5>
+             <Link to={`/company-profile/${bussines_id}`}><h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5></Link> 
             <a href=""><p className="mb-0 text-muted">{logradouro}
               </p></a>  
             </div>
@@ -199,6 +206,20 @@ const lottieOptionscompleted = {
                 <p className="font-weight-bold text-dark mb-0 mt-0 ml-auto">{moment(jobs.createdAt).fromNow()}</p>
               </div>
             </div>
+          </div>
+          <div className="box shadow-sm border rounded bg-white mb-3">
+            <div className="box-title border-bottom p-3">
+              <h6 className="m-0">Localização</h6>
+            </div>
+            <MapContainer>
+              <Map center={[location.coordinates[1],location.coordinates[0]]} zoom={15} >
+                <TileLayer
+                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={[location.coordinates[1],location.coordinates[0]]} />
+              </Map>
+            </MapContainer>
           </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />

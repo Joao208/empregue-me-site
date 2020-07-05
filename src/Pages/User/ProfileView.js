@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 import api from '../../services/api'
@@ -242,7 +242,7 @@ useEffect(() => {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <Link to={`/postb/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 <button 
                 onClick={
                   async function Share(event){
