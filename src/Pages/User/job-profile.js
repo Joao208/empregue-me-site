@@ -235,7 +235,7 @@ const lottieOptionscompleted = {
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
               <div className="p-3">
-              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
+              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiu </button>
             </div>
           </div>
         </aside>
