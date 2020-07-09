@@ -34,7 +34,7 @@ return (
           <div className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div className="p-3 border-top">
+                <div className="p-3 border-top" style={{justifyContent:'center'}}>
                   <div className="row" style={{justifyContent:'center'}}>
                   {jobs.map(vacancies => (
                     <div key={vacancies._id} className="col-md-6">
