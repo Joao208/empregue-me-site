@@ -53,7 +53,7 @@ function blog(){
             </div>
             <div className="col-lg-4 col-md-4">
               <div className="box shadow-sm rounded bg-white mb-3 blog-card border-0">
-                <a href="https://light-empregue-me.herokuapp.com/dicas-de-entrevistas"><img className="card-img-top" src="blob:https://web.whatsapp.com/c3d8ee25-9849-4b37-b85a-7d774fc601fc" alt="Card image cap" />
+                <a href="https://light-empregue-me.herokuapp.com/resultados-quarentena"><img className="card-img-top" src="https://www.jornalcontabil.com.br/wp-content/uploads/2020/03/desemprego.jpg" alt="Card image cap" />
                   <div className="card-body">
                     <span className="badge badge-success">Guilherme Neto</span>
                     <h6 className="text-dark">O desemprego gerado pela pandemia</h6>

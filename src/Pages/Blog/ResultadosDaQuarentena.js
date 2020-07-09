@@ -37,7 +37,7 @@ function ResultadosQuarentena() {
                 <div className="row">
                     <div className="col-lg-8 col-md-8">
                     <div className="blog-card padding-card box shadow-sm rounded bg-white mb-3 border-0">
-                        <img className="card-img-top" src="blob:https://web.whatsapp.com/3c88f5f6-1b58-46dc-8b32-e0461aac573a" alt="Card image cap" />
+                        <img className="card-img-top" src="https://www.jornalcontabil.com.br/wp-content/uploads/2020/03/desemprego.jpg" alt="Card image cap" />
                         <div className="card-body">
                         <span className="badge badge-success">Guilherme Neto</span>
                         <h2>O desemprego gerado pela Pandemia</h2>

@@ -47,7 +47,7 @@ function Feed() {
       sessionStorage.setItem('confirmate', user.confirmate) || sessionStorage.setItem('phoneConfirme', user.phoneConfirme) || sessionStorage.setItem('user_avatar', user.avatar)
       }
 
-      navigate('/')
+      navigate('/profile')
     }catch(e){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');
