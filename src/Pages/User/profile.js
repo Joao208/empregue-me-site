@@ -199,7 +199,7 @@ function Feed() {
                   <a href={`/profile/${postd.user._id}`}>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{postd.user.name}</div>
-                    <div className="small text-gray-500">Ui/Ux desing</div>
+                    <div className="small text-gray-500"> </div>
                   </div>
                   </a>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span><button style={{marginLeft:'5%',background:'#fff',color:'red'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={

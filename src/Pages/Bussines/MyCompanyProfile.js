@@ -309,7 +309,7 @@ async function SearchValue(event){
                   </div>
                   <div className="font-weight-bold">
                     <div className="text-truncate">{postd.bussines.nome}</div>
-                    <div className="small text-gray-500">Ui/Ux desing</div>
+                    <div className="small text-gray-500"> </div>
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
                 </div>
