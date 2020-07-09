@@ -207,20 +207,6 @@ const lottieOptionscompleted = {
               </div>
             </div>
           </div>
-          <div className="box shadow-sm border rounded bg-white mb-3">
-            <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Localização</h6>
-            </div>
-            <MapContainer>
-              <Map center={[location.coordinates[1],location.coordinates[0]]} zoom={15} >
-                <TileLayer
-                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[location.coordinates[1],location.coordinates[0]]} />
-              </Map>
-            </MapContainer>
-          </div>
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
             <img src={img_job1} className="img-fluid"  alt="Responsive image" />
             <div className="p-3 border-bottom">

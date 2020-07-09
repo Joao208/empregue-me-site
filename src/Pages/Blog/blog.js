@@ -26,7 +26,7 @@ function blog(){
       <div className="row">
         <div className="col-md-12 mx-auto">
           <h1 className="text-white font-weight-light"><span className="font-weight-bold">Empregue.me</span> Blog</h1>
-          <p className="mb-2 text-white-50">Ultima motificação 02/07/2020
+          <p className="mb-2 text-white-50">Ultima motificação 09/07/2020
           </p>
         </div>
       </div>

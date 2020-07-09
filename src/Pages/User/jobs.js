@@ -35,7 +35,7 @@ return (
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3 border-top">
-                  <div className="row">
+                  <div className="row" style={{justifyContent:'center'}}>
                   {jobs.map(vacancies => (
                     <div key={vacancies._id} className="col-md-6">
                       <a >
