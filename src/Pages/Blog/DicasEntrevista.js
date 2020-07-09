@@ -1,11 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import {
-    FacebookShareButton,
-    TwitterShareButton,
-    WhatsappShareButton,
-    FacebookShareCount
-  } from "react-share";
 
   function blog_single() {
     return (

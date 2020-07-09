@@ -43,6 +43,7 @@ import ComingSoom from './Pages/cooming-soon'
 import Blog from './Pages/Blog/blog'
 import Entrevista_de_Emprego from './Pages/Blog/DicasEntrevista'
 import Coming_Schools from './Pages/Schools/cooming-soon'
+import ResultadosQuarentena from './Pages/Blog/ResultadosDaQuarentena';
 
 export default function Routed() {
 
@@ -159,6 +160,7 @@ export default function Routed() {
         <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
         <Route path='/blog' element={<Blog/>}/>
         <Route path="/schools/panel" element={<Coming_Schools/>}/>
+        <Route path='/resultados-quarentena' element={<ResultadosQuarentena/>}/>
 </Routes>
     );
 }
