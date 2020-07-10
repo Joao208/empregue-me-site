@@ -16,6 +16,7 @@ export default function Notifications(){
 
   useEffect(() => {
             socket.on('booking_response', booking => {
+              console.log(booking.bookings)
                 setResponse(booking.bookings)
             })
   },[socket])
@@ -24,8 +25,8 @@ export default function Notifications(){
     async function notifications(){
       try {
         const response = await api.get('/notifications')
+        console.log(response.data.bookings)
           setResponse(response.data.bookings)
-          console.log(response.data.bookings)
       } catch (error) {
       }
     }

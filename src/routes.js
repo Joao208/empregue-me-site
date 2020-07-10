@@ -88,13 +88,6 @@ export default function Routed() {
     : <Route path="*" element={<ComingSoom/>}/>
     }
 
-    const ProfileUser = props => {
-        const privated = !! sessionStorage.getItem('user_avatar')
-
-        return privated ? <Route {...props}/>
-        : <Route path="*" element={<Edit_profile/>}/>
-    }
-
     const ProfileBussines = props => {
         const privated = !! sessionStorage.getItem('bussines_avatar')
 
@@ -108,7 +101,6 @@ export default function Routed() {
     <PrivateRoute>
     <ConfirmateRoute> 
     <PhoneConfirmeRoute>
-    <ProfileUser>
         <UserRoute path='/' element={<Feed/>}/>
         <UserRoute path='/add/populate/:id' element={<CommentAdd/>}/>
         <UserRoute path='/postb/populate/:id' element={<CommentPostB/>}/>
@@ -125,7 +117,6 @@ export default function Routed() {
         <UserRoute path='/terms' element={<Terms/>}/>
         <UserRoute path='/checkout/:price' element={<Checkout/>}/>
         <UserRoute path='/profile' element={<Profile/>}/>
-    </ProfileUser>
     </PhoneConfirmeRoute>
     </ConfirmateRoute>
     </PrivateRoute>
