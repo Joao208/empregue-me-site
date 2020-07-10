@@ -7,7 +7,6 @@ import {useParams, Link} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 import api from '../../services/api'
-import img_job1 from '../../img/job1.png'
 import Header from '../../components/Header';
 import EmptyAnimation from '../../Animations/empty.json'
 import Lottie from 'react-lottie';
@@ -33,12 +32,13 @@ function Feed() {
         
         if(response.data.post.length > 0){
           setPostEmpty(false)
+          console.log(postempty)
         }
 
     }
     loadSpots()
 // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [] )
+}, [postempty] )
 
 const lottieOptions = {
   title:'loading',
