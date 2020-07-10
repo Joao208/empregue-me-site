@@ -57,7 +57,8 @@ export default function Notifications(){
             </Badge>
           </div>
         </NavLink>
-       <Collapse
+      {response.length > 0
+       ? <Collapse
           open={visible}
           className="navbar-expand navbar-nav dropdown-menu"
         >
@@ -98,6 +99,8 @@ export default function Notifications(){
           </DropdownItem>
         ))}
         </Collapse>
+        : null
+      }
       </NavItem>
     );
 }
