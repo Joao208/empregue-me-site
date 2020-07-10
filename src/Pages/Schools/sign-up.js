@@ -34,7 +34,6 @@ function Feed() {
             setLongitude(longitude)
         },
         (error) => {
-            console.log(error)
         },
         {
             timeout: 30000
@@ -65,8 +64,6 @@ function Feed() {
     setLoading(true)
     try{
       const response = await api.post('/schoolregisters',data)
-
-      console.log(response)
 
       const {
         token,

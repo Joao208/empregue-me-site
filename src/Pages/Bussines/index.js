@@ -59,7 +59,6 @@ function Feed() {
             setLongitude(longitude)
         },
         (error) => {
-            console.log(error)
             toast.error('Não conseguimos obter sua localização :(')
         }
     )
@@ -96,7 +95,6 @@ function Feed() {
       setLazy(false)
 
       }catch(e){
-      console.log(e)
       setLazy(false)
       }
     }
@@ -120,9 +118,6 @@ function Feed() {
 
       const response = await api.post('/bussines/posts', data)
 
-      console.log(response)
-
-      console.log(response.data)
       setLoading(false)
       toast.success('Postado ;)')
       setAvatar(null)
@@ -130,7 +125,6 @@ function Feed() {
     } catch (e) {
       setLoading(false)
       toast.error('Ops!! Imagem invalida');
-      console.log(e)
     }
   }
 
@@ -292,7 +286,6 @@ function Feed() {
                     })
                     toast.success('Check-in postado ;)');
                     }catch(e){
-                      console.log(e)
                     }
                   }
                 } className="text-link small"
@@ -306,7 +299,6 @@ function Feed() {
                 onClick={
                   async function AddAdd(){
                     setAddAdd(true)
-                    console.log(addadd)
                   }
                 }
                 >
@@ -430,7 +422,6 @@ function Feed() {
                     await api.post(`/bussines/post/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}
@@ -574,7 +565,6 @@ function Feed() {
                     await api.post(`/bussines/postb/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}
@@ -680,7 +670,6 @@ function Feed() {
                       await api.post(`/bussines/follow/${user._id}`)   
                       toast.success('Uau, você fez novos amigos, isso aí ;)') 
                     }catch(e){
-                        console.log(e)
                       }
                     }
                   }

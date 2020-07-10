@@ -30,7 +30,6 @@ function Feed() {
             setLongitude(longitude)
         },
         (error) => {
-            console.log(error)
         },
         {
             timeout: 30000
@@ -53,8 +52,6 @@ function Feed() {
         email,
         password
       });
-
-      console.log(response)
 
       const {
         token,

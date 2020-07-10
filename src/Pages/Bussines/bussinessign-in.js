@@ -28,7 +28,6 @@ import React, {
           email,
           password
         });
-        console.log(response)
         const {
           bussines,
           token

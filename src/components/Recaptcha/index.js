@@ -14,7 +14,6 @@ class index extends Component {
     onResolved = () => {
         this.setState({messageSent: true})
         // Process Data //
-        console.log(this.state);
     }
 
     render() {

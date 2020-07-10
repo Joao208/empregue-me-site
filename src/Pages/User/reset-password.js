@@ -28,8 +28,6 @@ function Feed() {
         password
       });
 
-      console.log(response)
-
       navigate('/')
     }catch(e){
       toast.error('Falha ao resetar senha, verifique seus dados');

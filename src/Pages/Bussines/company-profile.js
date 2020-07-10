@@ -34,7 +34,6 @@ function Feed() {
         setAdd(response.data.add)
         setPost(response.data.post)
         setData(response.data)
-        console.log(response.data)
     }
 
     loadSpots()
@@ -47,7 +46,6 @@ useEffect(() => {
     const response = await api.get('/profilebussinesv')
     
     setProfiled(response.data.profile)
-    console.log(response.data)
     
   }
   
@@ -249,7 +247,6 @@ async function SearchValue(event){
                     await api.post(`/postb/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}
@@ -335,8 +332,6 @@ async function SearchValue(event){
                 async function Follow(event){
                   event.preventDefault()
                   const response = await api.post(`/bussines/followb/${profile.bussines._id}`)
-                  console.log(response.data)
-                  console.log(profile.bussines._id)
                 }
               } 
               className="font-weight-bold p-3 d-block" 
@@ -353,7 +348,6 @@ async function SearchValue(event){
                 async function Unfollow(event){
                   event.preventDefault()
                   const response = await api.delete(`/bussines/unfollowb/${profile.bussines._id}`)
-                  console.log(response.data)
                 }
               } 
               style={{

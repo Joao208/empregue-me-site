@@ -51,8 +51,6 @@ useEffect(() => {
     const response = await api.get(`/followed/${id}`)
 
     setFollowed(response.data.followed)
-    console.log(response.data)
-    console.log(response.data.followed)
 
   }
   followed()
@@ -261,7 +259,6 @@ useEffect(() => {
                     await api.post(`/post/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}

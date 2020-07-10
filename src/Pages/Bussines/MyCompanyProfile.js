@@ -30,7 +30,6 @@ function Feed() {
     async function loadSpots() {
         const response = await api.get('/profilebussinesv')
 
-        console.log(response.data)
         setProfile(response.data.profile)
         setAdd(response.data.add)
         setPost(response.data.post)
@@ -47,7 +46,6 @@ function Feed() {
       sessionStorage.clear()
      navigate('/sign-in')
     }catch(e){
-      console.log(e)
     }
 
   }
@@ -152,9 +150,6 @@ async function SearchValue(event){
               <h5 className="font-weight-bold text-dark mb-1 mt-0">{profile.bussines.nome}<span className="text-info"><i data-toggle="tooltip" data-placement="top" title="Verified" className="feather-check-circle" /></span></h5>
               <p className="mb-0 text-muted">{profile.bussines.cnpjI.logradouro}</p>
             </div>
-            {
-              console.log(profile.bussines.location.coordinates)
-            }
             <div className="profile-right ml-auto">
               <a href={profile.bussines.site} className="btn btn-light mr-2"> <i className="feather-external-link" /> Visit website </a>
             </div>
@@ -349,7 +344,6 @@ async function SearchValue(event){
                     await api.post(`/postb/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}

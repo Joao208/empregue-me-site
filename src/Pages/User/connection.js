@@ -28,7 +28,6 @@ function Feed() {
         setUsers(response.data.users)
         setBussines(response.data.bussines)
         setVacancies(response.data.vacancies)
-        console.log(response.data)
 
         if(response.data.users.length > 0){
           setUserEmpty(false)

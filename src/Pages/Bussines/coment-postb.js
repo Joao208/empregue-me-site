@@ -75,10 +75,8 @@ function Feed() {
       setText(response.data.Text.Text)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
-      console.log(response.data)
 
       }catch(e){
-      console.log(e)
       }
     }
     
@@ -208,7 +206,6 @@ function Feed() {
                     await api.post(`/postb/share/${id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}

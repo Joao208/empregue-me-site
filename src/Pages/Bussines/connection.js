@@ -28,7 +28,6 @@ function Feed() {
         setUsers(response.data.users)
         setBussines(response.data.bussines)
         setVacancies(response.data.vacancies)
-        console.log(response.data)
   
       } catch (e) {
         loadUsers()

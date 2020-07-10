@@ -209,7 +209,6 @@ function Feed() {
                        try{
                       await api.delete(`/posts/${postd._id}`)
                        }catch(e){
-                         console.log(e)
                        }
                     }
                   } className="btn btn-danger">Apagar post</button>
@@ -249,7 +248,6 @@ function Feed() {
                     await api.post(`/post/share/${postd._id}`)
                     toast.success('Compartilhado ;)');
                     }catch(e){
-                      console.log(e)
                       toast.error('Ops!! Não deu para compartilhar tente novamente');
                     }
                   }}

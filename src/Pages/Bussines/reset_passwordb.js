@@ -30,8 +30,6 @@ function Feed() {
         password
       });
 
-      console.log(response)
-
       navigate('/')
     }catch(e){
       setLoading(false)

@@ -45,8 +45,6 @@ function Feed() {
        
        const response = await api.post('/profile', data)
 
-       console.log(response)
-
        const profile_id = response.data
 
        sessionStorage.getItem('profile_id', profile_id)
@@ -64,9 +62,6 @@ function Feed() {
       const response = await api.get('/user')
 
         setUser(response.data)
-
-        console.log(response)
-        console.log(typeof response.data)
     }
 
     loadSpots()

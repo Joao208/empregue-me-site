@@ -32,7 +32,6 @@ function Feed() {
         email,
         password
       });
-      console.log(response)
       const {
         user,
         token,

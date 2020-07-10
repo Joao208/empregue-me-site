@@ -31,8 +31,6 @@ function Feed() {
         email,
       });
 
-      console.log(response)
-
       navigate('/reset-password')
     }catch(e){
       setLoading(false)

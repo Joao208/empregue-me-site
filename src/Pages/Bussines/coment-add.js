@@ -76,10 +76,8 @@ function Feed() {
       setLink(response.data.text.link)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
-      console.log(response.data.text.link)
 
       }catch(e){
-      console.log(e)
       }
     }
     

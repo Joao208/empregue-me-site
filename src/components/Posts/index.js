@@ -15,7 +15,6 @@ export default function Notifications(){
       setVisible(true)
       }
     } catch (error) {
-      console.log(error)
     }
   }
     return (
@@ -37,7 +36,6 @@ export default function Notifications(){
                     try {
                       await api.delete('/posts/:id')
                     } catch (error) {
-                      console.log(error)
                     }
                   }                
               } className="notification__category" style={{color:'red',fontWeight:'bold',backgroundColor:'none',border:'none'}}>Deletar</button>

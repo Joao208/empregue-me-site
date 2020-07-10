@@ -31,7 +31,6 @@ import React, {
         const response = await api.post('/addphone', {
           phone,
         });
-        console.log(response)
         navigate('/phoneconfirm')
     }catch(e){
       setLoading(false)
