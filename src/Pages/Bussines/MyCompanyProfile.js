@@ -385,7 +385,7 @@ async function SearchValue(event){
             <div className="py-4 px-3 border-bottom">
               <img src={profile.bussines.avatar} className="img-fluid mt-2 rounded-circle" alt="Responsive image" style={{height: 130, width: 130}} />
               <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.bussines.nome}</h5>
-              <p className="mb-0 text-muted">UI / UX Designer</p>
+              <p className="mb-0 text-muted"> </p>
             </div>
             <div className="d-flex">
               <div className="col-6 border-right p-3">

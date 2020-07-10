@@ -75,7 +75,7 @@ useEffect(() => {
             <div className="py-4 px-3 border-bottom">
               <img src={profile.user.avatar ? profile.user.avatar : 'https://api.adorable.io/avatars/285/abott@adorable.png'} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
               <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
-              <p className="mb-0 text-muted">UI / UX Designer</p>
+              <p className="mb-0 text-muted"> </p>
             </div>
           ))}
             <div className="d-flex">
