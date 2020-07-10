@@ -6,12 +6,18 @@ import { useParams } from 'react-router';
   
 import api from '../../services/api'
 import Header from '../../components/Header';
+import Lottie from 'react-lottie';
+import emptyAnimation from '../../Animations/empty.json'
 
 function Feed() {
 
   const [users, setUsers] = useState([])
   const [bussines, setBussines] = useState([])
   const [vacancies, setVacancies] = useState([])
+  const [userempty, setUserEmpty] = useState(true)
+  const [bussinesempty, setBussinesEmpty] = useState(true)
+  const [vacanciesempty, setVacanciesEmpty] = useState(true)
+
   const {named} = useParams()
   
   useEffect(() => {
@@ -23,6 +29,16 @@ function Feed() {
         setBussines(response.data.bussines)
         setVacancies(response.data.vacancies)
         console.log(response.data)
+
+        if(response.data.users){
+          setUserEmpty(false)
+        }
+        if(response.data.bussines){
+          setBussinesEmpty(false)
+        }
+        if(response.data.vacancies){
+          setVacanciesEmpty(false)
+        }
   
       } catch (e) {
         loadUsers()
@@ -31,6 +47,13 @@ function Feed() {
     loadUsers()
   }, [])
   
+  const lottieOptions = {
+    title:'loading',
+    loop:true,
+    autoplay:true,
+    animationData:emptyAnimation
+  }
+
 
   return (
 <>
@@ -50,30 +73,37 @@ function Feed() {
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3">
-                  <div className="row">
-                  {users.map(user => (
-                    <div key={user._id} className="col-md-4">
-                      <a href="profile">
-                        <div className="border network-item rounded mb-3">
-                          <div className="p-3 d-flex align-items-center network-item-header">
-                            <div className="dropdown-list-image mr-3">
-                              <img className="rounded-circle" src={user.avatar} />
+              {userempty
+                  ? <Lottie options={lottieOptions
+                    } style={{height:'100%',width:'100%'}} 
+                    height='20%'
+                    width='20%'
+                    />
+                 : <div className="row">
+                    {users.map(user => (
+                      <div key={user._id} className="col-md-4">
+                        <a href="profile">
+                          <div className="border network-item rounded mb-3">
+                            <div className="p-3 d-flex align-items-center network-item-header">
+                              <div className="dropdown-list-image mr-3">
+                                <img className="rounded-circle" src={user.avatar} />
+                              </div>
+                              <div className="font-weight-bold">
+                              <h6 className="font-weight-bold text-dark mb-0">{user.name}</h6>
+                                <div className="small text-black-50">Photography</div>
+                              </div>
                             </div>
-                            <div className="font-weight-bold">
-                            <h6 className="font-weight-bold text-dark mb-0">{user.name}</h6>
-                              <div className="small text-black-50">Photography</div>
+                            <div className="network-item-footer py-3 d-flex text-center">
+                              <div className="col-6 pl-3 pr-1">
+                                <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
+                              </div>
                             </div>
                           </div>
-                          <div className="network-item-footer py-3 d-flex text-center">
-                            <div className="col-6 pl-3 pr-1">
-                              <a type="button" href={`https://light-empregue-me.herokuapp.com/profile/${user._id}`}  className="btn btn-primary btn-sm btn-block"> Ver Perfil </a>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  ))}
+                        </a>
+                      </div>
+                    ))}
                   </div>
+                }
                 </div>
               </div>
             </div>
@@ -100,7 +130,14 @@ function Feed() {
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3">
-                  <div className="row">
+                {vacanciesempty
+                  ? <Lottie options={lottieOptions
+                    } style={{height:'100%',width:'100%'}} 
+                    height='20%'
+                    width='20%'
+                    />
+
+                 : <div className="row">
                   {vacancies.map(vacancies => (
                     <div key={vacancies._id} className="col-md-4">
                       <a href="profile">
@@ -124,6 +161,7 @@ function Feed() {
                     </div>
                   ))}
                   </div>
+                }
                 </div>
               </div>
             </div>
@@ -139,7 +177,13 @@ function Feed() {
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3">
-                  <div className="row">
+                {bussinesempty
+                  ? <Lottie options={lottieOptions
+                    } style={{height:'100%',width:'100%'}} 
+                    height='20%'
+                    width='20%'
+                    />
+                 : <div className="row">
                   {bussines.map(bussines => (
                     <div key={bussines._id} className="col-md-4">
                       <a href="profile">
@@ -163,6 +207,7 @@ function Feed() {
                     </div>
                   ))}
                   </div>
+                }
                 </div>
               </div>
             </div>

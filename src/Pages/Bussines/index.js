@@ -653,16 +653,6 @@ function Feed() {
             </div>
           </div>
           ))}
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-            <img src={img_job1} className="img-fluid"  alt="Responsive image" />
-            <div className="p-3 border-bottom">
-              <h6 className="font-weight-bold text-dark">Osahan Solutions</h6>
-              <p className="mb-0 text-muted">Looking for talent?</p>
-            </div>
-            <div className="p-3">
-              <button type="button" className="btn btn-outline-primary pl-4 pr-4"> POST A JOB </button>
-            </div>
-          </div>
         </aside>
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
