@@ -538,7 +538,7 @@ function Feed() {
             <div className="py-4 px-3 border-bottom">
             <img style={{height:'130px',width:'130px'}} src={profile.user.avatar} className="img-fluid mt-2 rounded-circle"  alt="Responsive image" />
             <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
-              <p className="mb-0 text-muted"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}>Designer de UI / UX</font></font></p>
+              <p className="mb-0 text-muted"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> </font></font></p>
             </div>
             <div className="d-flex">
               <div className="col-6 border-right p-3">
