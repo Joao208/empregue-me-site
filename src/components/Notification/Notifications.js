@@ -53,7 +53,6 @@ export default function Notifications(){
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
             <Badge pill theme="info">
-              4
             </Badge>
           </div>
         </NavLink>

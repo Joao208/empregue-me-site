@@ -42,7 +42,7 @@ function Feed() {
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
       
-      if(user.confirmate || user.phoneConfirme){
+      if(user.confirmate || user.phoneConfirme === true){
       sessionStorage.setItem('confirmate', user.confirmate) || sessionStorage.setItem('phoneConfirme', user.phoneConfirme)
       }
 
