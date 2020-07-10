@@ -105,7 +105,6 @@ export default function Routed() {
 
     return(
 <Routes>
-    <Privated>
     <PrivateRoute>
     <ConfirmateRoute> 
     <PhoneConfirmeRoute>
@@ -131,6 +130,7 @@ export default function Routed() {
     </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>
+        <Privated>
         <BussinesRoutes>
         <ProfileBussines>
         <Route path='/edit-company' element={<EditCompanyProfile/>}/>
@@ -141,6 +141,7 @@ export default function Routed() {
         <Route path='/feed' element={<FeedB/>}/>
         </ProfileBussines>
         </BussinesRoutes>
+        </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
@@ -156,7 +157,6 @@ export default function Routed() {
         <Route path='/reset-password' element={<Reset_password/>}/>
         <Route path='/forgot-passwordb' element={<Forgot_passwordb/>}/>
         <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
-</Privated>
         <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
         <Route path='/blog' element={<Blog/>}/>
         <Route path="/schools/panel" element={<Coming_Schools/>}/>
