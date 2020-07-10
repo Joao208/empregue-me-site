@@ -25,6 +25,7 @@ export default function Notifications(){
       try {
         const response = await api.get('/notifications')
           setResponse(response.data.bookings)
+          console.log(response.data.bookings)
       } catch (error) {
       }
     }
@@ -50,7 +51,8 @@ export default function Notifications(){
         >
           <div className="nav-link-icon__wrapper">
             <i className="feather-bell"></i>
-            <Badge pill theme="danger">
+            <Badge pill theme="info">
+              4
             </Badge>
           </div>
         </NavLink>
