@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api'
 import img_job1 from '../../img/job1.png'
 import Header from '../../components/Header';
+import EmptyAnimation from '../../Animations/empty.json'
 
 function Feed() {
   
@@ -17,6 +18,7 @@ function Feed() {
   const [data,setData] = useState('')
   const [followed, setFollowed] = useState(false)
   const [text, setTextt] = useState('')
+  const [postempty, setPostEmpty] = useState(true)
 
   const {id} = useParams()
 
@@ -27,11 +29,22 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
+        
+        if(response.data.post.length > 0){
+          setPostEmpty(false)
+        }
 
     }
     loadSpots()
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [] )
+
+const lottieOptions = {
+  title:'loading',
+  loop:true,
+  autoplay:true,
+  animationData:EmptyAnimation
+}
 
 useEffect(() => {
   async function followed() {
@@ -193,6 +206,13 @@ useEffect(() => {
             </div>
             {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                {postempty
+                  ? <Lottie options={lottieOptions
+                    } style={{height:'100%',width:'100%'}} 
+                    height='20%'
+                    width='20%'
+                    />
+                  : <div>
                 <a href={`/profile/${postd.user._id}`}>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
@@ -265,6 +285,8 @@ useEffect(() => {
                   />
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
+                  </div>
+              }
               </div>
             ))}
           </div>

@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
-import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
 import Header from '../../components/Header';
 import App from '../../components/App/App';
@@ -21,6 +20,7 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
   const [text, setTextt] = useState('')
+  const [postempty, setPostEmpty] = useState(true)
 
   async function SignOut() {
     sessionStorage.clear()
@@ -40,6 +40,10 @@ function Feed() {
         setPost(response.data.post)
         setProfile(response.data.profile)
         setData(response.data)
+
+        if(response.data.post.length > 0){
+          setPostEmpty(false)
+        }
     }
     loadSpots()
 }, [] )
@@ -181,6 +185,13 @@ function Feed() {
             </div>
             {post.map(postd => (
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
+                {postempty
+                  ? <Lottie options={lottieOptions
+                    } style={{height:'100%',width:'100%'}} 
+                    height='20%'
+                    width='20%'
+                    />
+                  : <div>
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
                     <img className="rounded-circle" src={postd.user.avatar} alt />
@@ -262,6 +273,8 @@ function Feed() {
                   />
                   <button style={{border:'none',background:'none',marginLeft:'90%',color:'cornflowerblue',fontWeight:'bold'}}>Enviar</button>
                 </form>
+                </div>
+                }
               </div>
             ))}
           </div>

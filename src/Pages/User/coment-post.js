@@ -192,25 +192,6 @@ function Feed() {
                 </form>
               </div>
         </main>
-        <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
-          <MapContainer>
-          <AdSense.Google
-            client='ca-pub-7292810486004926'
-            slot='7806394673'
-            style={{ width: 500, height: 300, float: 'left' }}
-            format=''
-          />       
-          </MapContainer>     
-            <div className="p-3 border-bottom">
-              <h6 className="font-weight-bold text-gold">Osahanin Premium</h6>
-              <p className="mb-0 text-muted">Grow &amp; nurture your network</p>
-            </div>
-            <div className="p-3">
-              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> ACTIVATE </button>
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   </div>
