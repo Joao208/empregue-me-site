@@ -16,6 +16,7 @@ import { Map, TileLayer, Marker } from 'react-leaflet'
 import {MapContainer} from '../../style.js'
 import Header from '../../components/Header';
 import EmptyAnimation from '../../Animations/empty.json'
+import Lottie from 'react-lottie';
 
 function Feed() {
 
