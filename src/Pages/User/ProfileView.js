@@ -10,6 +10,7 @@ import api from '../../services/api'
 import img_job1 from '../../img/job1.png'
 import Header from '../../components/Header';
 import EmptyAnimation from '../../Animations/empty.json'
+import Lottie from 'react-lottie';
 
 function Feed() {
   
