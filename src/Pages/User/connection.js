@@ -30,13 +30,13 @@ function Feed() {
         setVacancies(response.data.vacancies)
         console.log(response.data)
 
-        if(response.data.users){
+        if(response.data.users.length > 0){
           setUserEmpty(false)
         }
-        if(response.data.bussines){
+        if(response.data.bussines.length > 0){
           setBussinesEmpty(false)
         }
-        if(response.data.vacancies){
+        if(response.data.vacancies.length > 0){
           setVacanciesEmpty(false)
         }
   
