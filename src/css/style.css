@@ -328,6 +328,7 @@ Version: 1.0
 }
  .border-top {
      border-top: 1px solid #eaebec!important;
+     justify-content: center;
 }
  .border-bottom {
      border-bottom: 1px solid #eaebec!important;
