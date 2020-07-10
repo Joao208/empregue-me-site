@@ -32,13 +32,12 @@ function Feed() {
         
         if(response.data.post.length > 0){
           setPostEmpty(false)
-          console.log(postempty)
         }
 
     }
     loadSpots()
 // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [postempty] )
+}, [setPostEmpty] )
 
 const lottieOptions = {
   title:'loading',
