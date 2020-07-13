@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from 'react';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route,useNavigate} from 'react-router-dom';
 
 import Reset_password from './Pages/User/reset-password'
 import Feed from './Pages/User/index'
@@ -46,53 +46,48 @@ import Coming_Schools from './Pages/Schools/cooming-soon'
 import ResultadosQuarentena from './Pages/Blog/ResultadosDaQuarentena';
 
 export default function Routed() {
+    
+    const navigate = useNavigate()
 
     const UserRoute = props => {
         const isAuthenticated = !! sessionStorage.getItem('user') 
 
             return isAuthenticated ? <Route {...props} />
-            : <Route path='/sign-in' element={<Sign_in/>}/>
+            : navigate('/sign-in')
     }
 
     const PrivateRoute = props => {
        const isLogged = !! sessionStorage.getItem('token')
 
         return isLogged ? <Route {...props}/>
-        : <Route path='*' element={<Sign_in/>}/>
+        : navigate('/sign-in')
     }
 
     const BussinesRoutes = props => {
         const isBussines = !! sessionStorage.getItem('bussines')
 
         return isBussines ? <Route {...props} />
-        : <Route path='*' element={<Error404/>}/>
+        : navigate('/sign-in')
     }
     const ConfirmateRoute = props => {
         const confirmate = !! sessionStorage.getItem('confirmate')
         
         return confirmate ? <Route {...props}/>
-        : <Route path='*' element={<Email_confirmate/>}/>
+        : navigate('/email')
     }
 
     const PhoneConfirmeRoute = props => {
         const confirmate = !! sessionStorage.getItem('phoneConfirme')
         
         return confirmate ? <Route {...props}/>
-        : <Route path='*' element={<Phoneconfirm/>}/>
+        : navigate('/phoneconfirm')
     }
 
     const Privated = props => {
     const privated = !! sessionStorage.getItem('8789887348975')
     
     return privated ? <Route {...props}/>
-    : <Route path="*" element={<ComingSoom/>}/>
-    }
-
-    const ProfileBussines = props => {
-        const privated = !! sessionStorage.getItem('bussines_avatar')
-
-        return privated ? <Route {...props}/>
-        : <Route path="*" element={<EditCompanyProfile/>}/>
+    : navigate('/cooming')
     }
 
 
@@ -123,14 +118,12 @@ export default function Routed() {
    <PrivateRoute>
         <Privated>
         <BussinesRoutes>
-        <ProfileBussines>
         <Route path='/edit-company' element={<EditCompanyProfile/>}/>
         <Route path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <Route path='/company-profileb/:id' element={<Company_ProfileB/>}/>
         <Route path='/conectionsb/:named' element={<ConectionsB/>}/>
         <Route path='/profileb/:id' element={<ProfileViewB/>}/>
         <Route path='/feed' element={<FeedB/>}/>
-        </ProfileBussines>
         </BussinesRoutes>
         </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
@@ -152,6 +145,8 @@ export default function Routed() {
         <Route path='/blog' element={<Blog/>}/>
         <Route path="/schools/panel" element={<Coming_Schools/>}/>
         <Route path='/resultados-quarentena' element={<ResultadosQuarentena/>}/>
+        <Route path='/email' element={<Email_confirmate/>}/>
+        <Route path="/cooming" element={<ComingSoom/>}/>
 </Routes>
     );
 }
