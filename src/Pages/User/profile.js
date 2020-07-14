@@ -23,7 +23,9 @@ function Feed() {
   const [postempty, setPostEmpty] = useState(true)
 
   async function SignOut() {
+    event.preventDefault()
     sessionStorage.clear()
+    navigate('/sign-in')
   }
   
   const lottieOptions = {
