@@ -5,7 +5,7 @@ import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {useNavigate} from 'react-router'
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
@@ -21,8 +21,9 @@ function Feed() {
   const [data,setData] = useState('')
   const [text, setTextt] = useState('')
   const [postempty, setPostEmpty] = useState(true)
+  const navigate = useNavigate()
 
-  async function SignOut() {
+  async function SignOut(event) {
     event.preventDefault()
     sessionStorage.clear()
     navigate('/sign-in')
