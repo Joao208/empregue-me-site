@@ -109,6 +109,7 @@ const lottieOptions = {
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }
               </div>
           </div>
+        {user.map(user => (
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Sobre</h6>
@@ -124,7 +125,7 @@ const lottieOptions = {
                     className="form-control" 
                     rows={4} name="text" 
                     placeholder="Nós do Empregue.me e as Empresas parceiras queremos saber mais de você, descreva aqui na bio..." 
-                    value={bio}
+                    value={user.bio}
                     onChange={event => setBio(event.target.value)}
                     />
                   </div>
@@ -132,6 +133,8 @@ const lottieOptions = {
               </div>
             </div>
           </div>
+        ))}
+        {user.map(user => (
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
               <h6 className="m-0">Redes sociais</h6>
@@ -146,7 +149,7 @@ const lottieOptions = {
                   placeholder="Add Instagram link" 
                   type="text" 
                   className="form-control" 
-                  value={InstagramUrl}
+                  value={user.InstagramUrl}
                   onChange={event => setInstagramUrl(event.target.value)}
                   />
                 </div>
@@ -156,7 +159,7 @@ const lottieOptions = {
                   placeholder="Add Facebook link" 
                   type="text" 
                   className="form-control" 
-                  value={FacebookUrl}
+                  value={user.FacebookUrl}
                   onChange={event => setFacebookUrl(event.target.value)}
                   />
                 </div>
@@ -166,7 +169,7 @@ const lottieOptions = {
                   placeholder="Add Twitter link" 
                   type="text" 
                   className="form-control" 
-                  value={TwitterUrl}
+                  value={user.TwitterUrl}
                   onChange={event => setTwitterUrl(event.target.value)}
                   />
                 </div>
@@ -176,7 +179,7 @@ const lottieOptions = {
                   placeholder="Add Youtube link" 
                   type="text" 
                   className="form-control" 
-                  value={YouTubeUrl}
+                  value={user.YouTubeUrl}
                   onChange={event => setYouTubeUrl(event.target.value)}
                   />
                 </div>
@@ -186,13 +189,14 @@ const lottieOptions = {
                   placeholder="Add Github link" 
                   type="text" 
                   className="form-control"
-                  value={GithubUrl}
+                  value={user.GithubUrl}
                   onChange={event => setGithubUrl(event.target.value)}
                   />
                 </div>
               </div>
             </div>
           </div>
+        ))}
         </aside>
         <main className="col-md-8">
           <div className="border rounded bg-white mb-3">
@@ -234,17 +238,19 @@ const lottieOptions = {
                   </div>
                   {/* End Input */}
                 </div>
-                <div class="col-md-6 mb-3 mb-sm-6">
+                <div className="row">
+                  {/* Input */}
                   <div className="col-sm-6 mb-2">
-                  <div className="js-form-message">
-                    <label id="phoneNumberLabel" className="form-label">
-                      Seu número
-                      <span className="text-danger">*</span>
-                    </label>
-                    <div className="form-group">
-                      <input className="form-control" readonly="true" type="tel" name="phoneNumber" defaultValue={user.phone} placeholder="Enter your phone number" aria-label="Enter your phone number" required aria-describedby="phoneNumberLabel" data-msg="Please enter a valid phone number" data-error-class="u-has-error" data-success-class="u-has-success" />
+                    <div className="js-form-message">
+                      <label id="emailLabel" className="form-label">
+                        Seu número
+                        <span className="text-danger">*</span>
+                      </label>
+                      <div className="form-group">
+                        <input className="form-control" readonly="true" type="tel" name="phoneNumber" defaultValue={user.phone} placeholder="Enter your phone number" aria-label="Enter your phone number" required aria-describedby="phoneNumberLabel" data-msg="Please enter a valid phone number" data-error-class="u-has-error" data-success-class="u-has-success" />
+                      </div>
                     </div>
-                  </div>
+                  {/* End Input */}
                 </div>
                 <div className="col-sm-6 mb-2">
                   <div className="js-form-message">
