@@ -110,7 +110,7 @@ useEffect(() => {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
+    <img className="img-fluid" style={{height:'250px'}} src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">
