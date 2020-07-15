@@ -183,12 +183,12 @@ useEffect(() => {
                 </div>
                 {profile.map(profile => (
                 <MapContainer>
-                  <Map center={[profile.bussines.location.coordinates[1],profile.bussines.location.coordinates[0]]} zoom={15} >
+                <Map center={[`"${profile.bussines.location.coordinates[1]}"`,`"${profile.bussines.location.coordinates[0]}"`]} zoom={15} >
                     <TileLayer
                       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[profile.bussines.location.coordinates[1],profile.bussines.location.coordinates[0]]} />
+                    <Marker position={[`"${profile.bussines.location.coordinates[1]}"`,`"${profile.bussines.location.coordinates[0]}"`]} />
                   </Map>
                 </MapContainer>
                 ))}
