@@ -125,7 +125,7 @@ const lottieOptions = {
                     className="form-control" 
                     rows={4} name="text" 
                     placeholder="Nós do Empregue.me e as Empresas parceiras queremos saber mais de você, descreva aqui na bio..." 
-                    value={user.bio}
+                    value={bio ? bio : user.bio}
                     onChange={event => setBio(event.target.value)}
                     />
                   </div>
@@ -149,7 +149,7 @@ const lottieOptions = {
                   placeholder="Add Instagram link" 
                   type="text" 
                   className="form-control" 
-                  value={user.InstagramUrl}
+                  value={InstagramUrl ? InstagramUrl : user.InstagramUrl}
                   onChange={event => setInstagramUrl(event.target.value)}
                   />
                 </div>
@@ -159,7 +159,7 @@ const lottieOptions = {
                   placeholder="Add Facebook link" 
                   type="text" 
                   className="form-control" 
-                  value={user.FacebookUrl}
+                  value={FacebookUrl ? FacebookUrl : user.FacebookUrl}
                   onChange={event => setFacebookUrl(event.target.value)}
                   />
                 </div>
@@ -169,7 +169,7 @@ const lottieOptions = {
                   placeholder="Add Twitter link" 
                   type="text" 
                   className="form-control" 
-                  value={user.TwitterUrl}
+                  value={TwitterUrl ? TwitterUrl : user.TwitterUrl}
                   onChange={event => setTwitterUrl(event.target.value)}
                   />
                 </div>
@@ -179,7 +179,7 @@ const lottieOptions = {
                   placeholder="Add Youtube link" 
                   type="text" 
                   className="form-control" 
-                  value={user.YouTubeUrl}
+                  value={YouTubeUrl ? YouTubeUrl : user.YouTubeUrl}
                   onChange={event => setYouTubeUrl(event.target.value)}
                   />
                 </div>
@@ -189,7 +189,7 @@ const lottieOptions = {
                   placeholder="Add Github link" 
                   type="text" 
                   className="form-control"
-                  value={user.GithubUrl}
+                  value={GithubUrl ? GithubUrl : user.GithubUrl}
                   onChange={event => setGithubUrl(event.target.value)}
                   />
                 </div>
@@ -255,10 +255,11 @@ const lottieOptions = {
                 <div className="col-sm-6 mb-2">
                   <div className="js-form-message">
                     <label id="organizationLabel" className="form-label">
-                      Empresa
+                      Profissão
                     </label>
                     <div className="form-group">
-                      <input type="text" className="form-control" name="organization" placeholder="Você ja trabalha, insira sua empresa" aria-label="Enter your organization name" required aria-describedby="organizationLabel" data-msg="Please enter your organization name" data-error-class="u-has-error" data-success-class="u-has-success" />
+                      <input type="text" className="form-control" name="organization" placeholder="Ensira uma profissão para que as empresas possam encontra-lo" aria-label="Enter your organization name" required aria-describedby="organizationLabel" data-msg="Please enter your organization name" data-error-class="u-has-error" data-success-class="u-has-success" />
+                      <small className="form-text text-muted">Para mais de uma profissão ensira separando-as com virgula.</small>
                     </div>
                   </div>
                 </div>
