@@ -3,7 +3,6 @@ import React, {
     useState
   } from 'react';
   
-   
   import img_logo_svg from '../../img/logologin.JPG'
   import api from '../../services/api'
   import Lottie from 'react-lottie'
@@ -36,9 +35,6 @@ import React, {
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('bussines',JSON.stringify(bussines))
         sessionStorage.setItem('user_id', bussines._id)
-        if(bussines.avatar){
-          sessionStorage.setItem('bussines_avatar',bussines.avatar)
-        }
         navigate('/feed')
       }catch(e){
        setLoading(false)
