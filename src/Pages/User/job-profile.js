@@ -99,7 +99,7 @@ const lottieOptionscompleted = {
 <div>
   <Header></Header>
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{width:'100%'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
+    <img className="img-fluid" style={{width:'100%',height:'250px'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
   </div>
   
   <div className="bg-white shadow-sm border-bottom">
