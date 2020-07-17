@@ -11,6 +11,7 @@ import loadinganimate from '../../Animations/loading.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
+import App from '../../components/App/App';
 
 function Feed() {
   const [user, setUser] = useState([])
@@ -270,9 +271,9 @@ const lottieOptions = {
           </div>
           <div className="border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Curriculums
-              </h6>
+              <h6 className="m-0">Curriculums</h6>
               <hr/>
+              <App></App>
             </div>           
           </div>
           <div className="border rounded bg-white mb-3">
