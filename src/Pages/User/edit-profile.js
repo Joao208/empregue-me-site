@@ -23,6 +23,7 @@ function Feed() {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
+  const [profession, setProfession] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
@@ -259,7 +260,19 @@ const lottieOptions = {
                       Profissão
                     </label>
                     <div className="form-group">
-                      <input type="text" className="form-control" name="organization" placeholder="Ensira uma profissão para que as empresas possam encontra-lo" aria-label="Enter your organization name" required aria-describedby="organizationLabel" data-msg="Please enter your organization name" data-error-class="u-has-error" data-success-class="u-has-success" />
+                      <input  
+                      value={profession ? profession : user.profession}
+                      onChange={event => setProfession(event.target.value)}
+                      type="text" 
+                      className="form-control" 
+                      name="organization" 
+                      placeholder="Ensira uma profissão para que as empresas possam encontra-lo" 
+                      aria-label="Enter your organization name" 
+                      required 
+                      aria-describedby="organizationLabel" 
+                      data-msg="Please enter your organization name" 
+                      data-error-class="u-has-error" 
+                      data-success-class="u-has-success" />
                       <small className="form-text text-muted">Para mais de uma profissão ensira separando-as com virgula.</small>
                     </div>
                   </div>
