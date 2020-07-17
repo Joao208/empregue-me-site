@@ -44,6 +44,7 @@ function Feed() {
         data.append('YouTubeUrl', YouTubeUrl)
         data.append('GithubUrl', GithubUrl)
         data.append('bio', bio)
+        data.append('profession', profession)
        
        const response = await api.post('/profile', data)
 

@@ -52,8 +52,8 @@ function Feed() {
         setavatar(response.data.bussines.avatar)
         setlogradouro(response.data.bussines.cnpjI.logradouro)
         setNome(response.data.bussines.nome)
-        setCargo(response.data.cargo)
-        setEmployment(response.data.employment)
+        setCargo(response.data.text.cargo)
+        setEmployment(response.data.text.employment)
         setBussines_id(response.data.bussines._id)
         setLocation(response.bussines.location)
     }
@@ -205,16 +205,6 @@ const lottieOptionscompleted = {
                 <p className="mb-0 text-muted">Postado</p>
                 <p className="font-weight-bold text-dark mb-0 mt-0 ml-auto">{moment(jobs.createdAt).fromNow()}</p>
               </div>
-            </div>
-          </div>
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-            <img src={img_job1} className="img-fluid"  alt="Responsive image" />
-            <div className="p-3 border-bottom">
-              <h6 className="font-weight-bold text-dark">Empregue.me</h6>
-              <p className="mb-0 text-muted">Procurando um talento?</p>
-            </div>
-            <div className="p-3">
-              <button type="button" className="btn btn-outline-primary pl-4 pr-4">Crie uma empresa</button>
             </div>
           </div>
         </aside>
