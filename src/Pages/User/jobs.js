@@ -37,7 +37,7 @@ return (
                   <div className="row">
                   {jobs.map(vacancies => (
                     <div key={vacancies._id} className="col-md-6">
-                      <a >
+                      <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies._id}`}>
                         <div className="border job-item mb-3">
                           <div className="d-flex align-items-center p-3 job-item-header">
                           <div className="overflow-hidden mr-2">
