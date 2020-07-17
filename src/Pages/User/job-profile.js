@@ -169,7 +169,7 @@ const lottieOptionscompleted = {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Salario</th>
-                    <td className="p-3">{salary}</td>
+                    <td className="p-3">R${salary},00</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Employment Type</th>

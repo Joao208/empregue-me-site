@@ -117,7 +117,7 @@ function Feed() {
             <div className="box-body">
               <div className="p-3 border-bottom">
                 <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-instagram position-absolute text-warning" />
+                  <i className="feather-facebook position-absolute text-warning" />
                   <p 
                   className="form-control" 
                   >
@@ -127,7 +127,7 @@ function Feed() {
                   </p>
                 </div>
                 <div className="position-relative icon-form-control mb-2">
-                  <i className="feather-facebook position-absolute text-primary" />
+                  <i className="feather-instagram position-absolute text-primary" />
                   <p 
                   className="form-control" 
                   >
