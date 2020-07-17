@@ -42,7 +42,7 @@ return (
                           <div className="d-flex align-items-center p-3 job-item-header">
                           <div className="overflow-hidden mr-2">
                              <Link to={`/job-profile/${vacancies._id}`}><h6 style={{textTransform:'capitalize'}} className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.title}</h6></Link>
-                             <Link to={`/company-profile/${vacancies.bussines_id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome}</div></Link>
+                             <Link to={`/company-profile/${vacancies.bussines._id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome}</div></Link>
                                <div className="small text-gray-500"><a href={`https://www.google.com.br/maps/place/${vacancies.bussines.cnpjI.logradouro}`}><i className="feather-map-pin" />{vacancies.bussines.cnpjI.logradouro}</a></div>
                             </div>
                             <img className="img-fluid ml-auto" src={vacancies.avatar} />
