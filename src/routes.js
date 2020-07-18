@@ -74,13 +74,6 @@ export default function Routed() {
         : <Route path='*' element={<Email_confirmate/>}/>
     }
 
-    const PhoneConfirmeRoute = props => {
-        const confirmate = !! sessionStorage.getItem('phoneConfirme')
-        
-        return confirmate ? <Route {...props}/>
-        : <Route path='*' element={<Phoneconfirm/>}/>
-    }
-
     const Privated = props => {
     const privated = !! sessionStorage.getItem('8789887348975')
     
@@ -100,7 +93,6 @@ export default function Routed() {
 <Routes>
     <PrivateRoute>
     <ConfirmateRoute> 
-    <PhoneConfirmeRoute>
         <UserRoute path='/' element={<Feed/>}/>
         <UserRoute path='/add/populate/:id' element={<CommentAdd/>}/>
         <UserRoute path='/postb/populate/:id' element={<CommentPostB/>}/>
@@ -117,7 +109,6 @@ export default function Routed() {
         <UserRoute path='/terms' element={<Terms/>}/>
         <UserRoute path='/checkout/:price' element={<Checkout/>}/>
         <UserRoute path='/profile' element={<Profile/>}/>
-    </PhoneConfirmeRoute>
     </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>

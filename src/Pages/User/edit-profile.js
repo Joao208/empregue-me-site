@@ -250,7 +250,8 @@ const lottieOptions = {
                         <span className="text-danger">*</span>
                       </label>
                       <div className="form-group">
-                        <input className="form-control" readonly="true" type="tel" name="phoneNumber" defaultValue={user.phone} placeholder="Enter your phone number" aria-label="Enter your phone number" required aria-describedby="phoneNumberLabel" data-msg="Please enter a valid phone number" data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <input className="form-control" readonly="true" type="tel" name="phoneNumber" defaultValue={user.phone} aria-label="Enter your phone number" required aria-describedby="phoneNumberLabel" data-msg="Please enter a valid phone number" data-error-class="u-has-error" data-success-class="u-has-success" />
+                        <small className="form-text text-muted">Número {user.phoneConfirme ? 'verificado' : 'não verificado'}</small>
                       </div>
                     </div>
                   {/* End Input */}
