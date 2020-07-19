@@ -46,6 +46,9 @@ import Coming_Schools from './Pages/Schools/cooming-soon'
 import ResultadosQuarentena from './Pages/Blog/ResultadosDaQuarentena';
 import JobsB from './Pages/Bussines/jobs'
 import Job_profileB from './Pages/Bussines/job-profile'
+import CommentAddB from './Pages/Bussines/coment-add'
+import CommentBPostB from './Pages/Bussines/coment-postb'
+import CommentBPost from './Pages/Bussines/coment-post'
 
 export default function Routed() {
 
@@ -116,6 +119,9 @@ export default function Routed() {
         <Route path='/feed' element={<FeedB/>}/>
         <Route path='/bussines/jobs' element={<JobsB/>}/>
         <Route path='/bussines/jobs-profile/:id' element={<Job_profileB/>}/>
+        <Route path='/bussines/add/populate/:id' element={<CommentAddB/>}/>
+        <Route path='/bussines/postb/populate/:id' element={<CommentBPostB/>}/>
+        <Route path='/bussines/post/populate/:id' element={<CommentBPost/>}/>
         </BussinesRoutes>
         </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
