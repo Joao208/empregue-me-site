@@ -17,15 +17,12 @@ import '../../css/style.css'
 import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import '../../css/inputcamera.css'
-import Notification from '../../components/Notification/Notifications_Bussines'
-import img_logo_svg from '../../img/logo.png'
-import img_job1 from '../../img/job1.png'
-import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
+import Header from '../../components/Header Bussines';
 
 function Feed() {
 
@@ -159,6 +156,7 @@ function Feed() {
   return (
 <>
 <div>
+  <Header></Header>
   <div className="py-4">
     <div className="container">
       <div className="row">
