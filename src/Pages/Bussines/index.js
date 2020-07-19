@@ -236,7 +236,7 @@ function Feed() {
                 >
                 <i className="feather-edit" />Promover minha empresa</button>
               </form>
-              <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
+              <label style={{color:'#008ef9',fontWeight:'600',margin:'auto'}}>
                 <i className="feather-image"></i>
                   Adicionar Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
