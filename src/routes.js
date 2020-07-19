@@ -44,6 +44,8 @@ import Blog from './Pages/Blog/blog'
 import Entrevista_de_Emprego from './Pages/Blog/DicasEntrevista'
 import Coming_Schools from './Pages/Schools/cooming-soon'
 import ResultadosQuarentena from './Pages/Blog/ResultadosDaQuarentena';
+import JobsB from './Pages/Bussines/jobs'
+import Job_profileB from './Pages/Bussines/job-profile'
 
 export default function Routed() {
 
@@ -81,47 +83,39 @@ export default function Routed() {
     : <Route path="*" element={<ComingSoom/>}/>
     }
 
-    const ProfileBussines = props => {
-        const privated = !! sessionStorage.getItem('bussines_avatar')
-
-        return privated ? <Route {...props}/>
-        : <Route path="*" element={<EditCompanyProfile/>}/>
-    }
-
-
     return(
 <Routes>
     <PrivateRoute>
-    <ConfirmateRoute> 
-        <UserRoute path='/' element={<Feed/>}/>
-        <UserRoute path='/add/populate/:id' element={<CommentAdd/>}/>
-        <UserRoute path='/postb/populate/:id' element={<CommentPostB/>}/>
-        <UserRoute path='/post/populate/:id' element={<CommentPost/>}/>
-        <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
-        <UserRoute path='/conections/:named' element={<Conections/>}/>
-        <UserRoute path='/profile/:id' element={<ProfileView/>}/>
-        <UserRoute path='/contact' element={<Contact/>}/>
-        <UserRoute path='/edit-profile' element={<Edit_profile/>}/>
-        <UserRoute path='/faq' element={<Faq/>}/>
-        <UserRoute path='/jobs' element={<Jobs/>}/>
-        <UserRoute path='/job-profile/:id' element={<Job_profile/>}/>
-        <UserRoute path='/privacy' element={<Privacy/>}/>
-        <UserRoute path='/terms' element={<Terms/>}/>
-        <UserRoute path='/checkout/:price' element={<Checkout/>}/>
-        <UserRoute path='/profile' element={<Profile/>}/>
-    </ConfirmateRoute>
+        <ConfirmateRoute> 
+            <UserRoute path='/' element={<Feed/>}/>
+            <UserRoute path='/add/populate/:id' element={<CommentAdd/>}/>
+            <UserRoute path='/postb/populate/:id' element={<CommentPostB/>}/>
+            <UserRoute path='/post/populate/:id' element={<CommentPost/>}/>
+            <UserRoute path='/company-profile/:id' element={<Company_profile/>}/>
+            <UserRoute path='/conections/:named' element={<Conections/>}/>
+            <UserRoute path='/profile/:id' element={<ProfileView/>}/>
+            <UserRoute path='/contact' element={<Contact/>}/>
+            <UserRoute path='/edit-profile' element={<Edit_profile/>}/>
+            <UserRoute path='/faq' element={<Faq/>}/>
+            <UserRoute path='/jobs' element={<Jobs/>}/>
+            <UserRoute path='/job-profile/:id' element={<Job_profile/>}/>
+            <UserRoute path='/privacy' element={<Privacy/>}/>
+            <UserRoute path='/terms' element={<Terms/>}/>
+            <UserRoute path='/checkout/:price' element={<Checkout/>}/>
+            <UserRoute path='/profile' element={<Profile/>}/>
+        </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>
         <Privated>
         <BussinesRoutes>
-        <ProfileBussines>
         <Route path='/edit-company' element={<EditCompanyProfile/>}/>
         <Route path='/mycompany-profile' element={<MyCompany_profile/>}/>
         <Route path='/company-profileb/:id' element={<Company_ProfileB/>}/>
         <Route path='/conectionsb/:named' element={<ConectionsB/>}/>
         <Route path='/profileb/:id' element={<ProfileViewB/>}/>
         <Route path='/feed' element={<FeedB/>}/>
-        </ProfileBussines>
+        <Route path='/bussines/jobs' element={<JobsB/>}/>
+        <Route path='/bussines/jobs-profile/:id' element={<JobsB/>}/>
         </BussinesRoutes>
         </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
