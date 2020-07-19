@@ -235,12 +235,17 @@ function Feed() {
                 >
                 <i className="feather-edit" />Promover minha empresa</button>
               </form>
-              <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
-                  Adicionar Imagem
-                <input style={{display:'none'}} type="file" onChange={event => {
-                      setAvatar(event.target.files[0])}
-                  }/>
-              </label>
+              <form className="mr-auto">
+                <button className="text-link small"
+                style={{border:'none',background:'none'}}
+                onClick={
+                  async function AddAdd(){
+                    setAddAdd(true)
+                  }
+                }
+                >
+                <i className="feather-image" />Adicionar Imagem</button>
+              </form>
               <div className="flex-shrink-1">
                 <form onSubmit={Post}>
                   <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Postar'}</button>

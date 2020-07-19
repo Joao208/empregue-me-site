@@ -22,7 +22,6 @@ function Header()  {
           const response = await api.get('/profilebussinesv')
           
           setProfile(response.data.profile)
-          setData(response.data)
         }
         
         loadSpots()
