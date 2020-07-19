@@ -570,8 +570,6 @@ function Feed() {
                 </div>
                 <div className="font-weight-bold mr-2">
                   <div className="text-truncate">{user.name}</div>
-                  <div className="small text-gray-500">Student at Harvard
-                  </div>
                 </div>
                 <span className="ml-auto">
                   <button  

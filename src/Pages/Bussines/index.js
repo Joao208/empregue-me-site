@@ -572,7 +572,7 @@ function Feed() {
               </div>
             </div>
             <div className="overflow-hidden border-top">
-              <a className="font-weight-bold p-3 d-block" href="profile.html"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Ver meu perfil </font></font></a>
+              <a className="font-weight-bold p-3 d-block" href="/mycompany-profile"><font style={{verticalAlign: 'inherit'}}><font style={{verticalAlign: 'inherit'}}> Ver meu perfil </font></font></a>
             </div>
           </div>
           ))}
@@ -591,8 +591,6 @@ function Feed() {
                 </div>
                 <div className="font-weight-bold mr-2">
                   <div className="text-truncate">{user.name}</div>
-                  <div className="small text-gray-500">Student at Harvard
-                  </div>
                 </div>
                 <span className="ml-auto">
                 <button  
