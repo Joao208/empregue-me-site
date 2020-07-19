@@ -25,7 +25,7 @@ import Sign_upS from './Pages/Schools/sign-up'
 import Bussinessign_in from './Pages/Bussines/sign-in'
 import Bussinessign_up from './Pages/Bussines/sign-up'
 import Terms from './Pages/Terms/terms'
-import Error404 from './Pages/User/not-found'
+import Error404 from './Pages/not-found'
 import Conections from './Pages/User/connection'
 import ConectionsB from './Pages/Bussines/connection'
 import ProfileView from './Pages/User/ProfileView'
@@ -115,7 +115,7 @@ export default function Routed() {
         <Route path='/profileb/:id' element={<ProfileViewB/>}/>
         <Route path='/feed' element={<FeedB/>}/>
         <Route path='/bussines/jobs' element={<JobsB/>}/>
-        <Route path='/bussines/jobs-profile/:id' element={<JobsB/>}/>
+        <Route path='/bussines/jobs-profile/:id' element={<Job_profileB/>}/>
         </BussinesRoutes>
         </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
