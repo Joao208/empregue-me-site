@@ -23,6 +23,7 @@ import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import AdSense from 'react-adsense';
 import Header from '../../components/Header Bussines';
+import { Link } from 'react-router-dom';
 
 function Feed() {
 
@@ -345,7 +346,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`https://light-empregue-me.herokuapp.com/post/populate/${postd._id}`}><i className="feather-message-square" /></a>{postd.commentCount}
+                <Link to={`/bussines/post/populate/${postd._id}`}><i className="feather-message-square" /></Link>{postd.commentCount}
                 <button 
                 onClick={
                   async function Share(event){
@@ -427,7 +428,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <a href={`https://light-empregue-me.herokuapp.com/add/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <Link to={`/bussines/add/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 </form>
                 <form className="p-3" onSubmit={
                   async function Comentario(event){
@@ -488,7 +489,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`https://light-empregue-me.herokuapp.com/postb/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <Link to={`/bussines/postb/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 <button 
                 onClick={
                   async function Share(event){

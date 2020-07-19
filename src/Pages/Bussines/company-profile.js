@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
+L/* eslint-disable jsx-a11y/accessible-emoji */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/alt-text */
@@ -15,6 +15,7 @@ import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header Bussines';
+import { Link } from 'react-router-dom';
 
 function Feed() {
 
@@ -175,7 +176,7 @@ async function SearchValue(event){
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button>
-                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <Link to={`/bussines/postb/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 <button 
                 onClick={
                   async function Share(event){
@@ -239,7 +240,7 @@ async function SearchValue(event){
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <a href={`/coment/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</a>
+                <Link href={`/bussines/add/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 </form>
               </div>
             ))}
