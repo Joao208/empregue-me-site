@@ -156,112 +156,65 @@ function Feed() {
                 </form>
               </div>
             </div>
-          </form>  
-        <form className="box shadow-sm border rounded bg-white mb-3 osahan-share-post" encType="multipart/form-data">
-            <ul className="nav nav-justified border-bottom osahan-line-tab" id="myTab" role="tablist">
-              <li className="nav-item">
-                <a 
-                className="nav-link active" 
-                id="home-tab" 
-                data-toggle="tab" 
-                role="tab" 
-                aria-controls="home" 
-                aria-selected="true"
-                ><i className="feather-edit" />Escrever</a>
-              </li>
-            </ul>
-            <div className="tab-content" id="myTabContent">
-              <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <div className="left">
-                  <Card
-                  number={number}
-                  name={name}
-                  expiry={expiry}
-                  cvv={cvv}
-                  focused={focused}
-                  />
-                  </div>
-                </div>
-                <div className="payment-details">
-                  <h2>Vamos ao pagamento</h2>
-                  <p>Nome no cartão</p>
-                  <input 
-                  value={name}
-                  onChange={event => setName(event.target.value)}      
-                  type="text" 
-                  name="name"
-                  placeholder=" Seu nome aqui" 
-                  onFocus={setFocused('name')}
-                  className="inputcheckout"
-                  />
-                  <p>Número do Cartão</p>
-                  <input 
-                  type="number"
-                  name="number"
-                  placeholder=" 0000 0000 0000 0000" 
-                  value={number}
-                  onChange={event => setNumber(event.target.value)} 
-                  onFocus={setFocused('number')}  
-                  className="inputcheckout"
-                  />
-                  <div className="side-by-side">
-                    <div className="exp">
-                      <p>Data de validade</p>
-                      <input 
-                      type="text"
-                      name="expiry" 
-                      placeholder=" MM/YY" 
-                      pattern="[0-9]{2}/[0-9]{2}"
-                      onChange={event => setExpiry(event.target.value)}
-                      onFocus={setFocused('expiry')}  
-                      className="inputcheckout"        
-                      />
-                    </div>
-                    <div className="cvv">
-                      <p>cvv</p>
-                      <input 
-                      className="inputcheckout"
-                      type="password" 
-                      name="cvv"
-                      placeholder=" ***" 
-                      pattern="[0-9]{3}"
-                      onChange={event => setcvv(event.target.value)}
-                      onFocus={setFocused('cvv')}       
-                      />
-                    </div>
-                  </div>
-                  <button className="buttoncheckout">Pagar <b>R$50,00</b></button>
-                </div>
+            <div className="left">
+              <Card
+              number={number}
+              name={name}
+              expiry={expiry}
+              cvv={cvv}
+              focused={focused}
+              />
               </div>
-            <div enc className="border-top p-3 d-flex align-items-center">
-              <form className="mr-auto">
-                <button onClick={
-                  async function checkIn(event){
-                    try{
-                    event.preventDefault()
-                    await api.post('/bussines/check/location')
-                    toast.success('Check-in postado ;)');
-                    }catch(e){
-                    }
-                  }
-                } className="text-link small"
-                style={{border:'none',background:'none'}}
-                >
-                <i className="feather-map-pin" />Check-in</button>
-              </form>
-              <label style={{color:'#000',margin:'auto'}}>
-                <i className="feather-image"></i>
-                  Adicionar Imagem
-                <input style={{display:'none'}} type="file" onChange={event => {
-                      setAvatar(event.target.files[0])}
-                  }/>
-              </label>
-              <div className="flex-shrink-1">
-                <form onSubmit={Post}>
-                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Anunciar'}</button>
-                </form>
-              </div>
-            </div>       
+            <div className="payment-details">
+              <h2>Vamos ao pagamento</h2>
+              <p>Nome no cartão</p>
+              <input 
+              value={name}
+              onChange={event => setName(event.target.value)}      
+              type="text" 
+              name="name"
+              placeholder=" Seu nome aqui" 
+              onFocus={setFocused('name')}
+              className="inputcheckout"
+              />
+              <p>Número do Cartão</p>
+              <input 
+              type="number"
+              name="number"
+              placeholder=" 0000 0000 0000 0000" 
+              value={number}
+              onChange={event => setNumber(event.target.value)} 
+              onFocus={setFocused('number')}  
+              className="inputcheckout"
+              />
+              <div className="side-by-side">
+                <div className="exp">
+                  <p>Data de validade</p>
+                  <input 
+                  type="text"
+                  name="expiry" 
+                  placeholder=" MM/YY" 
+                  pattern="[0-9]{2}/[0-9]{2}"
+                  onChange={event => setExpiry(event.target.value)}
+                  onFocus={setFocused('expiry')}  
+                  className="inputcheckout"        
+                  />
+                </div>
+                <div className="cvv">
+                  <p>cvv</p>
+                  <input 
+                  className="inputcheckout"
+                  type="password" 
+                  name="cvv"
+                  placeholder=" ***" 
+                  pattern="[0-9]{3}"
+                  onChange={event => setcvv(event.target.value)}
+                  onFocus={setFocused('cvv')}       
+                  />
+                </div>
+            </div>
+            <button className="buttoncheckout">Pagar <b>R${price}</b></button>
+          </div>
           </form>  
         </main>
       </div>
