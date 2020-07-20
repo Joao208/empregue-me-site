@@ -5,7 +5,9 @@
 import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
- 
+import Card from 'react-credit-cards'
+import 'react-credit-cards/es/styles-compiled.css'
+
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
@@ -23,7 +25,13 @@ function Feed() {
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-  
+  const [number,setNumber] = useState('')
+  const [name, setName] = useState('')
+  const [expiry, setExpiry] = useState('')
+  const [cvv, setcvv] = useState('')
+  const [focused,setFocused] = useState('')
+
+
   useEffect(() => {
     async function loadSpots() {
       const response = await api.get('/profilebussinesv')
@@ -164,42 +172,67 @@ function Feed() {
             </ul>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div className="p-3 d-flex align-items-center w-100"  href="profile">
-                  {profile.map(profile => (
-                  <div key={profile._id} className="dropdown-list-image mr-3">
-                   <a href="/mycompany-profile"><img className="rounded-circle" src={profile.bussines.avatar} /></a> 
-                    <div className="status-indicator bg-success" />
-                  </div>
-                  ))}
-                  <div className="w-100">
-                    <textarea 
-                    placeholder="Fale sobre sua publicidade..." 
-                    className="form-control border-0 p-0 shadow-none" 
-                    rows={1} 
-                    defaultValue={""} 
-                    value={Text}
-                    onChange={event => setText(event.target.value)}  
-                    />
-                    <textarea 
-                    placeholder="Adicione um link..." 
-                    className="form-control border-0 p-0 shadow-none" 
-                    rows={1} 
-                    defaultValue={""} 
-                    value={Text}
-                    onChange={event => setText(event.target.value)}  
-                    />
+              <div className="left">
+                  <Card
+                  number={number}
+                  name={name}
+                  expiry={expiry}
+                  cvv={cvv}
+                  focused={focused}
+                  />
                   </div>
                 </div>
+                <div className="payment-details">
+                  <h2>Vamos ao pagamento</h2>
+                  <p>Nome no cartão</p>
+                  <input 
+                  value={name}
+                  onChange={event => setName(event.target.value)}      
+                  type="text" 
+                  name="name"
+                  placeholder=" Seu nome aqui" 
+                  onFocus={setFocused('name')}
+                  className="inputcheckout"
+                  />
+                  <p>Número do Cartão</p>
+                  <input 
+                  type="number"
+                  name="number"
+                  placeholder=" 0000 0000 0000 0000" 
+                  value={number}
+                  onChange={event => setNumber(event.target.value)} 
+                  onFocus={setFocused('number')}  
+                  className="inputcheckout"
+                  />
+                  <div className="side-by-side">
+                    <div className="exp">
+                      <p>Data de validade</p>
+                      <input 
+                      type="text"
+                      name="expiry" 
+                      placeholder=" MM/YY" 
+                      pattern="[0-9]{2}/[0-9]{2}"
+                      onChange={event => setExpiry(event.target.value)}
+                      onFocus={setFocused('expiry')}  
+                      className="inputcheckout"        
+                      />
+                    </div>
+                    <div className="cvv">
+                      <p>cvv</p>
+                      <input 
+                      className="inputcheckout"
+                      type="password" 
+                      name="cvv"
+                      placeholder=" ***" 
+                      pattern="[0-9]{3}"
+                      onChange={event => setcvv(event.target.value)}
+                      onFocus={setFocused('cvv')}       
+                      />
+                    </div>
+                  </div>
+                  <button className="buttoncheckout">Pagar <b>R$25,00</b></button>
+                </div>
               </div>
-              {!! avatar 
-                  && <label
-                  id="indexfile"
-                  style={{ backgroundImage: `url(${preview})`}}
-                  className={avatar ? 'has-avatar' : ''}
-                  >
-                  </label>
-                  }
-            </div>
             <div enc className="border-top p-3 d-flex align-items-center">
               <form className="mr-auto">
                 <button onClick={
@@ -228,7 +261,7 @@ function Feed() {
                   <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Anunciar'}</button>
                 </form>
               </div>
-            </div>
+            </div>       
           </form>  
         </main>
       </div>
