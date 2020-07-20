@@ -32,7 +32,6 @@ function Feed() {
   const [commentCount, setComentCount] = useState('')
   const [Text, setText] = useState('')
   const [isVideo, setIsVideo] = useState(false)
-  const [link, setLink] = useState('')
   const [idd, setId] = useState('')
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
@@ -54,7 +53,6 @@ function Feed() {
         setComentCount(data.commentCount)
         setIsVideo(data.isVideo)
         setText(data.text.text)
-        setLink(data.text.link)
         setId(data._id)
         setCreatedAt(data.createdAt)
       })
@@ -73,7 +71,6 @@ function Feed() {
       setComentCount(response.data.commentCount)
       setIsVideo(response.data.isVideo)
       setText(response.data.text.text)
-      setLink(response.data.text.link)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
 
@@ -111,7 +108,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={'https://temquemudarissodps.com'}
+                  url={'https://google.com'}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>

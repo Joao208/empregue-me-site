@@ -8,7 +8,7 @@ import moment from 'moment'
 
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,7 +23,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const [profiled, setProfiled] = useState([])
   const {id} = useParams()
   const [data,setData] = useState('')
   const [followed, setFollowed] = useState(false)
@@ -59,18 +58,6 @@ const lottieOptions = {
   autoplay:true,
   animationData:EmptyAnimation
 }
-
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profileview')
-    
-    setProfiled(response.data.profile)
-    
-  }
-  
-  loadSpots()
-}, [] )
-
 
 async function Follow(event){
   event.preventDefault()

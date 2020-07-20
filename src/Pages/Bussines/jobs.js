@@ -9,8 +9,6 @@ function Feed() {
 
   const [jobs, setJobs] = useState([])
   const navigate = useNavigate()
-  const [name,setName] = useState('')
-  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
@@ -21,22 +19,6 @@ function Feed() {
 
     loadSpots()
 }, [] )
-
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profileview')
-    
-    setProfile(response.data.profile)
-  }
-  
-  loadSpots()
-}, [] )
-
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
 
 return (
 <>

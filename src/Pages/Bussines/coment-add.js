@@ -17,12 +17,11 @@ import '../../css/style.css'
 import '../../css/inputcamera.css'
 
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import Header from '../../components/Header Bussines';
 
 function Feed() {
 
-  const navigate = useNavigate()
   const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
   const [userAvatar, setUserAvatar] = useState('')
@@ -32,7 +31,6 @@ function Feed() {
   const [commentCount, setComentCount] = useState('')
   const [Text, setText] = useState('')
   const [isVideo, setIsVideo] = useState(false)
-  const [link, setLink] = useState('')
   const [idd, setId] = useState('')
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
@@ -51,7 +49,6 @@ function Feed() {
       setComentCount(response.data.commentCount)
       setIsVideo(response.data.isVideo)
       setText(response.data.text.text)
-      setLink(response.data.text.link)
       setId(response.data._id)
       setCreatedAt(response.data.createdAt)
 
@@ -93,7 +90,7 @@ function Feed() {
                   showGraphic={false}
                   maxLine={2}
                   minLine={1}
-                  url={'https://temquemudarissodps.com'}
+                  url={'https://google.com'}
                   />
                   { isVideo
                   ? <video width="100%" height="100%" controls>

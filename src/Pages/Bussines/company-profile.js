@@ -247,7 +247,7 @@ function Feed() {
               <button onClick={
                 async function Follow(event){
                   event.preventDefault()
-                  const response = await api.post(`/bussines/followb/${profile.bussines._id}`)
+                  await api.post(`/bussines/followb/${profile.bussines._id}`)
                 }
               } 
               className="font-weight-bold p-3 d-block" 
@@ -263,7 +263,7 @@ function Feed() {
               <button onClick={
                 async function Unfollow(event){
                   event.preventDefault()
-                  const response = await api.delete(`/bussines/unfollowb/${profile.bussines._id}`)
+                  await api.delete(`/bussines/unfollowb/${profile.bussines._id}`)
                 }
               } 
               style={{

@@ -21,8 +21,6 @@ import Header from '../../components/Header Bussines';
 
 function Feed() {
 
-  const navigate = useNavigate()
-  const [profile,setProfile] = useState([])
   const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
   const [userAvatar, setUserAvatar] = useState('')
@@ -36,16 +34,6 @@ function Feed() {
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
-
-  useEffect(() => {
-    async function loadSpots() {
-      const response = await api.get('/profileview')
-      
-      setProfile(response.data.profile)
-    }
-    
-    loadSpots()
-  }, [] )
   
   useEffect(() => {
     async function Feed() {

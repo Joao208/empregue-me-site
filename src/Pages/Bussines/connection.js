@@ -5,7 +5,6 @@ import React,{useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom'
   
 import api from '../../services/api'
-import { useNavigate } from 'react-router';
 import Header from '../../components/Header Bussines';
 
 

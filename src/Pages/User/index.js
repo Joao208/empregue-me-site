@@ -103,7 +103,7 @@ function Feed() {
       data.append('avatar', avatar)
       data.append('Text', Text)
 
-      const response = await api.post('/posts', data)
+      await api.post('/posts', data)
 
       setLoading(false)
       toast.success('Postado ;)')

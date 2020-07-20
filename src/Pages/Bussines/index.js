@@ -18,7 +18,6 @@ import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import '../../css/inputcamera.css'
 import api from '../../services/api'
-import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import Header from '../../components/Header Bussines';
@@ -103,7 +102,7 @@ function Feed() {
       data.append('avatar', avatar)
       data.append('Text', Text)
 
-      const response = await api.post('/bussines/posts', data)
+      await api.post('/bussines/posts', data)
 
       setLoading(false)
       toast.success('Postado ;)')

@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import Notification from '../../components/Notification/Notifications_Bussines'
 import api from '../../services/api'
-import {useNavigate,Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import img_fav from '../../img/fav.png'
 import img_logo_svg from '../../img/logo.png'
 

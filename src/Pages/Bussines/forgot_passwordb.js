@@ -22,7 +22,7 @@ function Feed() {
     event.preventDefault();
     setLoading(true)
     try{
-      const response = await api.post('/forgot_password_bussines', {
+      await api.post('/forgot_password_bussines', {
         email,
       });
 

@@ -4,7 +4,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
-import {useParams,useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import App from '../../components/AppView'
 import Lottie from 'react-lottie'
@@ -19,7 +19,6 @@ function Feed() {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const [profiled, setProfiled] = useState([])
 
   const lottieOptions = {
     title:'loading',
@@ -40,16 +39,6 @@ function Feed() {
 
     }
     loadSpots()
-}, [] )
-
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profilebussinesv')
-    
-    setProfiled(response.data.profile)
-  }
-  
-  loadSpots()
 }, [] )
 
   async function Follow(event){

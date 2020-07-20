@@ -55,7 +55,7 @@ function Feed() {
       data.append('avatar', avatar)
       data.append('Text', Text)
 
-      const response = await api.post('/bussines/posts', data)
+      await api.post('/bussines/posts', data)
 
       setLoading(false)
       toast.success('Postado ;)')
@@ -230,7 +230,7 @@ function Feed() {
                       />
                     </div>
                   </div>
-                  <button className="buttoncheckout">Pagar <b>R$25,00</b></button>
+                  <button className="buttoncheckout">Pagar <b>R$50,00</b></button>
                 </div>
               </div>
             <div enc className="border-top p-3 d-flex align-items-center">
