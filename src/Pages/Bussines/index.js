@@ -225,11 +225,11 @@ function Feed() {
                 <i className="feather-map-pin" />Check-in</button>
               </form>
               <form className="mr-auto">
-                <button className="text-link small">               
-               <Link to="/publicar"><i className="feather-edit" />Promover minha empresa</Link>
+                <button style={{border:'none',background:'none'}} className="text-link small">               
+               <Link style={{color:'#000'}} to="/publicar"><i className="feather-edit" />Promover minha empresa</Link>
                 </button>
               </form>
-              <label style={{color:'#000',fontWeight:'600',margin:'auto'}}>
+              <label style={{margin:'auto'}}>
                 <i className="feather-image"></i>
                   Adicionar Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
