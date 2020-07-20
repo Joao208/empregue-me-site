@@ -226,17 +226,11 @@ function Feed() {
                 <i className="feather-map-pin" />Check-in</button>
               </form>
               <form className="mr-auto">
-                <button className="text-link small"
-                style={{border:'none',background:'none'}}
-                onClick={
-                  async function AddAdd(){
-                    setAddAdd(true)
-                  }
-                }
-                >
-                <i className="feather-edit" />Promover minha empresa</button>
+                <button className="text-link small">               
+               <Link><i className="feather-edit" />Promover minha empresa</Link>
+                </button>
               </form>
-              <label style={{color:'#008ef9',fontWeight:'600',margin:'auto'}}>
+              <label style={{color:'#000',fontWeight:'600',margin:'auto'}}>
                 <i className="feather-image"></i>
                   Adicionar Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
