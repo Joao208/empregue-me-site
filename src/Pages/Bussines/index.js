@@ -227,7 +227,7 @@ function Feed() {
               </form>
               <form className="mr-auto">
                 <button className="text-link small">               
-               <Link><i className="feather-edit" />Promover minha empresa</Link>
+               <Link to="/publicar"><i className="feather-edit" />Promover minha empresa</Link>
                 </button>
               </form>
               <label style={{color:'#000',fontWeight:'600',margin:'auto'}}>
