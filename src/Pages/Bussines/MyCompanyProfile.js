@@ -9,7 +9,6 @@ import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
@@ -24,7 +23,6 @@ function Feed() {
   const [post, setPost] = useState([])
   const [data,setData] = useState('')
   const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [text, setTextt] = useState('')
 
   useEffect(() => {
@@ -60,13 +58,6 @@ useEffect(() => {
   
   loadSpots()
 }, [] )
-
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
-
 
   return (
      <>

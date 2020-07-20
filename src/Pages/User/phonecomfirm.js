@@ -20,7 +20,6 @@ import React, {
     const [fill, setFill] = useState(false)
     const navigate = useNavigate()
 
-
     async function Confirm(event) {
       event.preventDefault();
       setFill(false)

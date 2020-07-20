@@ -11,11 +11,7 @@ function Checkout() {
     const {price} = useParams()
     const [focused,setFocused] = useState('')
 
-    async function HandleSubmit(event){
-      event.preventDefault()
-    }
-
-  return (
+    return (
       <>
 <div>
   <title>Empregue.me Checkout</title>

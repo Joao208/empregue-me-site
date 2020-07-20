@@ -6,10 +6,9 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-import img_logo_svg from '../../img/logo.png'
 import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,9 +20,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
-  const [profiled, setProfiled] = useState([])
   const {id} = useParams()
   const [data,setData] = useState('')
 
@@ -41,23 +37,6 @@ function Feed() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [] )
 
-
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profilebussinesv')
-    
-    setProfiled(response.data.profile)
-    
-  }
-  
-  loadSpots()
-}, [] )
-
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
 
   return (
      <>

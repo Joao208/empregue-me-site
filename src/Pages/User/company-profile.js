@@ -23,8 +23,6 @@ function Feed() {
   const [profile, setProfile] = useState([])
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
   const {id} = useParams()
   const [data,setData] = useState('')
@@ -73,11 +71,6 @@ useEffect(() => {
   loadSpots()
 }, [] )
 
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
 
 async function Follow(event){
   event.preventDefault()

@@ -16,20 +16,13 @@ import '../../css/style.css'
 
 import '../../css/inputcamera.css'
 
-import img_logo_svg from '../../img/logo.png'
-import img_job1 from '../../img/job1.png'
-import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';
-import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
 import Header from '../../components/Header Bussines';
 
 function Feed() {
 
   const navigate = useNavigate()
-  const [name,setName] = useState('')
-  const [profile,setProfile] = useState([])
   const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
   const [userAvatar, setUserAvatar] = useState('')
@@ -44,23 +37,7 @@ function Feed() {
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
-
-  useEffect(() => {
-    async function loadSpots() {
-      const response = await api.get('/profileview')
-      
-      setProfile(response.data.profile)
-    }
-    
-    loadSpots()
-  }, [] )
   
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    navigate(`/conections/${name}`)
-  }
-
   useEffect(() => {
     async function Feed() {
       try{

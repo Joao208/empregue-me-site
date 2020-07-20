@@ -15,17 +15,13 @@ import '../../css/style.css'
 
 import '../../css/inputcamera.css'
 
-import img_job1 from '../../img/job1.png'
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
-import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
+import { useParams } from 'react-router';
 import socketio from 'socket.io-client'
 import Header from '../../components/Header';
 
 function Feed() {
 
-  const navigate = useNavigate()
   const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
   const [userAvatar, setUserAvatar] = useState('')
@@ -35,7 +31,6 @@ function Feed() {
   const [commentCount, setComentCount] = useState('')
   const [Text, setText] = useState('')
   const [isVideo, setIsVideo] = useState(false)
-  const [link, setLink] = useState('')
   const [idd, setId] = useState('')
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)

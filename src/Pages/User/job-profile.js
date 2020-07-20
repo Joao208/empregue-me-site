@@ -5,7 +5,6 @@ import React,{useState,useEffect} from 'react';
 import moment from 'moment'
 import {useParams} from 'react-router'
 
-import img_job1 from '../../img/job1.png'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 import img_job_profile from '../../img/job-profile.jpg'
@@ -16,8 +15,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
 import { Link } from 'react-router-dom';
-import { Map, TileLayer, Marker } from 'react-leaflet'
-import {MapContainer} from '../../style.js'
 
 function Feed() {
 
@@ -36,7 +33,6 @@ function Feed() {
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
   const [bussines_id, setBussines_id] = useState('')
-  const [location, setLocation] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
@@ -55,7 +51,6 @@ function Feed() {
         setCargo(response.data.text.cargo)
         setEmployment(response.data.text.employment)
         setBussines_id(response.data.bussines._id)
-        setLocation(response.bussines.location)
     }
 
     loadSpots()

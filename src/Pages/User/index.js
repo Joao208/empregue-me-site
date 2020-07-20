@@ -19,11 +19,9 @@ import Lottie from 'react-lottie'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import '../../css/inputcamera.css'
 
-import img_job1 from '../../img/job1.png'
 import api from '../../services/api'
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
 import { Link } from 'react-router-dom';
 
 function Feed() {

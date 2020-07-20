@@ -4,9 +4,7 @@
 import React,{useState,useEffect} from 'react';
 import moment from 'moment'
 import {useParams} from 'react-router'
-import { useNavigate } from 'react-router';
 
-import img_logo_svg from '../../img/logo.png'
 import img_job1 from '../../img/job1.png'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
@@ -31,13 +29,10 @@ function Feed() {
   const [nome, setNome] = useState('')
   const [loading,setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
   const {id} = useParams()
-  const [profile, setProfile] = useState([])
 
   useEffect(() => {
     async function loadSpots() {
@@ -89,22 +84,6 @@ const lottieOptionscompleted = {
   loop:true,
   autoplay:true,
   animationData:completedAnimate
-}
-
-useEffect(() => {
-  async function loadSpots() {
-    const response = await api.get('/profileview')
-    
-    setProfile(response.data.profile)
-  }
-  
-  loadSpots()
-}, [] )
-
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
 }
 
   return (

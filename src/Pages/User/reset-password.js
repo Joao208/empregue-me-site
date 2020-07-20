@@ -22,7 +22,7 @@ function Feed() {
     event.preventDefault();
     setLoading(true)
     try{
-      const response = await api.post('/reset_password', {
+      await api.post('/reset_password', {
         email,
         token,
         password

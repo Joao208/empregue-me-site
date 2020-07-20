@@ -16,18 +16,13 @@ import '../../css/style.css'
 
 import '../../css/inputcamera.css'
 
-import img_job1 from '../../img/job1.png'
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
-import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
+import { useParams } from 'react-router';
 import socketio from 'socket.io-client'
 import Header from '../../components/Header'
 
 function Feed() {
 
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
   const [userAvatar, setUserAvatar] = useState('')

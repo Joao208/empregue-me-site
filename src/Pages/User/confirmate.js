@@ -11,7 +11,7 @@ function Confirmate() {
     useEffect(() => {
         async function Load() {
             try {
-              const response = await api.post(`/user/confirmate/${token}`) 
+              await api.post(`/user/confirmate/${token}`) 
               
               toast.success('Email confirmado')
               navigate('/')

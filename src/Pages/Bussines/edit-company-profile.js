@@ -1,8 +1,6 @@
 import React,{useState,useEffect,useMemo} from 'react';
 import {useNavigate} from 'react-router'
  
-  
-import img_logo_svg from '../../img/logo.png'
 import imguser from '../../img/user.png'
 import api from '../../services/api'
  

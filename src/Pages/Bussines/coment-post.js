@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState} from 'react';
-import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
  
@@ -16,19 +15,13 @@ import '../../css/style.css'
 
 import '../../css/inputcamera.css'
 
-import img_logo_svg from '../../img/logo.png'
-import img_job1 from '../../img/job1.png'
-import img_fav from '../../img/fav.png'
 import api from '../../services/api'
 import { useNavigate, useParams } from 'react-router';
-import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
 import Header from '../../components/Header Bussines';
 
 function Feed() {
 
   const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [profile,setProfile] = useState([])
   const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
@@ -39,7 +32,6 @@ function Feed() {
   const [commentCount, setComentCount] = useState('')
   const [Text, setText] = useState('')
   const [isVideo, setIsVideo] = useState(false)
-  const [link, setLink] = useState('')
   const [idd, setId] = useState('')
   const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
@@ -55,12 +47,6 @@ function Feed() {
     loadSpots()
   }, [] )
   
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    navigate(`/conections/${name}`)
-  }
-
   useEffect(() => {
     async function Feed() {
       try{

@@ -21,15 +21,11 @@ import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
 import Header from '../../components/Header Bussines';
 import { Link } from 'react-router-dom';
 
 function Feed() {
 
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
-  
   const [profile, setProfile] = useState([])
   const [post, setPosts] = useState([])
   const [postb, setPostb] = useState([])
@@ -72,12 +68,6 @@ function Feed() {
     loadSpots()
   }, [] )
   
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    navigate(`/conections/${name}`)
-  }
-
   useEffect(() => {
     async function Feed() {
       try{

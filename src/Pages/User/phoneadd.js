@@ -28,7 +28,7 @@ import React, {
       }
       setLoading(true)
       try{
-        const response = await api.post('/addphone', {
+        await api.post('/addphone', {
           phone,
         });
         navigate('/phoneconfirm')

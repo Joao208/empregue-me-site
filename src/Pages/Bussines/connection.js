@@ -4,7 +4,6 @@
 import React,{useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom'
   
-import img_logo_svg from '../../img/logo.png'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import Header from '../../components/Header Bussines';
@@ -15,9 +14,6 @@ function Feed() {
   const [users, setUsers] = useState([])
   const [bussines, setBussines] = useState([])
   const [vacancies, setVacancies] = useState([])
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
-  const [profile, setProfile] = useState([])
 
   const {named} = useParams()
 
@@ -36,22 +32,6 @@ function Feed() {
     }
     loadUsers()
   }, [])
-
-  useEffect(() => {
-    async function loadSpots() {
-      const response = await api.get('/profilebussinesv')
-      
-      setProfile(response.data.profile)
-    }
-    
-    loadSpots()
-  }, [] )
-  
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    navigate(`/conections/${name}`)
-  }
 
 
   return (

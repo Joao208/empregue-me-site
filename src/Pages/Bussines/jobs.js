@@ -1,9 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
- 
   
 import api from '../../services/api'
-import img_logo_svg from '../../img/logo.png'
 import { useNavigate } from 'react-router';
 import Header from '../../components/Header Bussines';
 

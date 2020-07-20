@@ -6,12 +6,9 @@ import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import {useParams,useNavigate} from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
-import { toast } from 'react-toastify';
 import App from '../../components/AppView'
 import Lottie from 'react-lottie'
 import api from '../../services/api'
-import img_logo_svg from '../../img/logo.png'
-import img_job1 from '../../img/job1.png'
 import img_l3 from '../../img/l3.png'
 import EmptyAnimation from '../../Animations/empty.json'
 import Header from '../../components/Header Bussines';
@@ -22,8 +19,6 @@ function Feed() {
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [profiled, setProfiled] = useState([])
 
   const lottieOptions = {
@@ -56,12 +51,6 @@ useEffect(() => {
   
   loadSpots()
 }, [] )
-
-async function SearchValue(event){
-  event.preventDefault()
-  
-  navigate(`/conections/${name}`)
-}
 
   async function Follow(event){
     event.preventDefault()

@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import img_logo_svg from '../../img/logo.png'
 import Header from '../../components/Header';
 
 
