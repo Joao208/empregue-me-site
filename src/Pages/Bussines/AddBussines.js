@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
  
@@ -23,7 +23,7 @@ function Feed() {
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-
+  
   useEffect(() => {
     async function loadSpots() {
       const response = await api.get('/profileview')
@@ -38,6 +38,26 @@ function Feed() {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
 
+  async function Post(event) {
+    try {
+      event.preventDefault()
+      setLoading(true)
+      const data = new FormData()
+
+      data.append('avatar', avatar)
+      data.append('Text', Text)
+
+      const response = await api.post('/bussines/posts', data)
+
+      setLoading(false)
+      toast.success('Postado ;)')
+      setAvatar(null)
+      setText('')
+    } catch (e) {
+      setLoading(false)
+      toast.error('Ops!! Imagem invalida');
+    }
+  }
 
   return (
 <>
@@ -112,7 +132,6 @@ function Feed() {
                 style={{border:'none',background:'none'}}
                 onClick={
                   async function AddAdd(){
-                    setAddAdd(true)
                   }
                 }
                 >

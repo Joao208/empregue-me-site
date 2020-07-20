@@ -46,7 +46,6 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
-  const [addadd, setAddAdd] = useState(false)
   
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
