@@ -213,7 +213,7 @@ function Feed() {
                   />
                 </div>
             </div>
-            <button className="buttoncheckout">Pagar <b>R${price}</b></button>
+            <button className="buttoncheckout">Pagar <b>R$50,00</b></button>
           </div>
           </form>  
         </main>
