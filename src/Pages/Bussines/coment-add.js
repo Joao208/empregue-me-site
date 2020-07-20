@@ -74,7 +74,7 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={userAvatar}/>
+                    <img alt="responsive-img" className="rounded-circle" src={userAvatar}/>
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
@@ -98,6 +98,7 @@ function Feed() {
                   </video>
                   : <img src={avatar ? avatar : null}
                   className="img-fluid"
+                  alt="responsive-img"
                   style={{width:'100%',height:'100%'}}
                   />
                   }
@@ -121,7 +122,7 @@ function Feed() {
                 {comments.map(comments => (
                 <div className="p-3 d-flex align-items-top border-bottom osahan-post-comment">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={comments.avatar} alt />
+                    <img className="rounded-circle" src={comments.avatar} alt="responsive-img" />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">

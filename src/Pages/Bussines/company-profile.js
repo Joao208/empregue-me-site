@@ -44,7 +44,7 @@ function Feed() {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
+    <img alt="responsive-img" className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">
@@ -119,7 +119,7 @@ function Feed() {
               <div className="box mb-3 shadow-sm border rounded bg-white osahan-post">
                 <div className="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div className="dropdown-list-image mr-3">
-                    <img className="rounded-circle" src={postd.bussines.avatar} alt />
+                    <img className="rounded-circle" src={postd.bussines.avatar} alt="responsive-img" />
                     <div className="status-indicator bg-success" />
                   </div>
                   <div className="font-weight-bold">
@@ -136,6 +136,7 @@ function Feed() {
                   </video>
                   : <img src={postd.avatar ? postd.avatar : null}
                   className="img-fluid"
+                  alt="responsive-img"
                   style={{width:'100%',height:'100%'}}
                   />
                   }

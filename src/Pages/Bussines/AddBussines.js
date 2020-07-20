@@ -94,7 +94,7 @@ function Feed() {
                 <div className="p-3 d-flex align-items-center w-100"  href="profile">
                   {profile.map(profile => (
                   <div key={profile._id} className="dropdown-list-image mr-3">
-                   <a href="/mycompany-profile"><img className="rounded-circle" src={profile.bussines.avatar} /></a> 
+                   <a href="/mycompany-profile"><img alt="responsive-img" className="rounded-circle" src={profile.bussines.avatar} /></a> 
                     <div className="status-indicator bg-success" />
                   </div>
                   ))}

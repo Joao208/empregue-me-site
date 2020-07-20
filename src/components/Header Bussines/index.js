@@ -37,7 +37,7 @@ function Header()  {
             <title>Empregue.me</title>
             <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
                 <div className="container">
-                <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} />
+                <a className="navbar-brand mr-2"  href="/"><img alt="responsive-img" src={img_logo_svg} />
                 </a>
                 <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
                     <div className="input-group">
@@ -88,7 +88,7 @@ function Header()  {
                 <Notification></Notification>
                     {profile.map(profile => (
                 <div key={profile._id} className="dropdown-list-image mr-3">
-                    <a href="mycompany-profile"><img className="rounded-circle" style={{marginLeft:'4px'}}  src={profile.bussines.avatar} /></a>
+                    <a href="mycompany-profile"><img className="rounded-circle" style={{marginLeft:'4px'}} alt="responsive-img" src={profile.bussines.avatar} /></a>
                     <div className="status-indicator bg-success" />
                 </div>
                 ))}

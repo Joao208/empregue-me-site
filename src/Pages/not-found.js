@@ -17,7 +17,7 @@ function Feed() {
           <a href="index" className="btn btn-primary btn-lg">Início</a>
         </div>
         <div className="col-md-6">
-          <img style={{width:'100%',height:'100%'}} src="https://neilpatel.com/wp-content/uploads/2019/05/ilustracao-sobre-o-error-404-not-found.jpeg"/>
+          <img alt="responsive-img" style={{width:'100%',height:'100%'}} src="https://neilpatel.com/wp-content/uploads/2019/05/ilustracao-sobre-o-error-404-not-found.jpeg"/>
         </div>
       </div>
     </div>
