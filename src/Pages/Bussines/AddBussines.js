@@ -3,11 +3,9 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState} from 'react';
-import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
  
-import moment from 'moment'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
@@ -16,34 +14,15 @@ import '../../css/style.css'
 
 import '../../css/inputcamera.css'
 
-import img_logo_svg from '../../img/logo.png'
-import img_job1 from '../../img/job1.png'
-import img_fav from '../../img/fav.png'
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
-import {MapContainer} from '../../style.js'
-import AdSense from 'react-adsense';
 import Header from '../../components/Header Bussines';
 
 function Feed() {
 
-  const navigate = useNavigate()
-  const [name,setName] = useState('')
   const [profile,setProfile] = useState([])
-  const [text, setTextt] = useState('')
   const [avatar, setAvatar] = useState('')
-  const [userAvatar, setUserAvatar] = useState('')
-  const [username, setUsername] = useState('')
-  const [comments, setComent] = useState([])
-  const [like, setLike] = useState('')
-  const [commentCount, setComentCount] = useState('')
   const [Text, setText] = useState('')
-  const [isVideo, setIsVideo] = useState(false)
-  const [link, setLink] = useState('')
-  const [idd, setId] = useState('')
-  const [createdAt, setCreatedAt] = useState('')
   const [loading, setLoading] = useState(false)
-  const {id} = useParams()
 
   useEffect(() => {
     async function loadSpots() {
@@ -54,38 +33,10 @@ function Feed() {
     
     loadSpots()
   }, [] )
-  
-  async function SearchValue(event){
-    event.preventDefault()
-    
-    navigate(`/conections/${name}`)
-  }
-
-  useEffect(() => {
-    async function Feed() {
-      try{
-      const response = await api.get(`/coments/add/populate/${id}`)
       
-      setAvatar(response.data.avatar)
-      setUserAvatar(response.data.bussines.avatar)
-      setUsername(response.data.bussines.nome)
-      setComent(response.data.comments)
-      setLike(response.data.likeCount)
-      setComentCount(response.data.commentCount)
-      setIsVideo(response.data.isVideo)
-      setText(response.data.text.text)
-      setLink(response.data.text.link)
-      setId(response.data._id)
-      setCreatedAt(response.data.createdAt)
-
-      }catch(e){
-      }
-    }
-    
-    Feed()
-  }, [] )
-
-    
+  const preview = useMemo(() => {
+    return avatar ? URL.createObjectURL(avatar) : null
+  },[avatar])
 
 
   return (
@@ -146,10 +97,7 @@ function Feed() {
                   async function checkIn(event){
                     try{
                     event.preventDefault()
-                    await api.post('/bussines/check/location',{
-                      longitude,
-                      latitude
-                    })
+                    await api.post('/bussines/check/location')
                     toast.success('Check-in postado ;)');
                     }catch(e){
                     }
