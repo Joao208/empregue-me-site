@@ -86,13 +86,21 @@ function Feed() {
                 <div className="p-3 d-flex align-items-center w-100"  href="profile">
                   {profile.map(profile => (
                   <div key={profile._id} className="dropdown-list-image mr-3">
-                   <a href="profile"><img className="rounded-circle" src={profile.bussines.avatar} /></a> 
+                   <a href="/mycompany-profile"><img className="rounded-circle" src={profile.bussines.avatar} /></a> 
                     <div className="status-indicator bg-success" />
                   </div>
                   ))}
                   <div className="w-100">
                     <textarea 
-                    placeholder="No que você está pensando..." 
+                    placeholder="Fale sobre sua publicidade..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    defaultValue={""} 
+                    value={Text}
+                    onChange={event => setText(event.target.value)}  
+                    />
+                    <textarea 
+                    placeholder="Adicione um link..." 
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
                     defaultValue={""} 
@@ -127,17 +135,7 @@ function Feed() {
                 >
                 <i className="feather-map-pin" />Check-in</button>
               </form>
-              <form className="mr-auto">
-                <button className="text-link small"
-                style={{border:'none',background:'none'}}
-                onClick={
-                  async function AddAdd(){
-                  }
-                }
-                >
-                <i className="feather-edit" />Promover minha empresa</button>
-              </form>
-              <label style={{color:'#008ef9',fontWeight:'600',margin:'auto'}}>
+              <label style={{color:'#000',margin:'auto'}}>
                 <i className="feather-image"></i>
                   Adicionar Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
@@ -146,7 +144,7 @@ function Feed() {
               </label>
               <div className="flex-shrink-1">
                 <form onSubmit={Post}>
-                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Postar'}</button>
+                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Anunciar'}</button>
                 </form>
               </div>
             </div>
