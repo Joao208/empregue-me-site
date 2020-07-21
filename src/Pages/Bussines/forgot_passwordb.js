@@ -7,9 +7,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logologin.JPG'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
+
+const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logologin.JPG'
 
 function Feed() {
 

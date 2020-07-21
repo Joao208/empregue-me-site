@@ -4,12 +4,12 @@ import React,{useState,useEffect} from 'react';
 import {useNavigate} from 'react-router'
 import api from '../../services/api'
 
-const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logologin.JPG'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Recaptcha from '../../components/Recaptcha'
+const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logologin.JPG'
 
 function Feed() {
   

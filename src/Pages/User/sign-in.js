@@ -13,6 +13,7 @@ import api from '../../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logologin.JPG'
+
 function Feed() {
 
   const [email, setEmail] = useState('')
