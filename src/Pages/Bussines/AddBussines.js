@@ -25,12 +25,6 @@ function Feed() {
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-  const [number,setNumber] = useState('')
-  const [name, setName] = useState('')
-  const [expiry, setExpiry] = useState('')
-  const [cvv, setcvv] = useState('')
-  const [focused,setFocused] = useState('')
-
 
   useEffect(() => {
     async function loadSpots() {
@@ -158,34 +152,25 @@ function Feed() {
             </div>
             <div className="left">
               <Card
-              number={number}
-              name={name}
-              expiry={expiry}
-              cvv={cvv}
-              focused={focused}
+              number={23403948092840293}
+              name={'Joao Augusto'}
+              expiry={'29/39/40'}
+              cvv={'234'}
               />
               </div>
             <div className="payment-details">
               <h2>Vamos ao pagamento</h2>
               <p>Nome no cartão</p>
               <input 
-              value={name}
-              onChange={event => setName(event.target.value)}      
               type="text" 
               name="name"
               placeholder=" Seu nome aqui" 
-              onFocus={setFocused('name')}
-              className="inputcheckout"
               />
               <p>Número do Cartão</p>
               <input 
               type="number"
               name="number"
               placeholder=" 0000 0000 0000 0000" 
-              value={number}
-              onChange={event => setNumber(event.target.value)} 
-              onFocus={setFocused('number')}  
-              className="inputcheckout"
               />
               <div className="side-by-side">
                 <div className="exp">
@@ -195,9 +180,6 @@ function Feed() {
                   name="expiry" 
                   placeholder=" MM/YY" 
                   pattern="[0-9]{2}/[0-9]{2}"
-                  onChange={event => setExpiry(event.target.value)}
-                  onFocus={setFocused('expiry')}  
-                  className="inputcheckout"        
                   />
                 </div>
                 <div className="cvv">
@@ -208,8 +190,6 @@ function Feed() {
                   name="cvv"
                   placeholder=" ***" 
                   pattern="[0-9]{3}"
-                  onChange={event => setcvv(event.target.value)}
-                  onFocus={setFocused('cvv')}       
                   />
                 </div>
             </div>
