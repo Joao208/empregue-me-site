@@ -34,35 +34,15 @@ function Feed() {
     id: '',
   })
 
-  async function handleChangeCard(e){
+  function handleChangeCard(e){
     const name = e.target.name.split('.')[1].replace(/card_/,'');
-    const value = e.target;
+    const {value} = e.target;
 
     setCard({
       ...card,
       [name]:value,
       id:''
     });
-  }
-
-  async function handleSelectCard({id,holder_name,number,expiration_date}) {
-    setData({
-      ...data,
-      card:{
-        card_holder_name:holder_name,
-        card_number:number,
-        card_expiration_date:expiration_date,
-        card_cvv:'',
-      }
-    });
-
-    setCard({
-      holder_name,
-      number,
-      expiration_date,
-      cvv:'',
-      id,
-    })
   }
 
   async function Payment(formData){
@@ -89,6 +69,8 @@ function Feed() {
 
     }catch (e) {
       console.log(e)
+    } finally {
+      setLoading(false)
     }
   }
 
