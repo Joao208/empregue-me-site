@@ -25,6 +25,10 @@ function Feed() {
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
+  const [data,setData] = useState('')
+  const [number, setNumber] = useState('')
+  const [cvv, setCvv] = useState('')
+  const [name, setName] = useState('')
 
   useEffect(() => {
     async function loadSpots() {
@@ -150,50 +154,54 @@ function Feed() {
                 </form>
               </div>
             </div>
+            <h2 style={{margin:'inherit',textAlign:'center'}}>Vamos ao pagamento</h2>
             <div className="left">
               <Card
-              number={23403948092840293}
-              name={'Joao Augusto'}
-              expiry={'29/39/40'}
-              cvv={'234'}
+              number={number}
+              name={name}
+              expiry={data}
+              cvv={cvv}
               />
               </div>
-            <div className="payment-details">
-              <h2>Vamos ao pagamento</h2>
-              <p>Nome no cartão</p>
+            <div style={{textAlign:'center'}} className="payment-details">
+              <p style={{marginTop:'5%'}}>Nome no cartão</p>
               <input 
               type="text" 
-              name="name"
               placeholder=" Seu nome aqui" 
+              onChange={event => setName(event.target.value)}
+              style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
               />
-              <p>Número do Cartão</p>
+              <p style={{marginTop:'5%'}}>Número do Cartão</p>
               <input 
               type="number"
-              name="number"
               placeholder=" 0000 0000 0000 0000" 
+              onChange={event => setNumber(event.target.value)}
+              style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
               />
               <div className="side-by-side">
                 <div className="exp">
-                  <p>Data de validade</p>
+                  <p style={{marginTop:'5%'}}>Data de validade</p>
                   <input 
                   type="text"
-                  name="expiry" 
                   placeholder=" MM/YY" 
                   pattern="[0-9]{2}/[0-9]{2}"
+                  onChange={event => setData(event.target.value)}
+                  style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
                   />
                 </div>
                 <div className="cvv">
-                  <p>cvv</p>
+                  <p style={{marginTop:'5%'}}>cvv</p>
                   <input 
                   className="inputcheckout"
                   type="password" 
-                  name="cvv"
                   placeholder=" ***" 
                   pattern="[0-9]{3}"
+                  onChange={event => setCvv(event.target.value)}
+                  style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
                   />
                 </div>
             </div>
-            <button className="buttoncheckout">Pagar <b>R$50,00</b></button>
+            <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout">Pagar <b>R$50,00</b></button>
           </div>      
           </form>  
         </main>
