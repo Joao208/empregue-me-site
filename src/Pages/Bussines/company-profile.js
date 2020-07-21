@@ -6,7 +6,6 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
 import { useParams } from 'react-router';
 import { ReactTinyLink } from "react-tiny-link";
@@ -44,7 +43,7 @@ function Feed() {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img alt="responsive-img" className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
+    <img alt="responsive-img" className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">

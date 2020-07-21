@@ -7,8 +7,6 @@ import {useParams} from 'react-router'
 
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
-import img_job_profile from '../../img/job-profile.jpg'
-import img_clogo2 from '../../img/clogo2.png'
 import api from '../../services/api'
 import completedAnimate from '../../Animations/completed.json'
 import { toast } from 'react-toastify';
@@ -94,7 +92,7 @@ const lottieOptionscompleted = {
 <div>
   <Header></Header>
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{width:'100%',height:'250px'}} src={jobs.avatar ? jobs.avatar : img_job_profile} />
+    <img className="img-fluid" style={{width:'100%',height:'250px'}} src={jobs.avatar ? jobs.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/job-profile.jpg'} />
   </div>
   
   <div className="bg-white shadow-sm border-bottom">
@@ -188,7 +186,7 @@ const lottieOptionscompleted = {
         <aside className="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
           <div className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="p-5">
-              <img src={avatar ? avatar : img_clogo2} className="img-fluid"  alt="Responsive image" />
+              <img src={avatar ? avatar : 'https://serverem.s3.us-east-2.amazonaws.com/clogo2.png'} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
              <Link to={`/company-profile/${bussines_id}`}><h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5></Link> 

@@ -2,9 +2,7 @@ import React,{useEffect,useState} from 'react';
 import Notification from '../../components/Notification/Notifications_Bussines'
 import api from '../../services/api'
 import {useNavigate} from 'react-router-dom'
-import img_fav from '../../img/fav.png'
-import img_logo_svg from '../../img/logo.png'
-
+const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'
 function Header()  {
 
     const [profile, setProfile] = useState([])
@@ -33,7 +31,7 @@ function Header()  {
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
             <meta name="description" content />
             <meta name="author" content />
-            <link rel="icon" type="image/png" href={img_fav} />
+            <link rel="icon" type="image/png" href={'https://serverem.s3.us-east-2.amazonaws.com/fav.PNG'} />
             <title>Empregue.me</title>
             <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
                 <div className="container">

@@ -2,8 +2,6 @@ import React,{useEffect,useState} from 'react';
 import Notification from '../../components/Notification/Notifications'
 import api from '../../services/api'
 import {useNavigate,Link} from 'react-router-dom'
-import img_fav from '../../img/fav.png'
-import img_logo_svg from '../../img/logo.png'
 
 function Header()  {
 
@@ -33,11 +31,11 @@ function Header()  {
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
             <meta name="description" content />
             <meta name="author" content />
-            <link rel="icon" type="image/png" href={img_fav} />
+            <link rel="icon" type="image/png" href={'https://serverem.s3.us-east-2.amazonaws.com/fav.PNG'} />
             <title>Empregue.me</title>
             <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
                 <div className="container">
-                <a className="navbar-brand mr-2"  href="/"><img src={img_logo_svg} alt="responsive-img" />
+                <a className="navbar-brand mr-2"  href="/"><img src={'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'} alt="responsive-img" />
                 </a>
                 <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
                     <div className="input-group">

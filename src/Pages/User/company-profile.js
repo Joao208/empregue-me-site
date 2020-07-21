@@ -6,7 +6,6 @@
 import React,{useEffect,useState} from 'react';
 import moment from 'moment'
 
-import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
 import { useParams } from 'react-router';
 import { ReactTinyLink } from "react-tiny-link";
@@ -90,7 +89,7 @@ useEffect(() => {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{height:'250px'}} src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
+    <img className="img-fluid" style={{height:'250px'}} src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">

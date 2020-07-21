@@ -11,8 +11,7 @@ import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
 
 
-import img_logo_svg from '../../img/logo.png'
-
+const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'
 function Cooming_soon() {
 
 

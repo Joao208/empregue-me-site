@@ -4,8 +4,7 @@ import React from 'react';
 
  
  
-import img_logo_svg from '../../img/logo.png'
-
+const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'
 function Feed() {
 
 

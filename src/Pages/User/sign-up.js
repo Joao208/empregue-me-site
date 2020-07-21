@@ -6,7 +6,7 @@ import api from '../../services/api'
 import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 
-import img_logo_svg from '../../img/logologin.JPG'
+const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logologin.JPG'
 import {useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

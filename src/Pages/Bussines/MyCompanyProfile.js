@@ -9,7 +9,6 @@ import { ReactTinyLink } from "react-tiny-link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import img_company from '../../img/company-profile.jpg'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import { Map, TileLayer, Marker } from 'react-leaflet'
@@ -65,7 +64,7 @@ useEffect(() => {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{width:'100%'}} src={profile.bussines.avatar ? profile.bussines.avatar : img_company} />
+    <img className="img-fluid" style={{width:'100%'}} src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">

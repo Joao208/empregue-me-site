@@ -2,7 +2,6 @@
 import React,{useState,useEffect,useMemo} from 'react';
 import {useNavigate} from 'react-router'
 
-import imguser from '../../img/user.png'
 import api from '../../services/api'
  
 import Lottie from 'react-lottie'
@@ -105,7 +104,7 @@ const lottieOptions = {
                     setAvatar(event.target.files[0])}
                  }/>
                  { user.map(user => (
-                 <img src={user.avatar ? user.avatar : imguser } style={{borderRadius:'100%',width:'160px',height:'160px'}} />
+                 <img src={user.avatar ? user.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/user.png' } style={{borderRadius:'100%',width:'160px',height:'160px'}} />
                  ))}    
               </label>
              {  /* <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" className="btn btn-danger"><i className="feather-trash-2" /></button> */ }

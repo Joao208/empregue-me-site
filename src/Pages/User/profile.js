@@ -9,7 +9,6 @@ import {useNavigate} from 'react-router'
 import Lottie from 'react-lottie'
 import EmptyAnimation from '../../Animations/empty.json'
 import api from '../../services/api'
-import img_l3 from '../../img/l3.png'
 import Header from '../../components/Header';
 import App from '../../components/App/App';
 import { Link } from 'react-router-dom';
@@ -65,7 +64,7 @@ function Feed() {
         <aside className="col col-xl-3 order-xl-1 col-lg-12 order-lg-1 col-12">
            <div key={profile._id} className="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
             <div className="py-4 px-3 border-bottom">
-              <img src={profile.user.avatar ? profile.user.avatar : img_l3} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
+              <img src={profile.user.avatar ? profile.user.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/l3.png'} style={{height:130,width:130}} className="img-fluid mt-2 rounded-circle" alt="Responsive image" /> 
               <h5 className="font-weight-bold text-dark mb-1 mt-4">{profile.user.name}</h5>
               <p className="mb-0 text-muted"> </p>
             </div>
