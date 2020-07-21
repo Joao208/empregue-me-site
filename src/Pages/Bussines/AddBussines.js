@@ -26,7 +26,13 @@ function Feed() {
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
   const [data,setData] = useState('')
-  const [card, setCard] = useState('')
+  const [card, setCard] = useState({
+    holder_name: '',
+    number: '',
+    expiration_date: '',
+    cvv: '',
+    id: '',
+  })
 
   async function handleChangeCard(e){
     const name = e.target.name.split('.')[1].replace(/card_/,'');
@@ -213,8 +219,12 @@ function Feed() {
             <h2 style={{margin:'inherit',textAlign:'center'}}>Vamos ao pagamento</h2>
             <div className="left">
               <Card
-              onChange={handleSelectCard}
-              />
+                number={card.number}
+                name={card.holder_name}
+                expiry={card.expiration_date}
+                cvc={card.cvv}
+                focused="number"
+               />
               </div>
             <div style={{textAlign:'center'}} className="payment-details">
               <p style={{marginTop:'5%'}}>Nome no cartão</p>
