@@ -13,7 +13,7 @@ import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
-
+import {Input} from '@rocketseat/unform';
 import '../../css/inputcamera.css'
 
 import api from '../../services/api'
@@ -207,49 +207,28 @@ function Feed() {
                 cvc={card.cvv}
                 focused="number"
                />
-              </div>
-            <div style={{textAlign:'center'}} className="payment-details">
-              <p style={{marginTop:'5%'}}>Nome no cartão</p>
-              <input 
-              type="text" 
-              placeholder=" Seu nome aqui" 
-              name="card_holder_name"
-              onChange={handleChangeCard}
-              style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
-              />
-              <p style={{marginTop:'5%'}}>Número do Cartão</p>
-              <input 
-              type="number"
-              placeholder=" 0000 0000 0000 0000" 
-              name="card_number"
-              onChange={handleChangeCard}
-              style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
-              />
-              <div className="side-by-side">
-                <div className="exp">
-                  <p style={{marginTop:'5%'}}>Data de validade</p>
-                  <input 
-                  type="text"
-                  name="card_expiration_date"
-                  placeholder=" MM/YY" 
-                  pattern="[0-9]{2}/[0-9]{2}"
-                  onChange={handleChangeCard}
-                  style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
-                  />
-                </div>
-                <div className="cvv">
-                  <p style={{marginTop:'5%'}}>cvv</p>
-                  <input 
-                  className="inputcheckout"
-                  type="text" 
-                  name="card_cvv"
-                  placeholder="123" 
-                  pattern="[0-9]{3}"
-                  onChange={handleChangeCard}
-                  style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
-                  />
-                </div>
             </div>
+            <div style={{textAlign:'center'}} className="payment-details">
+                  <Input
+                    name="card_holder_name"
+                    label="Nome no cartão"
+                    onChange={handleChangeCard}
+                  />
+                  <Input
+                    name="card_number"
+                    label="Número do cartão"
+                    onChange={handleChangeCard}
+                  />
+                  <Input
+                    name="card_expiration_date"
+                    label="Data de expiração"
+                    onChange={handleChangeCard}
+                  />
+                  <Input
+                    name="card_cvv"
+                    label="Código de segurança"
+                    onChange={handleChangeCard}
+                  />
             <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout">Pagar <b>R$50,00</b></button>
           </div>      
           </form>  
