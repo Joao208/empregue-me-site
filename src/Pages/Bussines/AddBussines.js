@@ -69,7 +69,7 @@ function Feed() {
     try{
 
       const client = await pagarme.client.connect({
-        encryption_key: proccess.env.REACT_APP_PAGARME_ENCRYPTION_KEY
+        encryption_key: process.env.REACT_APP_PAGARME_ENCRYPTION_KEY
       })
 
       const cardHash = await client.security.encrypt(cardForm)
