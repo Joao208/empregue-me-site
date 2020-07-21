@@ -21,7 +21,7 @@ import api from '../../services/api'
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import Header from '../../components/Header Bussines';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Feed() {
 
@@ -87,7 +87,7 @@ function Feed() {
     
     Feed()
   }, [] )
-  
+
     const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
