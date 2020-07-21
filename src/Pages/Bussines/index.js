@@ -87,8 +87,7 @@ function Feed() {
     
     Feed()
   }, [] )
-
-    
+  
     const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
   },[avatar])
