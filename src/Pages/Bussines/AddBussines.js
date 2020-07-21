@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Card from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
-
+import pagarme from 'pagarme'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
@@ -26,9 +26,65 @@ function Feed() {
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
   const [data,setData] = useState('')
-  const [number, setNumber] = useState('')
-  const [cvv, setCvv] = useState('')
-  const [name, setName] = useState('')
+  const [card, setCard] = useState('')
+
+  async function handleChangeCard(e){
+    const name = e.target.name.split('.')[1].replace(/card_/,'');
+    const value = e.target;
+
+    setCard({
+      ...card,
+      [name]:value,
+      id:''
+    });
+  }
+
+  async function handleSelectCard({id,holder_name,number,expiration_date}) {
+    setData({
+      ...data,
+      card:{
+        card_holder_name:holder_name,
+        card_number:number,
+        card_expiration_date:expiration_date,
+        card_cvv:'',
+      }
+    });
+
+    setCard({
+      holder_name,
+      number,
+      expiration_date,
+      cvv:'',
+      id,
+    })
+  }
+
+  async function Payment(formData){
+    setLoading(true)
+    
+    const {card: cardForm} = formData
+
+    delete formData.card
+
+    try{
+
+      const client = await pagarme.client.connect({
+        encryption_key: proccess.env.REACT_APP_PAGARME_ENCRYPTION_KEY
+      })
+
+      const cardHash = await client.security.encrypt(cardForm)
+
+      await api.post('/checkout',{
+        ...formData,
+        cardHash,
+      })
+
+      console.log(formData)
+
+    }catch (e) {
+      console.log(e)
+    }
+  }
 
   useEffect(() => {
     async function loadSpots() {
@@ -157,10 +213,7 @@ function Feed() {
             <h2 style={{margin:'inherit',textAlign:'center'}}>Vamos ao pagamento</h2>
             <div className="left">
               <Card
-              number={number}
-              name={name}
-              expiry={data}
-              cvv={cvv}
+              onChange={handleSelectCard}
               />
               </div>
             <div style={{textAlign:'center'}} className="payment-details">
@@ -168,14 +221,16 @@ function Feed() {
               <input 
               type="text" 
               placeholder=" Seu nome aqui" 
-              onChange={event => setName(event.target.value)}
+              name="card_holder_name"
+              onChange={handleChangeCard}
               style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
               />
               <p style={{marginTop:'5%'}}>Número do Cartão</p>
               <input 
               type="number"
               placeholder=" 0000 0000 0000 0000" 
-              onChange={event => setNumber(event.target.value)}
+              name="card_number"
+              onChange={handleChangeCard}
               style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
               />
               <div className="side-by-side">
@@ -183,9 +238,10 @@ function Feed() {
                   <p style={{marginTop:'5%'}}>Data de validade</p>
                   <input 
                   type="text"
+                  name="card_expiration_date"
                   placeholder=" MM/YY" 
                   pattern="[0-9]{2}/[0-9]{2}"
-                  onChange={event => setData(event.target.value)}
+                  onChange={handleChangeCard}
                   style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
                   />
                 </div>
@@ -193,10 +249,11 @@ function Feed() {
                   <p style={{marginTop:'5%'}}>cvv</p>
                   <input 
                   className="inputcheckout"
-                  type="password" 
-                  placeholder=" ***" 
+                  type="text" 
+                  name="card_cvv"
+                  placeholder="123" 
                   pattern="[0-9]{3}"
-                  onChange={event => setCvv(event.target.value)}
+                  onChange={handleChangeCard}
                   style={{border:'none',background:'none',width:'100%',textAlign:'center',marginBottom:'5%'}}
                   />
                 </div>
