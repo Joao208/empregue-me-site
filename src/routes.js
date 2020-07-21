@@ -20,8 +20,6 @@ import Privacy from './Pages/Terms/privacy'
 import Profile from './Pages/User/profile'
 import Sign_in from './Pages/User/sign-in'
 import Sign_up from './Pages/User/sign-up'
-import Sign_inS from './Pages/Schools/sign-in'
-import Sign_upS from './Pages/Schools/sign-up'
 import Bussinessign_in from './Pages/Bussines/sign-in'
 import Bussinessign_up from './Pages/Bussines/sign-up'
 import Terms from './Pages/Terms/terms'
@@ -41,7 +39,6 @@ import Company_ProfileB from './Pages/Bussines/company-profile'
 import ComingSoom from './Pages/cooming-soon'
 import Blog from './Pages/Blog/blog'
 import Entrevista_de_Emprego from './Pages/Blog/DicasEntrevista'
-import Coming_Schools from './Pages/Schools/cooming-soon'
 import ResultadosQuarentena from './Pages/Blog/ResultadosDaQuarentena';
 import JobsB from './Pages/Bussines/jobs'
 import Job_profileB from './Pages/Bussines/job-profile'
@@ -130,8 +127,6 @@ export default function Routed() {
    </PrivateRoute>
         <Route path='/sign-in' element={<Sign_in/>}/>
         <Route path='/sign-up' element={<Sign_up/>}/>
-        <Route path='/school/sign-in' element={<Sign_inS/>}/>
-        <Route path='/school/sign-up' element={<Sign_upS/>}/>
         <Route path='/bussinessign-in' element={<Bussinessign_in/>}/>
         <Route path='/bussinessign-up' element={<Bussinessign_up/>}/>
         <Route path='*' element={<Error404/>}/>
@@ -141,7 +136,6 @@ export default function Routed() {
         <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
         <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
         <Route path='/blog' element={<Blog/>}/>
-        <Route path="/schools/panel" element={<Coming_Schools/>}/>
         <Route path='/resultados-quarentena' element={<ResultadosQuarentena/>}/>
 </Routes>
     );
