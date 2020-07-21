@@ -35,7 +35,7 @@ function Feed() {
   })
 
   function handleChangeCard(e){
-    const name = e.target.name.split('.')[1].replace(/card_/,'');
+    const name = e.target.name.split('.')[1].replace(/card_/, '');
     const {value} = e.target;
 
     setCard({
