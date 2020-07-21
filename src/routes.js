@@ -32,7 +32,6 @@ import ProfileView from './Pages/User/ProfileView'
 import ProfileViewB from './Pages/Bussines/ProfileView'
 import EditCompanyProfile from './Pages/Bussines/edit-company-profile'
 import MyCompany_profile from './Pages/Bussines/MyCompanyProfile'
-import Checkout from './Pages/Payments/checkout'
 import ConfirmatePage from './Pages/User/confirmate'
 import Email_confirmate from './Pages/User/email-not-confirmate'
 import CommentAdd from './Pages/User/coment-add'
@@ -105,7 +104,6 @@ export default function Routed() {
             <UserRoute path='/job-profile/:id' element={<Job_profile/>}/>
             <UserRoute path='/privacy' element={<Privacy/>}/>
             <UserRoute path='/terms' element={<Terms/>}/>
-            <UserRoute path='/checkout/:price' element={<Checkout/>}/>
             <UserRoute path='/profile' element={<Profile/>}/>
         </ConfirmateRoute>
     </PrivateRoute>
