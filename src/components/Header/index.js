@@ -59,7 +59,7 @@ function Header()  {
                 </form>
                 <ul className="navbar-nav ml-auto d-flex align-items-center">
                 <li className="nav-item dropdown no-arrow d-sm-none">
-                    <a className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <div className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
                     <div className="input-group">
                     <input 
@@ -78,7 +78,7 @@ function Header()  {
                     </div>
                     </div>
                     </form>
-                    </a>
+                 </div>
                     <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
                     </div>
                 </li>

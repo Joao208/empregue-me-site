@@ -16,7 +16,7 @@ import '../../css/style.css'
 import '../../css/inputcamera.css'
 
 import api from '../../services/api'
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import Header from '../../components/Header Bussines';
 
 function Feed() {
