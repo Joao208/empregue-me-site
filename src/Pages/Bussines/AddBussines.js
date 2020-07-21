@@ -152,10 +152,10 @@ function Feed() {
             </div>
             <div className="left">
               <Card
-              number={551234765476}
+              number={"551234765476"}
               name={"Pedro Carlos Batista Silva"}
-              expiry={30/02/2018}
-              cvv={000}
+              expiry={"30/02/2018"}
+              cvv={"000"}
               />
               </div>
           </form>  
