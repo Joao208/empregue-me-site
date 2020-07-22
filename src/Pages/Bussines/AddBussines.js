@@ -13,7 +13,7 @@ import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
-import {Input} from '@rocketseat/unform';
+import {Input, Scope} from '@rocketseat/unform';
 import '../../css/inputcamera.css'
 
 import api from '../../services/api'
@@ -35,7 +35,7 @@ function Feed() {
   })
 
   function handleChangeCard(e){
-    const name = e.target.name.split('.')[1];
+    const name = e.target.name.split('.')[1].replace(/card_/, '');;
     const {value} = e.target;
 
     setCard({
@@ -209,26 +209,46 @@ function Feed() {
                />
             </div>
             <div style={{textAlign:'center'}} className="payment-details">
-                  <Input
-                    name="card_holder_name"
-                    label="Nome no cartão"
-                    onChange={handleChangeCard}
-                  />
-                  <Input
-                    name="card_number"
-                    label="Número do cartão"
-                    onChange={handleChangeCard}
-                  />
+            <Scope path="card">
+              <Input
+                name="card_holder_name"
+                label="Nome no cartão"
+                onChange={handleChangeCard}
+              />
+              <Input
+                name="card_number"
+                label="Número do cartão"
+                onChange={handleChangeCard}
+              />
+              <div className="group">
+                <div>
                   <Input
                     name="card_expiration_date"
                     label="Data de expiração"
                     onChange={handleChangeCard}
                   />
+                </div>
+                <div>
                   <Input
                     name="card_cvv"
                     label="Código de segurança"
                     onChange={handleChangeCard}
                   />
+                </div>
+              </div>
+              <div className="save-card">
+                <input
+                  type="checkbox"
+                  name="save_card"
+                  id="save-card"
+                  checked={saveCard}
+                  onChange={(e) => setSaveCard(e.target.checked)}
+                />
+                <label htmlFor="save-card">
+                  Salvar cartão de crédito para a próxima compra
+                </label>
+              </div>
+            </Scope>
             <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout">Pagar <b>R$50,00</b></button>
           </div>      
           </form>  
