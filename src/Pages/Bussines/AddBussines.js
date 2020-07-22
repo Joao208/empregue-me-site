@@ -46,49 +46,6 @@ function Feed() {
     });
   }
 
-  async function Payment(formData){
-    setLoading(true)
-    
-    const {card: cardForm} = formData
-
-    delete formData.card
-
-    try{
-
-      const client = await pagarme.client.connect({
-        encryption_key: process.env.REACT_APP_PAGARME_ENCRYPTION_KEY
-      })
-
-      const cardHash = await client.security.encrypt(cardForm)
-
-      await api.post('/checkout',{
-        ...formData,
-        cardHash,
-      })
-
-      console.log(formData)
-
-    }catch (e) {
-      console.log(e)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    async function loadSpots() {
-      const response = await api.get('/profilebussinesv')
-      
-      setProfile(response.data.profile)
-    }
-    
-    loadSpots()
-  }, [] )
-      
-  const preview = useMemo(() => {
-    return avatar ? URL.createObjectURL(avatar) : null
-  },[avatar])
-
   async function Post(event) {
     try {
       event.preventDefault()
@@ -109,6 +66,50 @@ function Feed() {
       toast.error('Ops!! Imagem invalida');
     }
   }
+
+  async function handleSubmit(formData) {
+    setLoading(true);
+
+    const { card: cardForm } = formData;
+
+    delete formData.card;
+
+    try {
+      let cardData = card.id;
+
+      if (!card.id) {
+        const client = await pagarme.client.connect({
+          encryption_key: process.env.REACT_APP_PAGARME_ENCRYPTION_KEY,
+        });
+        cardData = await client.security.encrypt(cardForm);
+      }
+
+      await api.post('/checkout', {
+        ...formData,
+        amount: 1,
+        save_card: saveCard,
+        ...(card.id ? { card_id: cardData } : { card_hash: cardData }),
+      });
+    } catch (err) {
+      showError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    async function loadSpots() {
+      const response = await api.get('/profilebussinesv')
+      
+      setProfile(response.data.profile)
+    }  
+    
+    loadSpots()
+  }, [] )  
+      
+  const preview = useMemo(() => {
+    return avatar ? URL.createObjectURL(avatar) : null
+  },[avatar])  
 
   return (
 <>
@@ -193,11 +194,6 @@ function Feed() {
                       setAvatar(event.target.files[0])}
                   }/>
               </label>
-              <div className="flex-shrink-1">
-                <form onSubmit={Post}>
-                  <button className="btn btn-primary btn-block text-uppercase" type="submit" onClick={Post}>{loading ? 'Postando...' : 'Anunciar'}</button>
-                </form>
-              </div>
             </div>
             <h2 style={{margin:'inherit',textAlign:'center'}}>Vamos ao pagamento</h2>
             <div className="left">
@@ -209,18 +205,18 @@ function Feed() {
                 focused="number"
                />
             </div>
-            <div style={{textAlign:'center'}} className="payment-details">
+          <form onSubmit={handleSubmit} style={{textAlign:'center'}} className="payment-details">
             <Scope path="card">
               <Input
                 name="card_holder_name"
                 label="Nome no cartão"
-                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
+                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
                 onChange={handleChangeCard}
               />
               <Input
                 name="card_number"
                 label="Número do cartão"
-                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
+                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
                 onChange={handleChangeCard}
               />
               <div className="group">
@@ -228,7 +224,7 @@ function Feed() {
                   <Input
                     name="card_expiration_date"
                     label="Data de expiração"
-                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
+                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
                     onChange={handleChangeCard}
                   />
                 </div>
@@ -236,7 +232,7 @@ function Feed() {
                   <Input
                     name="card_cvv"
                     label="Código de segurança"
-                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
+                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
                     onChange={handleChangeCard}
                   />
                 </div>
@@ -254,8 +250,8 @@ function Feed() {
                 </label>
               </div>
             </Scope>
-            <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout" onClick={Payment}>{loading ? 'Carregando' : 'Pagar R$50,00'}</button>
-          </div>      
+            <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout">{loading ? 'Carregando' : 'Pagar R$50,00'}</button>
+          </form>      
           </form>  
         </main>
       </div>
