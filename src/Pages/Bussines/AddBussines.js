@@ -91,7 +91,7 @@ function Feed() {
         ...(card.id ? { card_id: cardData } : { card_hash: cardData }),
       });
     } catch (err) {
-      showError(err);
+      console.log(err);
     } finally {
       setLoading(false);
     }
