@@ -25,6 +25,7 @@ function Feed() {
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
+  const [saveCard, setSaveCard] = useState(false);
   const [data,setData] = useState('')
   const [card, setCard] = useState({
     holder_name: '',
@@ -213,11 +214,13 @@ function Feed() {
               <Input
                 name="card_holder_name"
                 label="Nome no cartão"
+                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
                 onChange={handleChangeCard}
               />
               <Input
                 name="card_number"
                 label="Número do cartão"
+                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
                 onChange={handleChangeCard}
               />
               <div className="group">
@@ -225,6 +228,7 @@ function Feed() {
                   <Input
                     name="card_expiration_date"
                     label="Data de expiração"
+                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
                     onChange={handleChangeCard}
                   />
                 </div>
@@ -232,22 +236,25 @@ function Feed() {
                   <Input
                     name="card_cvv"
                     label="Código de segurança"
+                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none'}}
                     onChange={handleChangeCard}
                   />
                 </div>
               </div>
-              <div className="save-card">
-                <input
+              <div className="save-card" style={{marginTop:'5%'}}>
+              <input
                   type="checkbox"
                   name="save_card"
                   id="save-card"
+                  checked={saveCard}
+                  onChange={(e) => setSaveCard(e.target.checked)}
                 />
                 <label htmlFor="save-card">
                   Salvar cartão de crédito para a próxima compra
                 </label>
               </div>
             </Scope>
-            <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout">Pagar <b>R$50,00</b></button>
+            <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout" onClick={Payment}>{loading ? 'Carregando' : 'Pagar R$50,00'}</button>
           </div>      
           </form>  
         </main>
