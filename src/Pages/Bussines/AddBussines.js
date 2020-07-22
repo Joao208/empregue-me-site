@@ -241,8 +241,6 @@ function Feed() {
                   type="checkbox"
                   name="save_card"
                   id="save-card"
-                  checked={saveCard}
-                  onChange={(e) => setSaveCard(e.target.checked)}
                 />
                 <label htmlFor="save-card">
                   Salvar cartão de crédito para a próxima compra
