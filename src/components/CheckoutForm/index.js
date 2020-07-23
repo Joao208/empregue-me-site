@@ -20,7 +20,7 @@ export default function CheckoutForm() {
     try {
       const response = await api.post("/create-payment-intent")
           
-      setClientSecret(response.data)
+      setClientSecret(response.data.clientSecret)
       console.log(response.data.clientSecret)
 
     } catch (error) {
