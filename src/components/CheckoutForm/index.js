@@ -78,7 +78,7 @@ export default function CheckoutForm() {
       <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
       <button
         disabled={processing || disabled || succeeded}
-        id="submit"
+        id="buttonpay"
       >
         <span id="button-text">
           {processing ? (
