@@ -26,17 +26,6 @@ function Feed() {
   const [loading, setLoading] = useState(false)
   const promise = loadStripe("pk_test_51H7wkvGHhRYZj7pYIiyvp3pGMGrxKwqq4bn5BrfjxnXi3QjSgNWJ8lh95WhAM899f8DWdVfrcF8CBGUg9D6MVXva00qFrufXKL");
 
-  function handleChangeCard(e){
-    const name = e.target.name.split('.')[1].replace(/card_/, '');;
-    const {value} = e.target;
-
-    setCard({
-      ...card,
-      [name]:value,
-      id:''
-    });
-  }
-
   async function Post(event) {
     try {
       event.preventDefault()
