@@ -23,7 +23,7 @@ function Feed() {
   const [profile,setProfile] = useState([])
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
-  const promise = loadStripe(process.env.KEY_PUBLIC_STRIPE);
+  const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
   async function Post(event) {
     try {
