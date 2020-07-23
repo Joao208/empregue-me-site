@@ -5,19 +5,18 @@
 import React,{useEffect,useState,useMemo} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Card from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
-import pagarme from 'pagarme'
 import '../../vendor/slick/slick.min.css'
 import '../../vendor/slick/slick-theme.min.css'
 import '../../vendor/icons/feather.css'
 import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
-import {Input, Scope} from '@rocketseat/unform';
 import '../../css/inputcamera.css'
-
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import api from '../../services/api'
 import Header from '../../components/Header Bussines';
+import CheckoutForm from '../../components/CheckoutForm';
 
 function Feed() {
 
@@ -25,15 +24,7 @@ function Feed() {
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-  const [saveCard, setSaveCard] = useState(false);
-  const [data,setData] = useState('')
-  const [card, setCard] = useState({
-    holder_name: '',
-    number: '',
-    expiration_date: '',
-    cvv: '',
-    id: '',
-  })
+  const promise = loadStripe("pk_test_51H7wkvGHhRYZj7pYIiyvp3pGMGrxKwqq4bn5BrfjxnXi3QjSgNWJ8lh95WhAM899f8DWdVfrcF8CBGUg9D6MVXva00qFrufXKL");
 
   function handleChangeCard(e){
     const name = e.target.name.split('.')[1].replace(/card_/, '');;
@@ -64,37 +55,6 @@ function Feed() {
     } catch (e) {
       setLoading(false)
       toast.error('Ops!! Imagem invalida');
-    }
-  }
-
-  async function handleSubmit(event,formData) {
-    event.preventDefault()
-    setLoading(true);
-
-    const { card: cardForm } = formData;
-
-    delete formData.card;
-
-    try {
-      let cardData = card.id;
-
-      if (!card.id) {
-        const client = await pagarme.client.connect({
-          encryption_key: process.env.REACT_APP_PAGARME_ENCRYPTION_KEY,
-        });
-        cardData = await client.security.encrypt(cardForm);
-      }
-
-      await api.post('/checkout', {
-        ...formData,
-        amount: 1,
-        save_card: saveCard,
-        ...(card.id ? { card_id: cardData } : { card_hash: cardData }),
-      });
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -197,62 +157,9 @@ function Feed() {
               </label>
             </div>
             <h2 style={{margin:'inherit',textAlign:'center'}}>Vamos ao pagamento</h2>
-            <div className="left">
-              <Card
-                number={card.number}
-                name={card.holder_name}
-                expiry={card.expiration_date}
-                cvc={card.cvv}
-                focused="number"
-               />
-            </div>
-          <form onSubmit={handleSubmit} style={{textAlign:'center'}} className="payment-details">
-            <Scope path="card">
-              <Input
-                name="card_holder_name"
-                label="Nome no cartão"
-                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
-                onChange={handleChangeCard}
-              />
-              <Input
-                name="card_number"
-                label="Número do cartão"
-                style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
-                onChange={handleChangeCard}
-              />
-              <div className="group">
-                <div>
-                  <Input
-                    name="card_expiration_date"
-                    label="Data de expiração"
-                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
-                    onChange={handleChangeCard}
-                  />
-                </div>
-                <div>
-                  <Input
-                    name="card_cvv"
-                    label="Código de segurança"
-                    style={{marginTop:'5%',width:'100%',textAlign:'center',border:'none',marginBottom:'3%'}}
-                    onChange={handleChangeCard}
-                  />
-                </div>
-              </div>
-              <div className="save-card" style={{marginTop:'5%'}}>
-              <input
-                  type="checkbox"
-                  name="save_card"
-                  id="save-card"
-                  checked={saveCard}
-                  onChange={(e) => setSaveCard(e.target.checked)}
-                />
-                <label htmlFor="save-card">
-                  Salvar cartão de crédito para a próxima compra
-                </label>
-              </div>
-            </Scope>
-            <button style={{border:'#00b3ec',background:'#00b3ec',marginBottom:'5%',marginTop:'5%',borderRadius:'5%',height:'43px',color:'#fff'}} className="buttoncheckout">{loading ? 'Carregando' : 'Pagar R$50,00'}</button>
-          </form>      
+            <Elements stripe={promise}>
+              <CheckoutForm />
+            </Elements>
           </form>  
         </main>
       </div>
