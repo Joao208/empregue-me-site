@@ -5,6 +5,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import api from "../../services/api";
+
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -17,10 +18,10 @@ export default function CheckoutForm() {
   useEffect(() => {
   async function Pay(){
     try {
-      const response = await api.post("/create-payment-intent",{items: [{ id: "xl-tshirt" }]})
+      const response = await api.post("/create-payment-intent")
           
       setClientSecret(response.data)
-      console.log(response.data)
+      console.log(response.data.clientSecret)
 
     } catch (error) {
       console.log(error)
