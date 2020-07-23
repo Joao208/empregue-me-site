@@ -12,6 +12,7 @@ export default function CheckoutForm(Post) {
   const [processing, setProcessing] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState('');
+  const [saveCard, setSaveCard] = useState(false)
   const stripe = useStripe();
   const elements = useElements();
 
