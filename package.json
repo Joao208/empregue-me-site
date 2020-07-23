@@ -6,6 +6,7 @@
     "@rocketseat/unform": "^1.6.2",
     "@sentry/browser": "^5.17.0",
     "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.8.0",
     "axios": "^0.19.1",
     "filesize": "^6.1.0",
     "jquery": "^3.5.0",
