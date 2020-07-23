@@ -67,7 +67,8 @@ function Feed() {
     }
   }
 
-  async function handleSubmit(formData) {
+  async function handleSubmit(event,formData) {
+    event.preventDefault()
     setLoading(true);
 
     const { card: cardForm } = formData;
