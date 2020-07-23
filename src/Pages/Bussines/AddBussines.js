@@ -23,13 +23,11 @@ function Feed() {
   const [profile,setProfile] = useState([])
   const [avatar, setAvatar] = useState('')
   const [Text, setText] = useState('')
-  const [loading, setLoading] = useState(false)
-  const promise = loadStripe("pk_test_51H7wkvGHhRYZj7pYIiyvp3pGMGrxKwqq4bn5BrfjxnXi3QjSgNWJ8lh95WhAM899f8DWdVfrcF8CBGUg9D6MVXva00qFrufXKL");
+  const promise = loadStripe(process.env.KEY_PUBLIC_STRIPE);
 
   async function Post(event) {
     try {
       event.preventDefault()
-      setLoading(true)
       const data = new FormData()
 
       data.append('avatar', avatar)
@@ -37,12 +35,10 @@ function Feed() {
 
       await api.post('/bussines/posts', data)
 
-      setLoading(false)
       toast.success('Postado ;)')
       setAvatar(null)
       setText('')
     } catch (e) {
-      setLoading(false)
       toast.error('Ops!! Imagem invalida');
     }
   }
@@ -147,7 +143,7 @@ function Feed() {
             </div>
             <h2 style={{margin:'inherit',textAlign:'center'}}>Vamos ao pagamento</h2>
             <Elements stripe={promise}>
-              <CheckoutForm />
+              <CheckoutForm Post={Post} />
             </Elements>
           </form>  
         </main>

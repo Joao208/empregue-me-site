@@ -6,7 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import api from "../../services/api";
 
-export default function CheckoutForm() {
+export default function CheckoutForm(Post) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -71,6 +71,7 @@ export default function CheckoutForm() {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      Post()
     }
   };
   return (
@@ -84,7 +85,7 @@ export default function CheckoutForm() {
           {processing ? (
             <div className="spinner" id="spinner"></div>
           ) : (
-            "Pagar"
+            "Postar Anúncio"
           )}
         </span>
       </button>
@@ -96,13 +97,7 @@ export default function CheckoutForm() {
       )}
       {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment succeeded, see the result in your
-        <a
-          href={`https://dashboard.stripe.com/test/payments`}
-        >
-          {" "}
-          Stripe dashboard.
-        </a> Refresh the page to pay again.
+        Pagamento bem sucedido, anúncio publicado.
       </p>
     </form>
   );
