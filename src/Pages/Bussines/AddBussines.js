@@ -47,7 +47,7 @@ function Feed() {
 
   useEffect(() => {
     async function loadSpots() {
-      const response = await api.get('/profilebussinesv')
+      const response = await api.get('/payment-intent')
       
       setProfile(response.data.profile)
     }  
@@ -143,7 +143,7 @@ function Feed() {
                   }/>
               </label>
             </div>
-            <h2 style={{margin:'inherit',textAlign:'center'}}>Para anúnciarmos sua empresa vamos ao pagamento ;)</h2>
+            <h2 style={{margin:'inherit',textAlign:'center',fontSize:'17px',marginTop:'20px'}}>Para anúnciarmos sua empresa vamos ao pagamento ;)</h2>
             <Elements stripe={promise}>
               <CheckoutForm Post={Post} />
             </Elements>
