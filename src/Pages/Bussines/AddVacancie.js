@@ -106,16 +106,12 @@ function Feed() {
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
                     defaultValue={""} 
-                    value={text}
-                    onChange={event => setText(event.target.value)}  
                     />
                     <textarea 
                     placeholder="Adicione um link..." 
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
                     defaultValue={""} 
-                    value={link}
-                    onChange={event => setLink(event.target.value)}  
                     />
                   </div>
                 </div>

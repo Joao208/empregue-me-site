@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
-import React,{useEffect,useState,useMemo} from 'react';
+import React,{useEffect,useState} from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-credit-cards/es/styles-compiled.css'
 import '../../vendor/slick/slick.min.css'
@@ -16,7 +16,18 @@ import Header from '../../components/Header Bussines';
 
 function Feed() {
 
-    
+    useEffect(() => {
+        async function List() {
+            try {
+                const response = await api.get('/bussines/requests')
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        List()
+    }, [])
+
   return (
 <>
 <div>
