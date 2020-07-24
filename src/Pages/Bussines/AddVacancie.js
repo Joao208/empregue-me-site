@@ -101,15 +101,59 @@ function Feed() {
                   ))}
                   <div className="w-100">
                     <textarea 
-                    placeholder="Fale sobre sua publicidade..." 
+                    placeholder="Descreva sua vaga..." 
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
+                    value={description}
+                    onChange={event => setdescription(event.target.value)}
                     defaultValue={""} 
                     />
                     <textarea 
-                    placeholder="Adicione um link..." 
+                    placeholder="Qual será o salário da vaga..." 
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
+                    value={salary}
+                    onChange={event => setsalary(event.target.value)}
+                    defaultValue={""} 
+                    />
+                    <textarea 
+                    placeholder="Em qual cidade será..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    value={city}
+                    onChange={event => setcity(event.target.value)}
+                    defaultValue={""} 
+                    />
+                    <textarea 
+                    placeholder="Isso é em qual estado..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    value={uf}
+                    onChange={event => setuf(event.target.value)}
+                    defaultValue={""} 
+                    />
+                    <textarea 
+                    placeholder="Cargo..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    value={cargo}
+                    onChange={event => setCargo(event.target.value)}
+                    defaultValue={""} 
+                    />
+                    <textarea 
+                    placeholder="Jornada..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    value={employment}
+                    onChange={event => setEmployment(event.target.value)}
+                    defaultValue={""} 
+                    />
+                    <textarea 
+                    placeholder="Dê um titulo para ela..." 
+                    className="form-control border-0 p-0 shadow-none" 
+                    rows={1} 
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
                     defaultValue={""} 
                     />
                   </div>

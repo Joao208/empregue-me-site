@@ -13,14 +13,19 @@ import '../../css/style.css'
 import '../../css/inputcamera.css'
 import api from '../../services/api'
 import Header from '../../components/Header Bussines';
+import { Link } from 'react-router-dom';
 
 function Feed() {
+
+    const [booking, setBooking] = useState([])
 
     useEffect(() => {
         async function List() {
             try {
                 const response = await api.get('/bussines/requests')
                 console.log(response.data)
+                setBooking(response.data)
+
             } catch (error) {
                 console.log(error)
             }
@@ -36,55 +41,18 @@ function Feed() {
     <div className="container">
       <div className="row">
         {/* Main Content */}
-        <main style={{margin:'auto'}} className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+        <main style={{margin:'auto',height:'800px',overflowY:'scroll'}} className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
         <form className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-            <div style={{}} className="">
+            <h3 style={{fontSize:'20px',textAlign:'center',marginBottom:'35px'}}>Todos que pretendem trabalhar com você</h3>
+            {booking.map(book => (
+            <div>
                 <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                    <p><span>{book.user.name}</span> requisitou a vaga de <span>{book.vacancies.title}</span></p> 
+                    <Link to={`/profile/${book.user._id}`} className="btn btn-primary btn-lg">Analise o perfil de {book.user.name}</Link> 
                 </div>
                 <hr></hr>   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                   
-                <div>
-                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
-                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
-                </div>
-                <hr></hr>                                                                                                   
             </div>
+            ))}
         </form>  
         </main>
       </div>

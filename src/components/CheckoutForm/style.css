@@ -1,6 +1,6 @@
 /* Variables */
 #payment-form {
-  width: 30vw;
+  width: 100%;
   min-width: 500px;
   align-self: center;
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
