@@ -49,7 +49,6 @@ function Feed() {
 
       toast.success('Postado ;)')
       setAvatar(null)
-      setText('')
     } catch (e) {
       toast.error('Ops!! Imagem invalida');
     }
