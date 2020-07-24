@@ -80,6 +80,9 @@ function Header()  {
                     </div>
                 </li>
                 <li className="nav-item">
+                    <a className="nav-link" href="/request/list"><i className="feather-user mr-2" /><span className="d-none d-lg-inline">Requisições</span></a>
+                </li>
+                <li className="nav-item">
                     <a className="nav-link" href="/bussines/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
                 </li>
                     {profile.map(profile => (
