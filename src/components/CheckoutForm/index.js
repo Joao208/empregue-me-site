@@ -6,6 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import api from "../../services/api";
 import './style.css'
+
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -91,7 +92,6 @@ export default function CheckoutForm() {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      Post()
     }
   };
   return (

@@ -130,7 +130,7 @@ function Feed() {
             </div>
             <h2 style={{margin:'inherit',textAlign:'center',fontSize:'17px',marginTop:'20px'}}>Para anúnciarmos sua empresa vamos ao pagamento ;)</h2>
             <Elements stripe={promise}>
-              <CheckoutForm Post={Post} />
+              <CheckoutForm />
             </Elements>
           </form>  
         </main>
@@ -141,7 +141,6 @@ function Feed() {
   {/* slick Slider JS*/}
   {/* Custom scripts for all pages*/}
 </div>
-
 </>
   );
 }
