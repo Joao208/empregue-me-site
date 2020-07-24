@@ -71,7 +71,6 @@ function Feed() {
     async function Feed() {
       try{
       const response = await api.get('/bussines/feed')
-      console.log(response.data)
       
       setPostb(response.data.postbussines)
       setPosts(response.data.posts)
@@ -215,7 +214,12 @@ function Feed() {
               </form>
               <form className="mr-auto">
                 <button style={{border:'none',background:'none'}} className="text-link small">               
-               <Link style={{color:'#000'}} to="/publicar"><i className="feather-edit" />Promover minha empresa</Link>
+               <Link style={{color:'#000'}} to="/publicar"><i className="feather-edit" />Promover</Link>
+                </button>
+              </form>
+              <form className="mr-auto">
+                <button style={{border:'none',background:'none'}} className="text-link small">               
+               <Link style={{color:'#000'}} to="/vacancies/publicar"><i className="feather-edit" />Postar vaga</Link>
                 </button>
               </form>
               <label style={{margin:'auto'}}>

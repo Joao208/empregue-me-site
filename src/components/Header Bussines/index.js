@@ -34,7 +34,7 @@ function Header()  {
             <title>Empregue.me</title>
             <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
                 <div className="container">
-                <a className="navbar-brand mr-2"  href="/"><img alt="responsive-img" src={img_logo_svg} />
+                <a className="navbar-brand mr-2"  href="/feed"><img alt="responsive-img" src={img_logo_svg} />
                 </a>
                 <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
                     <div className="input-group">
