@@ -13,6 +13,11 @@ import '../../vendor/bootstrap/css/bootstrap.min.css'
 import '../../css/style.css'
 import '../../css/inputcamera.css'
 import { loadStripe } from "@stripe/stripe-js";
+import {
+  CardElement,
+  useStripe,
+  useElements
+} from "@stripe/react-stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import api from '../../services/api'
 import Header from '../../components/Header Bussines';
