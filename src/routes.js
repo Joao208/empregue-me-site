@@ -47,6 +47,7 @@ import CommentBPostB from './Pages/Bussines/coment-postb'
 import CommentBPost from './Pages/Bussines/coment-post'
 import AddAnuncio from './Pages/Bussines/AddBussines'
 import AddVacancie from './Pages/Bussines/AddVacancie'
+import List from './Pages/Bussines/RequisitionList'
 
 export default function Routed() {
 
@@ -121,6 +122,7 @@ export default function Routed() {
         <Route path='/bussines/post/populate/:id' element={<CommentBPost/>}/>
         <Route path='/publicar' element={<AddAnuncio/>}/>
         <Route path='/vacancies/publicar' element={<AddVacancie/>}/>
+        <Route path='/request/list' element={<List/>}/>
         </BussinesRoutes>
         </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>

@@ -37,8 +37,54 @@ function Feed() {
       <div className="row">
         {/* Main Content */}
         <main style={{margin:'auto'}} className="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-        <form className="box shadow-sm border rounded bg-white mb-3 osahan-share-post" encType="multipart/form-data">
-
+        <form className="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
+            <div style={{}} className="">
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                   
+                <div>
+                    <p><span>João Augusto</span> requisitou a vaga de <span>Desenvolvedor</span></p> 
+                    <a href="index" className="btn btn-primary btn-lg">Analise o perfil de João Augusto</a> 
+                </div>
+                <hr></hr>                                                                                                   
+            </div>
         </form>  
         </main>
       </div>
