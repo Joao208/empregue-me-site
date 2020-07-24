@@ -48,7 +48,7 @@ function Feed() {
             <div>
                 <div>
                     <p><span>{book.user.name}</span> requisitou a vaga de <span>{book.vacancies.title}</span></p> 
-                    <Link to={`/profile/${book.user._id}`} className="btn btn-primary btn-lg">Analise o perfil de {book.user.name}</Link> 
+                    <Link to={`/profileb/${book.user._id}`} className="btn btn-primary btn-lg">Analise o perfil de {book.user.name}</Link> 
                 </div>
                 <hr></hr>   
             </div>
