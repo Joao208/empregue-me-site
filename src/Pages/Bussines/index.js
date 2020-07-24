@@ -71,6 +71,7 @@ function Feed() {
     async function Feed() {
       try{
       const response = await api.get('/bussines/feed')
+      console.log(response.data)
       
       setPostb(response.data.postbussines)
       setPosts(response.data.posts)
