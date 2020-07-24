@@ -47,7 +47,7 @@ function Feed() {
 
   useEffect(() => {
     async function loadSpots() {
-      const response = await api.get('/payment-intent')
+      const response = await api.get('/profilebussinesv')
       
       setProfile(response.data.profile)
     }  

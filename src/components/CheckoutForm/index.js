@@ -19,7 +19,7 @@ export default function CheckoutForm(Post) {
   useEffect(() => {
   async function Pay(){
     try {
-      const response = await api.post("/create-payment-intent")
+      const response = await api.post("/payment-intent")
           
       setClientSecret(response.data.clientSecret)
       console.log(response.data.clientSecret)
