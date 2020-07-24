@@ -21,8 +21,9 @@ import CheckoutForm from '../../components/CheckoutForm';
 function Feed() {
 
   const [profile,setProfile] = useState([])
-  const [avatar, setAvatar] = useState('')
-  const [Text, setText] = useState('')
+  const [avatar, setAvatar] = useState(null)
+  const [text, setText] = useState('')
+  const [link, setLink] = useState('')
   const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
   async function Post(event) {
@@ -31,9 +32,10 @@ function Feed() {
       const data = new FormData()
 
       data.append('avatar', avatar)
-      data.append('Text', Text)
+      data.append('link', link)
+      data.append('text', text)
 
-      await api.post('/bussines/posts', data)
+      await api.post('/add', data)
 
       toast.success('Postado ;)')
       setAvatar(null)
@@ -94,7 +96,7 @@ function Feed() {
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
                     defaultValue={""} 
-                    value={Text}
+                    value={text}
                     onChange={event => setText(event.target.value)}  
                     />
                     <textarea 
@@ -102,8 +104,8 @@ function Feed() {
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
                     defaultValue={""} 
-                    value={Text}
-                    onChange={event => setText(event.target.value)}  
+                    value={link}
+                    onChange={event => setLink(event.target.value)}  
                     />
                   </div>
                 </div>
