@@ -1,5 +1,4 @@
 import React,{useEffect,useState} from 'react';
-import Notification from '../../components/Notification/Notifications_Bussines'
 import api from '../../services/api'
 import {useNavigate} from 'react-router-dom'
 const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'
@@ -83,7 +82,6 @@ function Header()  {
                 <li className="nav-item">
                     <a className="nav-link" href="/bussines/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
                 </li>
-                <Notification></Notification>
                     {profile.map(profile => (
                 <div key={profile._id} className="dropdown-list-image mr-3">
                     <a href="mycompany-profile"><img className="rounded-circle" style={{marginLeft:'4px'}} alt="responsive-img" src={profile.bussines.avatar} /></a>
