@@ -4,6 +4,7 @@ import moment from 'moment'
 import api from '../../services/api'
 import { useNavigate } from 'react-router';
 import Header from '../../components/Header Bussines';
+import { Link } from 'react-router-dom';
 
 function Feed() {
 
@@ -40,11 +41,11 @@ return (
                         <div className="border job-item mb-3">
                           <div className="d-flex align-items-center p-3 job-item-header">
                           <div className="overflow-hidden mr-2">
-                             <a href={`https://light-empregue-me.herokuapp.com/job-profile/${vacancies._id}`}><h6 style={{textTransform:'capitalize'}} className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.title}</h6></a>
-                              <div className="text-truncate text-primary">{vacancies.bussines.cnpjI.nome}</div>
+                             <Link to={`/job-profile/${vacancies._id}`}><h6 style={{textTransform:'capitalize'}} className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.title}</h6></Link>
+                             <Link to={`/company-profile/${vacancies.bussines._id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome}</div></Link>
                                <div className="small text-gray-500"><a href={`https://www.google.com.br/maps/place/${vacancies.bussines.cnpjI.logradouro}`}><i className="feather-map-pin" />{vacancies.bussines.cnpjI.logradouro}</a></div>
                             </div>
-                            <img className="img-fluid ml-auto" src={vacancies.avatar} />
+                            <img style={{borderRadius:'20px'}} className="img-fluid ml-auto" src={vacancies.avatar} />
                           </div>
                           <div className="p-3 job-item-footer">
                           <small className="text-gray-500"><i className="feather-clock" />{moment(vacancies.createdAt).fromNow()}</small>

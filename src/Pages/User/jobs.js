@@ -45,7 +45,7 @@ return (
                              <Link to={`/company-profile/${vacancies.bussines._id}`}><div className="text-truncate text-primary">{vacancies.bussines.nome}</div></Link>
                                <div className="small text-gray-500"><a href={`https://www.google.com.br/maps/place/${vacancies.bussines.cnpjI.logradouro}`}><i className="feather-map-pin" />{vacancies.bussines.cnpjI.logradouro}</a></div>
                             </div>
-                            <img className="img-fluid ml-auto" src={vacancies.avatar} />
+                            <img style={{borderRadius:'20px'}} className="img-fluid ml-auto" src={vacancies.avatar} />
                           </div>
                           <div className="p-3 job-item-footer">
                           <small className="text-gray-500"><i className="feather-clock" />{moment(vacancies.createdAt).fromNow()}</small>

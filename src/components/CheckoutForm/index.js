@@ -6,7 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import api from "../../services/api";
 import './style.css'
-export default function CheckoutForm(Post) {
+export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -15,6 +15,25 @@ export default function CheckoutForm(Post) {
   const [saveCard, setSaveCard] = useState(false)
   const stripe = useStripe();
   const elements = useElements();
+
+  async function Post(event) {
+    try {
+      event.preventDefault()
+      const data = new FormData()
+
+      data.append('avatar', avatar)
+      data.append('link', link)
+      data.append('text', text)
+
+      await api.post('/add', data)
+
+      toast.success('Postado ;)')
+      setAvatar(null)
+      setText('')
+    } catch (e) {
+      toast.error('Ops!! Imagem invalida');
+    }
+  }
 
   useEffect(() => {
   async function Pay(){
@@ -86,7 +105,7 @@ export default function CheckoutForm(Post) {
           {processing ? (
             <div className="spinner" id="spinner"></div>
           ) : (
-            "Postar Anúncio"
+            "Postar anúncio por R$50,00"
           )}
         </span>
       </button>

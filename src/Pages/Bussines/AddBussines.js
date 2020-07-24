@@ -26,25 +26,6 @@ function Feed() {
   const [link, setLink] = useState('')
   const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
-  async function Post(event) {
-    try {
-      event.preventDefault()
-      const data = new FormData()
-
-      data.append('avatar', avatar)
-      data.append('link', link)
-      data.append('text', text)
-
-      await api.post('/add', data)
-
-      toast.success('Postado ;)')
-      setAvatar(null)
-      setText('')
-    } catch (e) {
-      toast.error('Ops!! Imagem invalida');
-    }
-  }
-
   useEffect(() => {
     async function loadSpots() {
       const response = await api.get('/profilebussinesv')
@@ -120,21 +101,6 @@ function Feed() {
                   }
             </div>
             <div enc className="border-top p-3 d-flex align-items-center">
-              <form className="mr-auto">
-                <button onClick={
-                  async function checkIn(event){
-                    try{
-                    event.preventDefault()
-                    await api.post('/bussines/check/location')
-                    toast.success('Check-in postado ;)');
-                    }catch(e){
-                    }
-                  }
-                } className="text-link small"
-                style={{border:'none',background:'none'}}
-                >
-                <i className="feather-map-pin" />Check-in</button>
-              </form>
               <label style={{color:'#000',margin:'auto'}}>
                 <i className="feather-image"></i>
                   Adicionar Imagem
@@ -145,7 +111,7 @@ function Feed() {
             </div>
             <h2 style={{margin:'inherit',textAlign:'center',fontSize:'17px',marginTop:'20px'}}>Para anúnciarmos sua empresa vamos ao pagamento ;)</h2>
             <Elements stripe={promise}>
-              <CheckoutForm Post={Post} />
+              <CheckoutForm />
             </Elements>
           </form>  
         </main>
