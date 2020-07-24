@@ -16,6 +16,25 @@ export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
+  async function Post(event) {
+    try {
+      event.preventDefault()
+      const data = new FormData()
+
+      data.append('avatar', avatar)
+      data.append('link', link)
+      data.append('text', text)
+
+      await api.post('/add', data)
+
+      toast.success('Postado ;)')
+      setAvatar(null)
+      setText('')
+    } catch (e) {
+      toast.error('Ops!! Imagem invalida');
+    }
+  }
+
   useEffect(() => {
   async function Pay(){
     try {
@@ -72,17 +91,7 @@ export default function CheckoutForm() {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      const data = new FormData()
-
-      data.append('avatar', avatar)
-      data.append('link', link)
-      data.append('text', text)
-
-      await api.post('/add', data)
-
-      toast.success('Postado ;)')
-      setAvatar(null)
-      setText('')
+      Post()
     }
   };
   return (
