@@ -10,7 +10,7 @@ import Lottie from 'react-lottie'
 import api from '../../services/api'
 import EmptyAnimation from '../../Animations/empty.json'
 import Header from '../../components/Header Bussines';
-import FileList from '../../components/FileList'
+import FileList from '../../components/FileListView'
 
 function Feed() {
   
