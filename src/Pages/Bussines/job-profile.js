@@ -5,7 +5,6 @@ import React,{useState,useEffect} from 'react';
 import moment from 'moment'
 import {useParams} from 'react-router'
 
-import Lottie from 'react-lottie'
 import loadinganimate from '../../Animations/loading.json'
 import api from '../../services/api'
 import completedAnimate from '../../Animations/completed.json'
@@ -89,7 +88,7 @@ const lottieOptionscompleted = {
 <div>
   <Header></Header>
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{width:'100%'}} src={jobs.avatar ? jobs.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/job-profile.jpg'} />
+    <img className="img-fluid" style={{width:'100%',height:'250px'}} src={jobs.avatar ? jobs.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/job-profile.jpg'} />
   </div>
   
   <div className="bg-white shadow-sm border-bottom">
@@ -98,35 +97,9 @@ const lottieOptionscompleted = {
         <div className="col-md-12">
           <div className="d-flex align-items-center py-3">
             <div className="profile-left">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{title}</h5>
-              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href="">{nome}</a></p>
+              <h5 style={{textTransform:'capitalize'}} className="font-weight-bold text-dark mb-1 mt-0">{title}</h5>
+              <p className="mb-0 text-muted"><a className="mr-2 font-weight-bold"  href={`/company-profile/${bussines_id}`}>{nome}</a></p>
             </div>
-            <form onSubmit={handleSubmit} className="profile-right ml-auto">
-            {
-              !! button
-              && <button className="btn btn-primary btn-block text-uppercase" type="submit" onSubmit={handleSubmit}>Ingressar</button>
-
-            }
-            {
-                !! loading
-              && <Lottie options={lottieOptions
-              }
-              height='100px'
-              width='100px'
-              className="btn btn-primary btn-block text-uppercase"
-              />
-              }
-            {
-                !! completed 
-               && <Lottie options={lottieOptionscompleted
-                } 
-                height='100px'
-                width='100px'
-                className="btn btn-primary btn-block text-uppercase"
-                />
-               
-              }
-            </form>
           </div>
         </div>
       </div>
@@ -159,7 +132,7 @@ const lottieOptionscompleted = {
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Salario</th>
-                    <td className="p-3">{salary}</td>
+                    <td className="p-3">R${salary},00</td>
                   </tr>
                   <tr className="border-bottom">
                     <th className="p-3">Employment Type</th>
@@ -186,7 +159,7 @@ const lottieOptionscompleted = {
               <img src={avatar ? avatar : 'https://serverem.s3.us-east-2.amazonaws.com/clogo2.png'} className="img-fluid"  alt="Responsive image" />
             </div>
             <div className="p-3 border-top border-bottom">
-              <h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5>
+             <Link to={`/company-profile/${bussines_id}`}><h5 className="font-weight-bold text-dark mb-1 mt-0">{nome}</h5></Link> 
             <a href=""><p className="mb-0 text-muted">{logradouro}
               </p></a>  
             </div>
@@ -197,29 +170,13 @@ const lottieOptionscompleted = {
               </div>
             </div>
           </div>
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-            <img src={'https://serverem.s3.us-east-2.amazonaws.com/job-profile.jpg'} className="img-fluid"  alt="Responsive image" />
-            <div className="p-3 border-bottom">
-              <h6 className="font-weight-bold text-dark">Empregue.me</h6>
-              <p className="mb-0 text-muted">Procurando um talento?</p>
-            </div>
-            <div className="p-3">
-              <button type="button" className="btn btn-outline-primary pl-4 pr-4">Crie uma empresa</button>
-            </div>
-          </div>
-        </aside>
-        <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-              <div className="p-3">
-              <button type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
-            </div>
-          </div>
         </aside>
       </div>
     </div>
   </div>
 </div>
 </>
+ 
   );
 }
 

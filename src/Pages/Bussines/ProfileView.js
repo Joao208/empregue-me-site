@@ -36,7 +36,6 @@ function Feed() {
     setUploadedFiles(response.data.map(file => ({
         id: file._id,
         name: file.name,
-        readableSize: filesize(file.size),
         preview: file.url,
         uploaded: true,
         url: file.url
