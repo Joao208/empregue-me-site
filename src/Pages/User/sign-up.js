@@ -21,6 +21,7 @@ function Feed() {
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
   const [fill, setFill] = useState(false)
+  const [costumer, setCostumer] = useState(null)
   const navigate = useNavigate()
 
 
@@ -59,6 +60,10 @@ function Feed() {
         email,
         password
       })
+
+      const responsed = await api.post('/create-costumer',email)
+
+      setCostumer(responsed.data)
 
       const {
         token,
