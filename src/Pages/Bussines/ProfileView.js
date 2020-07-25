@@ -6,18 +6,19 @@ import React,{useState,useEffect}  from 'react';
 import moment from 'moment'
 import {useParams} from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
-import App from '../../components/AppView'
 import Lottie from 'react-lottie'
 import api from '../../services/api'
 import EmptyAnimation from '../../Animations/empty.json'
 import Header from '../../components/Header Bussines';
-
+import FileList from '../../components/FileList'
 
 function Feed() {
   
   const [post, setPost] = useState([])
   const [profile, setProfile] = useState([])
   const [data,setData] = useState('')
+  const [followed, setFollowed] = useState(false)
+  const [uploadedFiles, setUploadedFiles] = useState([])
 
   const lottieOptions = {
     title:'loading',
@@ -27,6 +28,23 @@ function Feed() {
   }
 
   const {id} = useParams()
+  
+  useEffect(() =>{
+  async function Curriculums(){
+    const response = await api.get(`/curriculums/${id}`)
+
+    setUploadedFiles(response.data.map(file => ({
+        id: file._id,
+        name: file.name,
+        readableSize: filesize(file.size),
+        preview: file.url,
+        uploaded: true,
+        url: file.url
+      }))
+    );
+  }
+  Curriculums()
+  })
 
   useEffect(() => {
     async function loadSpots() {
@@ -40,12 +58,32 @@ function Feed() {
     loadSpots()
 }, [] )
 
-  async function Follow(event){
-    event.preventDefault()
+useEffect(() => {
+  async function followed() {
+    const response = await api.get(`/followed/${id}`)
 
-    await api.post(`/unfollowb/${id}`)
+    setFollowed(response.data.followed)
 
   }
+  followed()
+// eslint-disable-next-line react-hooks/exhaustive-deps
+},[])
+
+
+async function Follow(event){
+  event.preventDefault()
+
+  await api.post(`/bussines/follow/${id}`)
+  setFollowed(true)
+
+}
+
+async function Unfollow(event){
+  event.preventDefault()
+
+  await api.delete(`/bussines/unfollow/${id}`)
+  setFollowed(false)
+}
 
   return (
 <>
@@ -74,9 +112,14 @@ function Feed() {
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-            <form onSubmit={Follow} className="overflow-hidden border-top">
-              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
+            {followed
+            ?<form onSubmit={Unfollow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Deixar de seguir </button>
             </form>
+            :<form onSubmit={Follow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
+            </form>          
+            }
           </div>
           : <Lottie options={lottieOptions
           } 
@@ -85,7 +128,9 @@ function Feed() {
           /> 
           ))}
           <p>Aqui está os curriculos do usuario feito com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
-          <App></App>
+          {!!uploadedFiles.length && (
+            <FileList files={uploadedFiles} />
+          )}
         </aside>
         {profile.map(profile => (
         <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
@@ -168,7 +213,7 @@ function Feed() {
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Sobre você</h6>
+              <h6 className="m-0">Sobre</h6>
             </div>
             {profile.map(profile => (
             <div key={profile._id} className="box-body p-3">

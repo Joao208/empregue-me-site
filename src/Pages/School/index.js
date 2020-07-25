@@ -20,7 +20,6 @@ function Courses(){
         Courses()
     })
 
-
     return (
         <div>
 <div>

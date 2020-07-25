@@ -190,7 +190,7 @@ useEffect(() => {
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">
           <div className="box shadow-sm border rounded bg-white mb-3">
             <div className="box-title border-bottom p-3">
-              <h6 className="m-0">Sobre você</h6>
+              <h6 className="m-0">Sobre</h6>
             </div>
             {profile.map(profile => (
             <div key={profile._id} className="box-body p-3">

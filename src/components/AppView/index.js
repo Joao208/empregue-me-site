@@ -14,7 +14,7 @@ class App extends Component {
   };
   
   async componentDidMount() {
-    const response = await api.get(`/curriculums/:id`)
+    const response = await api.get(`/curriculums/${id}`)
 
     this.setState({
       uploadedFiles: response.data.map(file => ({
