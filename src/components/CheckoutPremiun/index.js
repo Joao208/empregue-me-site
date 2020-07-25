@@ -23,7 +23,7 @@ const {
 } = await stripe.createPaymentMethod({
     type: 'card',
     card: cardElement,
-})​
+},)​
 if (error) {
     console.log('[createPaymentMethod error]', error);
 } else {
