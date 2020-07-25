@@ -11,6 +11,7 @@ import completedAnimate from '../../Animations/completed.json'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header Bussines';
+import { Link } from 'react-router-dom';
 
 function Feed() {
 
@@ -23,17 +24,14 @@ function Feed() {
   const [avatar, setavatar] = useState('')
   const [logradouro, setlogradouro] = useState('')
   const [nome, setNome] = useState('')
-  const [loading,setLoading] = useState(false)
-  const [completed, setCompleted] = useState(false)
-  const [button,setButton] = useState(true)
   const [cargo, setCargo] = useState('')
   const [employment, setEmployment] = useState('')
+  const [bussines_id, setBussines_id] = useState('')
   const {id} = useParams()
 
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get(`/vacancie/${id}`)
-
         setJobs(response.data)
         setTitle(response.data.title)
         setdescription(response.data.text.description)
@@ -42,45 +40,15 @@ function Feed() {
         setuf(response.data.text.uf)
         setavatar(response.data.bussines.avatar)
         setlogradouro(response.data.bussines.cnpjI.logradouro)
-        setNome(response.data.bussines.cnpjI.nome)
-        setCargo(response.data.cargo)
-        setEmployment(response.data.employment)
+        setNome(response.data.bussines.nome)
+        setCargo(response.data.text.cargo)
+        setEmployment(response.data.text.employment)
+        setBussines_id(response.data.bussines._id)
     }
 
     loadSpots()
 }, [] )
 
-
-async function handleSubmit(event) {
-  event.preventDefault();
-  setButton(false)
-  setLoading(true)
-  try{
-  await api.post(`vacancies/${id}/booking`)
-
-  setLoading(false)
-  setCompleted(true)
-  }catch{
-    setLoading(false)
-    setButton(true)
-    toast.error('Falha ao requisitar vaga, verifique seus dados');
-  }
-
-}
-
-const lottieOptions = {
-  title:'loading',
-  loop:true,
-  autoplay:true,
-  animationData:loadinganimate
-}
-
-const lottieOptionscompleted = {
-  title:'loading',
-  loop:true,
-  autoplay:true,
-  animationData:completedAnimate
-}
 
   return (
 <>
