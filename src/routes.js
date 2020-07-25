@@ -49,6 +49,7 @@ import AddAnuncio from './Pages/Bussines/AddBussines'
 import AddVacancie from './Pages/Bussines/AddVacancie'
 import List from './Pages/Bussines/RequisitionList'
 import Courses from './Pages/School/index'
+import UserPay from './Pages/User/premiun-user'
 
 export default function Routed() {
 
@@ -105,6 +106,7 @@ export default function Routed() {
             <UserRoute path='/privacy' element={<Privacy/>}/>
             <UserRoute path='/terms' element={<Terms/>}/>
             <UserRoute path='/profile' element={<Profile/>}/>
+            <UserRoute path='/user-premiun-pay' element={<UserPay/>}/>
         </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>

@@ -16,7 +16,6 @@ import {MapContainer} from '../../style.js'
 import Header from '../../components/Header';
 import EmptyAnimation from '../../Animations/empty.json'
 import Lottie from 'react-lottie';
-import { loadStripe } from "@stripe/stripe-js";
 import { Link } from 'react-router-dom';
 
 
