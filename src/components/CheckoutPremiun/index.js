@@ -18,8 +18,8 @@ export default function CheckoutForm() {
           paymentMethod
       } = await stripe.createPaymentMethod({
           type: 'card',
-          card: cardElement,
-      })​
+          card: cardElement
+    })​
       if (error) {
           console.log('[createPaymentMethod error]', error);
       } else {
