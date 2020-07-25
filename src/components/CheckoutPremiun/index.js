@@ -2,9 +2,8 @@ import React from 'react'
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js'
 import CardSection from '../Cardsection'
 export default function CheckoutForm() {
-  const stripe = useStripe();
-  const elements = useElements();
-
+  const stripe = useStripe()
+  const elements = useElements()
   async function handleSubmit(event) {
       event.preventDefault();
       if (!stripe || !elements) {
@@ -13,14 +12,14 @@ export default function CheckoutForm() {
       const cardElement = elements.getElement(CardElement);
       const latestInvoicePaymentIntentStatus = localStorage.getItem(
           'latestInvoicePaymentIntentStatus'
-      );​
+      )
       const {
           error,
           paymentMethod
       } = await stripe.createPaymentMethod({
           type: 'card',
           card: cardElement,
-      });​
+      })​
       if (error) {
           console.log('[createPaymentMethod error]', error);
       } else {
@@ -42,8 +41,7 @@ export default function CheckoutForm() {
               });
           }
       }
-  };
-
+  }
   function createSubscription({
       customerId,
       paymentMethodId,
@@ -83,12 +81,11 @@ export default function CheckoutForm() {
           .catch((error) => {
               showCardError(error);
           })
-      );
+      )
   }​
   function onSubscriptionComplete(result) {
       if (result.subscription.status === 'active') {}
   }
-
   function handlePaymentThatRequiresCustomerAction({
       subscription,
       invoice,
@@ -103,8 +100,7 @@ export default function CheckoutForm() {
               paymentMethodId
           };
       }
-      let paymentIntent = invoice ? invoice.payment_intent : subscription.latest_invoice.payment_intent;
-
+      let paymentIntent = invoice ? invoice.payment_intent : subscription.latest_invoice.payment_intent
       if (
           paymentIntent.status === 'requires_action' ||
           (isRetry === true && paymentIntent.status === 'requires_payment_method')
@@ -129,7 +125,7 @@ export default function CheckoutForm() {
               })
               .catch((error) => {
                   displayError(error);
-              });
+              })
       } else {
           return {
               subscription,
@@ -138,7 +134,6 @@ export default function CheckoutForm() {
           };
       }
   }
-
   function handleRequiresPaymentMethod({
       subscription,
       paymentMethodId,
@@ -172,7 +167,6 @@ export default function CheckoutForm() {
           };
       }
   }
-
   function retryInvoiceWithNewPaymentMethod({
       customerId,
       paymentMethodId,
