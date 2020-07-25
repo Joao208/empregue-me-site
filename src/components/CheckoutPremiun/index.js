@@ -1,6 +1,6 @@
-import React from 'react';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import CardSection from '../Cardsection';
+import React from 'react'
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js'
+import CardSection from '../Cardsection'
 ​
 export default function CheckoutForm() {
   const stripe = useStripe();
