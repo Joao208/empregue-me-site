@@ -76,7 +76,7 @@ import React, {
               Preencha todos os dados
              </p>}
 
-              <form onSubmit={Confirm}>
+              <form style={{margin:'auto'}} onSubmit={Confirm}>
                 <div className="form-group">
                   <label className="mb-1">Número</label>
                   <div className="position-relative icon-form-control">

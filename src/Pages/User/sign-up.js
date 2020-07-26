@@ -118,7 +118,7 @@ function Feed() {
             { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
             </p>}
-            <form onSubmit={SignUp}>
+            <form style={{margin:'auto'}} onSubmit={SignUp}>
               <div className="form-row">
                 <div className="col">
                   <div className="form-group">

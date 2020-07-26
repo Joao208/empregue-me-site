@@ -75,7 +75,7 @@ import React, {
               { !! fill && <p style={{color:'red',fontSize:13,textAlign:'center'}}>
               Preencha todos os dados
             </p>}
-              <form onSubmit={PhoneAdd}>
+              <form style={{margin:'auto'}} onSubmit={PhoneAdd}>
                 <div className="form-group">
                   <label className="mb-1">Número</label>
                   <div className="position-relative icon-form-control">

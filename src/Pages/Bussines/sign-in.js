@@ -75,7 +75,7 @@ import React, {
                 <h5 className="font-weight-bold mt-3">Bem vindo de volta</h5>
                 <p className="text-muted">Não perca a sua próxima oportunidade de contratar funcionrios melhores. Entre para se manter atualizado sobre o seu mundo profissional.</p>
               </div>
-              <form onSubmit={SignIn}>
+              <form style={{margin:'auto'}} onSubmit={SignIn}>
                 <div className="form-group">
                   <label className="mb-1">Email</label>
                   <div className="position-relative icon-form-control">

@@ -72,7 +72,7 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Primeiro, vamos encontrar sua conta</h5>
               <p className="text-muted">Por favor insira seu email</p>
             </div>
-            <form onSubmit={ForgotPass}>
+            <form style={{margin:'auto'}} onSubmit={ForgotPass}>
               <div className="form-group">
                 <label className="mb-1">Email</label>
                 <div className="position-relative icon-form-control">

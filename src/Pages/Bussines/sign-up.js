@@ -104,7 +104,7 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Junte-se ao Empregue.me</h5>
               <p className="text-muted">Aproveite ao máximo sua vida profissional</p>
             </div>
-            <form onSubmit={SignUp}>
+            <form style={{margin:'auto'}} onSubmit={SignUp}>
               <div className="form-row">
                 <div className="col">
                   <div className="form-group">

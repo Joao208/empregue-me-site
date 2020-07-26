@@ -69,7 +69,7 @@ function Feed() {
               <h5 className="font-weight-bold mt-3">Foi enviado um email com seu token</h5>
               <p className="text-muted">Por favor confira a caixa de spam</p>
             </div>
-            <form onSubmit={ForgotPass}>
+            <form style={{margin:'auto'}} onSubmit={ForgotPass}>
               <div className="form-group">
                 <label className="mb-1">Email</label>
                 <div className="position-relative icon-form-control">
