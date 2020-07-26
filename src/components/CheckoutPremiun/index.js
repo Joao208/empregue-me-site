@@ -18,7 +18,7 @@ export default function CheckoutForm() {
             'latestInvoicePaymentIntentStatus'
         )
         const {error,paymentMethod} = await stripe.createPaymentMethod({type: 'card',card: cardElement})​
-        if (error) {
+                if (error) {
             console.log('[createPaymentMethod error]', error);
         } else {
             console.log('[PaymentMethod]', paymentMethod);
