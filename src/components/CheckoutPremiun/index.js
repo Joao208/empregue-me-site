@@ -16,9 +16,7 @@ export default function CheckoutForm() {
           // Stripe.js has not yet loaded.
           // Make sure to disable form submission until Stripe.js has loaded.
           return;
-        }
-    ​
-        // Get a reference to a mounted CardElement. Elements knows how
+        }// Get a reference to a mounted CardElement. Elements knows how
         // to find your CardElement because there can only ever be one of
         // each type of element.
         const cardElement = elements.getElement(CardElement);
