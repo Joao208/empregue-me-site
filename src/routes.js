@@ -112,7 +112,6 @@ export default function Routed() {
         </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>
-        <Privated>
         <BussinesRoutes>
         <Route path='/edit-company' element={<EditCompanyProfile/>}/>
         <Route path='/mycompany-profile' element={<MyCompany_profile/>}/>
@@ -130,7 +129,6 @@ export default function Routed() {
         <Route path='/request/list' element={<List/>}/>
         <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
         </BussinesRoutes>
-        </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
