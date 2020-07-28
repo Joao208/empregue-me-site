@@ -95,7 +95,7 @@ function Feed() {
                   console.log(error)
                 }
               }
-            } className="font-weight-bold p-3 d-block">Gerenciar minha assinatura</button>
+            } className="font-weight-bold p-3 d-block" style={{textAlign:'center',background:'none',border:'none',color:'#007bff',margin:'auto'}}>Gerenciar minha assinatura</button>
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <App></App>

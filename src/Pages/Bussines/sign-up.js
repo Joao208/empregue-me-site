@@ -19,6 +19,7 @@ function Feed() {
   const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
+  const [customer, setCustomer] = useState('')
   const navigate = useNavigate()
   
   useEffect(() => {
@@ -37,7 +38,6 @@ function Feed() {
     )
 })
 
-
   async function SignUp(event) {
     event.preventDefault();
     setLoading(true)
@@ -45,9 +45,9 @@ function Feed() {
       return toast.error('Ops, não conseguimos obter sua localização')
       
     try{
+      const responsed = await api.post(`/create_customer/${email}`)
 
-      const responsed = await api.post('/create_customer')
-
+      setCustomer(responsed.data.id)
 
       const response = await api.post('/bussinesregister', {
         cnpj,
@@ -55,7 +55,7 @@ function Feed() {
         longitude,
         email,
         password,
-        stripeCustomerId:responsed.data.id
+        customer
       });
 
       const {
@@ -66,7 +66,7 @@ function Feed() {
       sessionStorage.setItem('bussines',JSON.stringify(bussines))
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user_id', bussines._id)
-      sessionStorage.setItem('customer', bussines.stripeCustomerId)
+      sessionStorage.setItem('customer', bussines.customer)
 
       navigate('/edit-company-profile')
     }catch(e){
