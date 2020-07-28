@@ -104,7 +104,7 @@ function Feed() {
               async function Panel(){
                 try {
                   const customerId = sessionStorage.getItem('customer')
-                  const response = await api.post('/panel/pay', customerId)
+                  const response = await api.post(`/panel/pay/${customerId}`)
 
                   setUrl(response.data.url)
                   navigate(url)
