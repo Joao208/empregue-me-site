@@ -84,8 +84,10 @@ function Header()  {
                     <a className="nav-link" href="/request/list"><i className="feather-user mr-2" /><span className="d-none d-lg-inline">Requisições</span></a>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/courses"><i className="feather-book mr-2" /><span className="d-none d-lg-inline">Cursos</span></Link>
                     <a className="nav-link" href="/bussines/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/courses"><i className="feather-book mr-2" /><span className="d-none d-lg-inline">Cursos</span></Link>
                 </li>
                     {profile.map(profile => (
                 <div key={profile._id} className="dropdown-list-image mr-3">

@@ -20,7 +20,8 @@ export default function CheckoutForm({price,course_id}) {
   useEffect(() => {
   async function Pay(){
     try {
-      const response = await api.post(`/payment-intent/${price}`)
+      const customerId = sessionStorage.getItem('customer')
+      const response = await api.post(`/payment-intent/save_card/${price}`,customerId)
           
       setClientSecret(response.data.clientSecret)
       console.log(response.data.clientSecret)

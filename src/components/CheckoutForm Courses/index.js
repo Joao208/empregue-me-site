@@ -13,6 +13,7 @@ export default function CheckoutForm({price,course_id}) {
   const [processing, setProcessing] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState('');
+  const [saveCard, set_save_card] = useState(false)
   console.log(price)
   const stripe = useStripe();
   const elements = useElements();
@@ -20,7 +21,9 @@ export default function CheckoutForm({price,course_id}) {
   useEffect(() => {
   async function Pay(){
     try {
-      const response = await api.post(`/payment-intent/${price}`)
+      
+        const customerId = sessionStorage.getItem('customer')
+        const response = await api.post(`/payment-intent/save_card/${price}`,customerId)
           
       setClientSecret(response.data.clientSecret)
       console.log(response.data.clientSecret)

@@ -45,22 +45,29 @@ function Feed() {
       return toast.error('Ops, não conseguimos obter sua localização')
       
     try{
+
+      const responsed = await api.post('/create_customer')
+
+
       const response = await api.post('/bussinesregister', {
         cnpj,
         latitude,
         longitude,
         email,
-        password
+        password,
+        stripeCustomerId:responsed.data.id
       });
 
       const {
         token,
         bussines
       } = response.data;
-
+      console.log(response.data)
       sessionStorage.setItem('bussines',JSON.stringify(bussines))
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user_id', bussines._id)
+      sessionStorage.setItem('customer', bussines.stripeCustomerId)
+
       navigate('/edit-company-profile')
     }catch(e){
       setLoading(false)

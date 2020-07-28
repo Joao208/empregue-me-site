@@ -21,7 +21,6 @@ function Feed() {
   const [longitude, setLongitude] = useState('')
   const [loading, setLoading] = useState(false)
   const [fill, setFill] = useState(false)
-  const [costumer, setCostumer] = useState(null)
   const navigate = useNavigate()
 
 
@@ -52,29 +51,31 @@ function Feed() {
       return toast.error('Ops, não conseguimos obter sua localização')
 
     setLoading(true)
-    const responsed = await api.post('/create-costumer',email)
-
-    setCostumer(responsed.data.id)
-
     try{
+      const responsed = await api.post('/create_customer')
+
+      console.log(responsed.data)
+      const stripeCustomerId = responsed.data.id
+
       const response = await api.post('/userregister', {
         name,
         latitude,
         longitude,
         email,
         password,
-        costumer
-      })
-
+        stripeCustomerId,
+      },console.log(stripeCustomerId)
+      )
       const {
         token,
         user,
-        _id
       } = response.data;
-
+      console.log(response.data)
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
-      sessionStorage.setItem('user_id', _id)
+      sessionStorage.setItem('user_id', user._id)
+      sessionStorage.setItem('customer', user.stripeCustomerId)
+
       toast.success('Confirme seu email')
       navigate('/phone')
     }  catch(e){

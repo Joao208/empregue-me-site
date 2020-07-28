@@ -35,6 +35,8 @@ import React, {
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('bussines',JSON.stringify(bussines))
         sessionStorage.setItem('user_id', bussines._id)
+        sessionStorage.setItem('customer', bussines.stripeCustomerId)
+
         navigate('/feed')
       }catch(e){
        setLoading(false)

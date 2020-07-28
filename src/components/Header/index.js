@@ -82,6 +82,8 @@ function Header()  {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/courses"><i className="feather-book mr-2" /><span className="d-none d-lg-inline">Cursos</span></Link>
+                </li>
+                <li className="nav-item">
                     <Link className="nav-link" to="/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></Link>
                 </li>
                 <Notification></Notification>

@@ -42,7 +42,7 @@ function Feed() {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('user',JSON.stringify(user))
       sessionStorage.setItem('user_id', user._id)
-      
+      sessionStorage.setItem('customer', user.stripeCustomerId)
       if(user.confirmate){
       sessionStorage.setItem('confirmate', user.confirmate)
       }

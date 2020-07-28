@@ -20,6 +20,7 @@ function Feed() {
   const [data,setData] = useState('')
   const [text, setTextt] = useState('')
   const [postempty, setPostEmpty] = useState(true)
+  const [url, setUrl] = useState('')
   const navigate = useNavigate()
 
   async function SignOut(event) {
@@ -82,6 +83,19 @@ function Feed() {
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
               <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
             </form>
+            <button onClick={
+              async function Panel(){
+                try {
+                  const customerId = sessionStorage.getItem('customer')
+                  const response = await api.post('/panel/pay', customerId)
+
+                  setUrl(response.data.url)
+                  navigate(url)
+                } catch (error) {
+                  console.log(error)
+                }
+              }
+            } className="font-weight-bold p-3 d-block">Gerenciar minha assinatura</button>
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <App></App>

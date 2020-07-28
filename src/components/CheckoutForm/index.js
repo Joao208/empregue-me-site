@@ -6,8 +6,9 @@ import {
 } from "@stripe/react-stripe-js";
 import api from "../../services/api";
 import './style.css'
+import { toast } from "react-toastify";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({Post,avatar}) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -20,7 +21,8 @@ export default function CheckoutForm() {
   useEffect(() => {
   async function Pay(){
     try {
-      const response = await api.post("/payment-intent")
+      const customerId = sessionStorage.getItem('customer')
+      const response = await api.post("/payment-intent",customerId)
           
       setClientSecret(response.data.clientSecret)
       console.log(response.data.clientSecret)
@@ -57,6 +59,8 @@ export default function CheckoutForm() {
   };
   const handleSubmit = async ev => {
     ev.preventDefault();
+    if(!avatar)
+    return toast.error('Adicione uma imagem válida')
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -70,6 +74,7 @@ export default function CheckoutForm() {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
+      Post()
       setError(null);
       setProcessing(false);
       setSucceeded(true);

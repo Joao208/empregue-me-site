@@ -130,7 +130,7 @@ function Feed() {
             </div>
             <h2 style={{margin:'inherit',textAlign:'center',fontSize:'17px',marginTop:'20px'}}>Para anúnciarmos sua empresa vamos ao pagamento ;)</h2>
             <Elements stripe={promise}>
-              <CheckoutForm />
+              <CheckoutForm Post={Post} />
             </Elements>
           </form>  
         </main>
