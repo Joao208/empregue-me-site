@@ -12,6 +12,7 @@ import api from '../../services/api'
 import Header from '../../components/Header';
 import App from '../../components/App/App';
 import { Link } from 'react-router-dom';
+import {loadStripe} from '@stripe/stripe-js'
 
 function Feed() {
   
@@ -22,6 +23,8 @@ function Feed() {
   const [postempty, setPostEmpty] = useState(true)
   const [url, setUrl] = useState('')
   const navigate = useNavigate()
+  const [sessionId, setSessionId] = useState('')
+  const stripePromise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
   async function SignOut(event) {
     event.preventDefault()

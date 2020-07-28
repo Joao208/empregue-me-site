@@ -23,6 +23,7 @@ import api from '../../services/api'
 import loadinganimate from '../../Animations/lazyload.json'
 import {MapContainer} from '../../style.js'
 import { Link } from 'react-router-dom';
+import {loadStripe} from '@stripe/stripe-js'
 
 function Feed() {
   
@@ -42,6 +43,8 @@ function Feed() {
   const [sujestion, setSujestion] = useState([])
   const [lazy, setLazy] = useState(true)
   const [data, setData] = useState('')
+  const [sessionId, setSessionId] = useState('')
+  const stripePromise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(

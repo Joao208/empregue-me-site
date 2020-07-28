@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
 import { Link } from 'react-router-dom';
+import {loadStripe} from '@stripe/stripe-js'
 
 function Feed() {
 
@@ -32,7 +33,9 @@ function Feed() {
   const [employment, setEmployment] = useState('')
   const [bussines_id, setBussines_id] = useState('')
   const {id} = useParams()
-  
+  const [sessionId, setSessionId] = useState('')
+  const stripePromise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
+
   const handleClick = async (event) => {
     event.preventDefault()
     // Call your backend to create the Checkout session.
