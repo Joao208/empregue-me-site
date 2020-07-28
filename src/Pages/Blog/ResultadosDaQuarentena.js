@@ -35,7 +35,7 @@ function ResultadosQuarentena() {
             <div className="py-5">
                 <div className="container">
                 <div className="row">
-                    <div className="col-lg-8 col-md-8">
+                    <div style={{margin:'auto'}} className="col-lg-8 col-md-8">
                     <div className="blog-card padding-card box shadow-sm rounded bg-white mb-3 border-0">
                         <img className="card-img-top" src="https://www.jornalcontabil.com.br/wp-content/uploads/2020/03/desemprego.jpg" alt="Card image cap" />
                         <div className="card-body">

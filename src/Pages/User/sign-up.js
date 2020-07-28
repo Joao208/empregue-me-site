@@ -52,18 +52,19 @@ function Feed() {
       return toast.error('Ops, não conseguimos obter sua localização')
 
     setLoading(true)
+    const responsed = await api.post('/create-costumer',email)
+
+    setCostumer(responsed.data.id)
+
     try{
       const response = await api.post('/userregister', {
         name,
         latitude,
         longitude,
         email,
-        password
+        password,
+        costumer
       })
-
-      const responsed = await api.post('/create-costumer',email)
-
-      setCostumer(responsed.data)
 
       const {
         token,

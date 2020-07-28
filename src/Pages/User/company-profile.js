@@ -16,8 +16,7 @@ import {MapContainer} from '../../style.js'
 import Header from '../../components/Header';
 import EmptyAnimation from '../../Animations/empty.json'
 import Lottie from 'react-lottie';
-import { Link } from 'react-router-dom';
-
+import { loadStripe } from '@stripe/stripe-js';
 
 function Feed() {
 
@@ -30,8 +29,24 @@ function Feed() {
   const [text, setTextt] = useState('')
   const [postempty, setPostEmpty] = useState(true)
   const [addempty, setAddEmpty] = useState(true)
+  const [sessionId, setSessionId] = useState('')
+  const stripePromise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
+  const handleClick = async (event) => {
+    event.preventDefault()
+    // Call your backend to create the Checkout session.
+    const response = await api.post('/subscription/user')
 
+    setSessionId(response.data.id)
+    // When the customer clicks on the button, redirect them to Checkout.
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      sessionId,
+    });
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `error.message`.
+  };
   useEffect(() => {
     async function loadSpots() {
         const response = await api.get(`/profilebussinesv/${id}`)
@@ -48,7 +63,6 @@ function Feed() {
         if(response.data.post.length > 0){
           setAddEmpty(false)
         }
-
     }
 
     loadSpots()
@@ -376,7 +390,7 @@ useEffect(() => {
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
           <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
           <div className="p-3">
-              <Link to="/user-premiun-pay" type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </Link>
+              <button onClick={handleClick} type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
             </div>
           </div>
         </aside>

@@ -7,20 +7,20 @@ import {
 import api from "../../services/api";
 import './style.css'
 
-export default function CheckoutForm() {
+export default function CheckoutForm({price,course_id}) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState('');
-  const [saveCard, setSaveCard] = useState(false)
+  console.log(price)
   const stripe = useStripe();
   const elements = useElements();
 
   useEffect(() => {
   async function Pay(){
     try {
-      const response = await api.post("/payment-intent")
+      const response = await api.post(`/payment-intent/${price}`)
           
       setClientSecret(response.data.clientSecret)
       console.log(response.data.clientSecret)
@@ -70,6 +70,7 @@ export default function CheckoutForm() {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
+      await api.post(`/bussines/courses/${course_id}`)
       setError(null);
       setProcessing(false);
       setSucceeded(true);
@@ -86,7 +87,7 @@ export default function CheckoutForm() {
           {processing ? (
             <div className="spinner" id="spinner"></div>
           ) : (
-            "Postar por R$50,00"
+            "Comprar"
           )}
         </span>
       </button>

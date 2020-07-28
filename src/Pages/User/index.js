@@ -196,7 +196,7 @@ function Feed() {
                   }
             </div>
             <div enc className="border-top p-3 d-flex align-items-center">
-              <form className="mr-auto">
+              <form style={{margin:'initial'}} className="mr-auto">
                 <button onClick={
                   async function checkIn(event){
                     try{
@@ -215,7 +215,7 @@ function Feed() {
                 <i className="feather-map-pin" />Check-in</button>
               </form>
               <label style={{color:'#008ef9',fontWeight:'600',marginRight:'6px'}}>
-                  Adicionar Imagem
+                  Imagem
                 <input style={{display:'none'}} type="file" onChange={event => {
                       setAvatar(event.target.files[0])}
                   }/>

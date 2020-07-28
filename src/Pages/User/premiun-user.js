@@ -5,7 +5,6 @@ import React from 'react';
 import Header from '../../components/Header';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js'
-import CheckoutPremiun from '../../components/CheckoutPremiun'
 const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
 function Feed() {
@@ -23,9 +22,6 @@ return (
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div className="p-3 border-top">
-                <Elements stripe={promise}>
-                  <CheckoutPremiun />
-                </Elements>
                 </div>
               </div>
             </div>

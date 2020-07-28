@@ -37,7 +37,7 @@ function Header()  {
                 <div className="container">
                 <a className="navbar-brand mr-2"  href="/"><img src={'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'} alt="responsive-img" />
                 </a>
-                <form onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+                <form style={{margin:'initial'}} onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
                     <div className="input-group">
                     <input 
                     type="search"                   
@@ -81,6 +81,7 @@ function Header()  {
                     </div>
                 </li>
                 <li className="nav-item">
+                    <Link className="nav-link" to="/courses"><i className="feather-book mr-2" /><span className="d-none d-lg-inline">Cursos</span></Link>
                     <Link className="nav-link" to="/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></Link>
                 </li>
                 <Notification></Notification>

@@ -3,15 +3,17 @@ import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import Header from '../../components/Header Courses';
 import moment from 'moment'
+import {useParams} from 'react-router'
 
 function Courses(){
 
     const [courses,setCourses] = useState([])
+    const {name} = useParams()
 
     useEffect(() => {
         async function Courses() {
             try {
-                const response = await api.get('/courses')
+                const response = await api.get(`/searchcourses/${name}`)
                 setCourses(response.data)
                 console.log(response.data)
             } catch (error) {

@@ -50,6 +50,9 @@ import AddVacancie from './Pages/Bussines/AddVacancie'
 import List from './Pages/Bussines/RequisitionList'
 import Courses from './Pages/School/index'
 import UserPay from './Pages/User/premiun-user'
+import SingleCourses from './Pages/School/singleCourses'
+import SearchCourses from './Pages/School/search'
+import SingleCoursesB from './Pages/School/singleCourses Bussines'
 
 export default function Routed() {
 
@@ -107,6 +110,7 @@ export default function Routed() {
             <UserRoute path='/terms' element={<Terms/>}/>
             <UserRoute path='/profile' element={<Profile/>}/>
             <UserRoute path='/user-premiun-pay' element={<UserPay/>}/>
+            <UserRoute path='/courses/:id' element={<SingleCourses/>}/>
         </ConfirmateRoute>
     </PrivateRoute>
    <PrivateRoute>
@@ -126,6 +130,7 @@ export default function Routed() {
         <Route path='/publicar' element={<AddAnuncio/>}/>
         <Route path='/vacancies/publicar' element={<AddVacancie/>}/>
         <Route path='/request/list' element={<List/>}/>
+        <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
         </BussinesRoutes>
         </Privated>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
@@ -143,7 +148,8 @@ export default function Routed() {
         <Route path='/reset-passwordb' element={<Reset_passwordb/>}/>
         <Route path='/dicas-de-entrevistas' element={<Entrevista_de_Emprego/>}/>
         <Route path='/blog' element={<Blog/>}/>
-        <UserRoute path='/courses' element={<Courses/>}/>
+        <Route path='/courses' element={<Courses/>}/>
+        <Route path='/courses/search/:name' element={<SearchCourses/>}/>
         <Route path='/resultados-quarentena' element={<ResultadosQuarentena/>}/>
 </Routes>
     );

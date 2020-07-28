@@ -35,7 +35,7 @@ import React from 'react';
             <div className="py-5">
                 <div className="container">
                 <div className="row">
-                    <div className="col-lg-8 col-md-8">
+                    <div style={{margin:'auto'}} className="col-lg-8 col-md-8">
                     <div className="blog-card padding-card box shadow-sm rounded bg-white mb-3 border-0">
                         <img className="card-img-top" src="https://cdn.pixabay.com/photo/2020/02/10/02/36/interview-4835116_960_720.jpg" alt="Card image cap" />
                         <div className="card-body">
