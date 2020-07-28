@@ -49,7 +49,6 @@ import AddAnuncio from './Pages/Bussines/AddBussines'
 import AddVacancie from './Pages/Bussines/AddVacancie'
 import List from './Pages/Bussines/RequisitionList'
 import Courses from './Pages/School/index'
-import UserPay from './Pages/User/Premium-user'
 import SingleCourses from './Pages/School/singleCourses'
 import SearchCourses from './Pages/School/search'
 import SingleCoursesB from './Pages/School/singleCourses Bussines'
@@ -109,7 +108,6 @@ export default function Routed() {
             <UserRoute path='/privacy' element={<Privacy/>}/>
             <UserRoute path='/terms' element={<Terms/>}/>
             <UserRoute path='/profile' element={<Profile/>}/>
-            <UserRoute path='/user-Premium-pay' element={<UserPay/>}/>
             <UserRoute path='/courses/:id' element={<SingleCourses/>}/>
         </ConfirmateRoute>
     </PrivateRoute>
