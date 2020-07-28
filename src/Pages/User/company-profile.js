@@ -388,11 +388,19 @@ useEffect(() => {
         </aside>
         ))}
         <aside className="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center">
-          <div className="p-3">
-              <button onClick={handleClick} type="button" className="btn btn-outline-gold pl-4 pr-4"> Contratar Premiun </button>
-            </div>
+        <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
+          <a data-video="https://player.vimeo.com/video/174002812" href="#0" aria-controls="video-modal">
+            <img src="https://landing-em.herokuapp.com/static/media/logo192.e5b20289.PNG" className="img-fluid" alt="Responsive image" />
+          </a>
+          <div className="p-3 border-bottom">
+            <h6 className="font-weight-bold text-gold">Empregue.me Premium</h6>
+            <p className="mb-0 text-muted">Se destaque de outros concorrentes profissionais, e evolua mais rapido</p>
           </div>
+          <div className="p-3">
+            <button type="button" onClick={handleClick} className="btn btn-outline-gold pl-4 pr-4"> Contratar </button>
+          </div>
+        </div>
+        
         </aside>
       </div>
     </div>
