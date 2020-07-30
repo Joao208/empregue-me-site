@@ -23,7 +23,6 @@ function Feed() {
   const [postempty, setPostEmpty] = useState(true)
   const [url, setUrl] = useState('')
   const navigate = useNavigate()
-  const [sessionId, setSessionId] = useState('')
   const stripePromise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
   async function SignOut(event) {
@@ -56,9 +55,7 @@ function Feed() {
     const handleClick = async (event) => {
       event.preventDefault()
       // Call your backend to create the Checkout session.
-      const response = await api.post('/subscription/user')
-
-      setSessionId(response.data.id)
+      const sessionId = sessionStorage.getItem('customer')
       // When the customer clicks on the button, redirect them to Checkout.
       const stripe = await stripePromise;
       const { error } = await stripe.redirectToCheckout({
@@ -100,7 +97,8 @@ function Feed() {
               <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Sair </button>
               <a href="/edit-profile" className="font-weight-bold p-3 d-block">Editar Perfil</a>
             </form>
-            <button onClick={
+            {profile.user.Premium
+            ?<button onClick={
               async function Panel(){
                 try {
                   const customerId = sessionStorage.getItem('customer')
@@ -112,7 +110,10 @@ function Feed() {
                   console.log(error)
                 }
               }
-            } className="font-weight-bold p-3 d-block" style={{textAlign:'center',background:'none',border:'none',color:'#007bff',margin:'auto'}}>Gerenciar minha assinatura</button>
+            } className="font-weight-bold p-3 d-block" style={{textAlign:'center',background:'none',border:'none',color:'#007bff',margin:'auto'}}>Gerenciar minha assinatura
+            </button>
+            : null  
+          }
           </div>
           <p>Coloque aqui o PDF gerado com o nosso <a href='https://generator-em.herokuapp.com/'>Gerador de curriculos</a></p>
           <App></App>
@@ -199,18 +200,21 @@ function Feed() {
               </div>
             </div>
           </div>
-          <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
+          {profile.user.Premium
+          ? null
+          : <div className="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
           <a data-video="https://player.vimeo.com/video/174002812" href="#0" aria-controls="video-modal">
             <img src="https://landing-em.herokuapp.com/static/media/logo192.e5b20289.PNG" className="img-fluid" alt="Responsive image" />
           </a>
           <div className="p-3 border-bottom">
             <h6 className="font-weight-bold text-gold">Empregue.me Premium</h6>
-            <p className="mb-0 text-muted">Se destaque de outros concorrentes profissionais, e evolua mais rapido</p>
+            <p className="mb-0 text-muted">Ganhe 2 mêses grátis, Se destaque de outros concorrentes profissionais, e evolua mais rápido</p>
           </div>
           <div className="p-3">
             <button type="button" onClick={handleClick} className="btn btn-outline-gold pl-4 pr-4"> Contratar </button>
           </div>
         </div>
+          }
         </aside>
         ))}
         <main className="col col-xl-6 order-xl-2 col-lg-12 order-lg-2 col-md-12 col-sm-12 col-12">

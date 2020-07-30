@@ -7,11 +7,14 @@ import moment from 'moment'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from '../../components/CheckoutForm Courses';
+import ReactPlayer from "react-player";
+import Modal from "react-responsive-modal";
 
 function CoursesSingle() {
 
     const [courses,setCourses] = useState([])
     const [buyed, setBuyed] = useState(false)
+    const [modal, setModal] = useState(false)
     const {id} = useParams()
     const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
@@ -59,11 +62,25 @@ function CoursesSingle() {
                         <h6 className="mb-3"><i className="feather-calendar" />{moment(curso.createdAt).fromNow()}</h6>
                         <h6>Descrição do Curso</h6>
                         <p>{curso.Text.Description}</p>
-                        <h6>Como você recebe o curso</h6>
-                        <p>Para proteger o direito intelectual do Dono do curso o link dos videos sera enviado para seu email</p>
+                        </div>
+                        <div>
+                        <h6 style={{textAlign:'center'}}>Vídeo de demonstração</h6>
+                        <video style={{width:'100%'}} controls>
+                        <source src={curso.avatar[0]} type="video/mp4"/>
+                        </video>
                         </div>
                         {buyed
-                        ? <h6 style={{textAlign:'center'}}>Curso comprado verifique seu email 🙃</h6>
+                        ? <div>
+                        {curso.avatar.map(video => (
+                        <div>
+                        <h6 style={{textAlign:'center'}}>Aulas</h6>
+                        <video style={{width:'100%'}} controls>
+                        <source src={video} type="video/mp4"/>
+                        </video>
+                        </div>
+                        ))}
+                        <hr/>
+                        </div>
                         :<div className="card-footer border-0">
                             <h5 style={{textAlign:'center'}}>Compre esse curso agora 🙃</h5>
                             <Elements stripe={promise}>

@@ -52,6 +52,7 @@ import Courses from './Pages/School/index'
 import SingleCourses from './Pages/School/singleCourses'
 import SearchCourses from './Pages/School/search'
 import SingleCoursesB from './Pages/School/singleCourses Bussines'
+import PremiunUser from './Pages/User/premiunUser'
 
 export default function Routed() {
 
@@ -130,6 +131,7 @@ export default function Routed() {
         <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
         </BussinesRoutes>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
+        <Route path='/premiun/user' element={<PremiunUser/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
    </PrivateRoute>
