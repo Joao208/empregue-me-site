@@ -8,13 +8,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from '../../components/CheckoutForm Courses';
 import ReactPlayer from "react-player";
-import Modal from "react-responsive-modal";
+import {Collapse} from 'reactstrap'
 
 function CoursesSingle() {
 
     const [courses,setCourses] = useState([])
     const [buyed, setBuyed] = useState(false)
-    const [modal, setModal] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     const {id} = useParams()
     const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
@@ -45,6 +45,19 @@ function CoursesSingle() {
         }
     Buyed()
     },[])
+    async function toggle(event){
+        event.preventDefault()
+        try{
+        if(isOpen){
+            setIsOpen(false)
+        }else{
+            setIsOpen(true)
+        }
+
+        }catch(e){
+            console.log(e)
+        }
+    }
 
     return (
         <div>
@@ -64,10 +77,10 @@ function CoursesSingle() {
                         <p>{curso.Text.Description}</p>
                         </div>
                         <div>
-                        <h6 style={{textAlign:'center'}}>Vídeo de demonstração</h6>
-                        <video style={{width:'100%'}} controls>
-                        <source src={curso.avatar[0]} type="video/mp4"/>
-                        </video>
+                        <button onClick={toggle} style={{textAlign:'center',margin:'auto',background:'none',border:'none',margin:'auto',display:'flex'}}>Vídeo de demonstração</button>
+                        <Collapse style={{justifyContent:'center',display:'flex'}} isOpen={isOpen}>
+                        <ReactPlayer url={curso.avatar[0]} controls></ReactPlayer>
+                        </Collapse>
                         </div>
                         {buyed
                         ? <div>

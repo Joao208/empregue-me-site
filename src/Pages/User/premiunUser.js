@@ -1,21 +1,30 @@
 import React,{useEffect} from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import api from '../../services/api'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Confirmate() {
     const navigate = useNavigate()
+    const {id} = useParams()
 
     useEffect(() => {
         async function Load() {
             try {
-              await api.post(`/user/premiun/create`) 
+              await api.post(`/user/${id}`, async function(err, response){
+                if(err){
+                  
+                }
+                if(response){
+                  await api.post(`/user/premiun/create`) 
               
-              toast.success('Obrigado por se tornar um premiun ;)')
-              navigate('/')
+                  toast.success('Obrigado por se tornar um premiun ;)')    
+                }
+              })
             } catch (error) {
               console.log(error)
+            } finally {
+              navigate('/')
             }
         }
     Load()

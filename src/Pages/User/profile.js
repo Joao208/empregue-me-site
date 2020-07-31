@@ -21,7 +21,6 @@ function Feed() {
   const [data,setData] = useState('')
   const [text, setTextt] = useState('')
   const [postempty, setPostEmpty] = useState(true)
-  const [url, setUrl] = useState('')
   const navigate = useNavigate()
   const stripePromise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
@@ -52,18 +51,11 @@ function Feed() {
     }
     loadSpots()
 }, [] )
-    const handleClick = async (event) => {
+    async function handleClick(event){
       event.preventDefault()
-      // Call your backend to create the Checkout session.
-      const sessionId = sessionStorage.getItem('customer')
-      // When the customer clicks on the button, redirect them to Checkout.
-      const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({
-        sessionId,
-      });
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `error.message`.
+      const session = await api.post(`/subscription/user`)
+      console.log(session.data)
+      await stripePromise.redirectToCheckout(session.data);
     };
 
   return (
@@ -104,8 +96,7 @@ function Feed() {
                   const customerId = sessionStorage.getItem('customer')
                   const response = await api.post(`/panel/pay/${customerId}`)
 
-                  setUrl(response.data.url)
-                  navigate(url)
+                  window.location.assign(response.data.url)
                 } catch (error) {
                   console.log(error)
                 }

@@ -58,18 +58,11 @@ function Feed() {
         }
     )
 })
-    const handleClick = async (event) => {
+    async function handleClick(event){
       event.preventDefault()
-      // Call your backend to create the Checkout session.
-      const sessionId = sessionStorage.getItem('customer')
-      // When the customer clicks on the button, redirect them to Checkout.
-      const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({
-        sessionId,
-      });
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `error.message`.
+      const session = await api.post(`/subscription/user`)
+      console.log(session.data)
+      await stripePromise.redirectToCheckout(session.data);
     };
 
   useEffect(() => {

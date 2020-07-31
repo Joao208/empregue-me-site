@@ -131,7 +131,7 @@ export default function Routed() {
         <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
         </BussinesRoutes>
         <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
-        <Route path='/premiun/user' element={<PremiunUser/>}/>
+        <Route path='/premium/user/:id' element={<PremiunUser/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
    </PrivateRoute>

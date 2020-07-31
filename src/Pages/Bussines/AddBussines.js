@@ -25,16 +25,21 @@ function Feed() {
   const [text, setText] = useState('')
   const [link, setLink] = useState('')
   const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
+  
+  const preview = useMemo(() => {
+    return avatar ? URL.createObjectURL(avatar) : null
+  },[avatar])  
 
   async function Post(event) {
     try {
+      console.log("api chamada")
       event.preventDefault()
       const data = new FormData()
 
       data.append('avatar', avatar)
       data.append('link', link)
       data.append('text', text)
-
+      console.log(avatar)
       await api.post('/add', data)
 
       toast.success('Postado ;)')
@@ -55,10 +60,6 @@ function Feed() {
     loadSpots()
   }, [] )  
       
-  const preview = useMemo(() => {
-    return avatar ? URL.createObjectURL(avatar) : null
-  },[avatar])  
-
   return (
 <>
 <div>
@@ -99,10 +100,10 @@ function Feed() {
                     value={text}
                     onChange={event => setText(event.target.value)}  
                     />
-                    <textarea 
+                    <input 
                     placeholder="Adicione um link..." 
                     className="form-control border-0 p-0 shadow-none" 
-                    rows={1} 
+                    type="url"
                     defaultValue={""} 
                     value={link}
                     onChange={event => setLink(event.target.value)}  

@@ -68,11 +68,12 @@ export default function CheckoutForm({Post,avatar}) {
         }
       }
     });
+    Post()
+    console.log(Post)
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
-      Post()
       setError(null);
       setProcessing(false);
       setSucceeded(true);
