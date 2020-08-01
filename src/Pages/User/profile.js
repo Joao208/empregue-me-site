@@ -51,11 +51,19 @@ function Feed() {
     }
     loadSpots()
 }, [] )
-    async function handleClick(event){
+
+    const handleClick = async (event) => {
       event.preventDefault()
-      const session = await api.post(`/subscription/user`)
+      // Call your backend to create the Checkout session.
+      const session = await api.post('/subscription/user')
+      console.log(session)
       console.log(session.data)
-      await stripePromise.redirectToCheckout(session.data);
+      // When the customer clicks on the button, redirect them to Checkout.
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout(session.data.id);
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `error.message`.
     };
 
   return (

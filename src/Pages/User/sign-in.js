@@ -46,9 +46,11 @@ function Feed() {
       if(user.confirmate){
       sessionStorage.setItem('confirmate', user.confirmate)
       }
-
+      
       navigate('/profile')
-    }catch(e){
+    }catch(response){
+      console.log(response)
+      console.log(response.data)
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');
     } 

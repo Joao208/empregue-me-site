@@ -83,13 +83,6 @@ export default function Routed() {
         : <Route path='*' element={<Email_confirmate/>}/>
     }
 
-    const Privated = props => {
-    const privated = !! sessionStorage.getItem('8789887348975')
-    
-    return privated ? <Route {...props}/>
-    : <Route path="*" element={<ComingSoom/>}/>
-    }
-
     return(
 <Routes>
     <PrivateRoute>
@@ -130,7 +123,6 @@ export default function Routed() {
         <Route path='/request/list' element={<List/>}/>
         <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
         </BussinesRoutes>
-        <Route path='/confirmate/user/:token' element={<ConfirmatePage/>}/>
         <Route path='/premium/user/:id' element={<PremiunUser/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>
         <UserRoute path='/phoneconfirm' element={<Phoneconfirm/>}/>
@@ -149,6 +141,7 @@ export default function Routed() {
         <Route path='/courses' element={<Courses/>}/>
         <Route path='/courses/search/:name' element={<SearchCourses/>}/>
         <Route path='/resultados-quarentena' element={<ResultadosQuarentena/>}/>
+        <Route path='/confirmate/user/:token/:id' element={<ConfirmatePage/>}/>
 </Routes>
     );
 }

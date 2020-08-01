@@ -6,12 +6,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Confirmate() {
     const {token} = useParams()
+    const {id} = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         async function Load() {
             try {
-              await api.post(`/user/confirmate/${token}`) 
+              await api.post(`/user/confirmate/${token}/${id}`) 
               
               toast.success('Email confirmado')
               navigate('/')
