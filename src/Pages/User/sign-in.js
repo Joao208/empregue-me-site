@@ -48,9 +48,7 @@ function Feed() {
       }
       
       navigate('/profile')
-    }catch(response){
-      console.log(response)
-      console.log(response.data)
+    }catch(err){
       setLoading(false)
       toast.error('Falha na autenticação, verifique seus dados');
     } 

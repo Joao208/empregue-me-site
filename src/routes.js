@@ -67,7 +67,7 @@ export default function Routed() {
        const isLogged = !! sessionStorage.getItem('token')
 
         return isLogged ? <Route {...props}/>
-        : <Route path='/sign-in' element={<Sign_in/>}/>
+        : window.location.assign('https://light-empregue-me.herokuapp.com/sign-in')
     }
 
     const BussinesRoutes = props => {

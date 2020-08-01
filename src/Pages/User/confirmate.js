@@ -15,7 +15,7 @@ function Confirmate() {
               await api.post(`/user/confirmate/${token}/${id}`) 
               
               toast.success('Email confirmado')
-              navigate('/')
+              navigate('/sign-in')
             } catch (error) {
             }
         }
