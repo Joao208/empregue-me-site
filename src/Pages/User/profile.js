@@ -53,16 +53,18 @@ function Feed() {
     loadSpots()
 }, [] )
 
+async function fetchCheckoutSession(event) {
+  await api.post(`/subscription/user`)
+}
+
 const handleClick = async (event) => {
-  event.preventDefault()
   // Call your backend to create the Checkout session.
-  const response = await api.post('/subscription/user')
-  console.log(response.data)
-  setSessionId(response.data)
+  const { sessionId } = await fetchCheckoutSession();
   // When the customer clicks on the button, redirect them to Checkout.
   const stripe = await stripePromise;
-  console.log(sessionId)
-  const { error } = await stripe.redirectToCheckout({sessionId:sessionId});
+  const { error } = await stripe.redirectToCheckout({
+    sessionId,
+  });
   // If `redirectToCheckout` fails due to a browser or network
   // error, display the localized error message to your customer
   // using `error.message`.
