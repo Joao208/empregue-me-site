@@ -20,6 +20,7 @@ function Feed() {
   const [add, setAdd] = useState([])
   const [post, setPost] = useState([])
   const {id} = useParams()
+  const [followed, setFollowed] = useState(false)
   const [data,setData] = useState('')
 
   useEffect(() => {
@@ -36,6 +37,30 @@ function Feed() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [] )
 
+    async function Follow(event){
+      event.preventDefault()
+
+      await api.post(`/bussines/followb/${id}`)
+      setFollowed(true)
+
+    }
+
+    async function Unfollow(event){
+      event.preventDefault()
+
+      await api.delete(`/bussines/unfollowb/${id}`)
+      setFollowed(false)
+    }
+
+    useEffect(() => {
+      async function followed() {
+        const response = await api.get(`/followedb/${id}`)
+
+        setFollowed(response.data.followed)
+
+      }
+      followed()
+    },[])
 
   return (
      <>
@@ -43,7 +68,7 @@ function Feed() {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img alt="responsive-img" className="img-fluid" src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
+    <img alt="responsive-img" className="img-fluid" style={{height:'250px'}} src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">
@@ -218,7 +243,7 @@ function Feed() {
                 className="mr-3 text-secondary"
                 ><i className="feather-heart text-danger" />
                 {postd.likeCount}</button> 
-                <Link href={`/bussines/add/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
+                <Link to={`/bussines/add/populate/${postd._id}`}><i className="feather-message-square" />{postd.commentCount}</Link>
                 </form>
               </div>
             ))}
@@ -244,36 +269,14 @@ function Feed() {
                 <p className="mb-0 text-black-50 small">Seguindo</p>
               </div>
             </div>
-              <button onClick={
-                async function Follow(event){
-                  event.preventDefault()
-                  await api.post(`/bussines/followb/${profile.bussines._id}`)
-                }
-              } 
-              className="font-weight-bold p-3 d-block" 
-              style={{
-                textAlign: 'center', 
-                width: '100%', 
-                backgroundColor: 'white', 
-                color: 'blue', 
-                border: 'none'
-              }}>
-              Seguir 
-              </button>
-              <button onClick={
-                async function Unfollow(event){
-                  event.preventDefault()
-                  await api.delete(`/bussines/unfollowb/${profile.bussines._id}`)
-                }
-              } 
-              style={{
-                textAlign: 'center', 
-                width: '100%', 
-                backgroundColor: 'white', 
-                color: 'blue', 
-                border: 'none'
-              }}
-              className="font-weight-bold p-3 d-block">Deixar de seguir</button>
+            {followed
+            ?<form onSubmit={Unfollow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Deixar de seguir </button>
+            </form>
+            :<form onSubmit={Follow} className="overflow-hidden border-top">
+              <button style={{textAlign:'center',width:'100%',backgroundColor:'white',color:'blue',border:'none'}} className="font-weight-bold p-3 d-block" > Seguir </button>
+            </form>          
+            }
           </div>
         </aside>
         ))}

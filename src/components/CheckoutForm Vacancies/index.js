@@ -77,7 +77,6 @@ export default function CheckoutForm({description,avatar,salary,cargo,employment
         data.append('uf', uf)
         data.append('description', description)
         data.append('title', title)
-        console.log(title)
   
         await api.post('/vacancies', data)
   

@@ -63,8 +63,13 @@ function CoursesSingle() {
                         <p>{curso.Text.Description}</p>
                         </div>
                         <div>
-                        <h6 style={{textAlign:'center',margin:'auto',background:'none',border:'none',margin:'auto',display:'flex'}}>Vídeo de demonstração</h6>
-                        <ReactPlayer url={curso.avatar[0]} controls></ReactPlayer>
+                        {buyed
+                        ? null
+                        : <div>
+                        <h6 style={{textAlign:'center'}}>Vídeo de demonstração</h6>
+                        <ReactPlayer style={{width:'100%'}} url={curso.avatar[0]} controls></ReactPlayer>
+                        </div>
+                        }
                         </div>
                         {buyed
                         ? <div>

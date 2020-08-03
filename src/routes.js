@@ -55,6 +55,7 @@ import SingleCoursesB from './Pages/School/singleCourses Bussines'
 import PremiunUser from './Pages/User/premiunUser'
 import CoursesB from './Pages/School/index bussines'
 import SearchCoursesB from './Pages/School/search bussines'
+import MyVacancies from './Pages/Bussines/my jobs'
 
 export default function Routed() {
 
@@ -122,6 +123,7 @@ export default function Routed() {
         <Route path='/bussines/post/populate/:id' element={<CommentBPost/>}/>
         <Route path='/publicar' element={<AddAnuncio/>}/>
         <Route path='/vacancies/publicar' element={<AddVacancie/>}/>
+        <Route path='/my/vacancies' element={<MyVacancies/>}/>
         <Route path='/request/list' element={<List/>}/>
         <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
         <Route path='/coursesb' element={<CoursesB/>}/>

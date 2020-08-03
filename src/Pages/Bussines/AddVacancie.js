@@ -88,7 +88,7 @@ function Feed() {
                     placeholder="Qual será o salário da vaga..." 
                     className="form-control border-0 p-0 shadow-none" 
                     rows={1} 
-                    value={salary}
+                    value={salary ? salary : "Coloque o salário sem virgúlas ou pontos, por exemplo assim: 1800 "}
                     onChange={event => setsalary(event.target.value)}
                     defaultValue={""} 
                     />

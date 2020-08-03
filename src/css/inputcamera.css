@@ -35,3 +35,7 @@ label#avatar.has-avatar img {
     width: 100%;
     border-radius:10px;
 }
+.col-xl-6::-webkit-scrollbar{
+    width: 6px;
+    background-color: transparent;
+}
