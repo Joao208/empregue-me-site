@@ -37,8 +37,17 @@ return (
                   <div className="row">
                   {jobs.map(vacancies => (
                     <div key={vacancies._id} className="col-md-6">
-                      <a >
+                      <a>
                         <div className="border job-item mb-3">
+                        <button style={{marginLeft:'5%',background:'#fff',color:'red'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={
+                            async function Delete(event) {
+                              event.preventDefault()
+                              try{
+                              await api.delete(`/vacancies/${vacancies._id}`)
+                              }catch(e){
+                              }
+                            }
+                          } className="btn btn-danger">Apagar Vaga</button>
                           <div className="d-flex align-items-center p-3 job-item-header">
                           <div className="overflow-hidden mr-2">
                              <Link to={`/bussines/jobs-profile/${vacancies._id}`}><h6 style={{textTransform:'capitalize'}} className="font-weight-bold text-dark mb-0 text-truncate">{vacancies.title}</h6></Link>

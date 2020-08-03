@@ -32,6 +32,7 @@ function Feed() {
         setAdd(response.data.add)
         setPost(response.data.post)
         setData(response.data)
+        console.log(response.data.add)
         
     }
 
@@ -64,7 +65,7 @@ useEffect(() => {
   <Header></Header>
   {profile.map(profile => (
   <div className="profile-cover text-center">
-    <img className="img-fluid" style={{width:'100%'}} src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
+    <img className="img-fluid" style={{height:'250px'}} src={profile.bussines.avatar ? profile.bussines.avatar : 'https://serverem.s3.us-east-2.amazonaws.com/company-profile.jpg'} />
   </div>
   ))}
   <div className="bg-white shadow-sm border-bottom">
@@ -166,6 +167,15 @@ useEffect(() => {
                     <div className="small text-gray-500">Patrocinado</div>
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                  <button style={{marginLeft:'5%',background:'#fff',color:'red'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={
+                    async function Delete(event) {
+                       event.preventDefault()
+                       try{
+                      await api.delete(`/posts/${postd._id}`)
+                       }catch(e){
+                       }
+                    }
+                  } className="btn btn-danger">Apagar post</button>
                 </div>
                 </a>
                 <div className="p-3 border-bottom osahan-post-body">
@@ -234,6 +244,15 @@ useEffect(() => {
                     <div className="small text-gray-500"> </div>
                   </div>
                   <span className="ml-auto small">{moment(postd.createdAt).fromNow()}</span>
+                  <button style={{marginLeft:'5%',background:'#fff',color:'red'}} data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="submit" onClick={
+                    async function Delete(event) {
+                       event.preventDefault()
+                       try{
+                      await api.delete(`/posts/${postd._id}`)
+                       }catch(e){
+                       }
+                    }
+                  } className="btn btn-danger">Apagar post</button>
                 </div>
                 </a>
                 <div className="p-3 border-bottom osahan-post-body">
