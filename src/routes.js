@@ -53,6 +53,8 @@ import SingleCourses from './Pages/School/singleCourses'
 import SearchCourses from './Pages/School/search'
 import SingleCoursesB from './Pages/School/singleCourses Bussines'
 import PremiunUser from './Pages/User/premiunUser'
+import CoursesB from './Pages/School/index bussines'
+import SearchCoursesB from './Pages/School/search bussines'
 
 export default function Routed() {
 
@@ -122,6 +124,8 @@ export default function Routed() {
         <Route path='/vacancies/publicar' element={<AddVacancie/>}/>
         <Route path='/request/list' element={<List/>}/>
         <Route path='/coursesb/:id' element={<SingleCoursesB/>}/>
+        <Route path='/coursesb' element={<CoursesB/>}/>
+        <Route path='/bussines/courses/search/:name' element={<SearchCoursesB/>}/>
         </BussinesRoutes>
         <Route path='/premium/user/:id' element={<PremiunUser/>}/>
         <UserRoute path='/phone' element={<Phone/>}/>

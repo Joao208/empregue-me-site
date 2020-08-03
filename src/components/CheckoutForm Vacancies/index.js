@@ -8,7 +8,7 @@ import api from "../../services/api";
 import './style.css'
 import { toast } from "react-toastify";
 
-export default function CheckoutForm({link,avatar,text}) {
+export default function CheckoutForm({description,avatar,salary,cargo,employment,city,uf,title}) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -66,18 +66,26 @@ export default function CheckoutForm({link,avatar,text}) {
         }
       }
     });
-    try {
-      const data = new FormData()
-      data.append('avatar', avatar)
-      data.append('link', link)
-      data.append('text', text)
-      await api.post('/add', data)
-
-      toast.success('Postado ;)')
-    } catch (e) {
-      toast.error('Ops!! Imagem invalida');
-    } 
-    if (payload.error) {
+      try {
+        const data = new FormData()
+  
+        data.append('avatar', avatar)
+        data.append('salary', salary)
+        data.append('city', city)
+        data.append('cargo', cargo)
+        data.append('employment', employment)
+        data.append('uf', uf)
+        data.append('description', description)
+        data.append('title', title)
+        console.log(title)
+  
+        await api.post('/vacancies', data)
+  
+        toast.success('Postado ;)')
+      } catch (e) {
+        toast.error('Ops!! Imagem invalida');
+      }
+      if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {

@@ -7,6 +7,8 @@ import moment from 'moment'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from '../../components/CheckoutForm Courses Bussines';
+import ReactPlayer from "react-player";
+import { Divider } from '@material-ui/core';
 
 function CoursesSingle() {
 
@@ -59,15 +61,29 @@ function CoursesSingle() {
                         <h6 className="mb-3"><i className="feather-calendar" />{moment(curso.createdAt).fromNow()}</h6>
                         <h6>Descrição do Curso</h6>
                         <p>{curso.Text.Description}</p>
-                        <h6>Como você recebe o curso</h6>
-                        <p>Para proteger o direito intelectual do Dono do curso o link dos videos sera enviado para seu email</p>
+                        </div>
+                        <div>
+                        <h6 style={{textAlign:'center',margin:'auto',background:'none',border:'none',margin:'auto',display:'flex'}}>Vídeo de demonstração</h6>
+                        <ReactPlayer url={curso.avatar[0]} controls></ReactPlayer>
                         </div>
                         {buyed
-                        ? <h6 style={{textAlign:'center'}}>Curso comprado verifique seu email 🙃</h6>
+                        ? <div>
+                        <h6 style={{textAlign:'center'}}>Video Aulas do curso de {curso.Text.Title}</h6>
+                        {curso.avatar.map(video => (
+                        <div>
+                        <Divider/>
+                        <video style={{width:'100%'}} controls>
+                        <source src={video} type="video/mp4"/>
+                        </video>
+                        <Divider/>
+                        </div>
+                        ))}
+                        <hr/>
+                        </div>
                         :<div className="card-footer border-0">
                             <h5 style={{textAlign:'center'}}>Compre esse curso agora 🙃</h5>
-                            <Elements course_id={curso._id} price={curso.Text.Value} stripe={promise}>
-                                <CheckoutForm />
+                            <Elements stripe={promise}>
+                                <CheckoutForm course_id={curso._id} price={curso.Text.Value} />
                             </Elements>
                         </div>
                         }

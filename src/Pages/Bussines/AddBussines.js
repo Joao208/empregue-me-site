@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState,useMemo} from 'react';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-credit-cards/es/styles-compiled.css'
 import '../../vendor/slick/slick.min.css'
@@ -28,27 +27,7 @@ function Feed() {
   
   const preview = useMemo(() => {
     return avatar ? URL.createObjectURL(avatar) : null
-  },[avatar])  
-
-  async function Post(event) {
-    try {
-      console.log("api chamada")
-      event.preventDefault()
-      const data = new FormData()
-
-      data.append('avatar', avatar)
-      data.append('link', link)
-      data.append('text', text)
-      console.log(avatar)
-      await api.post('/add', data)
-
-      toast.success('Postado ;)')
-      setAvatar(null)
-      setText('')
-    } catch (e) {
-      toast.error('Ops!! Imagem invalida');
-    }
-  }
+  },[avatar])
 
   useEffect(() => {
     async function loadSpots() {
@@ -131,7 +110,7 @@ function Feed() {
             </div>
             <h2 style={{margin:'inherit',textAlign:'center',fontSize:'17px',marginTop:'20px'}}>Para anúnciarmos sua empresa vamos ao pagamento ;)</h2>
             <Elements stripe={promise}>
-              <CheckoutForm avatar={avatar} Post={Post} />
+              <CheckoutForm avatar={avatar} link={link} text={text} />
             </Elements>
           </form>  
         </main>

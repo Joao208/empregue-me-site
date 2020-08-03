@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 import React,{useEffect,useState,useMemo} from 'react';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-credit-cards/es/styles-compiled.css'
 import '../../vendor/slick/slick.min.css'
@@ -16,7 +15,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import api from '../../services/api'
 import Header from '../../components/Header Bussines';
-import CheckoutForm from '../../components/CheckoutForm';
+import CheckoutForm from '../../components/CheckoutForm Vacancies';
 
 function Feed() {
 
@@ -30,29 +29,6 @@ function Feed() {
   const [description, setdescription] = useState('')
   const [title, setTitle] = useState('')
   const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
-
-  async function Post(event) {
-    try {
-      event.preventDefault()
-      const data = new FormData()
-
-      data.append('avatar', avatar)
-      data.append('salary', salary)
-      data.append('city', city)
-      data.append('cargo', cargo)
-      data.append('employment', employment)
-      data.append('uf', uf)
-      data.append('description', description)
-      data.append('title', title)
-
-      await api.post('/vacancies', data)
-
-      toast.success('Postado ;)')
-      setAvatar(null)
-    } catch (e) {
-      toast.error('Ops!! Imagem invalida');
-    }
-  }
 
   useEffect(() => {
     async function loadSpots() {
@@ -179,7 +155,7 @@ function Feed() {
             </div>
             <h2 style={{margin:'inherit',textAlign:'center',fontSize:'17px',marginTop:'20px'}}>Para anúnciarmos uma vaga vamos ao pagamento ;)</h2>
             <Elements stripe={promise}>
-              <CheckoutForm Post={Post} />
+              <CheckoutForm avatar={avatar} city={city} cargo={cargo} description={description} title={title} uf={uf} employment={employment} salary={salary} />
             </Elements>
           </form>  
         </main>

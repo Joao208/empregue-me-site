@@ -8,13 +8,12 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from '../../components/CheckoutForm Courses';
 import ReactPlayer from "react-player";
-import {Collapse} from 'reactstrap'
+import { Divider } from '@material-ui/core';
 
 function CoursesSingle() {
 
     const [courses,setCourses] = useState([])
     const [buyed, setBuyed] = useState(false)
-    const [isOpen, setIsOpen] = useState(false);
     const {id} = useParams()
     const promise = loadStripe("pk_live_51H7wkvGHhRYZj7pYIQuXMJJCurr3ygoPHrFnv41YMlxT6JNEuCgicn6XdGvegpocnNnlqGjY3756jNlTLoOPhVSr00QdkjqMGM");
 
@@ -45,19 +44,6 @@ function CoursesSingle() {
         }
     Buyed()
     },[])
-    async function toggle(event){
-        event.preventDefault()
-        try{
-        if(isOpen){
-            setIsOpen(false)
-        }else{
-            setIsOpen(true)
-        }
-
-        }catch(e){
-            console.log(e)
-        }
-    }
 
     return (
         <div>
@@ -77,19 +63,24 @@ function CoursesSingle() {
                         <p>{curso.Text.Description}</p>
                         </div>
                         <div>
-                        <button onClick={toggle} style={{textAlign:'center',margin:'auto',background:'none',border:'none',margin:'auto',display:'flex'}}>Vídeo de demonstração</button>
-                        <Collapse style={{justifyContent:'center',display:'flex'}} isOpen={isOpen}>
-                        <ReactPlayer url={curso.avatar[0]} controls></ReactPlayer>
-                        </Collapse>
+                        {buyed
+                        ? null
+                        : <div>
+                        <h6 style={{textAlign:'center'}}>Vídeo de demonstração</h6>
+                        <ReactPlayer style={{width:'100%'}} url={curso.avatar[0]} controls></ReactPlayer>
+                        </div>
+                        }
                         </div>
                         {buyed
                         ? <div>
+                        <h6 style={{textAlign:'center'}}>Video Aulas do curso de {curso.Text.Title}</h6>
                         {curso.avatar.map(video => (
                         <div>
-                        <h6 style={{textAlign:'center'}}>Aulas</h6>
+                        <Divider/>
                         <video style={{width:'100%'}} controls>
                         <source src={video} type="video/mp4"/>
                         </video>
+                        <Divider/>
                         </div>
                         ))}
                         <hr/>

@@ -13,7 +13,6 @@ import App from '../../components/App/App';
 
 function Feed() {
   const [user, setUser] = useState([])
-
   const [avatar, setAvatar] = useState(null)
   const [FacebookUrl, setFacebookUrl] = useState('')
   const [InstagramUrl, setInstagramUrl] = useState('')
@@ -21,7 +20,7 @@ function Feed() {
   const [YouTubeUrl, setYouTubeUrl] = useState('')
   const [GithubUrl, setGithubUrl] = useState('')
   const [bio, setBio] = useState('')
-  const [profession, setProfession] = useState('')
+  const [profession, setProfession] = useState([])
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 

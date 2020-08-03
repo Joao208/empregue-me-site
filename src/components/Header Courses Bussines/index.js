@@ -1,30 +1,17 @@
-import React,{useEffect,useState} from 'react';
-import api from '../../services/api'
-import {useNavigate} from 'react-router-dom'
-import { Link } from 'react-router-dom';
-const img_logo_svg = 'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'
+import React,{useState} from 'react';
+import {useNavigate,Link} from 'react-router-dom'
+
 function Header()  {
 
-    const [profile, setProfile] = useState([])
     const [name, setName] = useState('')
     const navigate = useNavigate()
 
     async function SearchValue(event){
         event.preventDefault()
         
-        navigate(`/conectionsb/${name}`)
+        navigate(`/bussines/courses/search/${name}`)
       }
       
-      useEffect(() => {
-        async function loadSpots() {
-          const response = await api.get('/profilebussinesv')
-          
-          setProfile(response.data.profile)
-        }
-        
-        loadSpots()
-      }, [] )
-        
     return (
         <div>
             <meta charSet="utf-8" />
@@ -35,13 +22,13 @@ function Header()  {
             <title>Empregue.me</title>
             <nav className="navbar navbar-expand navbar-dark bg-dark osahan-nav-top p-0">
                 <div className="container">
-                <a className="navbar-brand mr-2"  href="/feed"><img alt="responsive-img" src={img_logo_svg} />
+                <a className="navbar-brand mr-2"  href="/"><img src={'https://serverem.s3.us-east-2.amazonaws.com/logo.PNG'} alt="responsive-img" />
                 </a>
                 <form style={{margin:'initial'}} onSubmit={SearchValue} className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
                     <div className="input-group">
                     <input 
                     type="search"                   
-                    placeholder='Buscar pessoas, vagas e empresas'
+                    placeholder='Buscar classes de cursos'
                     aria-label="Search"
                     value={name}
                     onChange={event => setName(event.target.value)}
@@ -57,12 +44,12 @@ function Header()  {
                 </form>
                 <ul className="navbar-nav ml-auto d-flex align-items-center">
                 <li className="nav-item dropdown no-arrow d-sm-none">
-                    <div className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <div className="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <form onSubmit={SearchValue} className="form-inline mr-auto w-100 navbar-search">
                     <div className="input-group">
                     <input 
                     type="search"                   
-                    placeholder='Buscar pessoas, vagas e empresas'
+                    placeholder='Buscar classes de cursos'
                     aria-label="Search"
                     value={name}
                     onChange={event => setName(event.target.value)}
@@ -76,25 +63,13 @@ function Header()  {
                     </div>
                     </div>
                     </form>
-                    </div>
+                 </div>
                     <div className="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in" aria-labelledby="searchDropdown">
                     </div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/request/list"><i className="feather-user mr-2" /><span className="d-none d-lg-inline">Requisições</span></a>
+                    <Link className="nav-link" to="/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></Link>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="/bussines/jobs"><i className="feather-briefcase mr-2" /><span className="d-none d-lg-inline">Empregos</span></a>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/coursesb"><i className="feather-book mr-2" /><span className="d-none d-lg-inline">Cursos</span></Link>
-                </li>
-                    {profile.map(profile => (
-                <div key={profile._id} className="dropdown-list-image mr-3">
-                    <a href="mycompany-profile"><img className="rounded-circle" style={{marginLeft:'4px'}} alt="responsive-img" src={profile.bussines.avatar} /></a>
-                    <div className="status-indicator bg-success" />
-                </div>
-                ))}
                 </ul>
                 </div>
             </nav>
