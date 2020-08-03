@@ -55,7 +55,7 @@ function Feed() {
 const handleClick = async (event) => {
   event.preventDefault()
   // Call your backend to create the Checkout session.
-  const {sessionId} = await api.post('/subscription/user')
+  const { sessionId } = await api.post('/subscription/user');
   // When the customer clicks on the button, redirect them to Checkout.
   const stripe = await stripePromise;
   const { error } = await stripe.redirectToCheckout({
@@ -65,7 +65,6 @@ const handleClick = async (event) => {
   // error, display the localized error message to your customer
   // using `error.message`.
 };
-
   return (
 <>
 <div>
