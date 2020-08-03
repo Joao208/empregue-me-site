@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL:process.env.KEY_URL_BACKEND
+  baseURL:'https://empregue-me-backend.herokuapp.com'
 });
 
 api.interceptors.request.use(async config => {

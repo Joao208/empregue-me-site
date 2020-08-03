@@ -6,7 +6,7 @@ class EmBot extends Component {
  }
  componentDidMount(){
     (function(d, m){
-        var kommunicateSettings = {"appId":process.env.KEY_KOMMUNICATE,"popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var kommunicateSettings = {"appId":"d6b3d78e4ffd18a27cf2ea580901ac2d","popupWidget":true,"automaticChatOpenOnNavigation":true};
         var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
         s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
         var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
